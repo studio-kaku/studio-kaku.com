@@ -1,0 +1,29 @@
+---
+const nav = [
+  { label: 'Services', href: '/services' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="border-b border-brand-border">
+  <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="/" class="font-serif text-xl tracking-wide hover:opacity-70 transition-opacity">
+      Studio Kaku
+    </a>
+    <nav class="flex items-center gap-8">
+      {nav.map(({ label, href }) => (
+        <a
+          href={href}
+          class={`text-sm tracking-wide transition-opacity hover:opacity-70 ${
+            currentPath.startsWith(href) ? 'opacity-100 font-medium' : 'opacity-60'
+          }`}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

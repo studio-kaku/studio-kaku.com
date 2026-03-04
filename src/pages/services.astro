@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Services"
+  description="Studio Kaku offers expert framing, installation, art care, consultancy, creative direction and curation."
+>
+  <!-- Page header -->
+  <section class="max-w-5xl mx-auto px-6 pt-16 pb-12 border-b border-brand-border">
+    <p class="text-brand-muted text-sm tracking-widest uppercase mb-4">What we do</p>
+    <h1 class="font-serif text-4xl">Services</h1>
+  </section>
+
+  <!-- Service 1: Framing, Installation & Art Care -->
+  <section id="framing" class="max-w-5xl mx-auto px-6 py-16 border-b border-brand-border">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="font-serif text-3xl mb-6">
+          Framing, Installation<br />&amp; Art Care
+        </h2>
+        <div class="space-y-4 text-brand-muted leading-relaxed">
+          <p>
+            A great frame does more than protect — it activates a work. We
+            source, design and produce bespoke frames in dialogue with the art
+            itself, working with conservation-grade materials and trusted
+            specialist craftspeople.
+          </p>
+          <p>
+            Our installation service covers everything from a single piece in a
+            private home to large-scale hanging programmes for galleries and
+            institutional collections.
+          </p>
+          <p>
+            We also advise on the long-term care of works on paper, canvas and
+            other media: storage, lighting, environmental conditions and
+            handling — so your collection remains in peak condition.
+          </p>
+        </div>
+
+        <ul class="mt-8 space-y-2 text-sm">
+          {[
+            'Bespoke frame design & production',
+            'Conservation framing & glazing',
+            'Professional art installation',
+            'Collection storage advice',
+            'Lighting consultation',
+            'Art care & condition reporting',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Placeholder images -->
+        <div class="w-full aspect-square bg-brand-border flex items-center justify-center text-brand-muted text-sm">
+          Image placeholder — framing
+        </div>
+        <div class="w-full aspect-video bg-brand-border flex items-center justify-center text-brand-muted text-sm">
+          Image placeholder — installation
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service 2: Art Consultancy & Creative Direction -->
+  <section id="consultancy" class="max-w-5xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="order-2 md:order-1 space-y-4">
+        <!-- Placeholder images -->
+        <div class="w-full aspect-square bg-brand-border flex items-center justify-center text-brand-muted text-sm">
+          Image placeholder — consultancy
+        </div>
+        <div class="w-full aspect-video bg-brand-border flex items-center justify-center text-brand-muted text-sm">
+          Image placeholder — curation
+        </div>
+      </div>
+
+      <div class="order-1 md:order-2">
+        <h2 class="font-serif text-3xl mb-6">
+          Art Consultancy, Creative<br />Direction &amp; Curation
+        </h2>
+        <div class="space-y-4 text-brand-muted leading-relaxed">
+          <p>
+            We work with private collectors, developers, hospitality brands and
+            organisations to build coherent, meaningful art programmes —
+            whether acquiring a first work or shaping an entire collection
+            strategy.
+          </p>
+          <p>
+            Our creative direction brings a strong curatorial perspective to
+            spaces and projects: developing narratives, identifying artists and
+            creating environments where art and context resonate together.
+          </p>
+          <p>
+            From artist commissions and exhibition development to brand
+            partnerships, we bring taste, rigour and practical experience to
+            every engagement.
+          </p>
+        </div>
+
+        <ul class="mt-8 space-y-2 text-sm">
+          {[
+            'Art acquisition & collection strategy',
+            'Artist sourcing & commissions',
+            'Exhibition development & curation',
+            'Spatial creative direction',
+            'Corporate art programmes',
+            'Brand & cultural partnerships',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

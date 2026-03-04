@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const team = [
+  {
+    name: 'Placeholder Name',
+    role: 'Framing, Installation & Art Care',
+    bio: 'Placeholder biography. This person brings deep expertise in the craft of framing and the practicalities of living with art. They have worked with private collectors, galleries and institutions across the UK and Europe.',
+  },
+  {
+    name: 'Placeholder Name',
+    role: 'Art Consultancy, Creative Direction & Curation',
+    bio: 'Placeholder biography. This person has spent their career at the intersection of art and ideas — building collections, developing curatorial programmes and guiding clients towards work that resonates.',
+  },
+];
+---
+
+<Layout
+  title="About"
+  description="Studio Kaku is a collaboration between two experienced specialists in art framing, installation, consultancy and creative direction."
+>
+  <!-- Page header -->
+  <section class="max-w-5xl mx-auto px-6 pt-16 pb-12 border-b border-brand-border">
+    <p class="text-brand-muted text-sm tracking-widest uppercase mb-4">Who we are</p>
+    <h1 class="font-serif text-4xl">About Studio Kaku</h1>
+  </section>
+
+  <!-- Mission -->
+  <section class="max-w-5xl mx-auto px-6 py-16 border-b border-brand-border">
+    <div class="max-w-2xl">
+      <p class="font-serif text-2xl leading-relaxed text-brand-text mb-6">
+        Studio Kaku was founded on the belief that art deserves both the
+        right frame and the right context.
+      </p>
+      <p class="text-brand-muted leading-relaxed mb-4">
+        We are a collaboration between two specialists — one rooted in the
+        material and physical world of framing, installation and conservation;
+        the other in the intellectual and cultural work of consultancy,
+        direction and curation. Together, we offer a complete picture.
+      </p>
+      <p class="text-brand-muted leading-relaxed">
+        Our practice is built on close relationships: with artists, framers,
+        collectors, institutions and the works themselves. We take time to
+        understand what each project needs, and we bring craft and care to
+        every stage of the process.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="font-serif text-3xl mb-12">The Team</h2>
+    <div class="grid md:grid-cols-2 gap-12">
+      {team.map((member) => (
+        <div>
+          <!-- Placeholder portrait -->
+          <div class="w-full aspect-[3/4] bg-brand-border flex items-center justify-center text-brand-muted text-sm mb-6">
+            Portrait placeholder
+          </div>
+          <h3 class="font-serif text-xl mb-1">{member.name}</h3>
+          <p class="text-brand-accent text-sm tracking-wide mb-4">{member.role}</p>
+          <p class="text-brand-muted leading-relaxed text-sm">{member.bio}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

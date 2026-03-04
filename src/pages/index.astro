@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home">
+  <!-- Hero -->
+  <section class="max-w-5xl mx-auto px-6 pt-20 pb-16 border-b border-brand-border">
+    <div class="max-w-2xl">
+      <!-- Placeholder: replace with logo / wordmark when branding is ready -->
+      <div class="inline-block border border-brand-border text-brand-muted text-xs tracking-widest uppercase px-3 py-1 mb-8">
+        Logo placeholder
+      </div>
+      <h1 class="font-serif text-5xl leading-tight mb-6">
+        Where art finds<br />its place.
+      </h1>
+      <p class="text-brand-muted text-lg leading-relaxed max-w-prose mb-10">
+        Studio Kaku brings together specialist expertise in framing, installation
+        and art care alongside art consultancy, creative direction and curation.
+        We help collectors, galleries and organisations live and work with art
+        at its best.
+      </p>
+      <a
+        href="/services"
+        class="inline-block border border-brand-text px-6 py-3 text-sm tracking-wide hover:bg-brand-text hover:text-brand-bg transition-colors"
+      >
+        Our Services
+      </a>
+    </div>
+  </section>
+
+  <!-- Two-service overview -->
+  <section class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 border-b border-brand-border">
+    <!-- Service 1 -->
+    <div>
+      <!-- Placeholder image -->
+      <div class="w-full aspect-[4/3] bg-brand-border flex items-center justify-center text-brand-muted text-sm mb-6">
+        Image placeholder
+      </div>
+      <h2 class="font-serif text-2xl mb-3">Framing, Installation &amp; Art Care</h2>
+      <p class="text-brand-muted leading-relaxed mb-4">
+        Expert framing and professional installation for works of all scales,
+        alongside guidance on how to live with and look after your art for
+        generations to come.
+      </p>
+      <a href="/services#framing" class="text-sm underline underline-offset-4 hover:opacity-70 transition-opacity">
+        Learn more
+      </a>
+    </div>
+
+    <!-- Service 2 -->
+    <div>
+      <!-- Placeholder image -->
+      <div class="w-full aspect-[4/3] bg-brand-border flex items-center justify-center text-brand-muted text-sm mb-6">
+        Image placeholder
+      </div>
+      <h2 class="font-serif text-2xl mb-3">Art Consultancy &amp; Creative Direction</h2>
+      <p class="text-brand-muted leading-relaxed mb-4">
+        Strategic art consultancy, curatorial vision and creative direction for
+        private collectors, corporate clients and cultural institutions seeking
+        a distinctive voice.
+      </p>
+      <a href="/services#consultancy" class="text-sm underline underline-offset-4 hover:opacity-70 transition-opacity">
+        Learn more
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-5xl mx-auto px-6 py-20 text-center">
+    <p class="font-serif text-3xl mb-8">Ready to work together?</p>
+    <a
+      href="/contact"
+      class="inline-block bg-brand-text text-brand-bg px-8 py-4 text-sm tracking-wide hover:opacity-80 transition-opacity"
+    >
+      Get in Touch
+    </a>
+  </section>
+</Layout>
