@@ -31,3 +31,6 @@ yarn-error.log*
 
 # Astro
 .astro/
+
+# Claude Code local config
+.claude/settings.local.json
