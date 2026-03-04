@@ -25,26 +25,19 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build
 
-      # Point staging to its own subdomain
       - run: echo "staging.studio-kaku.com" > dist/CNAME
       - run: touch dist/.nojekyll
 
-      # Push built dist/ to a separate GitHub Pages repo for the staging domain.
-      # Requires a deploy key secret: STAGING_DEPLOY_KEY
-      # Target repo: <your-org>/staging.studio-kaku.com  (GitHub Pages on main branch)
       - name: Deploy to staging repo
         env:
-          STAGING_DEPLOY_KEY: ${{ secrets.STAGING_DEPLOY_KEY }}
+          STAGING_PAT: ${{ secrets.STAGING_PAT }}
         run: |
-          mkdir -p ~/.ssh
-          echo "$STAGING_DEPLOY_KEY" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-
           cd dist
           git init
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git add -A
           git commit -m "staging deploy $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          git push --force git@github.com:${{ github.repository_owner }}/staging.studio-kaku.com.git HEAD:main
+          git push --force \
+            https://x-access-token:${STAGING_PAT}@github.com/studio-kaku/staging.studio-kaku.com.git \
+            HEAD:main
