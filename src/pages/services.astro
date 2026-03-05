@@ -7,16 +7,17 @@ import Layout from '../layouts/Layout.astro';
   description="Studio Kaku offers expert framing, installation, art care, consultancy, creative direction and curation."
 >
   <!-- Page header -->
-  <section class="max-w-5xl mx-auto px-6 pt-16 pb-12 border-b border-brand-border">
-    <p class="text-brand-muted text-sm tracking-widest uppercase mb-4">What we do</p>
-    <h1 class="font-serif text-4xl">Services</h1>
+  <section class="max-w-7xl mx-auto px-8 pt-20 pb-16">
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-6">What we do</p>
+    <h1 class="font-serif text-6xl md:text-8xl leading-none">Services</h1>
   </section>
 
   <!-- Service 1: Framing, Installation & Art Care -->
-  <section id="framing" class="max-w-5xl mx-auto px-6 py-16 border-b border-brand-border">
-    <div class="grid md:grid-cols-2 gap-12 items-start">
+  <section id="framing" class="max-w-7xl mx-auto px-8 py-20 border-t border-brand-border">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
       <div>
-        <h2 class="font-serif text-3xl mb-6">
+        <p class="text-brand-muted text-xs tracking-widest uppercase mb-6">01</p>
+        <h2 class="font-serif text-4xl md:text-5xl mb-8">
           Framing, Installation<br />&amp; Art Care
         </h2>
         <div class="space-y-4 text-brand-muted leading-relaxed">
@@ -38,7 +39,7 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
 
-        <ul class="mt-8 space-y-2 text-sm">
+        <ul class="mt-10 space-y-3 text-sm">
           {[
             'Bespoke frame design & production',
             'Conservation framing & glazing',
@@ -48,14 +49,14 @@ import Layout from '../layouts/Layout.astro';
             'Art care & condition reporting',
           ].map((item) => (
             <li class="flex items-start gap-3">
-              <span class="mt-1 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
+              <span class="mt-1.5 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
               {item}
             </li>
           ))}
         </ul>
       </div>
 
-      <div class="space-y-4">
+      <div class="space-y-3">
         <img src="/images/framing-example.jpg" alt="Bespoke framed artwork" class="w-full aspect-square object-cover" />
         <img src="/images/installation-gallery.jpg" alt="Professional art installation" class="w-full aspect-video object-cover" />
       </div>
@@ -63,15 +64,16 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Service 2: Art Consultancy & Creative Direction -->
-  <section id="consultancy" class="max-w-5xl mx-auto px-6 py-16">
-    <div class="grid md:grid-cols-2 gap-12 items-start">
-      <div class="order-2 md:order-1 space-y-4">
+  <section id="consultancy" class="max-w-7xl mx-auto px-8 py-20 border-t border-brand-border">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <div class="order-2 md:order-1 space-y-3">
         <img src="/images/exhibition-space.jpg" alt="Gallery exhibition space" class="w-full aspect-square object-cover" />
         <img src="/images/curation-visitors.jpg" alt="Visitors experiencing curated exhibition" class="w-full aspect-video object-cover" />
       </div>
 
       <div class="order-1 md:order-2">
-        <h2 class="font-serif text-3xl mb-6">
+        <p class="text-brand-muted text-xs tracking-widest uppercase mb-6">02</p>
+        <h2 class="font-serif text-4xl md:text-5xl mb-8">
           Art Consultancy, Creative<br />Direction &amp; Curation
         </h2>
         <div class="space-y-4 text-brand-muted leading-relaxed">
@@ -93,7 +95,7 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
 
-        <ul class="mt-8 space-y-2 text-sm">
+        <ul class="mt-10 space-y-3 text-sm">
           {[
             'Art acquisition & collection strategy',
             'Artist sourcing & commissions',
@@ -103,12 +105,25 @@ import Layout from '../layouts/Layout.astro';
             'Brand & cultural partnerships',
           ].map((item) => (
             <li class="flex items-start gap-3">
-              <span class="mt-1 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
+              <span class="mt-1.5 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
               {item}
             </li>
           ))}
         </ul>
       </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-7xl mx-auto px-8 py-20 border-t border-brand-border">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+      <p class="font-serif text-4xl md:text-5xl">Ready to work together?</p>
+      <a
+        href="/contact"
+        class="inline-block bg-brand-text text-brand-bg px-8 py-4 text-sm tracking-wide hover:opacity-80 transition-opacity flex-shrink-0"
+      >
+        Get in Touch
+      </a>
     </div>
   </section>
 </Layout>
