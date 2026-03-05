@@ -20,30 +20,30 @@ const team = [
   description="Studio Kaku is a collaboration between two experienced specialists in art framing, installation, consultancy and creative direction."
 >
   <!-- Logo hero -->
-  <section class="max-w-7xl mx-auto px-8 pt-20 pb-8 flex justify-center">
+  <section class="px-8 md:px-12 pt-20 pb-4 flex justify-center">
     <img src="/logo.svg" alt="Studio Kaku" class="w-full max-w-lg" />
   </section>
 
   <!-- Page header -->
-  <section class="max-w-7xl mx-auto px-8 pt-4 pb-16">
-    <p class="text-brand-muted text-xs tracking-widest uppercase mb-6">Who we are</p>
-    <h1 class="font-serif text-6xl md:text-8xl leading-none">About Studio Kaku</h1>
+  <section class="px-8 md:px-12 pt-8 pb-16">
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">Who we are</p>
+    <h1 class="font-serif leading-none" style="font-size: clamp(3rem, 7vw, 9rem);">About Studio Kaku</h1>
   </section>
 
   <!-- Mission -->
-  <section class="max-w-7xl mx-auto px-8 py-20 border-t border-brand-border">
+  <section class="px-8 md:px-12 py-24 border-t border-brand-border">
     <div class="max-w-3xl">
-      <p class="font-serif text-3xl md:text-4xl leading-relaxed text-brand-text mb-8">
+      <p class="font-serif leading-snug mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);">
         Studio Kaku was founded on the belief that art deserves both the
         right frame and the right context.
       </p>
-      <p class="text-brand-muted leading-relaxed mb-5">
+      <p class="text-brand-muted leading-relaxed mb-5 text-lg">
         We are a collaboration between two specialists — one rooted in the
         material and physical world of framing, installation and conservation;
         the other in the intellectual and cultural work of consultancy,
         direction and curation. Together, we offer a complete picture.
       </p>
-      <p class="text-brand-muted leading-relaxed">
+      <p class="text-brand-muted leading-relaxed text-lg">
         Our practice is built on close relationships: with artists, framers,
         collectors, institutions and the works themselves. We take time to
         understand what each project needs, and we bring craft and care to
@@ -53,16 +53,16 @@ const team = [
   </section>
 
   <!-- Team -->
-  <section class="max-w-7xl mx-auto px-8 py-20 border-t border-brand-border">
-    <h2 class="font-serif text-4xl md:text-5xl mb-16">The Team</h2>
-    <div class="grid md:grid-cols-2 gap-16">
+  <section class="px-8 md:px-12 py-24 border-t border-brand-border">
+    <h2 class="font-serif leading-none mb-20" style="font-size: clamp(2.5rem, 5vw, 6rem);">The Team</h2>
+    <div class="grid md:grid-cols-2 gap-20">
       {team.map((member) => (
         <div>
           <div class="w-full aspect-[3/4] bg-brand-border flex items-center justify-center text-brand-muted text-sm mb-8">
             Portrait placeholder
           </div>
           <h3 class="font-serif text-2xl mb-2">{member.name}</h3>
-          <p class="text-brand-accent text-sm tracking-wide mb-5">{member.role}</p>
+          <p class="text-brand-accent text-sm tracking-widest uppercase mb-6">{member.role}</p>
           <p class="text-brand-muted leading-relaxed">{member.bio}</p>
         </div>
       ))}
