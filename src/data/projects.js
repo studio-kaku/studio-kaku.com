@@ -2,6 +2,10 @@ export const projects = [
   {
     slug: "arthur-harmonyst",
     title: "Arthur Harmonyst",
+    year: "",
+    services: [],
+    challenge: "",
+    solution: "",
     cover: "_MG_7114.JPG",
     images: [
       "_MG_7114.JPG","_MG_7131.JPG","_MG_7139.JPG","_MG_7142.JPG",
@@ -12,6 +16,10 @@ export const projects = [
   {
     slug: "ceysson-benetiere",
     title: "Ceysson & Bénétière",
+    year: "",
+    services: [],
+    challenge: "",
+    solution: "",
     cover: "S__32784404.jpg",
     images: [
       "S__32784404.jpg","S__32784405.jpg","S__32784407.jpg","S__32784408.jpg",
@@ -23,6 +31,10 @@ export const projects = [
   {
     slug: "exhibitions",
     title: "Exhibitions",
+    year: "",
+    services: [],
+    challenge: "",
+    solution: "",
     cover: "IMG_2720.jpg",
     images: [
       "IMG_2720.jpg","IMG_2721.jpg","IMG_8710.JPG",
@@ -33,6 +45,10 @@ export const projects = [
   {
     slug: "framing",
     title: "Framing",
+    year: "",
+    services: [],
+    challenge: "",
+    solution: "",
     cover: "L1075397.jpg",
     images: [
       "5FCF7C23-7008-4BA7-9226-C51EC803F52A.JPG",
@@ -43,6 +59,10 @@ export const projects = [
   {
     slug: "get-it-studios",
     title: "Get It Studios",
+    year: "",
+    services: [],
+    challenge: "",
+    solution: "",
     cover: "DSC_0585.jpg",
     images: [
       "DSC_0585.jpg","DSC_0606.jpg","DSC_0617.jpg","DSC_0624.jpg","DSC_0625.jpg",
@@ -51,6 +71,10 @@ export const projects = [
   {
     slug: "haneda-tcs-2023",
     title: "Haneda TCS 2023",
+    year: "2023",
+    services: [],
+    challenge: "",
+    solution: "",
     cover: "9cce95_b92c40712478433a90a8ff0ea108901f~mv2.webp",
     images: [
       "9cce95_b92c40712478433a90a8ff0ea108901f~mv2.webp",
@@ -65,12 +89,20 @@ export const projects = [
   {
     slug: "haneda-tcs-2024",
     title: "Haneda TCS 2024",
+    year: "2024",
+    services: [],
+    challenge: "",
+    solution: "",
     cover: "IMG_9099.JPG",
     images: ["IMG_9099.JPG","IMG_9141.JPG","IMG_9148.JPG"],
   },
   {
     slug: "kyoto-sequence-art",
     title: "Kyoto Sequence Art",
+    year: "",
+    services: [],
+    challenge: "",
+    solution: "",
     cover: "S__158449678.jpg",
     images: [
       "S__158449678.jpg","S__158449687.jpg",
@@ -86,6 +118,10 @@ export const projects = [
   {
     slug: "tcs-2025",
     title: "TCS 2025",
+    year: "2025",
+    services: [],
+    challenge: "",
+    solution: "",
     cover: "490975352_2380555735651503_7109445704969288537_n.jpg",
     images: [
       "490975352_2380555735651503_7109445704969288537_n.jpg",
@@ -97,12 +133,20 @@ export const projects = [
   {
     slug: "tokyo-american-club",
     title: "Tokyo American Club",
+    year: "",
+    services: [],
+    challenge: "",
+    solution: "",
     cover: "S__32784431.jpg",
     images: ["S__32784431.jpg","S__32784433.jpg"],
   },
   {
     slug: "wandler",
     title: "WANDLER",
+    year: "",
+    services: [],
+    challenge: "",
+    solution: "",
     cover: "WANDLER_002.jpg",
     images: [
       "WANDLER_002.jpg","WANDLER_004.jpg","WANDLER_005.jpg","WANDLER_012.jpg",
