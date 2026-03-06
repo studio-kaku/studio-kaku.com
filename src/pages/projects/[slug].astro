@@ -11,6 +11,7 @@ export function getStaticPaths() {
 
 const { project } = Astro.props;
 const [hero, ...gallery] = project.images;
+const paragraphs = project.description ? project.description.split('\n\n') : [];
 ---
 
 <Layout title={project.title}>
@@ -34,47 +35,49 @@ const [hero, ...gallery] = project.images;
     />
   </div>
 
-  <!-- Title + metadata -->
-  <section class="px-8 md:px-12 py-12 border-b border-brand-border reveal">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-      <h1 class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 7vw, 8rem);">
-        {project.title}
-      </h1>
-      <div class="flex flex-wrap gap-x-10 gap-y-3 md:text-right flex-shrink-0">
-        {project.year && (
-          <div>
-            <p class="text-brand-muted text-xs tracking-widest uppercase mb-1">Year</p>
-            <p class="text-sm">{project.year}</p>
-          </div>
-        )}
-        {project.services.length > 0 && (
-          <div>
-            <p class="text-brand-muted text-xs tracking-widest uppercase mb-1">Services</p>
-            {project.services.map((s) => (
-              <p class="text-sm">{s}</p>
-            ))}
-          </div>
+  <!-- Title + subtitle + year -->
+  <section class="px-8 md:px-12 pt-12 pb-8 reveal">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+      <div>
+        <h1 class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 7vw, 8rem);">
+          {project.title}
+        </h1>
+        {project.subtitle && (
+          <p class="text-brand-muted text-sm tracking-widest uppercase mt-3">{project.subtitle}</p>
         )}
       </div>
+      {project.year && (
+        <p class="text-brand-muted text-sm tracking-widest uppercase flex-shrink-0 md:pt-2">{project.year}</p>
+      )}
     </div>
   </section>
 
-  <!-- Challenge -->
-  {project.challenge && (
-    <section class="px-8 md:px-12 py-16 border-b border-brand-border reveal">
-      <div class="grid md:grid-cols-[180px_1fr] gap-10">
-        <p class="text-brand-muted text-xs tracking-widest uppercase pt-1">Challenge</p>
-        <p class="text-xl md:text-2xl leading-relaxed max-w-3xl">{project.challenge}</p>
-      </div>
-    </section>
-  )}
+  <!-- Credits + Description -->
+  {(project.credits.length > 0 || paragraphs.length > 0) && (
+    <section class="px-8 md:px-12 py-12 border-t border-brand-border reveal">
+      <div class="grid md:grid-cols-[280px_1fr] gap-12">
 
-  <!-- Solution -->
-  {project.solution && (
-    <section class="px-8 md:px-12 py-16 border-b border-brand-border reveal">
-      <div class="grid md:grid-cols-[180px_1fr] gap-10">
-        <p class="text-brand-muted text-xs tracking-widest uppercase pt-1">Solution</p>
-        <p class="text-xl md:text-2xl leading-relaxed max-w-3xl">{project.solution}</p>
+        <!-- Credits -->
+        {project.credits.length > 0 && (
+          <div class="space-y-4">
+            {project.credits.map((credit) => (
+              <div>
+                <p class="text-brand-muted text-xs tracking-widest uppercase mb-0.5">{credit.label}</p>
+                <p class="text-sm">{credit.value}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <!-- Description -->
+        {paragraphs.length > 0 && (
+          <div class="space-y-5">
+            {paragraphs.map((para) => (
+              <p class="text-base leading-relaxed text-brand-muted">{para}</p>
+            ))}
+          </div>
+        )}
+
       </div>
     </section>
   )}
@@ -118,7 +121,6 @@ const [hero, ...gallery] = project.images;
 </Layout>
 
 <style>
-  /* Scroll reveal — elements start invisible */
   .reveal {
     opacity: 0;
     transform: translateY(32px);
@@ -128,24 +130,18 @@ const [hero, ...gallery] = project.images;
     opacity: 1;
     transform: translateY(0);
   }
-
-  /* Photo hover */
   .photo-hover {
     transition: transform 0.7s ease;
   }
   .photo-hover:hover {
     transform: scale(1.04);
   }
-
-  /* Hero parallax target */
   .hero-img {
-    transition: transform 0.1s linear;
     will-change: transform;
   }
 </style>
 
 <script>
-  // Scroll reveal
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -159,12 +155,10 @@ const [hero, ...gallery] = project.images;
   );
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-  // Subtle hero parallax on scroll
   const heroImg = document.querySelector('.hero-img') as HTMLElement | null;
   if (heroImg) {
     window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      heroImg.style.transform = `translateY(${scrolled * 0.15}px)`;
+      heroImg.style.transform = `translateY(${window.scrollY * 0.15}px)`;
     }, { passive: true });
   }
 </script>

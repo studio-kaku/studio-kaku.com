@@ -2,10 +2,12 @@ export const projects = [
   {
     slug: "exhibitions",
     title: "Exhibitions",
+    subtitle: "Art Curation | Gallery Management | Artist Representation",
     year: "October 2025",
-    services: [],
-    challenge: "",
-    solution: "",
+    credits: [],
+    description: `For the past three years, I've been managing UltraSuperNew Gallery and the newly launched "Kura" space, curating an exciting lineup of exhibitions that showcase both local Japanese talent and artists from around the world. Hosting two exhibitions every month has been both challenging and rewarding, pushing me to quickly develop expertise in running, promoting, and organizing gallery events.
+
+Through this journey, I've gained valuable insights into balancing creative vision with operational efficiency, building meaningful relationships with artists, and engaging diverse audiences. Recently we've been expanding into artist representation and in the future we see an artist residency.`,
     cover: "Front main image.jpeg",
     images: [
       "Front main image.jpeg",
@@ -16,10 +18,16 @@ export const projects = [
   {
     slug: "wandler",
     title: "WANDLER",
+    subtitle: "Wandler × Isetan × Kamei Norihiko",
     year: "July 2025",
-    services: [],
-    challenge: "",
-    solution: "",
+    credits: [
+      { label: "Brand", value: "Wandler" },
+      { label: "Distribution Company", value: "Bluebell" },
+      { label: "Artist", value: "Norihiko Kamei" },
+      { label: "Creative Direction & Art Curation", value: "Eleanor Ford" },
+      { label: "Location", value: "Isetan Shinjuku" },
+    ],
+    description: `Collaborated with Wandler and Bluebell to conceptualize and design their first launch into the Japanese market at Isetan. The project centred around creating a lush, green environment to showcase Wandler's signature bags. Drawing inspiration from Japanese aesthetics, the design incorporated Kamei-san's enchanting moss wonderland, seamlessly blending Wandler's leather bags with local cultural elements. This innovative approach created a harmonious and immersive shopping experience, resonating with both global and Japanese audiences.`,
     cover: "Front main image.jpg",
     images: [
       "Front main image.jpg",
@@ -31,20 +39,20 @@ export const projects = [
   {
     slug: "tokyo-american-club",
     title: "Tokyo American Club",
+    subtitle: "",
     year: "June 2025",
-    services: [],
-    challenge: "",
-    solution: "",
+    credits: [],
+    description: "",
     cover: "S__32784433.jpg",
     images: ["S__32784433.jpg","S__32784431.jpg"],
   },
   {
     slug: "ceysson-benetiere",
     title: "Ceysson & Bénétière",
+    subtitle: "",
     year: "May 2025",
-    services: [],
-    challenge: "",
-    solution: "",
+    credits: [],
+    description: "",
     cover: "Front main image.jpg",
     images: [
       "Front main image.jpg",
@@ -57,10 +65,20 @@ export const projects = [
   {
     slug: "arthur-harmonyst",
     title: "Arthur Harmonyst",
+    subtitle: "POLYGON1993 Artist Management",
     year: "April 2025",
-    services: [],
-    challenge: "",
-    solution: "",
+    credits: [
+      { label: "Artist", value: "POLYGON1993" },
+      { label: "Creative Direction & Art Curation", value: "Eleanor Ford" },
+      { label: "Location", value: "The Harmonyst, Hiroo" },
+      { label: "Technician", value: "Tristan Printverse" },
+      { label: "Framer", value: "Juka Framing" },
+    ],
+    description: `Since late 2024, I've been working with POLYGON1993 as his Artist Manager for Asia. Together, we've collaborated on several exciting projects, including a partnership with Bandai Namco's Tekken game and Iwa Sake to celebrate their 30th Anniversary, as well as his recent solo exhibition at The Harmonyst in Hiroo.
+
+In this role, I've been responsible for managing all communications with companies and galleries, overseeing art sales, curating exhibitions, handling PR, and securing new opportunities for him in Tokyo.
+
+As my first artist management project, it's been an incredibly rewarding experience—with strong interest, great momentum, and several exciting future projects already in development.`,
     cover: "Front main image.JPG",
     images: [
       "Front main image.JPG",
@@ -72,10 +90,17 @@ export const projects = [
   {
     slug: "tcs-2025",
     title: "TCS 2025",
+    subtitle: "Tokyo Creative Salon — Haneda Airport",
     year: "March 2025",
-    services: [],
-    challenge: "",
-    solution: "",
+    credits: [
+      { label: "Production Company", value: "Nanasai, Kaoru Oshima" },
+      { label: "Artist", value: "130 & i+an" },
+      { label: "Creative Direction & Art Curation", value: "Eleanor Ford" },
+      { label: "Location", value: "Haneda Airport Terminal 1" },
+    ],
+    description: `Another project with Tokyo Creative Salon focused on creating a space where people could "sit in the sky" and take the weight off their feet. Haneda Airport's theme this year was "sky," so we designed cloud-shaped seating in collaboration with 130 the Architects, who crafted the pieces using precision laser-cut techniques.
+
+To add an interactive layer, we teamed up with i+an to develop an augmented reality experience—visitors could scan a QR code with their phones and watch floating clouds appear on their screens, blending the physical and digital skies.`,
     cover: "Front main image.jpg",
     images: [
       "Front main image.jpg",
@@ -87,10 +112,10 @@ export const projects = [
   {
     slug: "get-it-studios",
     title: "Get It Studios",
+    subtitle: "",
     year: "November 2024",
-    services: [],
-    challenge: "",
-    solution: "",
+    credits: [],
+    description: "",
     cover: "DSC_0606.jpg",
     images: [
       "DSC_0606.jpg","DSC_0617.jpg","DSC_0625.jpg","DSC_0585.jpg","DSC_0624.jpg",
@@ -99,20 +124,30 @@ export const projects = [
   {
     slug: "haneda-tcs-2024",
     title: "Haneda TCS 2024",
+    subtitle: "",
     year: "March 2024",
-    services: [],
-    challenge: "",
-    solution: "",
+    credits: [],
+    description: "",
     cover: "IMG_9148.JPG",
     images: ["IMG_9148.JPG","IMG_9099.JPG","IMG_9141.JPG"],
   },
   {
     slug: "haneda-tcs-2023",
     title: "Haneda TCS 2023",
+    subtitle: "Tokyo Creative Salon — Haneda Airport",
     year: "March 2023",
-    services: [],
-    challenge: "",
-    solution: "",
+    credits: [
+      { label: "Creative Director", value: "Eleanor Ford" },
+      { label: "Art Director", value: "@i_am_mirai.s" },
+      { label: "Team", value: "@yar.tokyo" },
+      { label: "Photographer", value: "@nabemono" },
+      { label: "Location", value: "Haneda Airport Terminal 3" },
+    ],
+    description: `At Haneda Airport Terminal 3, where people from all over the world come and go, the design studio YAR showcased an installation that spans from Tokyo to Milan.
+
+The creation of this exhibit is a series of reflective units, with aeroplane windows installed on each one. Dreamlike worlds are showcased beyond these windows, inviting viewers to embark on new, unseen journeys. The immersive experience evokes the feeling of being on a flight, capturing the freedom and infinite possibilities of soaring through the sky. The vivid scenery spreads out before the viewer's eyes leaving a lasting impression, inspiring viewers to look differently on their journey.
+
+Through this installation, YAR has created a space filled with beauty and emotional appeal, inviting visitors into a world of healing and wonder.`,
     cover: "Front main image.png",
     images: [
       "Front main image.png",
@@ -127,10 +162,14 @@ export const projects = [
   {
     slug: "kyoto-sequence-art",
     title: "Kyoto Sequence Art",
+    subtitle: "Mitsui Fudosan — Bakibaki & Floz",
     year: "2021",
-    services: [],
-    challenge: "",
-    solution: "",
+    credits: [],
+    description: `Within both sequence hotels mentioned, I was involved in the art direction. My role throughout this project was to reach out to artists and plan the project — on the board for art selection and layout design, and to be there to help the artist in any way while also managing every decision to make sure it stayed within the project directions.
+
+In Sequence Kyoto Gojo, a renowned Kansai artist called Bakibaki worked on three pieces alongside Kenta Kousaka and 中LA. As well as working alongside Y&L projects and French artist Floz, we created digital art displayed on each floor.
+
+Roles: Managing the contacts, choice of artists, support during installation, and on-site during installation.`,
     cover: "restaurant+bar_night_10.jpg",
     images: [
       "restaurant+bar_night_10.jpg","restaurant+bar_night_07.jpg",
@@ -146,10 +185,10 @@ export const projects = [
   {
     slug: "framing",
     title: "Framing",
+    subtitle: "",
     year: "",
-    services: [],
-    challenge: "",
-    solution: "",
+    credits: [],
+    description: "",
     cover: "Front main image.jpg",
     images: [
       "Front main image.jpg",
