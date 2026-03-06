@@ -1,13 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { projects } from '../data/projects.js';
+const featuredProjects = projects.slice(0, 6);
 ---
 
 <Layout title="Home">
   <!-- Hero -->
   <section class="px-8 md:px-12 pt-24 pb-12">
     <h1
-      class="font-serif leading-[0.9] mb-14"
-      style="font-size: clamp(3rem, 7vw, 9rem);"
+      class="font-display uppercase leading-[0.9] mb-14"
+      style="font-size: clamp(3rem, 9vw, 11rem);"
     >
       Where art<br />finds its place.
     </h1>
@@ -61,6 +63,36 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Projects preview -->
+  <section class="px-8 md:px-12 py-20 border-t border-brand-border mt-1">
+    <div class="flex items-end justify-between mb-10">
+      <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">Projects</h2>
+      <a
+        href="/projects"
+        class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity flex-shrink-0"
+      >
+        View all
+      </a>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-1">
+      {featuredProjects.map((project) => (
+        <a href={`/projects/${project.slug}`} class="group overflow-hidden">
+          <div class="overflow-hidden aspect-[4/3]">
+            <img
+              src={`/projects/${project.slug}/${encodeURIComponent(project.cover)}`}
+              alt={project.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <p class="mt-3 text-sm tracking-wide uppercase group-hover:opacity-50 transition-opacity">
+            {project.title}
+          </p>
+        </a>
+      ))}
+    </div>
+  </section>
+
   <!-- Two services -->
   <section class="px-8 md:px-12 py-28 grid md:grid-cols-2 gap-20 border-t border-brand-border mt-1">
     <div>
@@ -98,7 +130,7 @@ import Layout from '../layouts/Layout.astro';
   <!-- CTA -->
   <section class="px-8 md:px-12 py-28 border-t border-brand-border">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
-      <p class="font-serif leading-none" style="font-size: clamp(2.5rem, 5vw, 6rem);">
+      <p class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 5vw, 6rem);">
         Ready to work<br />together?
       </p>
       <a
