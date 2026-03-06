@@ -4,12 +4,15 @@ from __future__ import annotations
 import logging
 import os
 import re
+import ssl
 from pathlib import Path
 from typing import Any
 
 import aiohttp
+import certifi
 from slack_bolt.adapter.socket_mode.async_handler import AsyncSocketModeHandler
 from slack_bolt.async_app import AsyncApp
+from slack_sdk.web.async_client import AsyncWebClient
 
 from bot.claude import ClaudeSession
 from bot.config import Config
@@ -24,8 +27,8 @@ sessions: dict[str, ClaudeSession] = {}
 
 # ── App setup ─────────────────────────────────────────────────────────────────
 
-def create_app(config: Config) -> AsyncApp:
-    app = AsyncApp(token=config.slack_bot_token)
+def create_app(config: Config, web_client: AsyncWebClient | None = None) -> AsyncApp:
+    app = AsyncApp(token=config.slack_bot_token, client=web_client)
 
     # ── Helpers ───────────────────────────────────────────────────────────────
 
@@ -228,7 +231,11 @@ async def main() -> None:
     config = Config.from_env()
     os.makedirs(config.upload_dir, exist_ok=True)
 
-    app = create_app(config)
+    # Fix SSL on macOS — Python installer doesn't bundle system certs
+    ssl_context = ssl.create_default_context(cafile=certifi.where())
+
+    web_client = AsyncWebClient(token=config.slack_bot_token, ssl=ssl_context)
+    app = create_app(config, web_client=web_client)
     handler = AsyncSocketModeHandler(app, config.slack_app_token)
 
     log.info("Studio Kaku bot starting (staging: %s)", config.staging_url)

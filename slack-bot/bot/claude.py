@@ -50,19 +50,22 @@ class ClaudeSession:
                 self.is_busy = False
 
     async def _invoke(self, message: str) -> str:
+        # Prepend the system prompt to the message so Claude has full context.
+        # (--system flag not supported in all Claude Code versions; CLAUDE.md also provides context)
+        full_message = SYSTEM_PROMPT.format(staging_url=self.staging_url) + "\n\n" + message
         cmd = [
             "claude",
             "--model", self.model,
             "--output-format", "json",
-            "--system", SYSTEM_PROMPT.format(staging_url=self.staging_url),
-            "-p", message,
+            "--dangerously-skip-permissions",
+            "-p", full_message,
         ]
         if self._session_id:
             cmd += ["--resume", self._session_id]
 
         env = {k: v for k, v in os.environ.items() if k != "CLAUDECODE"}
 
-        log.info("Invoking claude: %s", " ".join(cmd))
+        log.info("Invoking claude: %s", " ".join(cmd[:6]))
 
         proc = await asyncio.create_subprocess_exec(
             *cmd,
@@ -73,15 +76,18 @@ class ClaudeSession:
         )
         stdout, stderr = await proc.communicate()
 
+        log.info("claude exit code: %s", proc.returncode)
         if stderr:
-            log.debug("claude stderr: %s", stderr.decode())
+            log.info("claude stderr: %s", stderr.decode()[:500])
 
         raw = stdout.decode().strip()
+        log.info("claude raw output: %s", raw[:500])
+
         try:
             data: dict[str, Any] = json.loads(raw)
         except json.JSONDecodeError:
             log.error("Claude returned non-JSON: %s", raw[:500])
-            return raw
+            return raw or "_(no response)_"
 
         # Capture session ID for resumption
         if session_id := data.get("session_id"):
@@ -90,7 +96,9 @@ class ClaudeSession:
         if cost := data.get("cost_usd"):
             log.info("Claude cost: $%.4f", cost)
 
-        return data.get("result", "").strip()
+        result = data.get("result", "").strip()
+        log.info("Claude result: %s", result[:200])
+        return result or "_(no response)_"
 
     def reset(self) -> None:
         """Clear the session so the next message starts fresh."""
