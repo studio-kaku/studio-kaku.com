@@ -1,6 +1,7 @@
 ---
 const nav = [
   { label: 'Services', href: '/services' },
+  { label: 'Projects', href: '/projects' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -21,7 +22,7 @@ const currentPath = Astro.url.pathname;
             currentPath.startsWith(href) ? 'opacity-100 font-medium' : 'opacity-60'
           }`}
         >
-          {label}
+          {label.toUpperCase()}
         </a>
       ))}
     </nav>

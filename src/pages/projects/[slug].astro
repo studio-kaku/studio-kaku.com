@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projects } from '../../data/projects.js';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={project.title}>
+  <!-- Header -->
+  <section class="px-8 md:px-12 pt-24 pb-12 border-b border-brand-border">
+    <a
+      href="/projects"
+      class="text-brand-muted text-xs tracking-widest uppercase hover:opacity-50 transition-opacity"
+    >
+      ← Projects
+    </a>
+    <h1 class="font-display uppercase leading-none mt-6" style="font-size: clamp(2.5rem, 7vw, 8rem);">
+      {project.title}
+    </h1>
+  </section>
+
+  <!-- Image grid -->
+  <section class="p-1">
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-1 space-y-1">
+      {project.images.map((img) => (
+        <div class="overflow-hidden break-inside-avoid">
+          <img
+            src={`/projects/${project.slug}/${encodeURIComponent(img)}`}
+            alt={`${project.title} — ${img}`}
+            class="w-full object-cover hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Back / CTA -->
+  <section class="px-8 md:px-12 py-20 border-t border-brand-border mt-1 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+    <a
+      href="/projects"
+      class="text-sm tracking-wide underline underline-offset-4 hover:opacity-50 transition-opacity"
+    >
+      ← Back to all projects
+    </a>
+    <a
+      href="/contact"
+      class="inline-block border border-brand-text px-7 py-3 text-sm tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors"
+    >
+      Work with us
+    </a>
+  </section>
+</Layout>
