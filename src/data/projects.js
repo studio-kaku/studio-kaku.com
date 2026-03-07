@@ -49,8 +49,8 @@ Through this journey, I've gained valuable insights into balancing creative visi
     video: "16-9_2nd Delivery.mp4",
     cover: "DSC_2263.JPG",
     images: [
-      "DSC_2263.JPG","DSC_2269.JPG","DSC_2271.JPG","DSC_2290.JPG",
-      "All Footage_1.jpg","All Footage_2.jpg","All Footage_8.jpg",
+      "DSC_2263.JPG","DSC_2271.JPG","DSC_2290.JPG",
+      "All Footage_1.jpg","All Footage_2.jpg",
       "All Footage_10.jpg","All Footage_14.jpg","All Footage_15.jpg",
     ],
   },
@@ -76,10 +76,9 @@ Through this journey, I've gained valuable insights into balancing creative visi
     cover: "Front main image.jpg",
     images: [
       "Front main image.jpg",
-      "S__32784409.jpg","S__32784408.jpg","S__32784427.jpg","S__32784426.jpg",
-      "S__32784419.jpg","S__32784414.jpg","S__32784415.jpg","S__32784416.jpg",
-      "S__32784412.jpg","S__32784413.jpg","S__32784407.jpg","S__32784411.jpg",
-      "S__32784405.jpg","S__32784404.jpg","S__32784410.jpg",
+      "S__32784409.jpg","S__32784427.jpg","S__32784426.jpg",
+      "S__32784419.jpg","S__32784416.jpg",
+      "S__32784412.jpg","S__32784407.jpg",
     ],
   },
   {
