@@ -82,6 +82,19 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
     </section>
   )}
 
+  <!-- Video -->
+  {project.video && (
+    <section class="mt-1 reveal">
+      <video
+        src={`/projects/${project.slug}/${encodeURIComponent(project.video)}`}
+        controls
+        playsinline
+        preload="metadata"
+        class="w-full max-h-[80vh] object-cover bg-black"
+      />
+    </section>
+  )}
+
   <!-- Gallery -->
   {gallery.length > 0 && (
     <section class="p-1 mt-1">
