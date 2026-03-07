@@ -46,6 +46,7 @@ Through this journey, I've gained valuable insights into balancing creative visi
     year: "",
     credits: [],
     description: "",
+    video: "16-9_2nd Delivery.mp4",
     cover: "DSC_2263.JPG",
     images: [
       "DSC_2263.JPG","DSC_2269.JPG","DSC_2271.JPG","DSC_2290.JPG",
