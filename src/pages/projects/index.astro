@@ -5,33 +5,44 @@ import { projects } from '../../data/projects.js';
 
 <Layout title="Projects">
   <!-- Header -->
-  <section class="px-8 md:px-12 pt-24 pb-12 border-b border-brand-border">
+  <section class="px-8 md:px-16 pt-24 pb-16">
     <h1 class="font-display uppercase leading-none" style="font-size: clamp(3rem, 9vw, 11rem);">
       Projects
     </h1>
   </section>
 
   <!-- Projects grid -->
-  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-border mt-px">
-    {projects.map((project) => (
-      <a href={`/projects/${project.slug}`} class="group bg-brand-bg overflow-hidden">
-        <div class="overflow-hidden aspect-[4/3]">
-          <img
-            src={`/projects/${project.slug}/${encodeURIComponent(project.cover)}`}
-            alt={project.title}
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          />
-        </div>
-        <div class="px-6 py-5 border-t border-brand-border">
-          <p class="font-display uppercase text-lg tracking-wide">{project.title}</p>
-        </div>
-      </a>
-    ))}
+  <section class="px-8 md:px-16 pb-24">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7">
+      {projects.map((project, i) => {
+        const featured = i % 5 === 0;
+        return (
+          <a
+            href={`/projects/${project.slug}`}
+            class={`group${featured ? ' col-span-2' : ''}`}
+          >
+            <div class={`overflow-hidden${featured ? ' aspect-[3/2]' : ' aspect-[3/4]'}`}>
+              <img
+                src={`/projects/${project.slug}/${encodeURIComponent(project.cover)}`}
+                alt={project.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-3">
+              <p class="text-sm tracking-widest uppercase group-hover:opacity-40 transition-opacity">{project.title}</p>
+              {project.tagline && (
+                <p class="text-xs text-brand-muted mt-1 group-hover:opacity-40 transition-opacity">{project.tagline}</p>
+              )}
+            </div>
+          </a>
+        );
+      })}
+    </div>
   </section>
 
   <!-- CTA -->
-  <section class="px-8 md:px-12 py-20 border-t border-brand-border mt-px">
+  <section class="px-8 md:px-16 py-20 border-t border-brand-border">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
       <p class="font-display uppercase leading-none" style="font-size: clamp(2rem, 4vw, 5rem);">
         Want to work<br />together?
