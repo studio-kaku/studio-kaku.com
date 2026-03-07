@@ -102,12 +102,25 @@ const featuredProjects = projects.slice(0, 6);
   <!-- Selected Clients -->
   <section class="px-8 md:px-12 py-20 border-t border-brand-border">
     <p class="text-brand-muted text-xs tracking-widest uppercase mb-12">Selected Clients</p>
-    <img
-      src="/images/clients-logos.png"
-      alt="Selected clients including Ceysson & Bénétière, Haneda, Soho House, Mitsui Fudosan, Gallery Ether, Bluebell, Tokyo American Club, Isetan, Ultra Super New, and Somsoc Gallery"
-      class="w-full max-w-2xl opacity-80"
-      loading="lazy"
-    />
+    <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+      {[
+        { src: '/images/logos/ceysson-benetiere.jpg', alt: 'Ceysson & Bénétière' },
+        { src: '/images/logos/haneda.png', alt: 'Haneda Japan Airport Terminal' },
+        { src: '/images/logos/soho-house.png', alt: 'Soho House' },
+        { src: '/images/logos/mitsui-fudosan.png', alt: 'Mitsui Fudosan' },
+        { src: '/images/logos/gallery-ether.png', alt: 'Gallery Ether' },
+        { src: '/images/logos/bluebell.jpg', alt: 'Bluebell' },
+        { src: '/images/logos/tokyo-american-club.webp', alt: 'Tokyo American Club' },
+        { src: '/images/logos/isetan.jpg', alt: 'Isetan' },
+        { src: '/images/logos/courtyard-hiroo.png', alt: 'Courtyard Hiroo' },
+        { src: '/images/logos/ultra-super-new.png', alt: 'Ultra Super New' },
+        { src: '/images/logos/somsoc-gallery.png', alt: 'Somsoc Gallery' },
+      ].map(({ src, alt }) => (
+        <div class="flex items-center justify-center h-12">
+          <img src={src} alt={alt} class="max-h-full max-w-full object-contain opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
+        </div>
+      ))}
+    </div>
   </section>
 
   <!-- CTA -->
