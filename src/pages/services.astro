@@ -39,18 +39,15 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
 
-        <ul class="mt-12 space-y-3 text-sm">
+        <ul class="mt-12 space-y-6 text-sm">
           {[
-            'Bespoke frame design & production',
-            'Conservation framing & glazing',
-            'Professional art installation',
-            'Collection storage advice',
-            'Lighting consultation',
-            'Art care & condition reporting',
+            { title: 'Framing', desc: 'Source custom-made framing to enhance the beauty of the artwork, reviewing different materials for all sizes and types of work.' },
+            { title: 'Shipment & Installation', desc: 'Best-market shipment service door to door, with full installation so the client has nothing to worry about.' },
+            { title: 'Exhibition Design', desc: 'Larger-scale installation: develop advanced plans, timelines, concepts and exhibition price lists to assist organisations.' },
           ].map((item) => (
             <li class="flex items-start gap-4">
-              <span class="mt-2 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
-              {item}
+              <span class="mt-1.5 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
+              <span><strong class="font-medium text-brand-text">{item.title}</strong> — {item.desc}</span>
             </li>
           ))}
         </ul>
@@ -119,18 +116,15 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
 
-        <ul class="mt-12 space-y-3 text-sm">
+        <ul class="mt-12 space-y-6 text-sm">
           {[
-            'Art acquisition & collection strategy',
-            'Artist sourcing & commissions',
-            'Exhibition development & curation',
-            'Spatial creative direction',
-            'Corporate art programmes',
-            'Brand & cultural partnerships',
+            { title: 'Art Advice', desc: 'Visit the property to advise on what type of art would fit and stand out in each area. Build a relationship to understand aspirations, taste and what the client is looking for.' },
+            { title: 'Art Curation', desc: 'Provide an array of ideas on how the art could be displayed, making the most of the space and its characteristics.' },
+            { title: 'Negotiating & Commissioning', desc: 'Work with artists to create the perfect piece for the project — negotiating price, timeline and deliverables.' },
           ].map((item) => (
             <li class="flex items-start gap-4">
-              <span class="mt-2 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
-              {item}
+              <span class="mt-1.5 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
+              <span><strong class="font-medium text-brand-text">{item.title}</strong> — {item.desc}</span>
             </li>
           ))}
         </ul>
