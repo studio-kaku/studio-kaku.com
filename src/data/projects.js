@@ -2,6 +2,7 @@ export const projects = [
   {
     slug: "exhibitions",
     title: "Exhibitions",
+    tagline: "Gallery management & art curation",
     subtitle: "Art Curation | Gallery Management | Artist Representation",
     year: "October 2025",
     credits: [],
@@ -18,6 +19,7 @@ Through this journey, I've gained valuable insights into balancing creative visi
   {
     slug: "wandler",
     title: "WANDLER",
+    tagline: "Creative direction & artist management",
     subtitle: "Wandler × Isetan × Kamei Norihiko",
     year: "July 2025",
     credits: [
@@ -37,9 +39,25 @@ Through this journey, I've gained valuable insights into balancing creative visi
     ],
   },
   {
+    slug: "wandler-kamei",
+    title: "Wandler × Kamei san",
+    tagline: "Creative direction & artist management",
+    subtitle: "Creative Direction & Artist Management",
+    year: "",
+    credits: [],
+    description: "",
+    cover: "DSC_2263.JPG",
+    images: [
+      "DSC_2263.JPG","DSC_2269.JPG","DSC_2271.JPG","DSC_2290.JPG",
+      "All Footage_1.jpg","All Footage_2.jpg","All Footage_8.jpg",
+      "All Footage_10.jpg","All Footage_14.jpg","All Footage_15.jpg",
+    ],
+  },
+  {
     slug: "tokyo-american-club",
     title: "Tokyo American Club",
-    subtitle: "",
+    tagline: "Framing",
+    subtitle: "Sante Frame",
     year: "June 2025",
     credits: [],
     description: "",
@@ -49,6 +67,7 @@ Through this journey, I've gained valuable insights into balancing creative visi
   {
     slug: "ceysson-benetiere",
     title: "Ceysson & Bénétière",
+    tagline: "Framing & installation",
     subtitle: "",
     year: "May 2025",
     credits: [],
@@ -64,7 +83,8 @@ Through this journey, I've gained valuable insights into balancing creative visi
   },
   {
     slug: "arthur-harmonyst",
-    title: "Arthur Harmonyst",
+    title: "POLYGON1993 at The Harmonyst",
+    tagline: "Artist management, curation, framing & installation",
     subtitle: "POLYGON1993 Artist Management",
     year: "April 2025",
     credits: [
@@ -90,6 +110,7 @@ As my first artist management project, it's been an incredibly rewarding experie
   {
     slug: "tcs-2025",
     title: "TCS 2025",
+    tagline: "Creative direction & installation",
     subtitle: "Tokyo Creative Salon — Haneda Airport",
     year: "March 2025",
     credits: [
@@ -112,6 +133,7 @@ To add an interactive layer, we teamed up with i+an to develop an augmented real
   {
     slug: "get-it-studios",
     title: "Get It Studios",
+    tagline: "Art curation",
     subtitle: "",
     year: "November 2024",
     credits: [],
@@ -124,6 +146,7 @@ To add an interactive layer, we teamed up with i+an to develop an augmented real
   {
     slug: "haneda-tcs-2024",
     title: "Haneda TCS 2024",
+    tagline: "Creative direction & installation",
     subtitle: "",
     year: "March 2024",
     credits: [],
@@ -134,6 +157,7 @@ To add an interactive layer, we teamed up with i+an to develop an augmented real
   {
     slug: "haneda-tcs-2023",
     title: "Haneda TCS 2023",
+    tagline: "Creative direction & installation",
     subtitle: "Tokyo Creative Salon — Haneda Airport",
     year: "March 2023",
     credits: [
@@ -161,7 +185,8 @@ Through this installation, YAR has created a space filled with beauty and emotio
   },
   {
     slug: "kyoto-sequence-art",
-    title: "Kyoto Sequence Art",
+    title: "Sequence Kyoto",
+    tagline: "Interior design, art curation & event management",
     subtitle: "Mitsui Fudosan — Bakibaki & Floz",
     year: "2021",
     credits: [],
@@ -183,9 +208,25 @@ Roles: Managing the contacts, choice of artists, support during installation, an
     ],
   },
   {
+    slug: "sequence-suidobashi",
+    title: "Sequence Suidobashi",
+    tagline: "Interior design & art curation",
+    subtitle: "Assistant Interior Design & Art Curation",
+    year: "June 2021",
+    credits: [],
+    description: "",
+    cover: "exterior_night_1.jpg",
+    images: [
+      "exterior_night_1.jpg","exterior_night_2.jpg",
+      "art_stadium lounge.jpg","art_staircase_1.jpg","art_staircase_2.jpg",
+      "restaurant_day.jpg","2024-10-16.webp",
+    ],
+  },
+  {
     slug: "framing",
     title: "Framing",
-    subtitle: "",
+    tagline: "Private framing commissions",
+    subtitle: "Examples of Private Orders",
     year: "",
     credits: [],
     description: "",
@@ -195,6 +236,21 @@ Roles: Managing the contacts, choice of artists, support during installation, an
       "5FCF7C23-7008-4BA7-9226-C51EC803F52A.JPG",
       "L1075397.jpg","_MG_6883.JPG","S__80699394.jpg",
       "Screenshot 2025-05-05 at 11.29.08 AM.png",
+    ],
+  },
+  {
+    slug: "ucc",
+    title: "UCC",
+    tagline: "Interior design",
+    subtitle: "Interior Design",
+    year: "2019",
+    credits: [],
+    description: "",
+    cover: "005.jpg",
+    images: [
+      "005.jpg","006.jpg","007.jpg","008.jpg","015.jpg",
+      "020.jpg","022.jpg","023.jpg","025.jpg","026.jpg",
+      "044.jpg","058.jpg",
     ],
   },
 ];

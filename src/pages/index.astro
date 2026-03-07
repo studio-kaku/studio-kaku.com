@@ -54,6 +54,11 @@ const featuredProjects = projects.slice(0, 6);
           <p class="mt-3 text-sm tracking-wide uppercase group-hover:opacity-50 transition-opacity">
             {project.title}
           </p>
+          {project.tagline && (
+            <p class="text-xs text-brand-muted mt-1 group-hover:opacity-50 transition-opacity">
+              {project.tagline}
+            </p>
+          )}
         </a>
       ))}
     </div>
