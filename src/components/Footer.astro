@@ -5,6 +5,59 @@ const year = new Date().getFullYear();
 <footer class="border-t border-brand-border mt-32">
   <div class="px-8 md:px-12 py-8 flex items-center justify-between text-sm text-brand-muted">
     <span>© {year} Studio Kaku</span>
+    <!-- Language switcher -->
+    <div class="flex items-center gap-1 text-xs tracking-widest uppercase" id="lang-switcher">
+      <button
+        id="lang-en"
+        class="px-3 py-1 border border-brand-border transition-colors duration-200 lang-btn"
+        aria-pressed="true"
+      >EN</button>
+      <button
+        id="lang-ja"
+        class="px-3 py-1 border border-brand-border transition-colors duration-200 lang-btn"
+        aria-pressed="false"
+      >日本語</button>
+    </div>
     <span class="italic">London</span>
   </div>
 </footer>
+
+<script>
+  // Language switcher — swaps all [data-en] / [data-ja] text on the page
+  const btnEn = document.getElementById('lang-en') as HTMLButtonElement;
+  const btnJa = document.getElementById('lang-ja') as HTMLButtonElement;
+
+  function applyLang(lang: 'en' | 'ja') {
+    // Swap text content for all labelled elements
+    document.querySelectorAll('[data-en][data-ja]').forEach((el) => {
+      el.textContent = lang === 'en'
+        ? (el as HTMLElement).dataset.en!
+        : (el as HTMLElement).dataset.ja!;
+    });
+
+    // Update button styles
+    if (lang === 'en') {
+      btnEn.setAttribute('aria-pressed', 'true');
+      btnEn.classList.add('bg-brand-text', 'text-brand-bg', 'border-brand-text');
+      btnJa.setAttribute('aria-pressed', 'false');
+      btnJa.classList.remove('bg-brand-text', 'text-brand-bg', 'border-brand-text');
+    } else {
+      btnJa.setAttribute('aria-pressed', 'true');
+      btnJa.classList.add('bg-brand-text', 'text-brand-bg', 'border-brand-text');
+      btnEn.setAttribute('aria-pressed', 'false');
+      btnEn.classList.remove('bg-brand-text', 'text-brand-bg', 'border-brand-text');
+    }
+
+    localStorage.setItem('sk-lang', lang);
+
+    // Update html lang attribute
+    document.documentElement.lang = lang === 'ja' ? 'ja' : 'en';
+  }
+
+  // Init from saved preference
+  const saved = localStorage.getItem('sk-lang') as 'en' | 'ja' | null;
+  applyLang(saved === 'ja' ? 'ja' : 'en');
+
+  btnEn.addEventListener('click', () => applyLang('en'));
+  btnJa.addEventListener('click', () => applyLang('ja'));
+</script>
