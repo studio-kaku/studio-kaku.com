@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { projects } from '../data/projects.js';
-const featuredProjects = projects.slice(0, 6);
+const featuredProjects = projects.filter(p => !p.journal).slice(0, 6);
 ---
 
 <Layout title="Home">
@@ -67,7 +67,7 @@ const featuredProjects = projects.slice(0, 6);
 
   <!-- Two services -->
   <section class="px-8 md:px-12 py-28 grid md:grid-cols-2 gap-20 border-t border-brand-border mt-1">
-    <div>
+    <div data-fade-text>
       <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">01</p>
       <h2 class="font-serif text-4xl md:text-5xl mb-6">Framing, Installation &amp; Art Care</h2>
       <p class="text-brand-muted leading-relaxed mb-8">
@@ -82,7 +82,7 @@ const featuredProjects = projects.slice(0, 6);
         Learn more
       </a>
     </div>
-    <div>
+    <div data-fade-text style="transition-delay: 120ms">
       <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">02</p>
       <h2 class="font-serif text-4xl md:text-5xl mb-6">Art Consultancy &amp; Creative Direction</h2>
       <p class="text-brand-muted leading-relaxed mb-8">
@@ -116,8 +116,8 @@ const featuredProjects = projects.slice(0, 6);
         { src: '/images/logos/ultra-super-new.png', alt: 'Ultra Super New' },
         { src: '/images/logos/somsoc-gallery.png', alt: 'Somsoc Gallery' },
       ].map(({ src, alt }) => (
-        <div class="flex items-center justify-center h-12">
-          <img src={src} alt={alt} class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100 transition-opacity duration-300" loading="lazy" />
+        <div class="flex items-center justify-center h-16">
+          <img src={src} alt={alt} class="max-h-full max-w-full object-contain mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-300" loading="lazy" />
         </div>
       ))}
     </div>

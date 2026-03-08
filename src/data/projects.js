@@ -1,6 +1,7 @@
 export const projects = [
   {
     slug: "exhibitions",
+    journal: true,
     title: "Exhibitions",
     tagline: "Gallery management & art curation",
     subtitle: "Art Curation | Gallery Management | Artist Representation",
@@ -224,6 +225,7 @@ Roles: Managing the contacts, choice of artists, support during installation, an
   },
   {
     slug: "framing",
+    journal: true,
     title: "Framing",
     tagline: "Private framing commissions",
     subtitle: "Examples of Private Orders",
