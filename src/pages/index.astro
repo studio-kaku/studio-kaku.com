@@ -44,8 +44,8 @@ const featuredProjects = projects.slice(0, 6);
       {featuredProjects.map((project, i) => {
         const featured = i === 0;
         return (
-          <a href={`/projects/${project.slug}`} class={`group${featured ? ' col-span-2' : ''}`}>
-            <div class={`overflow-hidden${featured ? ' aspect-[3/2]' : ' aspect-[3/4]'}`}>
+          <a href={`/projects/${project.slug}`} class={`group${featured ? ' col-span-2' : ''}`} data-fade style={`transition-delay: ${(i % 3) * 80}ms`}>
+            <div class="overflow-hidden aspect-[3/2]">
               <img
                 src={`/projects/${project.slug}/${encodeURIComponent(project.cover)}`}
                 alt={project.title}
@@ -117,7 +117,7 @@ const featuredProjects = projects.slice(0, 6);
         { src: '/images/logos/somsoc-gallery.png', alt: 'Somsoc Gallery' },
       ].map(({ src, alt }) => (
         <div class="flex items-center justify-center h-12">
-          <img src={src} alt={alt} class="max-h-full max-w-full object-contain opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
+          <img src={src} alt={alt} class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100 transition-opacity duration-300" loading="lazy" />
         </div>
       ))}
     </div>

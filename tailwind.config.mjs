@@ -6,7 +6,7 @@ export default {
       fontFamily: {
         serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
         sans: ['system-ui', '-apple-system', 'sans-serif'],
-        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        display: ['"Nunito"', 'system-ui', 'sans-serif'],
       },
       colors: {
         // Placeholder palette — replace with brand colors when available
