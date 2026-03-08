@@ -45,8 +45,12 @@ Through this journey, I've gained valuable insights into balancing creative visi
     tagline: "Creative direction & artist management",
     subtitle: "Creative Direction & Artist Management",
     year: "",
-    credits: [],
-    description: "",
+    credits: [
+      { label: "Brand", value: "Wandler" },
+      { label: "Artist", value: "Norihiko Kamei" },
+      { label: "Filmmaker", value: "Christopher Nicholls" },
+    ],
+    description: `Alongside the Isetan pop-up store design, we staged Wandler's bags in the studio of moss artist Norihiko Kamei san — a space that felt entirely his own, textured and alive. The bags sat naturally within his world, filmed by Christopher Nicholls.`,
     video: "16-9_2nd Delivery.mp4",
     cover: "DSC_2263.JPG",
     images: [
@@ -61,8 +65,11 @@ Through this journey, I've gained valuable insights into balancing creative visi
     tagline: "Framing",
     subtitle: "Sante Frame",
     year: "June 2025",
-    credits: [],
-    description: "",
+    credits: [
+      { label: "Client", value: "Tokyo American Club" },
+      { label: "Artist", value: "Sante Vision" },
+    ],
+    description: `Framing and setting for the Italian restaurant inside Tokyo American Club, working with artist Sante Vision.`,
     cover: "S__32784433.jpg",
     images: ["S__32784433.jpg","S__32784431.jpg"],
   },
@@ -72,8 +79,10 @@ Through this journey, I've gained valuable insights into balancing creative visi
     tagline: "Framing & installation",
     subtitle: "",
     year: "May 2025",
-    credits: [],
-    description: "",
+    credits: [
+      { label: "Client", value: "Ceysson & Bénétière" },
+    ],
+    description: `Since their opening we've been on call for installation, problem-solving and framing. These are a few frames done for them.`,
     cover: "Front main image.jpg",
     images: [
       "Front main image.jpg",
