@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { projects } from '../../data/projects.js';
+const mainProjects = projects.filter(p => !p.journal);
 ---
 
 <Layout title="Projects">
@@ -14,7 +15,7 @@ import { projects } from '../../data/projects.js';
   <!-- Projects grid -->
   <section class="px-8 md:px-16 pb-24">
     <div class="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7">
-      {projects.map((project, i) => {
+      {mainProjects.map((project, i) => {
         const featured = i % 5 === 0;
         return (
           <a
