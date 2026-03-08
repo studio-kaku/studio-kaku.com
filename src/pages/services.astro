@@ -1,140 +1,172 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const consultancyServices = [
+  {
+    title: 'Art Advice',
+    desc: 'Visit the space to understand its character, then advise on what art would fit, stand out and start a conversation in each area.',
+  },
+  {
+    title: 'Art Curation',
+    desc: 'Build a coherent programme — selecting artists, developing a narrative and making the most of what the space has to offer.',
+  },
+  {
+    title: 'Artist Commissions',
+    desc: 'Introduce the right artist for a project and manage the commission from concept to delivery.',
+  },
+  {
+    title: 'Negotiating & Acquiring',
+    desc: 'Work directly with galleries, artists and auction houses to agree on price, timeline and terms.',
+  },
+  {
+    title: 'Creative Direction',
+    desc: 'Shape the visual and conceptual identity of a project — from brand partnerships to hospitality and cultural institutions.',
+  },
+  {
+    title: 'Exhibition Development',
+    desc: 'Develop shows from scratch: concept, artist liaison, floor plans, timelines and on-site management.',
+  },
+];
+
+const framingServices = [
+  {
+    title: 'Bespoke Framing',
+    desc: 'Design and produce frames in dialogue with the artwork — reviewing materials, mouldings and mounts for all sizes and media.',
+  },
+  {
+    title: 'Shipment & Installation',
+    desc: 'Best-in-market door-to-door shipping with full installation, so clients have nothing to worry about.',
+  },
+  {
+    title: 'Exhibition Design & Hang',
+    desc: 'Larger-scale hanging programmes for galleries and institutions — advanced plans, timelines, concepts and on-site execution.',
+  },
+  {
+    title: 'Art Care & Advice',
+    desc: 'Guidance on storage, lighting, environmental conditions and handling so collections stay in peak condition for generations.',
+  },
+];
 ---
 
 <Layout
   title="Services"
-  description="Studio Kaku offers expert framing, installation, art care, consultancy, creative direction and curation."
+  description="Studio Kaku offers art consultancy, creative direction, curation, bespoke framing and installation."
 >
   <!-- Page header -->
   <section class="px-8 md:px-12 pt-20 pb-16">
-    <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">What we do</p>
-    <h1 class="font-display uppercase leading-none" style="font-size: clamp(3rem, 9vw, 11rem);">Services</h1>
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-8" data-fade-text>What we do</p>
+    <h1 class="font-display uppercase leading-none" style="font-size: clamp(3rem, 9vw, 11rem);" data-fade-text style="transition-delay:60ms">Services</h1>
   </section>
 
-  <!-- Service 1: Framing, Installation & Art Care -->
-  <section id="framing" class="px-8 md:px-12 py-24 border-t border-brand-border">
-    <div class="grid md:grid-cols-2 gap-20 items-start">
-      <div>
-        <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">01</p>
-        <h2 class="font-serif leading-tight mb-10" style="font-size: clamp(2rem, 4vw, 4rem);">
-          Framing, Installation<br />&amp; Art Care
+  <!-- Service 01: Art Consultancy -->
+  <section id="consultancy" class="border-t border-brand-border">
+    <!-- Service title row -->
+    <div class="px-8 md:px-12 py-16 md:flex md:items-end md:justify-between gap-20" data-fade-text>
+      <div class="flex items-start gap-6 md:gap-10">
+        <span class="text-brand-muted text-xs tracking-widest uppercase mt-1 flex-shrink-0">01</span>
+        <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 6rem);">
+          Art Consultancy,<br />Creative Direction<br />&amp; Curation
         </h2>
-        <div class="space-y-5 text-brand-muted leading-relaxed">
-          <p>
-            A great frame does more than protect — it activates a work. We
-            source, design and produce bespoke frames in dialogue with the art
-            itself, working with conservation-grade materials and trusted
-            specialist craftspeople.
-          </p>
-          <p>
-            Our installation service covers everything from a single piece in a
-            private home to large-scale hanging programmes for galleries and
-            institutional collections.
-          </p>
-          <p>
-            We also advise on the long-term care of works on paper, canvas and
-            other media: storage, lighting, environmental conditions and
-            handling — so your collection remains in peak condition.
-          </p>
-        </div>
-
-        <ul class="mt-12 space-y-6 text-sm">
-          {[
-            { title: 'Framing', desc: 'Source custom-made framing to enhance the beauty of the artwork, reviewing different materials for all sizes and types of work.' },
-            { title: 'Shipment & Installation', desc: 'Best-market shipment service door to door, with full installation so the client has nothing to worry about.' },
-            { title: 'Exhibition Design', desc: 'Larger-scale installation: develop advanced plans, timelines, concepts and exhibition price lists to assist organisations.' },
-          ].map((item) => (
-            <li class="flex items-start gap-4">
-              <span class="mt-1.5 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
-              <span><strong class="font-medium text-brand-text">{item.title}</strong> — {item.desc}</span>
-            </li>
-          ))}
-        </ul>
       </div>
+      <p class="text-brand-muted leading-relaxed max-w-sm mt-8 md:mt-0 flex-shrink-0">
+        We work with private collectors, developers, hospitality brands and
+        organisations to build coherent, meaningful art programmes — whether
+        acquiring a first work or shaping an entire collection strategy.
+      </p>
+    </div>
 
-      <div class="space-y-2">
-        <div class="overflow-hidden">
-          <img
-            src="/images/framing-example.jpg"
-            alt="Bespoke framed artwork"
-            class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-700"
-          />
+    <!-- Services grid -->
+    <div class="border-t border-brand-border grid md:grid-cols-2 lg:grid-cols-3">
+      {consultancyServices.map((item, i) => (
+        <div
+          class="px-8 md:px-10 py-10 border-b border-brand-border md:border-r"
+          data-fade
+          style={`transition-delay: ${(i % 3) * 80}ms`}
+        >
+          <p class="text-brand-muted text-xs tracking-widest uppercase mb-4">{String(i + 1).padStart(2, '0')}</p>
+          <p class="font-medium text-brand-text mb-3">{item.title}</p>
+          <p class="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
         </div>
-        <div class="overflow-hidden">
-          <img
-            src="/images/installation-gallery.jpg"
-            alt="Professional art installation"
-            class="w-full aspect-video object-cover hover:scale-105 transition-transform duration-700"
-          />
-        </div>
+      ))}
+    </div>
+
+    <!-- Consultancy image strip -->
+    <div class="grid grid-cols-3 border-b border-brand-border" data-fade>
+      <div class="overflow-hidden aspect-[4/3] col-span-2">
+        <img
+          src="/projects/wandler/Front main image.jpg"
+          alt="Creative direction — Wandler"
+          class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+          loading="lazy"
+        />
+      </div>
+      <div class="overflow-hidden aspect-[4/3]">
+        <img
+          src="/projects/arthur-harmonyst/Front main image.JPG"
+          alt="Exhibition — POLYGON1993"
+          class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
 
-  <!-- Service 2: Art Consultancy & Creative Direction -->
-  <section id="consultancy" class="px-8 md:px-12 py-24 border-t border-brand-border">
-    <div class="grid md:grid-cols-2 gap-20 items-start">
-      <div class="order-2 md:order-1 space-y-2">
-        <div class="overflow-hidden">
-          <img
-            src="/images/exhibition-space.jpg"
-            alt="Gallery exhibition space"
-            class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-700"
-          />
-        </div>
-        <div class="overflow-hidden">
-          <img
-            src="/images/curation-visitors.jpg"
-            alt="Visitors experiencing curated exhibition"
-            class="w-full aspect-video object-cover hover:scale-105 transition-transform duration-700"
-          />
-        </div>
-      </div>
-
-      <div class="order-1 md:order-2">
-        <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">02</p>
-        <h2 class="font-serif leading-tight mb-10" style="font-size: clamp(2rem, 4vw, 4rem);">
-          Art Consultancy, Creative<br />Direction &amp; Curation
+  <!-- Service 02: Framing & Installation -->
+  <section id="framing" class="border-t border-brand-border">
+    <!-- Service title row -->
+    <div class="px-8 md:px-12 py-16 md:flex md:items-end md:justify-between gap-20" data-fade-text>
+      <div class="flex items-start gap-6 md:gap-10">
+        <span class="text-brand-muted text-xs tracking-widest uppercase mt-1 flex-shrink-0">02</span>
+        <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 6rem);">
+          Framing,<br />Installation<br />&amp; Art Care
         </h2>
-        <div class="space-y-5 text-brand-muted leading-relaxed">
-          <p>
-            We work with private collectors, developers, hospitality brands and
-            organisations to build coherent, meaningful art programmes —
-            whether acquiring a first work or shaping an entire collection
-            strategy.
-          </p>
-          <p>
-            Our creative direction brings a strong curatorial perspective to
-            spaces and projects: developing narratives, identifying artists and
-            creating environments where art and context resonate together.
-          </p>
-          <p>
-            From artist commissions and exhibition development to brand
-            partnerships, we bring taste, rigour and practical experience to
-            every engagement.
-          </p>
-        </div>
+      </div>
+      <p class="text-brand-muted leading-relaxed max-w-sm mt-8 md:mt-0 flex-shrink-0">
+        A great frame does more than protect — it activates a work. We source,
+        design and produce bespoke frames in dialogue with the art itself,
+        working with conservation-grade materials and trusted craftspeople.
+      </p>
+    </div>
 
-        <ul class="mt-12 space-y-6 text-sm">
-          {[
-            { title: 'Art Advice', desc: 'Visit the property to advise on what type of art would fit and stand out in each area. Build a relationship to understand aspirations, taste and what the client is looking for.' },
-            { title: 'Art Curation', desc: 'Provide an array of ideas on how the art could be displayed, making the most of the space and its characteristics.' },
-            { title: 'Negotiating & Commissioning', desc: 'Work with artists to create the perfect piece for the project — negotiating price, timeline and deliverables.' },
-          ].map((item) => (
-            <li class="flex items-start gap-4">
-              <span class="mt-1.5 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
-              <span><strong class="font-medium text-brand-text">{item.title}</strong> — {item.desc}</span>
-            </li>
-          ))}
-        </ul>
+    <!-- Services grid -->
+    <div class="border-t border-brand-border grid md:grid-cols-2 lg:grid-cols-4">
+      {framingServices.map((item, i) => (
+        <div
+          class="px-8 md:px-10 py-10 border-b border-brand-border md:border-r"
+          data-fade
+          style={`transition-delay: ${(i % 4) * 80}ms`}
+        >
+          <p class="text-brand-muted text-xs tracking-widest uppercase mb-4">{String(i + 1).padStart(2, '0')}</p>
+          <p class="font-medium text-brand-text mb-3">{item.title}</p>
+          <p class="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Framing image strip -->
+    <div class="grid grid-cols-3 border-b border-brand-border" data-fade>
+      <div class="overflow-hidden aspect-[4/3]">
+        <img
+          src="/projects/ceysson-benetiere/Front main image.jpg"
+          alt="Framing — Ceysson & Bénétière"
+          class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+          loading="lazy"
+        />
+      </div>
+      <div class="overflow-hidden aspect-[4/3] col-span-2">
+        <img
+          src="/projects/framing/Front main image.jpg"
+          alt="Bespoke framing"
+          class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="px-8 md:px-12 py-28 border-t border-brand-border">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10" data-fade-text>
       <p class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 5vw, 6rem);">
         Ready to work<br />together?
       </p>
