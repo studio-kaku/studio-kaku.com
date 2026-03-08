@@ -1,49 +1,60 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const consultancyServices = [
+const services = [
   {
-    title: 'Art Advice',
-    desc: 'Visit the space to understand its character, then advise on what art would fit, stand out and start a conversation in each area.',
+    num: '01',
+    title: { en: 'Art Advice', ja: 'アートアドバイス' },
+    desc: {
+      en: 'Visit the space to understand its character, then advise on what art would fit, stand out and start a conversation in each area.',
+      ja: 'スペースを訪問してその個性を理解し、各エリアに最適なアート作品についてアドバイスします。',
+    },
+    image: '/placeholder-service.jpg',
   },
   {
-    title: 'Art Curation',
-    desc: 'Build a coherent programme — selecting artists, developing a narrative and making the most of what the space has to offer.',
+    num: '02',
+    title: { en: 'Art Curation', ja: 'アートキュレーション' },
+    desc: {
+      en: 'Build a coherent programme — selecting artists, developing a narrative and making the most of what the space has to offer.',
+      ja: 'アーティストの選定、物語の構築、空間の可能性を最大限に活かした一貫したプログラムを作成します。',
+    },
+    image: '/placeholder-service.jpg',
   },
   {
-    title: 'Artist Commissions',
-    desc: 'Introduce the right artist for a project and manage the commission from concept to delivery.',
+    num: '03',
+    title: { en: 'Artist Commissions', ja: 'アーティストコミッション' },
+    desc: {
+      en: 'Introduce the right artist for a project and manage the commission from concept to delivery.',
+      ja: 'プロジェクトに最適なアーティストを紹介し、コンセプトから納品までのコミッションを管理します。',
+    },
+    image: '/placeholder-service.jpg',
   },
   {
-    title: 'Negotiating & Acquiring',
-    desc: 'Work directly with galleries, artists and auction houses to agree on price, timeline and terms.',
+    num: '04',
+    title: { en: 'Negotiating & Acquiring', ja: '交渉と取得' },
+    desc: {
+      en: 'Work directly with galleries, artists and auction houses to agree on price, timeline and terms.',
+      ja: 'ギャラリー、アーティスト、オークションハウスと直接交渉し、価格、スケジュール、条件を決定します。',
+    },
+    image: '/placeholder-service.jpg',
   },
   {
-    title: 'Creative Direction',
-    desc: 'Shape the visual and conceptual identity of a project — from brand partnerships to hospitality and cultural institutions.',
+    num: '05',
+    title: { en: 'Bespoke Framing', ja: 'オーダーメイドフレーミング' },
+    desc: {
+      en: 'Design and produce frames in dialogue with the artwork — reviewing materials, mouldings and mounts for all sizes and media.',
+      ja: 'アートワークと対話しながらフレームをデザイン・制作。あらゆるサイズとメディアに対応した素材、モールディング、マウントを厳選します。',
+    },
+    image: '/placeholder-service.jpg',
   },
   {
-    title: 'Exhibition Development',
-    desc: 'Develop shows from scratch: concept, artist liaison, floor plans, timelines and on-site management.',
-  },
-];
-
-const framingServices = [
-  {
-    title: 'Bespoke Framing',
-    desc: 'Design and produce frames in dialogue with the artwork — reviewing materials, mouldings and mounts for all sizes and media.',
-  },
-  {
-    title: 'Shipment & Installation',
-    desc: 'Best-in-market door-to-door shipping with full installation, so clients have nothing to worry about.',
-  },
-  {
-    title: 'Exhibition Design & Hang',
-    desc: 'Larger-scale hanging programmes for galleries and institutions — advanced plans, timelines, concepts and on-site execution.',
-  },
-  {
-    title: 'Art Care & Advice',
-    desc: 'Guidance on storage, lighting, environmental conditions and handling so collections stay in peak condition for generations.',
+    num: '06',
+    title: { en: 'Shipment & Installation', ja: '輸送とインスタレーション' },
+    desc: {
+      en: 'Best-in-market door-to-door shipping with full installation, so clients have nothing to worry about.',
+      ja: '業界最高水準のドアツードア輸送と完全なインスタレーションサービスで、お客様がご心配いただくことは何もありません。',
+    },
+    image: '/placeholder-service.jpg',
   },
 ];
 ---
@@ -54,128 +65,104 @@ const framingServices = [
 >
   <!-- Page header -->
   <section class="px-8 md:px-12 pt-20 pb-16">
-    <p class="text-brand-muted text-xs tracking-widest uppercase mb-8" data-fade-text>What we do</p>
-    <h1 class="font-display uppercase leading-none" style="font-size: clamp(3rem, 9vw, 11rem);" data-fade-text style="transition-delay:60ms">Services</h1>
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-8" data-fade-text data-en="What we do" data-ja="サービス内容">What we do</p>
+    <h1 class="font-display uppercase leading-none" style="font-size: clamp(3rem, 9vw, 11rem);" data-fade-text data-en="Services" data-ja="サービス">Services</h1>
   </section>
 
-  <!-- Service 01: Art Consultancy -->
-  <section id="consultancy" class="border-t border-brand-border">
-    <!-- Service title row -->
-    <div class="px-8 md:px-12 py-16 md:flex md:items-end md:justify-between gap-20" data-fade-text>
-      <div class="flex items-start gap-6 md:gap-10">
-        <span class="text-brand-muted text-xs tracking-widest uppercase mt-1 flex-shrink-0">01</span>
-        <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 6rem);">
-          Art Consultancy,<br />Creative Direction<br />&amp; Curation
-        </h2>
-      </div>
-      <p class="text-brand-muted leading-relaxed max-w-sm mt-8 md:mt-0 flex-shrink-0">
-        We work with private collectors, developers, hospitality brands and
-        organisations to build coherent, meaningful art programmes — whether
-        acquiring a first work or shaping an entire collection strategy.
-      </p>
-    </div>
-
-    <!-- Services grid -->
-    <div class="border-t border-brand-border grid md:grid-cols-2 lg:grid-cols-3">
-      {consultancyServices.map((item, i) => (
-        <div
-          class="px-8 md:px-10 py-10 border-b border-brand-border md:border-r"
-          data-fade
-          style={`transition-delay: ${(i % 3) * 80}ms`}
+  <!-- Services accordion -->
+  <section class="border-t border-brand-border">
+    {services.map((item, i) => (
+      <div class="border-b border-brand-border service-item" data-index={i}>
+        <!-- Collapsed row (always visible) -->
+        <button
+          class="w-full px-8 md:px-12 py-8 flex items-center gap-6 md:gap-10 text-left group service-toggle"
+          aria-expanded="false"
         >
-          <p class="text-brand-muted text-xs tracking-widest uppercase mb-4">{String(i + 1).padStart(2, '0')}</p>
-          <p class="font-medium text-brand-text mb-3">{item.title}</p>
-          <p class="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
-        </div>
-      ))}
-    </div>
+          <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0">{item.num}</span>
+          <span class="font-display uppercase leading-none flex-1" style="font-size: clamp(1.4rem, 3.5vw, 3.5rem);" data-en={item.title.en} data-ja={item.title.ja}>{item.title.en}</span>
+          <!-- Plus / minus icon -->
+          <span class="flex-shrink-0 w-8 h-8 rounded-full border border-brand-border flex items-center justify-center transition-transform duration-300 group-aria-[expanded=true]:rotate-45 service-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="7" y1="0" x2="7" y2="14" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="0" y1="7" x2="14" y2="7" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </span>
+        </button>
 
-    <!-- Consultancy image strip -->
-    <div class="grid grid-cols-3 border-b border-brand-border" data-fade>
-      <div class="overflow-hidden aspect-[4/3] col-span-2">
-        <img
-          src="/projects/wandler/Front main image.jpg"
-          alt="Creative direction — Wandler"
-          class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-          loading="lazy"
-        />
+        <!-- Expanded panel -->
+        <div class="service-panel overflow-hidden" style="max-height: 0; transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1);">
+          <div class="px-8 md:px-12 pb-12 grid md:grid-cols-2 gap-10 items-start">
+            <!-- Description -->
+            <p class="text-brand-muted leading-relaxed max-w-md service-desc" data-en={item.desc.en} data-ja={item.desc.ja}>{item.desc.en}</p>
+            <!-- Placeholder image -->
+            <div class="aspect-[4/3] bg-brand-border overflow-hidden">
+              <div class="w-full h-full flex items-center justify-center text-brand-muted text-sm tracking-wide uppercase">
+                Image coming soon
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="overflow-hidden aspect-[4/3]">
-        <img
-          src="/projects/arthur-harmonyst/Front main image.JPG"
-          alt="Exhibition — POLYGON1993"
-          class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-          loading="lazy"
-        />
-      </div>
-    </div>
+    ))}
   </section>
 
-  <!-- Service 02: Framing & Installation -->
-  <section id="framing" class="border-t border-brand-border">
-    <!-- Service title row -->
-    <div class="px-8 md:px-12 py-16 md:flex md:items-end md:justify-between gap-20" data-fade-text>
-      <div class="flex items-start gap-6 md:gap-10">
-        <span class="text-brand-muted text-xs tracking-widest uppercase mt-1 flex-shrink-0">02</span>
-        <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 6rem);">
-          Framing,<br />Installation<br />&amp; Art Care
-        </h2>
-      </div>
-      <p class="text-brand-muted leading-relaxed max-w-sm mt-8 md:mt-0 flex-shrink-0">
-        A great frame does more than protect — it activates a work. We source,
-        design and produce bespoke frames in dialogue with the art itself,
-        working with conservation-grade materials and trusted craftspeople.
-      </p>
+  <!-- Image strip -->
+  <div class="grid grid-cols-3 border-b border-brand-border" data-fade>
+    <div class="overflow-hidden aspect-[4/3] col-span-2">
+      <img
+        src="/projects/wandler/Front main image.jpg"
+        alt="Creative direction — Wandler"
+        class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+        loading="lazy"
+      />
     </div>
-
-    <!-- Services grid -->
-    <div class="border-t border-brand-border grid md:grid-cols-2 lg:grid-cols-4">
-      {framingServices.map((item, i) => (
-        <div
-          class="px-8 md:px-10 py-10 border-b border-brand-border md:border-r"
-          data-fade
-          style={`transition-delay: ${(i % 4) * 80}ms`}
-        >
-          <p class="text-brand-muted text-xs tracking-widest uppercase mb-4">{String(i + 1).padStart(2, '0')}</p>
-          <p class="font-medium text-brand-text mb-3">{item.title}</p>
-          <p class="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
-        </div>
-      ))}
+    <div class="overflow-hidden aspect-[4/3]">
+      <img
+        src="/projects/ceysson-benetiere/Front main image.jpg"
+        alt="Framing — Ceysson & Bénétière"
+        class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+        loading="lazy"
+      />
     </div>
-
-    <!-- Framing image strip -->
-    <div class="grid grid-cols-3 border-b border-brand-border" data-fade>
-      <div class="overflow-hidden aspect-[4/3]">
-        <img
-          src="/projects/ceysson-benetiere/Front main image.jpg"
-          alt="Framing — Ceysson & Bénétière"
-          class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-          loading="lazy"
-        />
-      </div>
-      <div class="overflow-hidden aspect-[4/3] col-span-2">
-        <img
-          src="/projects/framing/Front main image.jpg"
-          alt="Bespoke framing"
-          class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-          loading="lazy"
-        />
-      </div>
-    </div>
-  </section>
+  </div>
 
   <!-- CTA -->
   <section class="px-8 md:px-12 py-28 border-t border-brand-border">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10" data-fade-text>
-      <p class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 5vw, 6rem);">
+      <p class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 5vw, 6rem);" data-en="Ready to work together?" data-ja="一緒に取り組みませんか？">
         Ready to work<br />together?
       </p>
       <a
         href="/contact"
         class="inline-block bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity flex-shrink-0"
+        data-en="Get in Touch"
+        data-ja="お問い合わせ"
       >
         Get in Touch
       </a>
     </div>
   </section>
 </Layout>
+
+<script>
+  // Accordion
+  document.querySelectorAll('.service-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.service-item') as HTMLElement;
+      const panel = item?.querySelector('.service-panel') as HTMLElement;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close all
+      document.querySelectorAll('.service-toggle').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+      document.querySelectorAll('.service-panel').forEach((p) => {
+        (p as HTMLElement).style.maxHeight = '0';
+      });
+
+      // Open clicked (if it was closed)
+      if (!isOpen && panel) {
+        btn.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
