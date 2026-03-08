@@ -20,8 +20,10 @@ import { projects } from '../../data/projects.js';
           <a
             href={`/projects/${project.slug}`}
             class={`group${featured ? ' col-span-2' : ''}`}
+            data-fade
+            style={`transition-delay: ${(i % 3) * 80}ms`}
           >
-            <div class={`overflow-hidden${featured ? ' aspect-[3/2]' : ' aspect-[3/4]'}`}>
+            <div class="overflow-hidden aspect-[3/2]">
               <img
                 src={`/projects/${project.slug}/${encodeURIComponent(project.cover)}`}
                 alt={project.title}
