@@ -30,6 +30,76 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
     </div>
   </section>
 
+  <!-- Journal carousel -->
+  <section class="py-12 md:py-20 border-t border-brand-border mt-1">
+    <div class="px-8 md:px-12 flex items-end justify-between mb-10">
+      <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">Journal</h2>
+      <a
+        href="/journal"
+        class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity flex-shrink-0"
+      >
+        View all
+      </a>
+    </div>
+    <!-- Draggable carousel -->
+    <div
+      id="journal-carousel"
+      class="flex gap-5 overflow-x-auto px-8 md:px-12 pb-4 cursor-grab select-none"
+      style="scrollbar-width: none; -ms-overflow-style: none;"
+    >
+      {journalEntries.map((entry) => (
+        <a
+          href={`/projects/${entry.slug}`}
+          class="group flex-none w-72 md:w-80"
+          draggable="false"
+        >
+          <div class="overflow-hidden aspect-[3/4] bg-brand-border mb-4">
+            <img
+              src={`/projects/${entry.slug}/${encodeURIComponent(entry.cover)}`}
+              alt={entry.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+              loading="lazy"
+              draggable="false"
+            />
+          </div>
+          <p class="text-xs text-brand-muted tracking-widest uppercase mb-1">{entry.year}</p>
+          <p class="font-display uppercase leading-tight text-lg group-hover:opacity-50 transition-opacity">{entry.title}</p>
+          <p class="text-xs text-brand-muted mt-1">{entry.tagline}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <script>
+    const carousel = document.getElementById('journal-carousel');
+    if (carousel) {
+      let isDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+      let moved = false;
+
+      carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        moved = false;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        carousel.style.cursor = 'grabbing';
+      });
+      carousel.addEventListener('mouseleave', () => { isDown = false; carousel.style.cursor = 'grab'; });
+      carousel.addEventListener('mouseup', () => { isDown = false; carousel.style.cursor = 'grab'; });
+      carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        if (Math.abs(walk) > 4) moved = true;
+        carousel.scrollLeft = scrollLeft - walk;
+      });
+      // Single delegated listener prevents navigation after a drag
+      carousel.addEventListener('click', (e) => { if (moved) e.preventDefault(); }, true);
+    }
+  </script>
+
   <!-- Projects preview -->
   <section class="px-8 md:px-12 py-12 md:py-20 border-t border-brand-border mt-1">
     <div class="flex items-end justify-between mb-10">
@@ -123,76 +193,6 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
       ))}
     </div>
   </section>
-
-  <!-- Journal carousel -->
-  <section class="py-12 md:py-20 border-t border-brand-border mt-1">
-    <div class="px-8 md:px-12 flex items-end justify-between mb-10">
-      <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">Journal</h2>
-      <a
-        href="/journal"
-        class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity flex-shrink-0"
-      >
-        View all
-      </a>
-    </div>
-    <!-- Draggable carousel -->
-    <div
-      id="journal-carousel"
-      class="flex gap-5 overflow-x-auto px-8 md:px-12 pb-4 cursor-grab select-none"
-      style="scrollbar-width: none; -ms-overflow-style: none;"
-    >
-      {journalEntries.map((entry) => (
-        <a
-          href={`/projects/${entry.slug}`}
-          class="group flex-none w-72 md:w-80"
-          draggable="false"
-        >
-          <div class="overflow-hidden aspect-[3/4] bg-brand-border mb-4">
-            <img
-              src={`/projects/${entry.slug}/${encodeURIComponent(entry.cover)}`}
-              alt={entry.title}
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
-              loading="lazy"
-              draggable="false"
-            />
-          </div>
-          <p class="text-xs text-brand-muted tracking-widest uppercase mb-1">{entry.year}</p>
-          <p class="font-display uppercase leading-tight text-lg group-hover:opacity-50 transition-opacity">{entry.title}</p>
-          <p class="text-xs text-brand-muted mt-1">{entry.tagline}</p>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <script>
-    const carousel = document.getElementById('journal-carousel');
-    if (carousel) {
-      let isDown = false;
-      let startX = 0;
-      let scrollLeft = 0;
-      let moved = false;
-
-      carousel.addEventListener('mousedown', (e) => {
-        isDown = true;
-        moved = false;
-        startX = e.pageX - carousel.offsetLeft;
-        scrollLeft = carousel.scrollLeft;
-        carousel.style.cursor = 'grabbing';
-      });
-      carousel.addEventListener('mouseleave', () => { isDown = false; carousel.style.cursor = 'grab'; });
-      carousel.addEventListener('mouseup', () => { isDown = false; carousel.style.cursor = 'grab'; });
-      carousel.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - carousel.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        if (Math.abs(walk) > 4) moved = true;
-        carousel.scrollLeft = scrollLeft - walk;
-      });
-      // Single delegated listener prevents navigation after a drag
-      carousel.addEventListener('click', (e) => { if (moved) e.preventDefault(); }, true);
-    }
-  </script>
 
   <!-- CTA -->
   <section class="px-8 md:px-12 py-16 md:py-28 border-t border-brand-border">
