@@ -13,9 +13,10 @@ const currentPath = Astro.url.pathname;
 <header class="border-b border-brand-border">
   <div class="px-8 md:px-12 py-6 flex items-center justify-between">
     <a href="/" class="hover:opacity-70 transition-opacity">
-      <img src="/logo.png" alt="Studio Kaku" class="h-14 w-auto" />
+      <img src="/studiokakulogo-03.png" alt="Studio Kaku" class="h-10 md:h-14 w-auto" />
     </a>
-    <nav class="flex items-center gap-10">
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-10">
       {nav.map(({ label, href }) => (
         <a
           href={href}
@@ -27,5 +28,57 @@ const currentPath = Astro.url.pathname;
         </a>
       ))}
     </nav>
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden flex flex-col gap-1.5 p-2 -mr-2"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <span class="block w-6 h-px bg-brand-text transition-all duration-300" id="bar1"></span>
+      <span class="block w-6 h-px bg-brand-text transition-all duration-300" id="bar2"></span>
+      <span class="block w-6 h-px bg-brand-text transition-all duration-300" id="bar3"></span>
+    </button>
+  </div>
+  <!-- Mobile nav panel -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden border-t border-brand-border bg-brand-bg"
+  >
+    <nav class="px-8 py-8 flex flex-col gap-6">
+      {nav.map(({ label, href }) => (
+        <a
+          href={href}
+          class={`text-base tracking-widest transition-opacity hover:opacity-70 ${
+            currentPath.startsWith(href) ? 'opacity-100 font-medium' : 'opacity-60'
+          }`}
+        >
+          {label.toUpperCase()}
+        </a>
+      ))}
+    </nav>
   </div>
 </header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn') as HTMLButtonElement;
+  const menu = document.getElementById('mobile-menu') as HTMLDivElement;
+  const bar1 = document.getElementById('bar1') as HTMLSpanElement;
+  const bar2 = document.getElementById('bar2') as HTMLSpanElement;
+  const bar3 = document.getElementById('bar3') as HTMLSpanElement;
+
+  btn?.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    menu.classList.toggle('hidden');
+    if (!isOpen) {
+      bar1.style.transform = 'translateY(7px) rotate(45deg)';
+      bar2.style.opacity = '0';
+      bar3.style.transform = 'translateY(-7px) rotate(-45deg)';
+    } else {
+      bar1.style.transform = '';
+      bar2.style.opacity = '';
+      bar3.style.transform = '';
+    }
+  });
+</script>
