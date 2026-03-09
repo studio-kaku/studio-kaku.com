@@ -145,20 +145,18 @@ const services = [
 </Layout>
 
 <script>
-  // Accordion
-  document.querySelectorAll('.service-toggle').forEach((btn) => {
+  // Accordion — cache queries once, reuse on every click
+  const toggles = document.querySelectorAll<HTMLButtonElement>('.service-toggle');
+  const panels = document.querySelectorAll<HTMLElement>('.service-panel');
+
+  toggles.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const item = btn.closest('.service-item') as HTMLElement;
-      const panel = item?.querySelector('.service-panel') as HTMLElement;
+      const panel = btn.closest('.service-item')?.querySelector<HTMLElement>('.service-panel');
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
-      // Close all
-      document.querySelectorAll('.service-toggle').forEach((b) => b.setAttribute('aria-expanded', 'false'));
-      document.querySelectorAll('.service-panel').forEach((p) => {
-        (p as HTMLElement).style.maxHeight = '0';
-      });
+      toggles.forEach((b) => b.setAttribute('aria-expanded', 'false'));
+      panels.forEach((p) => { p.style.maxHeight = '0'; });
 
-      // Open clicked (if it was closed)
       if (!isOpen && panel) {
         btn.setAttribute('aria-expanded', 'true');
         panel.style.maxHeight = panel.scrollHeight + 'px';

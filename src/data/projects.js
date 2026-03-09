@@ -45,8 +45,11 @@ export const projects = [
       { label: "Curation & Direction", value: "Eleanor Ford" },
     ],
     description: "Curation and creative direction for a supper club evening at KURA.",
-    cover: "cover.JPG",
-    images: ["cover.JPG", "image2.JPG"],
+    cover: "Supper Club KURA - Sept 2025 - Curation and direction .JPG",
+    images: [
+      "Supper Club KURA - Sept 2025 - Curation and direction .JPG",
+      "Supper Club KURA - Sept 2025 - Curation and direction 2.JPG",
+    ],
   },
   {
     slug: "rothko-framing",
@@ -57,8 +60,11 @@ export const projects = [
     year: "September 2025",
     credits: [],
     description: "Framing commission for a Rothko work.",
-    cover: "cover.jpg",
-    images: ["cover.jpg", "image2.jpg"],
+    cover: "Mark Ruthko - Sept 2025 - Framing .jpg",
+    images: [
+      "Mark Ruthko - Sept 2025 - Framing .jpg",
+      "Mark Ruthko - Sept 2025 - Framing 2 .jpg",
+    ],
   },
   {
     slug: "murakami-framing",
@@ -69,8 +75,11 @@ export const projects = [
     year: "July 2025",
     credits: [],
     description: "Framing commission for a Murakami work.",
-    cover: "cover.jpg",
-    images: ["cover.jpg", "image2.jpg"],
+    cover: "Murakami - July 2025 - Framing.jpg",
+    images: [
+      "Murakami - July 2025 - Framing.jpg",
+      "Murakami - July 2025 - Framing 1.jpg",
+    ],
   },
   {
     slug: "taanami-keiichi",
