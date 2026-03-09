@@ -73,12 +73,42 @@ const services = [
   <!-- Page header -->
   <section class="px-8 md:px-12 pt-14 md:pt-20 pb-10 md:pb-16">
     <p class="text-brand-muted text-xs tracking-widest uppercase mb-8" data-fade-text data-en="What we do" data-ja="サービス内容">What we do</p>
-    <h1 class="font-display uppercase leading-none" style="font-size: clamp(3rem, 9vw, 11rem);" data-fade-text data-en="Services" data-ja="サービス">Services</h1>
+    <h1 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);" data-fade-text data-en="Services" data-ja="サービス">Services</h1>
   </section>
 
   <!-- Services list -->
   <section class="border-t border-brand-border">
-    {services.map((item, i) => (
+    {services.map((item, i) => item.link ? (
+      <div
+        class="group flex items-center justify-between gap-8 px-8 md:px-12 py-8 border-b border-brand-border hover:bg-brand-border/30 transition-colors"
+        data-fade
+        style={`transition-delay: ${i * 60}ms`}
+      >
+        <div class="flex items-baseline gap-6 md:gap-10 min-w-0">
+          <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{item.num}</span>
+          <div class="min-w-0">
+            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1.5rem, 3.5vw, 3rem);" data-en={item.title.en} data-ja={item.title.ja}>{item.title.en}</p>
+            <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block" data-en={item.desc.en} data-ja={item.desc.ja}>{item.desc.en}</p>
+            <a
+              href={item.link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hidden md:inline-block mt-4 border border-brand-text px-5 py-2 text-xs tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors"
+            >
+              For more details on framing, visit Juka Framing
+            </a>
+          </div>
+        </div>
+        <div class="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 overflow-hidden">
+          <img
+            src={item.img}
+            alt={item.title.en}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    ) : (
       <a
         href={item.href}
         class="group flex items-center justify-between gap-8 px-8 md:px-12 py-8 border-b border-brand-border hover:bg-brand-border/30 transition-colors"
@@ -90,11 +120,6 @@ const services = [
           <div class="min-w-0">
             <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1.5rem, 3.5vw, 3rem);" data-en={item.title.en} data-ja={item.title.ja}>{item.title.en}</p>
             <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block" data-en={item.desc.en} data-ja={item.desc.ja}>{item.desc.en}</p>
-          {item.link && (
-            <a href={item.link.href} target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="hidden md:inline-block mt-2 text-xs tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity">
-              {item.link.label}
-            </a>
-          )}
           </div>
         </div>
         <div class="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 overflow-hidden">

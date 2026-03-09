@@ -26,7 +26,7 @@ const team = [
   <!-- Page header -->
   <section class="px-8 md:px-12 pt-14 md:pt-20 pb-10 md:pb-16">
     <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">Who we are</p>
-    <h1 class="font-display uppercase leading-none" style="font-size: clamp(3rem, 9vw, 11rem);">About Studio Kaku</h1>
+    <h1 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">About Studio Kaku</h1>
   </section>
 
   <!-- Mission -->
@@ -57,7 +57,7 @@ const team = [
     <div class="grid md:grid-cols-2 gap-14 md:gap-20">
       {team.map((member) => (
         <div>
-          <div class="w-48 aspect-[3/4] overflow-hidden mb-6">
+          <div class="w-full aspect-[3/4] overflow-hidden mb-6">
             <img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top" />
           </div>
           <h3 class="font-serif text-xl mb-1">{member.name}</h3>
