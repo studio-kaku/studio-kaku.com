@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { projects } from '../data/projects.js';
-const featuredProjects = projects.filter(p => !p.journal).slice(0, 6);
+const featuredProjects = projects.filter(p => !p.journal && p.slug !== 'tcs-2025').slice(0, 5);
 const journalEntries = projects.filter(p => p.journal).slice(0, 8);
 ---
 
 <Layout title="Home">
   <!-- Hero -->
-  <section class="px-8 md:px-12 pt-24 pb-12">
+  <section class="px-8 md:px-12 pt-14 md:pt-24 pb-8 md:pb-12">
     <h1
       class="font-display uppercase leading-[0.9] mb-14"
       style="font-size: clamp(3rem, 9vw, 11rem);"
@@ -31,7 +31,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
   </section>
 
   <!-- Projects preview -->
-  <section class="px-8 md:px-12 py-20 border-t border-brand-border mt-1">
+  <section class="px-8 md:px-12 py-12 md:py-20 border-t border-brand-border mt-1">
     <div class="flex items-end justify-between mb-10">
       <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">Projects</h2>
       <a
@@ -67,7 +67,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
   </section>
 
   <!-- Two services -->
-  <section class="px-8 md:px-12 py-28 grid md:grid-cols-2 gap-20 border-t border-brand-border mt-1">
+  <section class="px-8 md:px-12 py-16 md:py-28 grid md:grid-cols-2 gap-12 md:gap-20 border-t border-brand-border mt-1">
     <div data-fade-text>
       <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">01</p>
       <h2 class="font-serif text-4xl md:text-5xl mb-6">Framing, Installation &amp; Art Care</h2>
@@ -101,7 +101,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
   </section>
 
   <!-- Selected Clients -->
-  <section class="px-8 md:px-12 py-20 border-t border-brand-border">
+  <section class="px-8 md:px-12 py-12 md:py-20 border-t border-brand-border">
     <p class="text-brand-muted text-xs tracking-widest uppercase mb-12">Selected Clients</p>
     <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
       {[
@@ -125,7 +125,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
   </section>
 
   <!-- Journal carousel -->
-  <section class="py-20 border-t border-brand-border mt-1">
+  <section class="py-12 md:py-20 border-t border-brand-border mt-1">
     <div class="px-8 md:px-12 flex items-end justify-between mb-10">
       <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">Journal</h2>
       <a
@@ -195,7 +195,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
   </script>
 
   <!-- CTA -->
-  <section class="px-8 md:px-12 py-28 border-t border-brand-border">
+  <section class="px-8 md:px-12 py-16 md:py-28 border-t border-brand-border">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
       <p class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 5vw, 6rem);">
         Ready to work<br />together?
