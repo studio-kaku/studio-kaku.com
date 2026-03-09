@@ -36,11 +36,12 @@ const services = [
     num: '04',
     title: { en: 'Framing', ja: 'フレーミング' },
     desc: {
-      en: 'Source custom-made framing to enhance the beauty of the artwork, reviewing the different materials for all different sizes and types of artwork.',
+      en: 'Source custom-made framing to enhance the beauty of the artwork, reviewing the different materials for all different sizes and types of artwork. Framing by Juka Framing.',
       ja: 'アートワークの美しさを引き立てるオーダーメイドの額縁を提供します。さまざまなサイズやタイプの作品に最適な素材を検討します。',
     },
     img: '/images/services/framing.jpg',
     href: '#framing',
+    link: { label: 'jukaframing.com', href: 'http://jukaframing.com' },
   },
   {
     num: '05',
@@ -89,6 +90,11 @@ const services = [
           <div class="min-w-0">
             <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1.5rem, 3.5vw, 3rem);" data-en={item.title.en} data-ja={item.title.ja}>{item.title.en}</p>
             <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block" data-en={item.desc.en} data-ja={item.desc.ja}>{item.desc.en}</p>
+          {item.link && (
+            <a href={item.link.href} target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="hidden md:inline-block mt-2 text-xs tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity">
+              {item.link.label}
+            </a>
+          )}
           </div>
         </div>
         <div class="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 overflow-hidden">
