@@ -267,6 +267,26 @@ export const projects = [
   // ── Portfolio projects (journal: false) — newest first ──────────────────
 
   {
+    slug: "wandler-kamei",
+    title: "Wandler × Kamei san",
+    tagline: "Creative direction & artist management",
+    subtitle: "Creative Direction & Artist Management",
+    year: "",
+    credits: [
+      { label: "Brand", value: "Wandler" },
+      { label: "Artist", value: "Norihiko Kamei" },
+      { label: "Filmmaker", value: "Christopher Nicholls" },
+    ],
+    description: `Alongside the Isetan pop-up store design, we staged Wandler's bags in the studio of moss artist Norihiko Kamei san — a space that felt entirely his own, textured and alive. The bags sat naturally within his world, filmed by Christopher Nicholls.`,
+    video: "16-9_2nd Delivery.mp4",
+    cover: "DSC_2263.JPG",
+    images: [
+      "DSC_2263.JPG","DSC_2271.JPG","DSC_2290.JPG",
+      "All Footage_1.jpg","All Footage_2.jpg",
+      "All Footage_10.jpg","All Footage_14.jpg","All Footage_15.jpg",
+    ],
+  },
+  {
     slug: "wandler",
     title: "WANDLER",
     tagline: "Creative direction & artist management",
@@ -286,26 +306,6 @@ export const projects = [
       "WANDLER_014.jpg","WANDLER_012.jpg","WANDLER_004.jpg","WANDLER_005.jpg",
       "WANDLER_039.jpg","WANDLER_061.jpg","WANDLER_048.jpg","WANDLER_058.jpg",
       "WANDLER_042.jpg","WANDLER_020.jpg","WANDLER_037.jpg","WANDLER_026.jpg",
-    ],
-  },
-  {
-    slug: "wandler-kamei",
-    title: "Wandler × Kamei san",
-    tagline: "Creative direction & artist management",
-    subtitle: "Creative Direction & Artist Management",
-    year: "",
-    credits: [
-      { label: "Brand", value: "Wandler" },
-      { label: "Artist", value: "Norihiko Kamei" },
-      { label: "Filmmaker", value: "Christopher Nicholls" },
-    ],
-    description: `Alongside the Isetan pop-up store design, we staged Wandler's bags in the studio of moss artist Norihiko Kamei san — a space that felt entirely his own, textured and alive. The bags sat naturally within his world, filmed by Christopher Nicholls.`,
-    video: "16-9_2nd Delivery.mp4",
-    cover: "DSC_2263.JPG",
-    images: [
-      "DSC_2263.JPG","DSC_2271.JPG","DSC_2290.JPG",
-      "All Footage_1.jpg","All Footage_2.jpg",
-      "All Footage_10.jpg","All Footage_14.jpg","All Footage_15.jpg",
     ],
   },
   {
