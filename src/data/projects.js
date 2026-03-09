@@ -2,6 +2,21 @@ export const projects = [
   // ── Journal entries (journal: true) — newest first ──────────────────────
 
   {
+    slug: "supper-club-kura-2026",
+    journal: true,
+    title: "Supper Club KURA",
+    tagline: "Curation & direction",
+    subtitle: "UltraSuperNew KURA",
+    year: "February 2026",
+    credits: [
+      { label: "Venue", value: "UltraSuperNew KURA" },
+      { label: "Curation & Direction", value: "Eleanor Ford" },
+    ],
+    description: "Curation and creative direction for a supper club evening at KURA.",
+    cover: "cover.png",
+    images: ["cover.png", "image2.png", "image3.png", "image4.png", "image5.png", "image6.png", "image7.png"],
+  },
+  {
     slug: "event-of-disinformation",
     journal: true,
     title: "Event of Disinformation",
@@ -30,8 +45,8 @@ export const projects = [
       { label: "Curation & Installation", value: "Eleanor Ford" },
     ],
     description: "Curation and installation for Conal Kelley's first solo exhibition at UltraSuperNew KURA.",
-    cover: "L1000681 copy.jpg",
-    images: ["L1000681 copy.jpg", "IMG_3429.PNG", "IMG_3430.PNG", "IMG_3432.PNG", "IMG_3435.PNG"],
+    cover: "Front image.PNG",
+    images: ["Front image.PNG", "L1000681 copy.jpg", "IMG_3429.PNG", "IMG_3430.PNG", "IMG_3432.PNG", "IMG_3435.PNG"],
   },
   {
     slug: "supper-club-kura",
@@ -82,6 +97,21 @@ export const projects = [
     ],
   },
   {
+    slug: "yusuke-kuriki",
+    journal: true,
+    title: "Yusuke Kuriki & Vincent Ruffin",
+    tagline: "Curation & installation",
+    subtitle: "Exhibition",
+    year: "July 2025",
+    credits: [
+      { label: "Artists", value: "Yusuke Kuriki & Vincent Ruffin" },
+      { label: "Curation & Installation", value: "Eleanor Ford" },
+    ],
+    description: "Curation and installation for an exhibition with Yusuke Kuriki and Vincent Ruffin.",
+    cover: "cover.JPG",
+    images: ["cover.JPG"],
+  },
+  {
     slug: "taanami-keiichi",
     journal: true,
     title: "Taanami Keiichi",
@@ -94,6 +124,21 @@ export const projects = [
     description: "Framing commission for Taanami Keiichi.",
     cover: "cover.jpeg",
     images: ["cover.jpeg"],
+  },
+  {
+    slug: "ian-lynam",
+    journal: true,
+    title: "Ian Lynam",
+    tagline: "Artist management",
+    subtitle: "Exhibition",
+    year: "June 2025",
+    credits: [
+      { label: "Artist", value: "Ian Lynam" },
+      { label: "Management", value: "Eleanor Ford" },
+    ],
+    description: "Artist management for Ian Lynam.",
+    cover: "cover.jpg",
+    images: ["cover.jpg", "image2.jpg", "image3.jpg"],
   },
   {
     slug: "kaneko-exhibition",
@@ -133,6 +178,21 @@ export const projects = [
     description: "Project management for Takeru Amano's exhibition at Jaski Gallery, Amsterdam.",
     cover: "cover.jpeg",
     images: ["cover.jpeg"],
+  },
+  {
+    slug: "marc-ressang",
+    journal: true,
+    title: "Marc Ressang",
+    tagline: "Curation & installation",
+    subtitle: "Exhibition",
+    year: "March 2025",
+    credits: [
+      { label: "Artist", value: "Marc Ressang" },
+      { label: "Curation & Installation", value: "Eleanor Ford" },
+    ],
+    description: "Curation and installation for Marc Ressang.",
+    cover: "cover.jpg",
+    images: ["cover.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.png"],
   },
   {
     slug: "polygon1993-jan-2024",
@@ -246,6 +306,24 @@ export const projects = [
       "DSC_2263.JPG","DSC_2271.JPG","DSC_2290.JPG",
       "All Footage_1.jpg","All Footage_2.jpg",
       "All Footage_10.jpg","All Footage_14.jpg","All Footage_15.jpg",
+    ],
+  },
+  {
+    slug: "duncan-swann",
+    title: "Duncan Swann",
+    tagline: "Curation, framing & installation",
+    subtitle: "Exhibition",
+    year: "December 2025",
+    credits: [
+      { label: "Artist", value: "Duncan Swann" },
+      { label: "Curation, Framing & Installation", value: "Eleanor Ford" },
+    ],
+    description: "Curation, framing and installation for Duncan Swann's exhibition.",
+    cover: "DSC03378.jpg",
+    images: [
+      "DSC03378.jpg","DSC03384.jpg","DSC03424.jpg",
+      "DSC03504.JPG","DSC03510.JPG","DSC03514.JPG",
+      "DSC03520.JPG","DSC03529.JPG","DSC03530.JPG",
     ],
   },
   {
