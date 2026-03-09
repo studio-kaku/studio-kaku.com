@@ -136,36 +136,67 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
     </div>
   </section>
 
-  <!-- Two services -->
-  <section class="px-8 md:px-12 py-16 md:py-28 grid md:grid-cols-2 gap-12 md:gap-20 border-t border-brand-border mt-1">
-    <div data-fade-text>
-      <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">01</p>
-      <h2 class="font-serif text-4xl md:text-5xl mb-6">Framing, Installation &amp; Art Care</h2>
-      <p class="text-brand-muted leading-relaxed mb-8">
-        Expert framing and professional installation for works of all scales,
-        alongside guidance on how to live with and look after your art for
-        generations to come.
-      </p>
-      <a
-        href="/services#framing"
-        class="text-sm tracking-wide underline underline-offset-4 hover:opacity-50 transition-opacity"
-      >
-        Learn more
-      </a>
+  <!-- Services list -->
+  <section class="border-t border-brand-border mt-1">
+    <div class="px-8 md:px-12 pt-16 md:pt-24 pb-4">
+      <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">Services</h2>
     </div>
-    <div data-fade-text style="transition-delay: 120ms">
-      <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">02</p>
-      <h2 class="font-serif text-4xl md:text-5xl mb-6">Art Consultancy &amp; Creative Direction</h2>
-      <p class="text-brand-muted leading-relaxed mb-8">
-        Strategic art consultancy, curatorial vision and creative direction for
-        private collectors, corporate clients and cultural institutions seeking
-        a distinctive voice.
-      </p>
+    {[
+      {
+        num: '01',
+        title: 'Framing',
+        description: 'Expert framing for works of all scales, using archival materials and bespoke mouldings suited to each piece.',
+        href: '/services#framing',
+        img: '/images/services/framing.jpg',
+      },
+      {
+        num: '02',
+        title: 'Shipment & Installation',
+        description: 'Professional handling, transport and installation for private collectors, galleries and institutions.',
+        href: '/services#framing',
+        img: '/images/services/shipment-and-installation.webp',
+      },
+      {
+        num: '03',
+        title: 'Exhibition Design',
+        description: 'Spatial planning and exhibition design that brings curatorial ideas to life in any setting.',
+        href: '/services#consultancy',
+        img: '/images/services/exhibition-design.jpg',
+      },
+      {
+        num: '04',
+        title: 'Art Curation',
+        description: 'Strategic art consultancy and curatorial direction for collectors, corporate clients and cultural institutions.',
+        href: '/services#consultancy',
+        img: '/images/services/art-curation.jpg',
+      },
+    ].map((service, i) => (
       <a
-        href="/services#consultancy"
-        class="text-sm tracking-wide underline underline-offset-4 hover:opacity-50 transition-opacity"
+        href={service.href}
+        class="group flex items-center justify-between gap-8 px-8 md:px-12 py-8 border-t border-brand-border hover:bg-brand-border/30 transition-colors"
+        data-fade
+        style={`transition-delay: ${i * 60}ms`}
       >
-        Learn more
+        <div class="flex items-baseline gap-6 md:gap-10 min-w-0">
+          <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{service.num}</span>
+          <div class="min-w-0">
+            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1.5rem, 3.5vw, 3rem);">{service.title}</p>
+            <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block">{service.description}</p>
+          </div>
+        </div>
+        <div class="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 overflow-hidden">
+          <img
+            src={service.img}
+            alt={service.title}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
+        </div>
+      </a>
+    ))}
+    <div class="px-8 md:px-12 py-8 border-t border-brand-border">
+      <a href="/services" class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity">
+        View all services
       </a>
     </div>
   </section>
