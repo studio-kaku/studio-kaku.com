@@ -14,50 +14,30 @@ const entries = projects.filter(p => p.journal);
     </p>
   </section>
 
-  <section class="border-t border-brand-border">
-    {entries.map((entry, i) => (
-      <article
-        class="grid md:grid-cols-2 gap-0 border-b border-brand-border"
-        data-fade
-        style={`transition-delay: ${i * 100}ms`}
-      >
-        <!-- Image -->
+  <section class="px-8 md:px-12 pb-20 border-t border-brand-border pt-10">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7">
+      {entries.map((entry, i) => (
         <a
           href={`/projects/${entry.slug}`}
-          class={`block overflow-hidden aspect-[4/3] group${i % 2 === 1 ? ' md:order-2' : ''}`}
+          class="group"
+          data-fade
+          style={`transition-delay: ${(i % 3) * 80}ms`}
         >
-          <img
-            src={`/projects/${entry.slug}/${encodeURIComponent(entry.cover)}`}
-            alt={entry.title}
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          />
-        </a>
-
-        <!-- Text -->
-        <div class={`flex flex-col justify-center px-10 py-14 md:py-20${i % 2 === 1 ? ' md:order-1' : ''}`}>
-          {entry.year && (
-            <p class="text-brand-muted text-xs tracking-widest uppercase mb-6">{entry.year}</p>
-          )}
-          <h2 class="font-display uppercase leading-none mb-4" style="font-size: clamp(2rem, 4vw, 4rem);">
-            {entry.title}
-          </h2>
+          <div class="overflow-hidden aspect-[3/4] bg-brand-border mb-4">
+            <img
+              src={`/projects/${entry.slug}/${encodeURIComponent(entry.cover)}`}
+              alt={entry.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <p class="text-xs text-brand-muted tracking-widest uppercase mb-1">{entry.year}</p>
+          <p class="font-display uppercase leading-tight text-lg group-hover:opacity-50 transition-opacity">{entry.title}</p>
           {entry.tagline && (
-            <p class="text-brand-muted text-sm tracking-wide uppercase mb-8">{entry.tagline}</p>
+            <p class="text-xs text-brand-muted mt-1">{entry.tagline}</p>
           )}
-          {entry.description && (
-            <p class="text-brand-muted leading-relaxed mb-10 max-w-sm line-clamp-4">
-              {entry.description}
-            </p>
-          )}
-          <a
-            href={`/projects/${entry.slug}`}
-            class="inline-block border border-brand-text px-7 py-3 text-sm tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors self-start"
-          >
-            View work
-          </a>
-        </div>
-      </article>
-    ))}
+        </a>
+      ))}
+    </div>
   </section>
 </Layout>
