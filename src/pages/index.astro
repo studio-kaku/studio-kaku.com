@@ -206,7 +206,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
     <p class="text-brand-muted text-xs tracking-widest uppercase mb-12">Selected Clients</p>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-10 items-center">
       {[
-        { src: '/images/logos/ceysson-benetiere.jpg', alt: 'Ceysson & Bénétière' },
+        { src: '/images/logos/ceysson-benetiere.jpg', alt: 'Ceysson & Bénétière', large: true },
         { src: '/images/logos/haneda.png', alt: 'Haneda Japan Airport Terminal' },
         { src: '/images/logos/soho-house.png', alt: 'Soho House' },
         { src: '/images/logos/mitsui-fudosan.png', alt: 'Mitsui Fudosan' },
@@ -217,9 +217,9 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
         { src: '/images/logos/courtyard-hiroo.png', alt: 'Courtyard Hiroo' },
         { src: '/images/logos/ultra-super-new.png', alt: 'Ultra Super New' },
         { src: '/images/logos/somsoc-gallery.png', alt: 'Somsoc Gallery' },
-      ].map(({ src, alt }) => (
+      ].map(({ src, alt, large }) => (
         <div class="flex items-center justify-center h-16">
-          <img src={src} alt={alt} class="max-h-12 w-auto max-w-[160px] object-contain mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-300" loading="lazy" />
+          <img src={src} alt={alt} class={`w-auto object-contain mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-300 ${large ? 'max-h-16 max-w-[220px]' : 'max-h-12 max-w-[160px]'}`} loading="lazy" />
         </div>
       ))}
     </div>
