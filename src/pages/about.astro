@@ -7,12 +7,14 @@ const team = [
     role: 'Framing, Installation & Art Care',
     bio: 'Born in Tsushima and educated in New York, Yuki has been based in Tokyo for over 10 years, specializing in high-quality framing for artists and galleries. His work includes projects with the Tokyo American Club and the flagship Ginza gallery of Ceysson & Bénétière. Guided by the belief in "framing that lets the artwork speak," he continues to bring out the full charm of each piece.',
     photo: '/images/team-yuki.png',
+    link: { label: 'jukaframing.com', href: 'http://jukaframing.com' },
   },
   {
     name: 'Eleanor Ford',
     role: 'Art Consultancy, Creative Direction & Curation',
     bio: 'Born in France and raised between the UK and Hong Kong, Eleanor studied Spatial Design at the University of the Arts London before moving to Japan. She has spent the past eight years creating art projects that span government installations, private residences, galleries, and international art fairs — most recently leading large-scale work at Haneda Airport.',
     photo: '/images/team-eleanor.jpg',
+    link: null,
   },
 ];
 ---
@@ -21,13 +23,8 @@ const team = [
   title="About"
   description="Studio Kaku is a collaboration between two experienced specialists in art framing, installation, consultancy and creative direction."
 >
-  <!-- Logo hero -->
-  <section class="px-8 md:px-12 pt-14 md:pt-20 pb-4 flex justify-center">
-    <img src="/logo.svg" alt="Studio Kaku" class="w-full max-w-xs md:max-w-lg" />
-  </section>
-
   <!-- Page header -->
-  <section class="px-8 md:px-12 pt-8 pb-10 md:pb-16">
+  <section class="px-8 md:px-12 pt-14 md:pt-20 pb-10 md:pb-16">
     <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">Who we are</p>
     <h1 class="font-display uppercase leading-none" style="font-size: clamp(3rem, 9vw, 11rem);">About Studio Kaku</h1>
   </section>
@@ -35,17 +32,17 @@ const team = [
   <!-- Mission -->
   <section class="px-8 md:px-12 py-14 md:py-24 border-t border-brand-border">
     <div class="max-w-3xl">
-      <p class="font-serif leading-snug mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);">
+      <p class="font-serif leading-snug mb-8 text-xl md:text-2xl">
         Studio Kaku was founded on the belief that art deserves both the
         right frame and the right context.
       </p>
-      <p class="text-brand-muted leading-relaxed mb-5 text-lg">
+      <p class="text-brand-muted leading-relaxed mb-5">
         We are a collaboration between two specialists — one rooted in the
         material and physical world of framing, installation and conservation;
         the other in the intellectual and cultural work of consultancy,
         direction and curation. Together, we offer a complete picture.
       </p>
-      <p class="text-brand-muted leading-relaxed text-lg">
+      <p class="text-brand-muted leading-relaxed">
         Our practice is built on close relationships: with artists, framers,
         collectors, institutions and the works themselves. We take time to
         understand what each project needs, and we bring craft and care to
@@ -60,12 +57,17 @@ const team = [
     <div class="grid md:grid-cols-2 gap-14 md:gap-20">
       {team.map((member) => (
         <div>
-          <div class="w-full aspect-[3/4] overflow-hidden mb-8">
+          <div class="w-48 aspect-[3/4] overflow-hidden mb-6">
             <img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top" />
           </div>
-          <h3 class="font-serif text-2xl mb-2">{member.name}</h3>
-          <p class="text-brand-accent text-sm tracking-widest uppercase mb-6">{member.role}</p>
-          <p class="text-brand-muted leading-relaxed">{member.bio}</p>
+          <h3 class="font-serif text-xl mb-1">{member.name}</h3>
+          <p class="text-brand-accent text-xs tracking-widest uppercase mb-4">{member.role}</p>
+          <p class="text-brand-muted leading-relaxed text-sm">{member.bio}</p>
+          {member.link && (
+            <a href={member.link.href} target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-xs tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity">
+              {member.link.label}
+            </a>
+          )}
         </div>
       ))}
     </div>
