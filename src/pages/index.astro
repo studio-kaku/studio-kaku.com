@@ -189,10 +189,8 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
         if (Math.abs(walk) > 4) moved = true;
         carousel.scrollLeft = scrollLeft - walk;
       });
-      // Prevent link navigation if the user dragged
-      carousel.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', (e) => { if (moved) e.preventDefault(); });
-      });
+      // Single delegated listener prevents navigation after a drag
+      carousel.addEventListener('click', (e) => { if (moved) e.preventDefault(); }, true);
     }
   </script>
 

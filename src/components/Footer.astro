@@ -26,35 +26,25 @@ const year = new Date().getFullYear();
   // Language switcher — swaps all [data-en] / [data-ja] text on the page
   const btnEn = document.getElementById('lang-en') as HTMLButtonElement;
   const btnJa = document.getElementById('lang-ja') as HTMLButtonElement;
+  const activeClasses = ['bg-brand-text', 'text-brand-bg', 'border-brand-text'] as const;
 
   function applyLang(lang: 'en' | 'ja') {
-    // Swap text content for all labelled elements
-    document.querySelectorAll('[data-en][data-ja]').forEach((el) => {
-      el.textContent = lang === 'en'
-        ? (el as HTMLElement).dataset.en!
-        : (el as HTMLElement).dataset.ja!;
+    document.querySelectorAll<HTMLElement>('[data-en][data-ja]').forEach((el) => {
+      el.textContent = el.dataset[lang]!;
     });
 
-    // Update button styles
-    if (lang === 'en') {
-      btnEn.setAttribute('aria-pressed', 'true');
-      btnEn.classList.add('bg-brand-text', 'text-brand-bg', 'border-brand-text');
-      btnJa.setAttribute('aria-pressed', 'false');
-      btnJa.classList.remove('bg-brand-text', 'text-brand-bg', 'border-brand-text');
-    } else {
-      btnJa.setAttribute('aria-pressed', 'true');
-      btnJa.classList.add('bg-brand-text', 'text-brand-bg', 'border-brand-text');
-      btnEn.setAttribute('aria-pressed', 'false');
-      btnEn.classList.remove('bg-brand-text', 'text-brand-bg', 'border-brand-text');
-    }
+    [btnEn, btnJa].forEach((btn) => {
+      const active = btn.id === `lang-${lang}`;
+      btn.setAttribute('aria-pressed', String(active));
+      btn.classList.toggle('bg-brand-text', active);
+      btn.classList.toggle('text-brand-bg', active);
+      btn.classList.toggle('border-brand-text', active);
+    });
 
     localStorage.setItem('sk-lang', lang);
-
-    // Update html lang attribute
-    document.documentElement.lang = lang === 'ja' ? 'ja' : 'en';
+    document.documentElement.lang = lang;
   }
 
-  // Init from saved preference
   const saved = localStorage.getItem('sk-lang') as 'en' | 'ja' | null;
   applyLang(saved === 'ja' ? 'ja' : 'en');
 
