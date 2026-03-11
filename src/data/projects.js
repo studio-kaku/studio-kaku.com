@@ -2,40 +2,6 @@ export const projects = [
   // ── Journal entries (journal: true) — newest first ──────────────────────
 
   {
-    slug: "exhibitions",
-    journal: true,
-    title: "Exhibitions",
-    tagline: "Curation & installation",
-    subtitle: "",
-    year: "2025",
-    credits: [
-      { label: "Curation & Installation", value: "Eleanor Ford" },
-    ],
-    description: "",
-    cover: "Front main image.jpeg",
-    images: [
-      "Front main image.jpeg",
-      "IMG_2720.jpg","IMG_2721.jpg","IMG_8710.JPG",
-      "image3.jpeg","image8.jpeg","image9.jpeg",
-    ],
-  },
-  {
-    slug: "framing",
-    journal: true,
-    title: "Framing",
-    tagline: "Framing & installation",
-    subtitle: "Private commission",
-    year: "May 2025",
-    credits: [],
-    description: "",
-    cover: "Front main image.jpg",
-    images: [
-      "Front main image.jpg",
-      "_MG_6883.JPG","L1075397.jpg","S__80699394.jpg",
-      "5FCF7C23-7008-4BA7-9226-C51EC803F52A.JPG","framing-screenshot.jpg",
-    ],
-  },
-  {
     slug: "supper-club-kura-2026",
     journal: true,
     title: "Supper Club KURA",
