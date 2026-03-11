@@ -11,11 +11,17 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
     <h1
       class="font-display uppercase leading-[0.9] mb-8"
       style="font-size: clamp(2rem, 5vw, 5rem);"
+      data-en="Where art<br />finds its place."
+      data-ja="アートを、<br />その場所へ。"
     >
       Where art<br />finds its place.
     </h1>
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 border-t border-brand-border pt-8">
-      <p class="text-brand-muted text-base leading-relaxed max-w-md">
+      <p
+        class="text-brand-muted text-base leading-relaxed max-w-md"
+        data-en="Studio Kaku brings together specialist expertise in framing, installation and art care alongside art consultancy, creative direction and curation. We help collectors, galleries and organisations live and work with art at its best."
+        data-ja="Studio Kakuは、額装・設置・アートケアの専門知識と、アートコンサルタンシー・クリエイティブディレクション・キュレーションを組み合わせたスタジオです。コレクター、ギャラリー、企業が最良の形でアートと共に暮らし、働けるよう支援します。"
+      >
         Studio Kaku brings together specialist expertise in framing, installation
         and art care alongside art consultancy, creative direction and curation.
         We help collectors, galleries and organisations live and work with art
@@ -24,6 +30,8 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
       <a
         href="/services"
         class="inline-block border border-brand-text px-7 py-3 text-sm tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors flex-shrink-0"
+        data-en="Our Services"
+        data-ja="サービス一覧"
       >
         Our Services
       </a>
@@ -33,10 +41,12 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
   <!-- Journal carousel -->
   <section class="py-8 md:py-12 border-t border-brand-border mt-1">
     <div class="px-8 md:px-12 flex items-end justify-between mb-10">
-      <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">Journal</h2>
+      <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);" data-en="Journal" data-ja="ジャーナル">Journal</h2>
       <a
         href="/journal"
         class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity flex-shrink-0"
+        data-en="View all"
+        data-ja="すべて見る"
       >
         View all
       </a>
@@ -103,10 +113,12 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
   <!-- Projects preview -->
   <section class="px-8 md:px-12 py-12 md:py-20 border-t border-brand-border mt-1">
     <div class="flex items-end justify-between mb-10">
-      <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">Projects</h2>
+      <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);" data-en="Projects" data-ja="プロジェクト">Projects</h2>
       <a
         href="/projects"
         class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity flex-shrink-0"
+        data-en="View all"
+        data-ja="すべて見る"
       >
         View all
       </a>
@@ -139,34 +151,42 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
   <!-- Services list -->
   <section class="border-t border-brand-border mt-1">
     <div class="px-8 md:px-12 pt-16 md:pt-24 pb-4">
-      <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">Services</h2>
+      <h2 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);" data-en="Services" data-ja="サービス">Services</h2>
     </div>
     {[
       {
         num: '01',
         title: 'Framing',
+        titleJa: 'フレーミング',
         description: 'Expert framing for works of all scales, using archival materials and bespoke mouldings suited to each piece.',
+        descJa: 'アーカイバル素材と特注モールディングによる、あらゆるサイズの作品に対応した高品質なフレーミングをご提供します。',
         href: '/services#framing',
         img: '/images/services/framing.jpg',
       },
       {
         num: '02',
         title: 'Shipment & Installation',
+        titleJa: '輸送と設置',
         description: 'Professional handling, transport and installation for private collectors, galleries and institutions.',
+        descJa: 'プライベートコレクター、ギャラリー、文化機関向けのプロフェッショナルな取り扱い・輸送・設置サービスです。',
         href: '/services#framing',
         img: '/images/services/shipment-and-installation.webp',
       },
       {
         num: '03',
         title: 'Exhibition Design',
+        titleJa: '展示デザイン',
         description: 'Spatial planning and exhibition design that brings curatorial ideas to life in any setting.',
+        descJa: 'キュレーターのアイデアをあらゆる空間で実現する、空間計画と展示デザインです。',
         href: '/services#consultancy',
         img: '/images/services/exhibition-design.jpg',
       },
       {
         num: '04',
         title: 'Art Curation',
+        titleJa: 'アートキュレーション',
         description: 'Strategic art consultancy and curatorial direction for collectors, corporate clients and cultural institutions.',
+        descJa: 'コレクター、企業クライアント、文化機関向けの戦略的なアートコンサルタンシーとキュレーション指導です。',
         href: '/services#consultancy',
         img: '/images/services/art-curation.jpg',
       },
@@ -180,8 +200,8 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
         <div class="flex items-baseline gap-6 md:gap-10 min-w-0">
           <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{service.num}</span>
           <div class="min-w-0">
-            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1.5rem, 3.5vw, 3rem);">{service.title}</p>
-            <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block">{service.description}</p>
+            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1.5rem, 3.5vw, 3rem);" data-en={service.title} data-ja={service.titleJa}>{service.title}</p>
+            <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block" data-en={service.description} data-ja={service.descJa}>{service.description}</p>
           </div>
         </div>
         <div class="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 overflow-hidden">
@@ -195,7 +215,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
       </a>
     ))}
     <div class="px-8 md:px-12 py-8 border-t border-brand-border">
-      <a href="/services" class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity">
+      <a href="/services" class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity" data-en="View all services" data-ja="サービスをすべて見る">
         View all services
       </a>
     </div>
@@ -203,7 +223,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
 
   <!-- Selected Clients -->
   <section class="px-8 md:px-12 py-12 md:py-20 border-t border-brand-border">
-    <p class="text-brand-muted text-xs tracking-widest uppercase mb-12">Selected Clients</p>
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-12" data-en="Selected Clients" data-ja="主なクライアント">Selected Clients</p>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-10 items-center">
       {[
         { src: '/images/logos/ceysson-benetiere.jpg', alt: 'Ceysson & Bénétière', large: true },
@@ -218,8 +238,8 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
         { src: '/images/logos/ultra-super-new.png', alt: 'Ultra Super New' },
         { src: '/images/logos/somsoc-gallery.png', alt: 'Somsoc Gallery' },
       ].map(({ src, alt, large }) => (
-        <div class="flex items-center justify-center h-16">
-          <img src={src} alt={alt} class={`w-auto object-contain mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-300 ${large ? 'max-h-16 max-w-[220px]' : 'max-h-12 max-w-[160px]'}`} loading="lazy" />
+        <div class="flex items-center justify-center h-20">
+          <img src={src} alt={alt} class={`w-auto object-contain mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-300 ${large ? 'max-h-20 max-w-[260px]' : 'max-h-16 max-w-[200px]'}`} loading="lazy" />
         </div>
       ))}
     </div>
@@ -228,12 +248,14 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
   <!-- CTA -->
   <section class="px-8 md:px-12 py-16 md:py-28 border-t border-brand-border">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
-      <p class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 5vw, 6rem);">
+      <p class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 5vw, 6rem);" data-en="Ready to work<br />together?" data-ja="一緒に<br />取り組みませんか？">
         Ready to work<br />together?
       </p>
       <a
         href="/contact"
         class="inline-block bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity flex-shrink-0"
+        data-en="Get in Touch"
+        data-ja="お問い合わせ"
       >
         Get in Touch
       </a>

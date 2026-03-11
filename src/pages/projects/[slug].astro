@@ -21,6 +21,8 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
     <a
       href="/projects"
       class="text-brand-muted text-xs tracking-widest uppercase hover:opacity-50 transition-opacity"
+      data-en="← Projects"
+      data-ja="← プロジェクト一覧"
     >
       ← Projects
     </a>
@@ -31,7 +33,7 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
     <img
       src={`/projects/${project.slug}/${encodeURIComponent(hero)}`}
       alt={project.title}
-      class="w-full max-h-[80vh] object-cover hero-img"
+      class="w-full h-auto block hero-img"
     />
   </div>
 
@@ -98,13 +100,13 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
   <!-- Gallery -->
   {gallery.length > 0 && (
     <section class="p-1 mt-1">
-      <div class="columns-1 sm:columns-2 lg:columns-3 gap-1 space-y-1">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
         {gallery.map((img, i) => (
-          <div class="overflow-hidden break-inside-avoid reveal" style={`transition-delay:${(i % 3) * 80}ms`}>
+          <div class="overflow-hidden reveal" style={`transition-delay:${(i % 3) * 80}ms`}>
             <img
               src={`/projects/${project.slug}/${encodeURIComponent(img)}`}
               alt={`${project.title} ${i + 2}`}
-              class="w-full object-cover photo-hover"
+              class="w-full h-auto block photo-hover"
               loading="lazy"
             />
           </div>
@@ -119,12 +121,16 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
       <a
         href="/projects"
         class="text-sm tracking-wide underline underline-offset-4 hover:opacity-50 transition-opacity"
+        data-en="← Back to all projects"
+        data-ja="← プロジェクト一覧に戻る"
       >
         ← Back to all projects
       </a>
       <a
         href="/contact"
         class="inline-block bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
+        data-en="Work with us"
+        data-ja="ご一緒しませんか"
       >
         Work with us
       </a>
