@@ -7,7 +7,7 @@ const mainProjects = projects.filter(p => !p.journal);
 <Layout title="Projects">
   <!-- Header -->
   <section class="px-8 md:px-16 pt-24 pb-16">
-    <h1 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">
+    <h1 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);" data-en="Projects" data-ja="プロジェクト">
       Projects
     </h1>
   </section>
@@ -47,12 +47,14 @@ const mainProjects = projects.filter(p => !p.journal);
   <!-- CTA -->
   <section class="px-8 md:px-16 py-20 border-t border-brand-border">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-      <p class="font-display uppercase leading-none" style="font-size: clamp(2rem, 4vw, 5rem);">
+      <p class="font-display uppercase leading-none" style="font-size: clamp(2rem, 4vw, 5rem);" data-en="Want to work<br />together?" data-ja="一緒に<br />取り組みませんか？">
         Want to work<br />together?
       </p>
       <a
         href="/contact"
         class="inline-block bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity flex-shrink-0"
+        data-en="Get in Touch"
+        data-ja="お問い合わせ"
       >
         Get in Touch
       </a>

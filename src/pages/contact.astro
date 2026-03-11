@@ -8,15 +8,15 @@ import Layout from '../layouts/Layout.astro';
 >
   <!-- Page header -->
   <section class="px-8 md:px-12 pt-14 md:pt-20 pb-10 md:pb-16">
-    <p class="text-brand-muted text-xs tracking-widest uppercase mb-8">Reach us</p>
-    <h1 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);">Contact</h1>
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-8" data-en="Reach us" data-ja="お問い合わせ">Reach us</p>
+    <h1 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);" data-en="Contact" data-ja="コンタクト">Contact</h1>
   </section>
 
   <section class="px-8 md:px-12 py-14 md:py-24 border-t border-brand-border grid md:grid-cols-2 gap-14 md:gap-24">
     <!-- Contact info -->
     <div>
-      <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);">Let's talk</h2>
-      <p class="text-brand-muted leading-relaxed mb-16">
+      <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);" data-en="Let's talk" data-ja="ご相談はこちら">Let's talk</h2>
+      <p class="text-brand-muted leading-relaxed mb-16" data-en="Whether you're looking to frame a single work, install a collection, build an art programme or commission something entirely new — we'd love to hear from you." data-ja="額装1点から、コレクション全体の設置、アートプログラムの構築、新しいコミッションまで——お気軽にご相談ください。">
         Whether you're looking to frame a single work, install a collection,
         build an art programme or commission something entirely new — we'd
         love to hear from you.
@@ -24,17 +24,17 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="space-y-10 text-sm">
         <div>
-          <p class="text-brand-muted tracking-widest uppercase text-xs mb-3">Email</p>
+          <p class="text-brand-muted tracking-widest uppercase text-xs mb-3" data-en="Email" data-ja="メール">Email</p>
           <a href="mailto:hello@studio-kaku.com" class="text-base hover:opacity-50 transition-opacity underline underline-offset-4">
             hello@studio-kaku.com
           </a>
         </div>
         <div>
-          <p class="text-brand-muted tracking-widest uppercase text-xs mb-3">Based in</p>
-          <p class="text-base">Tokyo, Japan</p>
+          <p class="text-brand-muted tracking-widest uppercase text-xs mb-3" data-en="Based in" data-ja="拠点">Based in</p>
+          <p class="text-base" data-en="Tokyo, Japan" data-ja="東京, 日本">Tokyo, Japan</p>
         </div>
         <div>
-          <p class="text-brand-muted tracking-widest uppercase text-xs mb-3">Instagram</p>
+          <p class="text-brand-muted tracking-widest uppercase text-xs mb-3" data-en="Instagram" data-ja="インスタグラム">Instagram</p>
           <a href="#" class="text-base hover:opacity-50 transition-opacity underline underline-offset-4">
             @studiokaku
           </a>
@@ -44,14 +44,14 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Enquiry form -->
     <div>
-      <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);">Enquiry form</h2>
+      <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);" data-en="Enquiry form" data-ja="お問い合わせフォーム">Enquiry form</h2>
       <form
         action="https://formspree.io/f/placeholder"
         method="POST"
         class="space-y-7"
       >
         <div>
-          <label for="name" class="block text-xs tracking-widest uppercase text-brand-muted mb-3">
+          <label for="name" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Name" data-ja="お名前">
             Name
           </label>
           <input
@@ -64,7 +64,7 @@ import Layout from '../layouts/Layout.astro';
           />
         </div>
         <div>
-          <label for="email" class="block text-xs tracking-widest uppercase text-brand-muted mb-3">
+          <label for="email" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Email" data-ja="メールアドレス">
             Email
           </label>
           <input
@@ -77,7 +77,7 @@ import Layout from '../layouts/Layout.astro';
           />
         </div>
         <div>
-          <label for="service" class="block text-xs tracking-widest uppercase text-brand-muted mb-3">
+          <label for="service" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Service" data-ja="サービス">
             Service
           </label>
           <select
@@ -95,7 +95,7 @@ import Layout from '../layouts/Layout.astro';
           </select>
         </div>
         <div>
-          <label for="message" class="block text-xs tracking-widest uppercase text-brand-muted mb-3">
+          <label for="message" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Message" data-ja="メッセージ">
             Message
           </label>
           <textarea
@@ -110,6 +110,8 @@ import Layout from '../layouts/Layout.astro';
         <button
           type="submit"
           class="w-full bg-brand-text text-brand-bg py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity mt-4"
+          data-en="Send Enquiry"
+          data-ja="送信する"
         >
           Send Enquiry
         </button>

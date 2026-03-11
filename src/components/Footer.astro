@@ -18,7 +18,7 @@ const year = new Date().getFullYear();
         aria-pressed="false"
       >日本語</button>
     </div>
-    <span class="italic">London</span>
+    <span class="italic" data-en="Tokyo, Japan" data-ja="東京, 日本">Tokyo, Japan</span>
   </div>
 </footer>
 
@@ -30,7 +30,7 @@ const year = new Date().getFullYear();
 
   function applyLang(lang: 'en' | 'ja') {
     document.querySelectorAll<HTMLElement>('[data-en][data-ja]').forEach((el) => {
-      el.textContent = el.dataset[lang]!;
+      el.innerHTML = el.dataset[lang]!;
     });
 
     [btnEn, btnJa].forEach((btn) => {

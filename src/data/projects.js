@@ -472,16 +472,16 @@ Through this installation, YAR has created a space filled with beauty and emotio
 In Sequence Kyoto Gojo, a renowned Kansai artist called Bakibaki worked on three pieces alongside Kenta Kousaka and 中LA. As well as working alongside Y&L projects and French artist Floz, we created digital art displayed on each floor.
 
 Roles: Managing the contacts, choice of artists, support during installation, and on-site during installation.`,
-    cover: "restaurant+bar_night_10.jpg",
+    cover: "restaurant-bar-night-10.jpg",
     images: [
-      "restaurant+bar_night_10.jpg","restaurant+bar_night_07.jpg",
+      "restaurant-bar-night-10.jpg","restaurant-bar-night-07.jpg",
       "S__158449678.jpg","S__158449687.jpg",
-      "terrace_night_3.jpg","lobby_day_2.jpg","restaurant+bar_night_09.jpg",
-      "Screenshot 2026-03-06 at 9.34.00 AM.jpg",
-      "Screenshot 2026-03-06 at 9.33.53 AM.jpg",
-      "Screenshot 2026-03-06 at 9.33.47 AM.jpg",
-      "Screenshot 2026-03-06 at 9.28.51 AM.jpg",
-      "Screenshot 2026-03-06 at 9.46.38 AM.jpg",
+      "terrace_night_3.jpg","lobby_day_2.jpg","restaurant-bar-night-09.jpg",
+      "kyoto-screenshot-1.jpg",
+      "kyoto-screenshot-2.jpg",
+      "kyoto-screenshot-3.jpg",
+      "kyoto-screenshot-4.jpg",
+      "kyoto-screenshot-5.jpg",
     ],
   },
   {
