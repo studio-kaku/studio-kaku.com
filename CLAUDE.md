@@ -8,6 +8,7 @@ You are editing the Studio Kaku website, a static Astro 5 site served at **studi
 - Run `npm run build` before committing to catch errors.
 - Keep responses concise and non-technical — your audience includes non-developers.
 - After making changes, summarise what you changed in plain English.
+- **Always verify visual changes using the Chrome extension before reporting back.** After editing code, hard-reload the browser (`cmd+shift+r`) and use the Chrome extension to confirm the change is live — either via screenshot or by checking computed styles with JavaScript. Only report success once the change is confirmed in the browser.
 
 ## Deployment pipeline
 
@@ -57,6 +58,16 @@ When brand colours and fonts are confirmed, update `tailwind.config.mjs` — all
 - Body copy uses `text-brand-muted leading-relaxed`.
 - Image placeholders are `<div class="bg-brand-border ...">Image placeholder</div>` — replace with real `<img>` tags when assets are ready.
 - The contact form POSTs to Formspree — update the action URL in `contact.astro` with the real form ID.
+
+## Running the dev server
+
+To start the dev server in the background:
+
+```
+pnpm run dev &
+```
+
+Do **not** use the Bash tool's `run_in_background` parameter — it exits after capturing initial output and kills the process. Use `&` like a normal Unix command.
 
 ## Technology constraints
 
