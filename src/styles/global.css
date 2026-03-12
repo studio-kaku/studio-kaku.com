@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-display: "Nunito", system-ui, sans-serif;
+
+  --color-brand-bg: #FAFAF8;
+  --color-brand-text: #1C1C1C;
+  --color-brand-muted: #8A8A8A;
+  --color-brand-accent: #B5A694;
+  --color-brand-border: #E5E3DF;
+}
