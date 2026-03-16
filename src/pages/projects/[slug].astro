@@ -118,7 +118,7 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
           {gallery.map((img, i) => {
             const cols = project.galleryColumns === 2 ? 2 : 3;
             const isLastAlone = i === gallery.length - 1 && gallery.length % cols === 1;
-            const aspect = project.galleryColumns === 2 ? 'aspect-[3/4]' : 'aspect-[4/3]';
+            const aspect = project.galleryAspect ? `aspect-[${project.galleryAspect}]` : project.galleryColumns === 2 ? 'aspect-[3/4]' : 'aspect-[4/3]';
             return (
               <div class={`overflow-hidden reveal ${aspect}${isLastAlone ? ` col-span-${cols}` : ''}`} style={`transition-delay:${(i % cols) * 80}ms`}>
                 <img

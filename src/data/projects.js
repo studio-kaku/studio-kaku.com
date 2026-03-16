@@ -502,6 +502,7 @@ Roles: Managing the contacts, choice of artists, support during installation, an
     ],
     description: `Coffee Style UCC was one of the first projects Studio Kaku's founder completed as lead interior designer at a previous company. Ueshima Coffee Company wanted a coffee shop concept that would appeal to young women — somewhere bright, fun and worth visiting. The result was a colourful, welcoming retail space that made coffee feel accessible and enjoyable rather than intimidating.`,
     galleryColumns: 2,
+    galleryAspect: '4/3',
     cover: "005.jpg",
     images: [
       "005.jpg","006.jpg","007.jpg","008.jpg","015.jpg",
