@@ -264,6 +264,7 @@ export const projects = [
     ],
     description: `Moss artist Norihiko Kamei's studio is a world entirely his own — textured, living, quietly extraordinary. We brought Wandler's bags into that world, letting the two speak to each other rather than staging one against the other. Filmed by Christopher Nicholls.`,
     galleryStyle: 'grid',
+    lastImageFull: true,
     video: "16-9_2nd Delivery.mp4",
     cover: "DSC_2263.JPG",
     images: [
@@ -340,6 +341,7 @@ Studio Kaku handled curation, framing and installation for this exhibition.`,
     credits: [
       { label: "Client", value: "Ceysson & Bénétière" },
     ],
+    lastImageFull: true,
     description: `Since their opening we've been on call for installation, problem-solving and framing. A selection of frames done for the gallery.`,
     cover: "Front main image.jpg",
     images: [
@@ -424,7 +426,10 @@ The exhibition traced how 3D techniques can evoke tactile, emotional responses �
     tagline: "Creative direction & installation",
     subtitle: "Haneda Airport Terminal 2",
     year: "March 2024",
-    credits: [],
+    credits: [
+      { label: "Client", value: "Tokyo Creative Salon" },
+      { label: "Location", value: "Haneda Airport Terminal 2" },
+    ],
     description: `For Tokyo Creative Salon 2024, we worked with a local school to create paper aeroplanes — each one a wish written by a child for their future. These were installed onto one of the oldest mikoshi in Japan, a traditional portable shrine that carries prayers and hopes.
 
 The mikoshi was placed in the international departure hall of Haneda Terminal 2, where travellers from around the world could pause beside it before leaving Japan — taking the memory of those small wishes with them.`,
@@ -463,40 +468,51 @@ Through this installation, YAR has created a space filled with beauty and emotio
   {
     slug: "kyoto-sequence-art",
     title: "Sequence Kyoto",
-    tagline: "Interior design, art curation & event management",
-    subtitle: "Mitsui Fudosan — Bakibaki & Floz",
+    tagline: "Art curation",
+    subtitle: "Sequence Kyoto Gojo",
     year: "2021",
-    credits: [],
-    description: `Within both sequence hotels mentioned, I was involved in the art direction. My role throughout this project was to reach out to artists and plan the project — on the board for art selection and layout design, and to be there to help the artist in any way while also managing every decision to make sure it stayed within the project directions.
+    credits: [
+      { label: "Client", value: "Mitsui Fudosan" },
+      { label: "Art Curation", value: "Studio Kaku" },
+    ],
+    description: `Studio Kaku led the art curation for Sequence Kyoto Gojo — reaching out to artists, planning the project, and managing every decision through to installation.
 
-In Sequence Kyoto Gojo, a renowned Kansai artist called Bakibaki worked on three pieces alongside Kenta Kousaka and 中LA. As well as working alongside Y&L projects and French artist Floz, we created digital art displayed on each floor.
-
-Roles: Managing the contacts, choice of artists, support during installation, and on-site during installation.`,
+The centrepiece was a collaboration with renowned Kansai artist Bakibaki, who created three pieces alongside Kenta Kousaka and 中LA. Working with Y&L Projects and French artist Floz, Studio Kaku also commissioned digital art displayed across each floor of the hotel.`,
+    galleryColumns: 2,
     cover: "restaurant-bar-night-10.jpg",
     images: [
-      "restaurant-bar-night-10.jpg","restaurant-bar-night-07.jpg",
-      "S__158449678.jpg","S__158449687.jpg",
-      "terrace_night_3.jpg","lobby_day_2.jpg","restaurant-bar-night-09.jpg",
+      "restaurant-bar-night-10.jpg",
+      "restaurant-bar-night-07.jpg",
+      "S__158449678.jpg",
+      "terrace_night_3.jpg",
+      "S__158449687.jpg",
+      "lobby_day_2.jpg",
       "kyoto-screenshot-1.jpg",
+      "restaurant-bar-night-09.jpg",
       "kyoto-screenshot-2.jpg",
-      "kyoto-screenshot-3.jpg",
       "kyoto-screenshot-4.jpg",
+      "kyoto-screenshot-3.jpg",
       "kyoto-screenshot-5.jpg",
     ],
   },
   {
     slug: "sequence-suidobashi",
     title: "Sequence Suidobashi",
-    tagline: "Interior design & art curation",
-    subtitle: "Assistant Interior Design & Art Curation",
+    tagline: "Art curation",
+    subtitle: "Sequence Suidobashi, Tokyo",
     year: "June 2021",
-    credits: [],
-    description: "",
+    credits: [
+      { label: "Client", value: "Mitsui Fudosan" },
+      { label: "Art Direction", value: "Anagra" },
+    ],
+    description: `Sequence Suidobashi called for something energetic and unexpected. The brief was clear: a modern hotel for young people, with a nod to sports and a spirit of fun. To bring that to life, Anagra led the art direction — sourcing and placing works throughout the building to inject colour, personality and a sense of play into every corner.`,
+    lastTwoHalf: true,
+    video: "sequence art vid.mp4",
     cover: "exterior_night_1.jpg",
     images: [
       "exterior_night_1.jpg","exterior_night_2.jpg",
       "art_stadium lounge.jpg","art_staircase_1.jpg","art_staircase_2.jpg",
-      "restaurant_day.jpg","2024-10-16.webp",
+      "restaurant_day.jpg",
     ],
   },
   {

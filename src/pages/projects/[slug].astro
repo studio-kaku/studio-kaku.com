@@ -113,18 +113,48 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
             </div>
           ))}
         </div>
+      ) : project.lastTwoHalf ? (
+        <>
+          {gallery.length > 2 && (
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-3">
+              {gallery.slice(0, -2).map((img, i) => (
+                <div class="overflow-hidden reveal aspect-[4/3]" style={`transition-delay:${(i % 3) * 80}ms`}>
+                  <img
+                    src={`/projects/${project.slug}/${encodeURIComponent(img)}`}
+                    alt={`${project.title} ${i + 2}`}
+                    class="w-full h-full object-cover photo-hover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {gallery.slice(-2).map((img, i) => (
+              <div class="overflow-hidden reveal aspect-[4/3]" style={`transition-delay:${i * 80}ms`}>
+                <img
+                  src={`/projects/${project.slug}/${encodeURIComponent(img)}`}
+                  alt={`${project.title} ${gallery.length - 2 + i + 2}`}
+                  class="w-full h-full object-cover photo-hover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </>
       ) : (
         <div class={`grid gap-3 ${project.galleryColumns === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}`}>
           {gallery.map((img, i) => {
             const cols = project.galleryColumns === 2 ? 2 : 3;
             const isLastAlone = i === gallery.length - 1 && gallery.length % cols === 1;
+            const isFull = isLastAlone && project.lastImageFull;
             const aspect = project.galleryAspect ? `aspect-[${project.galleryAspect}]` : project.galleryColumns === 2 ? 'aspect-[3/4]' : 'aspect-[4/3]';
             return (
-              <div class={`overflow-hidden reveal ${aspect}${isLastAlone ? ` col-span-${cols}` : ''}`} style={`transition-delay:${(i % cols) * 80}ms`}>
+              <div class={`overflow-hidden reveal${isFull ? '' : ` ${aspect}${isLastAlone ? ` col-span-${cols}` : ''}`}`} style={`transition-delay:${(i % cols) * 80}ms${isFull ? ';grid-column:1/-1' : ''}`}>
                 <img
                   src={`/projects/${project.slug}/${encodeURIComponent(img)}`}
                   alt={`${project.title} ${i + 2}`}
-                  class="w-full h-full object-cover photo-hover"
+                  class={`w-full photo-hover${isFull ? ' h-auto block' : ' h-full object-cover'}`}
                   loading="lazy"
                 />
               </div>
