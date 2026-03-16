@@ -400,33 +400,42 @@ Working with i+an, we layered in an augmented reality experience: scan a QR code
   },
   {
     slug: "get-it-studios",
-    title: "Get It Studios",
-    tagline: "Art curation",
-    subtitle: "",
+    title: "The Digital Shift",
+    tagline: "Exhibition",
+    subtitle: "UltraSuperNew Gallery, Tokyo",
     year: "November 2024",
-    credits: [],
-    description: "",
-    cover: "DSC_0606.jpg",
-    images: [
-      "DSC_0606.jpg","DSC_0617.jpg","DSC_0625.jpg","DSC_0585.jpg","DSC_0624.jpg",
+    credits: [
+      { label: "Client", value: "Get It Studios" },
+      { label: "Venue", value: "UltraSuperNew Gallery, Tokyo" },
+      { label: "Role", value: "Art Curation" },
     ],
+    description: `Get It Studio — the Swiss creative duo Sandra Golay and Alexandre Armand — brought their first solo exhibition to Tokyo at the UltraSuperNew Gallery. The Digital Shift brought together large-scale screen-based works and an intimate grid of hand-printed pieces, exploring the relationship between organic form and digital fabrication.
+
+The exhibition traced how 3D techniques can evoke tactile, emotional responses — creatures and structures that feel simultaneously grown and engineered. Studio Kaku curated the works and advised on the spatial experience, shaping how visitors moved between the monumental screens and the more delicate, close-up work on the wall.`,
+    cover: "DSC_0624.jpg",
+    images: [
+      "DSC_0624.jpg","DSC_0606.jpg","DSC_0585.jpg","DSC_0617.jpg","DSC_0625.jpg",
+    ],
+    galleryStyle: "masonry",
   },
   {
     slug: "haneda-tcs-2024",
-    title: "Haneda TCS 2024",
+    title: "Tokyo Creative Salon 2024",
     tagline: "Creative direction & installation",
-    subtitle: "",
+    subtitle: "Haneda Airport Terminal 2",
     year: "March 2024",
     credits: [],
-    description: "",
+    description: `For Tokyo Creative Salon 2024, we worked with a local school to create paper aeroplanes — each one a wish written by a child for their future. These were installed onto one of the oldest mikoshi in Japan, a traditional portable shrine that carries prayers and hopes.
+
+The mikoshi was placed in the international departure hall of Haneda Terminal 2, where travellers from around the world could pause beside it before leaving Japan — taking the memory of those small wishes with them.`,
     cover: "IMG_9148.JPG",
     images: ["IMG_9148.JPG","IMG_9099.JPG","IMG_9141.JPG"],
   },
   {
     slug: "haneda-tcs-2023",
-    title: "Haneda TCS 2023",
+    title: "Tokyo Creative Salon 2023",
     tagline: "Creative direction & installation",
-    subtitle: "Tokyo Creative Salon — Haneda Airport",
+    subtitle: "Haneda Airport Terminal 3",
     year: "March 2023",
     credits: [
       { label: "Creative Director", value: "Eleanor Ford" },
