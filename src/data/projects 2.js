@@ -249,6 +249,21 @@ export const projects = [
     cover: "cover.jpg",
     images: ["cover.jpg"],
   },
+  {
+    slug: "verdy-framing",
+    journal: true,
+    title: "Verdy",
+    tagline: "Framing",
+    subtitle: "Private commission",
+    year: "2021",
+    credits: [
+      { label: "Artist", value: "Verdy" },
+    ],
+    description: "Framing commission for a Verdy work.",
+    cover: "cover.JPG",
+    images: ["cover.JPG"],
+  },
+
   // ── Portfolio projects (journal: false) — newest first ──────────────────
 
   {
@@ -262,8 +277,7 @@ export const projects = [
       { label: "Artist", value: "Norihiko Kamei" },
       { label: "Filmmaker", value: "Christopher Nicholls" },
     ],
-    description: `Moss artist Norihiko Kamei's studio is a world entirely his own — textured, living, quietly extraordinary. We brought Wandler's bags into that world, letting the two speak to each other rather than staging one against the other. Filmed by Christopher Nicholls.`,
-    galleryStyle: 'grid',
+    description: `Alongside the Isetan pop-up store design, we staged Wandler's bags in the studio of moss artist Norihiko Kamei san — a space that felt entirely his own, textured and alive. The bags sat naturally within his world, filmed by Christopher Nicholls.`,
     video: "16-9_2nd Delivery.mp4",
     cover: "DSC_2263.JPG",
     images: [
@@ -285,12 +299,11 @@ export const projects = [
       { label: "Creative Direction & Art Curation", value: "Eleanor Ford" },
       { label: "Location", value: "Isetan Shinjuku" },
     ],
-    description: `Wandler's first entry into the Japanese market — a pop-up at Isetan Shinjuku in collaboration with Bluebell. The brief was to create something that felt genuinely Japanese rather than imported. We brought in moss artist Kamei Norihiko, whose living sculptures became the centrepiece of the space, placing Wandler's bags in a landscape that was as tactile and considered as the leather itself.`,
-    galleryColumns: 2,
+    description: `Collaborated with Wandler and Bluebell to conceptualize and design their first launch into the Japanese market at Isetan. The project centred around creating a lush, green environment to showcase Wandler's signature bags. Drawing inspiration from Japanese aesthetics, the design incorporated Kamei-san's enchanting moss wonderland, seamlessly blending Wandler's leather bags with local cultural elements. This innovative approach created a harmonious and immersive shopping experience, resonating with both global and Japanese audiences.`,
     cover: "Front main image.jpg",
     images: [
       "Front main image.jpg",
-      "WANDLER_014.jpg","WANDLER_004.jpg",
+      "WANDLER_014.jpg","WANDLER_012.jpg","WANDLER_004.jpg","WANDLER_005.jpg",
       "WANDLER_039.jpg","WANDLER_061.jpg","WANDLER_048.jpg","WANDLER_058.jpg",
       "WANDLER_042.jpg","WANDLER_020.jpg","WANDLER_037.jpg","WANDLER_026.jpg",
     ],
@@ -303,18 +316,14 @@ export const projects = [
     year: "December 2025",
     credits: [
       { label: "Artist", value: "Duncan Swann" },
-      { label: "Curation, Framing & Installation", value: "Studio Kaku" },
+      { label: "Curation, Framing & Installation", value: "Eleanor Ford" },
     ],
-    description: `Duncan Swann (b. 1969, Sheffield) is a British-German painter and sculptor based in Tokyo, with an MA from the Royal College of Art. His work has been shortlisted for the Jerwood Painting Prize and the John Moores Painting Prize, and he has exhibited across Europe, the UK and Japan.
-
-His practice bridges Western abstraction and Eastern aesthetics — building oil surfaces that balance structure with spontaneity, and organic form with architectural order. His recent series *Forbidden Colours* (OAG Tokyo, 2025) reinterprets the Edo-period kinjiki palette to question hierarchy and cultural translation. His new work returns to the figure, placing people within abstracted space in search of what it means to be human.
-
-Studio Kaku handled curation, framing and installation for this exhibition.`,
-    cover: "DSC03384.jpg",
+    description: "Curation, framing and installation for Duncan Swann's exhibition.",
+    cover: "DSC03378.jpg",
     images: [
-      "DSC03384.jpg","DSC03378.jpg","DSC03424.jpg",
-      "DSC03504.JPG","DSC03514.JPG",
-      "DSC03520.JPG","DSC03529.JPG",
+      "DSC03378.jpg","DSC03384.jpg","DSC03424.jpg",
+      "DSC03504.JPG","DSC03510.JPG","DSC03514.JPG",
+      "DSC03520.JPG","DSC03529.JPG","DSC03530.JPG",
     ],
   },
   {
@@ -327,7 +336,7 @@ Studio Kaku handled curation, framing and installation for this exhibition.`,
       { label: "Client", value: "Tokyo American Club" },
       { label: "Artist", value: "Sante Vision" },
     ],
-    description: `Framing for the Italian restaurant at Tokyo American Club, in collaboration with artist Sante Vision.`,
+    description: `Framing and setting for the Italian restaurant inside Tokyo American Club, working with artist Sante Vision.`,
     cover: "S__32784433.jpg",
     images: ["S__32784433.jpg","S__32784431.jpg"],
   },
@@ -340,7 +349,7 @@ Studio Kaku handled curation, framing and installation for this exhibition.`,
     credits: [
       { label: "Client", value: "Ceysson & Bénétière" },
     ],
-    description: `Since their opening we've been on call for installation, problem-solving and framing. A selection of frames done for the gallery.`,
+    description: `Since their opening we've been on call for installation, problem-solving and framing. These are a few frames done for them.`,
     cover: "Front main image.jpg",
     images: [
       "Front main image.jpg",
@@ -351,51 +360,51 @@ Studio Kaku handled curation, framing and installation for this exhibition.`,
   },
   {
     slug: "arthur-harmonyst",
-    galleryStyle: 'masonry',
     title: "POLYGON1993 at The Harmonyst",
     tagline: "Artist management, curation, framing & installation",
     subtitle: "POLYGON1993 Artist Management",
     year: "April 2025",
     credits: [
       { label: "Artist", value: "POLYGON1993" },
-      { label: "Creative Direction & Art Curation", value: "Studio Kaku" },
+      { label: "Creative Direction & Art Curation", value: "Eleanor Ford" },
       { label: "Location", value: "The Harmonyst, Hiroo" },
       { label: "Technician", value: "Tristan Printverse" },
-      { label: "Framer", value: "Studio Kaku" },
+      { label: "Framer", value: "Juka Framing" },
     ],
-    description: `Studio Kaku has been working with POLYGON1993 as his Artist Manager for Asia since late 2024 — handling gallery relations, brand partnerships, exhibition curation, PR and sales.
+    description: `Since late 2024, I've been working with POLYGON1993 as his Artist Manager for Asia. Together, we've collaborated on several exciting projects, including a partnership with Bandai Namco's Tekken game and Iwa Sake to celebrate their 30th Anniversary, as well as his recent solo exhibition at The Harmonyst in Hiroo.
 
-Partnerships to date include Bandai Namco's Tekken franchise and Matsuda Sake for their 30th anniversary. His recent solo show at The Harmonyst in Hiroo marked a significant step in his Tokyo presence, with strong collector interest and several major projects currently in development.`,
+In this role, I've been responsible for managing all communications with companies and galleries, overseeing art sales, curating exhibitions, handling PR, and securing new opportunities for him in Tokyo.
+
+As my first artist management project, it's been an incredibly rewarding experience—with strong interest, great momentum, and several exciting future projects already in development.`,
     cover: "Front main image.JPG",
     images: [
       "Front main image.JPG",
       "_MG_7114.JPG","_MG_7139.JPG","_MG_7160.JPG","_MG_7166.JPG",
-      "_MG_7157.JPG","_MG_7152.JPG",
-      "_MG_7131.JPG",
+      "_MG_7157.JPG","_MG_7156.JPG","_MG_7152.JPG","_MG_7147.JPG",
+      "_MG_7144.JPG","_MG_7131.JPG",
     ],
   },
   {
     slug: "tcs-2025",
-    title: "Tokyo Creative Salon 2025",
+    title: "TCS 2025",
     tagline: "Creative direction & installation",
     subtitle: "Tokyo Creative Salon — Haneda Airport",
     year: "March 2025",
     credits: [
       { label: "Production Company", value: "Nanasai, Kaoru Oshima" },
       { label: "Artist", value: "130 & i+an" },
-      { label: "Creative Direction & Art Curation", value: "Studio Kaku" },
+      { label: "Creative Direction & Art Curation", value: "Eleanor Ford" },
       { label: "Location", value: "Haneda Airport Terminal 1" },
     ],
-    description: `For Tokyo Creative Salon 2025 at Haneda Airport, the brief was sky. We designed cloud-shaped seating with 130 the Architects — precision laser-cut pieces that invited travellers to sit, pause, and take the weight off their feet.
+    description: `Another project with Tokyo Creative Salon focused on creating a space where people could "sit in the sky" and take the weight off their feet. Haneda Airport's theme this year was "sky," so we designed cloud-shaped seating in collaboration with 130 the Architects, who crafted the pieces using precision laser-cut techniques.
 
-Working with i+an, we layered in an augmented reality experience: scan a QR code and floating clouds appear on your phone screen, blending the physical installation with the digital sky above.`,
+To add an interactive layer, we teamed up with i+an to develop an augmented reality experience—visitors could scan a QR code with their phones and watch floating clouds appear on their screens, blending the physical and digital skies.`,
     cover: "Front main image.jpg",
-    video: "6e5747c38ee242ef93795cdad8e19ecc.mov",
     images: [
       "Front main image.jpg",
+      "B187A25E-5708-4D5E-9CF9-6570D723CDCC.jpg",
       "490981113_696856816242683_502370683418913005_n.jpg",
       "490975352_2380555735651503_7109445704969288537_n.jpg",
-      "visitors.png",
     ],
   },
   {
@@ -443,12 +452,12 @@ Through this installation, YAR has created a space filled with beauty and emotio
     cover: "Front main image.jpg",
     images: [
       "Front main image.jpg",
-      "haneda-screenshot-1.jpg",
-      "haneda-screenshot-2.jpg",
-      "haneda-screenshot-3.jpg",
-      "haneda-screenshot-4.jpg",
+      "Screenshot 2024-06-28 at 11.46.49 AM.jpg",
+      "Screenshot 2024-06-28 at 11.47.16 AM.jpg",
+      "Screenshot 2024-06-28 at 11.46.41 AM.jpg",
+      "Screenshot 2024-06-28 at 11.46.33 AM.jpg",
       "9cce95_b92c40712478433a90a8ff0ea108901f~mv2.webp",
-      "haneda-screenshot-5.jpg",
+      "Screenshot 2024-06-28 at 11.46.21 AM.jpg",
     ],
   },
   {
@@ -463,16 +472,16 @@ Through this installation, YAR has created a space filled with beauty and emotio
 In Sequence Kyoto Gojo, a renowned Kansai artist called Bakibaki worked on three pieces alongside Kenta Kousaka and 中LA. As well as working alongside Y&L projects and French artist Floz, we created digital art displayed on each floor.
 
 Roles: Managing the contacts, choice of artists, support during installation, and on-site during installation.`,
-    cover: "restaurant-bar-night-10.jpg",
+    cover: "restaurant+bar_night_10.jpg",
     images: [
-      "restaurant-bar-night-10.jpg","restaurant-bar-night-07.jpg",
+      "restaurant+bar_night_10.jpg","restaurant+bar_night_07.jpg",
       "S__158449678.jpg","S__158449687.jpg",
-      "terrace_night_3.jpg","lobby_day_2.jpg","restaurant-bar-night-09.jpg",
-      "kyoto-screenshot-1.jpg",
-      "kyoto-screenshot-2.jpg",
-      "kyoto-screenshot-3.jpg",
-      "kyoto-screenshot-4.jpg",
-      "kyoto-screenshot-5.jpg",
+      "terrace_night_3.jpg","lobby_day_2.jpg","restaurant+bar_night_09.jpg",
+      "Screenshot 2026-03-06 at 9.34.00 AM.jpg",
+      "Screenshot 2026-03-06 at 9.33.53 AM.jpg",
+      "Screenshot 2026-03-06 at 9.33.47 AM.jpg",
+      "Screenshot 2026-03-06 at 9.28.51 AM.jpg",
+      "Screenshot 2026-03-06 at 9.46.38 AM.jpg",
     ],
   },
   {
@@ -492,16 +501,16 @@ Roles: Managing the contacts, choice of artists, support during installation, an
   },
   {
     slug: "ucc",
-    title: "Coffee Style UCC",
+    title: "UCC",
     tagline: "Interior design",
     subtitle: "Interior Design",
     year: "2019",
     credits: [],
-    description: `Coffee Style UCC was one of the first projects Studio Kaku's founder completed as lead interior designer at a previous company. Ueshima Coffee Company wanted a coffee shop concept that would appeal to young women — somewhere bright, fun and worth visiting. The result was a colourful, welcoming retail space that made coffee feel accessible and enjoyable rather than intimidating.`,
+    description: "",
     cover: "005.jpg",
     images: [
       "005.jpg","006.jpg","007.jpg","008.jpg","015.jpg",
-      "022.jpg","023.jpg","025.jpg","026.jpg",
+      "020.jpg","022.jpg","023.jpg","025.jpg","026.jpg",
       "044.jpg","058.jpg",
     ],
   },

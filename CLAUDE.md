@@ -69,6 +69,14 @@ pnpm run dev &
 
 Do **not** use the Bash tool's `run_in_background` parameter — it exits after capturing initial output and kills the process. Use `&` like a normal Unix command.
 
+## Content folder (`content/`)
+
+Eleanor drops assets (images, copy, logos, etc.) into the `content/` folder at the project root to share them. This folder is:
+
+- **Local only** — gitignored, never committed or pushed
+- **Not a build source** — never reference it directly in the website
+- When using an asset from here, always copy and convert it first (e.g. compress/resize images) before placing in `public/` or `src/`
+
 ## Technology constraints
 
 - No Svelte, middleware, SSR or view transitions.

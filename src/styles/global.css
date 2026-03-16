@@ -1,9 +1,22 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Wooddale";
+  src: url("/fonts/Wooddale-Condensed.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-display {
+  letter-spacing: 0.06em;
+  -webkit-text-stroke: 0.5px currentColor;
+}
+
 @theme {
   --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-sans: system-ui, -apple-system, sans-serif;
-  --font-display: "Nunito", system-ui, sans-serif;
+  --font-sans: "Futura", "Century Gothic", "Noto Sans JP", "Trebuchet MS", sans-serif;
+  --font-display: "Wooddale", "ヒラギノ角ゴ Pro W6", "Hiragino Kaku Gothic Pro", sans-serif;
 
   --color-brand-bg: #FAFAF8;
   --color-brand-text: #1C1C1C;

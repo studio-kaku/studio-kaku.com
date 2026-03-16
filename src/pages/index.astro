@@ -9,7 +9,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
   <!-- Hero -->
   <section class="px-8 md:px-12 pt-10 md:pt-16 pb-6 md:pb-8">
     <h1
-      class="font-display uppercase leading-[0.9] mb-8"
+      class="font-display uppercase leading-[1.15] mb-8"
       style="font-size: clamp(1.75rem, 4vw, 3.5rem);"
       data-en="Where art<br />finds its place."
       data-ja="アートを、<br />その場所へ。"
@@ -19,13 +19,12 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 border-t border-brand-border pt-8">
       <p
         class="text-brand-muted text-base leading-relaxed max-w-md"
-        data-en="Studio Kaku brings together specialist expertise in framing, installation and art care alongside art consultancy, creative direction and curation. We help collectors, galleries and organisations live and work with art at its best."
+        data-en="From the first conversation to the final installation — we bring together specialist framing, art care and consultancy for hotels, collectors and galleries who want art to do more than fill a wall."
         data-ja="Studio Kakuは、額装・設置・アートケアの専門知識と、アートコンサルタンシー・クリエイティブディレクション・キュレーションを組み合わせたスタジオです。コレクター、ギャラリー、企業が最良の形でアートと共に暮らし、働けるよう支援します。"
       >
-        Studio Kaku brings together specialist expertise in framing, installation
-        and art care alongside art consultancy, creative direction and curation.
-        We help collectors, galleries and organisations live and work with art
-        at its best.
+        From the first conversation to the final installation — we bring together
+        specialist framing, art care and consultancy for hotels, collectors and
+        galleries who want art to do more than fill a wall.
       </p>
       <a
         href="/services"
@@ -156,39 +155,39 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
     {[
       {
         num: '01',
-        title: 'Framing',
-        titleJa: 'フレーミング',
-        description: 'Expert framing for works of all scales, using archival materials and bespoke mouldings suited to each piece.',
-        descJa: 'アーカイバル素材と特注モールディングによる、あらゆるサイズの作品に対応した高品質なフレーミングをご提供します。',
-        href: '/services#framing',
-        img: '/images/services/framing.jpg',
+        title: 'Discovery',
+        titleJa: 'ディスカバリー',
+        description: 'We visit the space and get under the skin of it — the light, the architecture, the story you are trying to tell.',
+        descJa: '物件を訪問し、光の入り方や建築、伝えたいストーリーを深く理解します。',
+        href: '/services',
+        img: '/images/services/art-curation.jpg',
       },
       {
         num: '02',
-        title: 'Shipment & Installation',
-        titleJa: '輸送と設置',
-        description: 'Professional handling, transport and installation for private collectors, galleries and institutions.',
-        descJa: 'プライベートコレクター、ギャラリー、文化機関向けのプロフェッショナルな取り扱い・輸送・設置サービスです。',
-        href: '/services#framing',
-        img: '/images/services/shipment-and-installation.webp',
-      },
-      {
-        num: '03',
-        title: 'Exhibition Design',
-        titleJa: '展示デザイン',
-        description: 'Spatial planning and exhibition design that brings curatorial ideas to life in any setting.',
-        descJa: 'キュレーターのアイデアをあらゆる空間で実現する、空間計画と展示デザインです。',
-        href: '/services#consultancy',
+        title: 'Sourcing & Commissioning',
+        titleJa: '調達とコミッション',
+        description: 'We find the right works — from existing pieces to artist commissions created specifically for your space.',
+        descJa: '既存作品からスペースのために制作されたアーティストコミッションまで、最適な作品を選定します。',
+        href: '/services',
         img: '/images/services/exhibition-design.jpg',
       },
       {
+        num: '03',
+        title: 'Framing',
+        titleJa: 'フレーミング',
+        description: 'Every piece framed to museum standard using archival materials chosen for each individual work.',
+        descJa: 'アーカイバル素材を用いて、すべての作品を美術館水準で額装します。',
+        href: '/services',
+        img: '/images/services/framing.jpg',
+      },
+      {
         num: '04',
-        title: 'Art Curation',
-        titleJa: 'アートキュレーション',
-        description: 'Strategic art consultancy and curatorial direction for collectors, corporate clients and cultural institutions.',
-        descJa: 'コレクター、企業クライアント、文化機関向けの戦略的なアートコンサルタンシーとキュレーション指導です。',
-        href: '/services#consultancy',
-        img: '/images/services/art-curation.jpg',
+        title: 'Shipment & Installation',
+        titleJa: '輸送と設置',
+        description: 'We manage transport, logistics and installation from start to finish. You have one point of contact.',
+        descJa: '輸送・ロジスティクス・設置をすべて一括管理します。窓口は一本化されています。',
+        href: '/services',
+        img: '/images/services/shipment-and-installation.webp',
       },
     ].map((service, i) => (
       <a
@@ -200,7 +199,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
         <div class="flex items-baseline gap-6 md:gap-10 min-w-0">
           <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{service.num}</span>
           <div class="min-w-0">
-            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1.5rem, 3.5vw, 3rem);" data-en={service.title} data-ja={service.titleJa}>{service.title}</p>
+            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1rem, 2vw, 1.5rem);" data-en={service.title} data-ja={service.titleJa}>{service.title}</p>
             <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block" data-en={service.description} data-ja={service.descJa}>{service.description}</p>
           </div>
         </div>
@@ -226,20 +225,20 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
     <p class="text-brand-muted text-xs tracking-widest uppercase mb-12" data-en="Selected Clients" data-ja="主なクライアント">Selected Clients</p>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-10 items-center">
       {[
-        { src: '/images/logos/ceysson-benetiere.jpg', alt: 'Ceysson & Bénétière', large: true },
-        { src: '/images/logos/haneda.png', alt: 'Haneda Japan Airport Terminal' },
-        { src: '/images/logos/soho-house.png', alt: 'Soho House' },
-        { src: '/images/logos/mitsui-fudosan.png', alt: 'Mitsui Fudosan' },
-        { src: '/images/logos/gallery-ether.png', alt: 'Gallery Ether' },
-        { src: '/images/logos/bluebell.jpg', alt: 'Bluebell' },
-        { src: '/images/logos/tokyo-american-club.webp', alt: 'Tokyo American Club' },
-        { src: '/images/logos/isetan.svg', alt: 'Isetan' },
+        { src: '/images/logos/ceysson-benetiere.jpg', alt: 'Ceysson & Bénétière', xl: true },
+        { src: '/images/logos/haneda.png', alt: 'Haneda Japan Airport Terminal', large: true },
+        { src: '/images/logos/soho-house.png', alt: 'Soho House', large: true },
+        { src: '/images/logos/mitsui-fudosan.png', alt: 'Mitsui Fudosan', large: true },
+        { src: '/images/logos/gallery-ether.png', alt: 'Gallery Ether', large: true },
+        { src: '/images/logos/bluebell.jpg', alt: 'Bluebell', large: true },
+        { src: '/images/logos/tokyo-american-club.webp', alt: 'Tokyo American Club', small: true },
+        { src: '/images/logos/isetan.svg', alt: 'Isetan', small: true },
         { src: '/images/logos/courtyard-hiroo.png', alt: 'Courtyard Hiroo' },
-        { src: '/images/logos/ultra-super-new.png', alt: 'Ultra Super New' },
-        { src: '/images/logos/somsoc-gallery.png', alt: 'Somsoc Gallery' },
-      ].map(({ src, alt, large }) => (
+        { src: '/images/logos/ultra-super-new.png', alt: 'Ultra Super New', small: true },
+        { src: '/images/logos/somsoc-gallery.png', alt: 'Somsoc Gallery', small: true },
+      ].map(({ src, alt, large, small, xl }) => (
         <div class="flex items-center justify-center h-20">
-          <img src={src} alt={alt} class={`w-auto object-contain mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-300 ${large ? 'max-h-20 max-w-[260px]' : 'max-h-16 max-w-[200px]'}`} loading="lazy" />
+          <img src={src} alt={alt} class={`w-auto object-contain mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-300 ${xl ? 'max-h-32 max-w-[340px]' : large ? 'max-h-24 max-w-[280px]' : small ? 'max-h-10 max-w-[140px]' : 'max-h-12 max-w-[160px]'}`} loading="lazy" />
         </div>
       ))}
     </div>
@@ -248,7 +247,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
   <!-- CTA -->
   <section class="px-8 md:px-12 py-16 md:py-28 border-t border-brand-border">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
-      <p class="font-display uppercase leading-none" style="font-size: clamp(1.75rem, 4vw, 3.5rem);" data-en="Ready to work<br />together?" data-ja="一緒に<br />取り組みませんか？">
+      <p class="font-display uppercase leading-none" style="font-size: clamp(1.5rem, 3vw, 2.5rem);" data-en="Ready to work<br />together?" data-ja="一緒に<br />取り組みませんか？">
         Ready to work<br />together?
       </p>
       <a

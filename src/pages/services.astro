@@ -1,143 +1,138 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const services = [
+const steps = [
   {
     num: '01',
-    title: { en: 'Art Advice', ja: 'アートアドバイス' },
+    title: { en: 'Discovery', ja: 'ディスカバリー' },
     desc: {
-      en: 'Visit the property to advise on what type of art would fit and stand out in each area. Relationship building with clients so as to understand aspirations, likes, dislikes, and their taste.',
-      ja: '物件を訪問し、空間に合った印象的なアートを提案。対話を重ね、クライアントとの信頼関係を築きます。',
+      en: 'We visit the space and get under the skin of it — the light, the architecture, the story you are trying to tell. We listen more than we talk.',
+      ja: '物件を訪問し、光の入り方や建築、伝えたいストーリーを深く理解します。まず聞くことを大切にします。',
     },
     img: '/images/services/art-curation.jpg',
-    href: '#consultancy',
   },
   {
     num: '02',
-    title: { en: 'Art Curation', ja: 'アートキュレーション' },
+    title: { en: 'Concept', ja: 'コンセプト' },
     desc: {
-      en: "Provide an array of ideas on how the art could be displayed, making the most of the space's character, light, scale and surroundings.",
-      ja: '空間の特徴を活かしつつ、光の入り方や色味、広さ、周囲の環境に合わせて、アートの魅力を最大限に引き出す展示アイデアを多角的にご提案します。',
+      en: 'We develop a curatorial direction — a considered proposal for what the art should do in each space, and why. Not a mood board, but a point of view.',
+      ja: '各空間においてアートが果たすべき役割と、その理由を明確にしたキュレーション方針を策定します。ムードボードではなく、確固たる視点をご提案します。',
     },
-    img: '/images/services/art-curation.jpg',
-    href: '#consultancy',
+    img: '/images/services/exhibition-design.jpg',
   },
   {
     num: '03',
-    title: { en: 'Negotiating & Commissioning', ja: '交渉とコミッション' },
+    title: { en: 'Sourcing & Commissioning', ja: '調達とコミッション' },
     desc: {
-      en: 'Work with artists to create the perfect piece for the project, negotiate price, timeline and deliverables.',
-      ja: 'プロジェクトに最適な作品を制作するため、アーティストと連携して進めます。価格や納期、納品内容についても調整・交渉を行います。',
+      en: 'We find the right works — from existing pieces to artist commissions created specifically for your space. We handle all negotiation, contracts and timelines.',
+      ja: '既存作品からスペースのために制作されたアーティストコミッションまで、最適な作品を選定します。交渉、契約、スケジュール管理はすべて私たちが対応します。',
     },
     img: '/images/services/exhibition-design.jpg',
-    href: '#consultancy',
   },
   {
     num: '04',
     title: { en: 'Framing', ja: 'フレーミング' },
     desc: {
-      en: 'Source custom-made framing to enhance the beauty of the artwork, reviewing the different materials for all different sizes and types of artwork. Framing by Juka Framing.',
-      ja: 'アートワークの美しさを引き立てるオーダーメイドの額縁を提供します。さまざまなサイズやタイプの作品に最適な素材を検討します。',
+      en: 'Every piece is framed to museum standard using archival materials chosen for each individual work, in collaboration with Juka Framing.',
+      ja: 'すべての作品は、Juka Framingとの協働のもと、アーカイバル素材を用いて美術館水準の額装を施します。',
     },
     img: '/images/services/framing.jpg',
-    href: '#framing',
     link: { label: 'jukaframing.com', href: 'http://jukaframing.com' },
   },
   {
     num: '05',
     title: { en: 'Shipment & Installation', ja: '輸送と設置' },
     desc: {
-      en: 'Provide best-market shipment service door to door, and service the installation so the client has nothing to worry about.',
-      ja: '最高水準の宅配と設置サポートで、クライアントが安心して任せられる体制を提供します。',
+      en: 'We manage transport, logistics and installation from start to finish. You have one point of contact. Nothing falls through the gaps.',
+      ja: '輸送・ロジスティクス・設置をすべて一括管理します。窓口は一本化され、見落としが生じる心配はありません。',
     },
     img: '/images/services/shipment-and-installation.webp',
-    href: '#framing',
   },
   {
     num: '06',
-    title: { en: 'Exhibition Design', ja: '展示デザイン' },
+    title: { en: 'Handover', ja: '引き渡し' },
     desc: {
-      en: 'Larger scale installation support: develop advanced plans, timelines, concepts and exhibition price lists to assist organisations.',
-      ja: '大規模なインスタレーションに対応し、企画立案、スケジュール管理、コンセプト設計、展示価格リスト作成などを通じて、プロジェクトの推進をサポートします。',
+      en: 'You receive full documentation — artists, provenance, care instructions — so the collection is properly managed long after we have gone.',
+      ja: 'アーティスト情報、来歴、ケア方法など、完全なドキュメントをお渡しします。私たちが去った後も、コレクションが適切に管理されるようにします。',
     },
-    img: '/images/services/exhibition-design.jpg',
-    href: '#consultancy',
+    img: '/images/services/art-curation.jpg',
   },
 ];
 ---
 
 <Layout
   title="Services"
-  description="Studio Kaku offers art consultancy, creative direction, curation, bespoke framing and installation."
+  description="Studio Kaku offers art consultancy, creative direction, curation, bespoke framing and installation for hotels, collectors, galleries and organisations."
 >
   <!-- Page header -->
   <section class="px-8 md:px-12 pt-14 md:pt-20 pb-10 md:pb-16">
     <p class="text-brand-muted text-xs tracking-widest uppercase mb-8" data-fade-text data-en="What we do" data-ja="サービス内容">What we do</p>
-    <h1 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);" data-fade-text data-en="Services" data-ja="サービス">Services</h1>
+    <h1 class="font-display uppercase leading-none mb-10" style="font-size: clamp(2rem, 5vw, 5rem);" data-fade-text data-en="We handle everything." data-ja="すべてお任せください。">We handle everything.</h1>
+    <p
+      class="text-brand-muted leading-relaxed max-w-xl"
+      data-fade-text
+      data-en="From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with hotels and hospitality groups, private collectors, galleries, and organisations who want art to do more than fill a wall."
+      data-ja="アートが空間に何をもたらすかという最初の対話から、最後の一点が壁に掛けられる瞬間まで。ホテルやホスピタリティグループ、個人コレクター、ギャラリー、そして壁を埋める以上のものをアートに求める組織と、ともに仕事をしています。"
+    >
+      From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with hotels and hospitality groups, private collectors, galleries, and organisations who want art to do more than fill a wall.
+    </p>
   </section>
 
-  <!-- Services list -->
+  <!-- The Journey -->
   <section class="border-t border-brand-border">
-    {services.map((item, i) => item.link ? (
+    <div class="px-8 md:px-12 pt-14 md:pt-20 pb-8">
+      <p class="text-brand-muted text-xs tracking-widest uppercase" data-en="The Journey" data-ja="プロセス">The Journey</p>
+    </div>
+    {steps.map((step, i) => (
       <div
-        class="group flex items-center justify-between gap-8 px-8 md:px-12 py-8 border-b border-brand-border hover:bg-brand-border/30 transition-colors"
+        class="flex items-center justify-between gap-8 px-8 md:px-12 py-8 border-t border-brand-border hover:bg-brand-border/30 transition-colors group"
         data-fade
         style={`transition-delay: ${i * 60}ms`}
       >
         <div class="flex items-baseline gap-6 md:gap-10 min-w-0">
-          <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{item.num}</span>
+          <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{step.num}</span>
           <div class="min-w-0">
-            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1.5rem, 3.5vw, 3rem);" data-en={item.title.en} data-ja={item.title.ja}>{item.title.en}</p>
-            <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block" data-en={item.desc.en} data-ja={item.desc.ja}>{item.desc.en}</p>
-            <a
-              href={item.link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hidden md:inline-block mt-4 border border-brand-text px-5 py-2 text-xs tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors"
-            >
-              For more details on framing, visit Juka Framing
-            </a>
+            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(0.9rem, 1.5vw, 1.25rem);" data-en={step.title.en} data-ja={step.title.ja}>{step.title.en}</p>
+            <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block" data-en={step.desc.en} data-ja={step.desc.ja}>{step.desc.en}</p>
+            {step.link && (
+              <a
+                href={step.link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hidden md:inline-block mt-4 border border-brand-text px-5 py-2 text-xs tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors"
+              >
+                For more on framing, visit Juka Framing
+              </a>
+            )}
           </div>
         </div>
         <div class="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 overflow-hidden">
           <img
-            src={item.img}
-            alt={item.title.en}
+            src={step.img}
+            alt={step.title.en}
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             loading="lazy"
           />
         </div>
       </div>
-    ) : (
-      <a
-        href={item.href}
-        class="group flex items-center justify-between gap-8 px-8 md:px-12 py-8 border-b border-brand-border hover:bg-brand-border/30 transition-colors"
-        data-fade
-        style={`transition-delay: ${i * 60}ms`}
-      >
-        <div class="flex items-baseline gap-6 md:gap-10 min-w-0">
-          <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{item.num}</span>
-          <div class="min-w-0">
-            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1.5rem, 3.5vw, 3rem);" data-en={item.title.en} data-ja={item.title.ja}>{item.title.en}</p>
-            <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block" data-en={item.desc.en} data-ja={item.desc.ja}>{item.desc.en}</p>
-          </div>
-        </div>
-        <div class="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 overflow-hidden">
-          <img
-            src={item.img}
-            alt={item.title.en}
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          />
-        </div>
-      </a>
     ))}
+  </section>
+
+  <!-- Reassurance -->
+  <section class="px-8 md:px-12 py-12 border-t border-brand-border">
+    <p
+      class="text-brand-muted text-sm leading-relaxed"
+      data-en="Not every project needs all six steps. If you just need framing, that is a complete service in itself. Get in touch and we will take it from there."
+      data-ja="すべてのプロジェクトに6つのステップが必要なわけではありません。額装だけが必要な場合も、それ自体が完結したサービスです。まずはご連絡ください。"
+    >
+      Not every project needs all six steps. If you just need framing, that is a complete service in itself. Get in touch and we will take it from there.
+    </p>
   </section>
 
   <!-- CTA -->
   <section class="px-8 md:px-12 py-16 md:py-28 border-t border-brand-border">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10" data-fade-text>
-      <p class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 5vw, 6rem);" data-en="Ready to work together?" data-ja="一緒に取り組みませんか？">
+      <p class="font-display uppercase leading-none" style="font-size: clamp(1.5rem, 3vw, 2.5rem);" data-en="Ready to work together?" data-ja="一緒に取り組みませんか？">
         Ready to work<br />together?
       </p>
       <a

@@ -36,9 +36,9 @@ const team = [
   <!-- Mission -->
   <section class="px-8 md:px-12 py-14 md:py-24 border-t border-brand-border">
     <div class="max-w-3xl">
-      <p class="font-serif leading-snug mb-8 text-xl md:text-2xl" data-en="Studio Kaku was founded on the belief that art deserves both the right frame and the right context." data-ja="Studio Kakuは、アートには適切な額装と適切なコンテクストが必要であるという信念のもとに設立されました。">
-        Studio Kaku was founded on the belief that art deserves both the
-        right frame and the right context.
+      <p class="font-sans leading-snug mb-8 text-xl md:text-2xl" data-en="Studio Kaku was founded on the belief that art deserves the right context — and the care to match." data-ja="Studio Kakuは、アートには適切な額装と適切なコンテクストが必要であるという信念のもとに設立されました。">
+        Studio Kaku was founded on the belief that art deserves the right
+        context — and the care to match.
       </p>
       <p class="text-brand-muted leading-relaxed mb-5" data-en="We are a collaboration between two specialists — one rooted in the material and physical world of framing, installation and conservation; the other in the intellectual and cultural work of consultancy, direction and curation. Together, we offer a complete picture." data-ja="私たちは二人の専門家のコラボレーションです。一方はフレーミング・設置・保存という物質的・物理的世界を、もう一方はコンサルタンシー・ディレクション・キュレーションという知的・文化的な仕事を担っています。二人合わせれば、完全な絵が描けます。">
         We are a collaboration between two specialists — one rooted in the
@@ -64,7 +64,7 @@ const team = [
           <div class="w-full aspect-[3/4] overflow-hidden mb-6">
             <img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top" />
           </div>
-          <h3 class="font-serif text-xl mb-1">{member.name}</h3>
+          <h3 class="font-sans text-xl mb-1">{member.name}</h3>
           <p class="text-brand-accent text-xs tracking-widest uppercase mb-4" data-en={member.role} data-ja={member.roleJa}>{member.role}</p>
           <p class="text-brand-muted leading-relaxed text-sm" data-en={member.bio} data-ja={member.bioJa}>{member.bio}</p>
           {member.link && (
