@@ -12,16 +12,14 @@ const currentPath = Astro.url.pathname;
 
 <header class="border-b border-brand-border">
   <div class="px-8 md:px-12 py-6 flex items-center justify-between">
-    <a href="/" class="hover:opacity-70 transition-opacity">
-      <img src="/studiokakulogo-03.png" alt="Studio Kaku" class="h-10 md:h-14 w-auto" />
+    <a href="/" class="hover:opacity-70 transition-opacity font-display uppercase tracking-[0.06em]" style="font-size: clamp(1.25rem, 2.5vw, 2rem);">
+      Studio Kaku
     </a>
     <!-- Desktop nav -->
     <nav class="hidden md:flex items-center gap-10">
-      {nav.map(({ label, ja, href }) => (
+      {nav.map(({ label, href }) => (
         <a
           href={href}
-          data-en={label.toUpperCase()}
-          data-ja={ja}
           class={`text-sm tracking-wide transition-opacity hover:opacity-70 ${
             currentPath.startsWith(href) ? 'opacity-100 font-medium' : 'opacity-60'
           }`}
@@ -48,11 +46,9 @@ const currentPath = Astro.url.pathname;
     class="md:hidden hidden border-t border-brand-border bg-brand-bg"
   >
     <nav class="px-8 py-8 flex flex-col gap-6">
-      {nav.map(({ label, ja, href }) => (
+      {nav.map(({ label, href }) => (
         <a
           href={href}
-          data-en={label.toUpperCase()}
-          data-ja={ja}
           class={`text-base tracking-widest transition-opacity hover:opacity-70 ${
             currentPath.startsWith(href) ? 'opacity-100 font-medium' : 'opacity-60'
           }`}

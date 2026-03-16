@@ -249,21 +249,6 @@ export const projects = [
     cover: "cover.jpg",
     images: ["cover.jpg"],
   },
-  {
-    slug: "verdy-framing",
-    journal: true,
-    title: "Verdy",
-    tagline: "Framing",
-    subtitle: "Private commission",
-    year: "2021",
-    credits: [
-      { label: "Artist", value: "Verdy" },
-    ],
-    description: "Framing commission for a Verdy work.",
-    cover: "cover.JPG",
-    images: ["cover.JPG"],
-  },
-
   // ── Portfolio projects (journal: false) — newest first ──────────────────
 
   {
@@ -277,7 +262,8 @@ export const projects = [
       { label: "Artist", value: "Norihiko Kamei" },
       { label: "Filmmaker", value: "Christopher Nicholls" },
     ],
-    description: `Alongside the Isetan pop-up store design, we staged Wandler's bags in the studio of moss artist Norihiko Kamei san — a space that felt entirely his own, textured and alive. The bags sat naturally within his world, filmed by Christopher Nicholls.`,
+    description: `Moss artist Norihiko Kamei's studio is a world entirely his own — textured, living, quietly extraordinary. We brought Wandler's bags into that world, letting the two speak to each other rather than staging one against the other. Filmed by Christopher Nicholls.`,
+    galleryStyle: 'grid',
     video: "16-9_2nd Delivery.mp4",
     cover: "DSC_2263.JPG",
     images: [
@@ -299,11 +285,12 @@ export const projects = [
       { label: "Creative Direction & Art Curation", value: "Eleanor Ford" },
       { label: "Location", value: "Isetan Shinjuku" },
     ],
-    description: `Collaborated with Wandler and Bluebell to conceptualize and design their first launch into the Japanese market at Isetan. The project centred around creating a lush, green environment to showcase Wandler's signature bags. Drawing inspiration from Japanese aesthetics, the design incorporated Kamei-san's enchanting moss wonderland, seamlessly blending Wandler's leather bags with local cultural elements. This innovative approach created a harmonious and immersive shopping experience, resonating with both global and Japanese audiences.`,
+    description: `Wandler's first entry into the Japanese market — a pop-up at Isetan Shinjuku in collaboration with Bluebell. The brief was to create something that felt genuinely Japanese rather than imported. We brought in moss artist Kamei Norihiko, whose living sculptures became the centrepiece of the space, placing Wandler's bags in a landscape that was as tactile and considered as the leather itself.`,
+    galleryColumns: 2,
     cover: "Front main image.jpg",
     images: [
       "Front main image.jpg",
-      "WANDLER_014.jpg","WANDLER_012.jpg","WANDLER_004.jpg","WANDLER_005.jpg",
+      "WANDLER_014.jpg","WANDLER_004.jpg",
       "WANDLER_039.jpg","WANDLER_061.jpg","WANDLER_048.jpg","WANDLER_058.jpg",
       "WANDLER_042.jpg","WANDLER_020.jpg","WANDLER_037.jpg","WANDLER_026.jpg",
     ],
@@ -316,14 +303,18 @@ export const projects = [
     year: "December 2025",
     credits: [
       { label: "Artist", value: "Duncan Swann" },
-      { label: "Curation, Framing & Installation", value: "Eleanor Ford" },
+      { label: "Curation, Framing & Installation", value: "Studio Kaku" },
     ],
-    description: "Curation, framing and installation for Duncan Swann's exhibition.",
-    cover: "DSC03378.jpg",
+    description: `Duncan Swann (b. 1969, Sheffield) is a British-German painter and sculptor based in Tokyo, with an MA from the Royal College of Art. His work has been shortlisted for the Jerwood Painting Prize and the John Moores Painting Prize, and he has exhibited across Europe, the UK and Japan.
+
+His practice bridges Western abstraction and Eastern aesthetics — building oil surfaces that balance structure with spontaneity, and organic form with architectural order. His recent series *Forbidden Colours* (OAG Tokyo, 2025) reinterprets the Edo-period kinjiki palette to question hierarchy and cultural translation. His new work returns to the figure, placing people within abstracted space in search of what it means to be human.
+
+Studio Kaku handled curation, framing and installation for this exhibition.`,
+    cover: "DSC03384.jpg",
     images: [
-      "DSC03378.jpg","DSC03384.jpg","DSC03424.jpg",
-      "DSC03504.JPG","DSC03510.JPG","DSC03514.JPG",
-      "DSC03520.JPG","DSC03529.JPG","DSC03530.JPG",
+      "DSC03384.jpg","DSC03378.jpg","DSC03424.jpg",
+      "DSC03504.JPG","DSC03514.JPG",
+      "DSC03520.JPG","DSC03529.JPG",
     ],
   },
   {
