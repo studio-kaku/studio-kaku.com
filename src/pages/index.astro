@@ -72,7 +72,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
             />
           </div>
           <p class="text-xs text-brand-muted tracking-widest uppercase mb-1">{entry.year}</p>
-          <p class="font-display uppercase leading-tight text-lg group-hover:opacity-50 transition-opacity">{entry.title}</p>
+          <p class="font-display uppercase leading-snug text-base break-words group-hover:opacity-50 transition-opacity">{entry.title}</p>
           <p class="text-xs text-brand-muted mt-1">{entry.tagline}</p>
         </a>
       ))}
@@ -136,7 +136,7 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
               />
             </div>
             <div class="mt-3">
-              <p class="text-sm tracking-widest uppercase group-hover:opacity-40 transition-opacity">{project.title}</p>
+              <p class="font-display uppercase leading-snug text-base group-hover:opacity-40 transition-opacity">{project.title}</p>
               {project.tagline && (
                 <p class="text-xs text-brand-muted mt-1 group-hover:opacity-40 transition-opacity">{project.tagline}</p>
               )}
@@ -199,8 +199,8 @@ const journalEntries = projects.filter(p => p.journal).slice(0, 8);
         <div class="flex items-baseline gap-6 md:gap-10 min-w-0">
           <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{service.num}</span>
           <div class="min-w-0">
-            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1rem, 2vw, 1.5rem);" data-en={service.title} data-ja={service.titleJa}>{service.title}</p>
-            <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block" data-en={service.description} data-ja={service.descJa}>{service.description}</p>
+            <p class="font-sans uppercase tracking-widest leading-none mb-2 text-sm" data-en={service.title} data-ja={service.titleJa}>{service.title}</p>
+            <p class="text-brand-muted text-sm leading-relaxed max-w-md" data-en={service.description} data-ja={service.descJa}>{service.description}</p>
           </div>
         </div>
         <div class="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 overflow-hidden">

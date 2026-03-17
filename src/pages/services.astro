@@ -9,7 +9,7 @@ const steps = [
       en: 'We visit the space and get under the skin of it — the light, the architecture, the story you are trying to tell. We listen more than we talk.',
       ja: '物件を訪問し、光の入り方や建築、伝えたいストーリーを深く理解します。まず聞くことを大切にします。',
     },
-    img: '/images/services/art-curation.jpg',
+    img: '/images/services/discovery.jpg',
   },
   {
     num: '02',
@@ -18,7 +18,7 @@ const steps = [
       en: 'We develop a curatorial direction — a considered proposal for what the art should do in each space, and why. Not a mood board, but a point of view.',
       ja: '各空間においてアートが果たすべき役割と、その理由を明確にしたキュレーション方針を策定します。ムードボードではなく、確固たる視点をご提案します。',
     },
-    img: '/images/services/exhibition-design.jpg',
+    img: '/images/services/concept.jpg',
   },
   {
     num: '03',
@@ -27,7 +27,7 @@ const steps = [
       en: 'We find the right works — from existing pieces to artist commissions created specifically for your space. We handle all negotiation, contracts and timelines.',
       ja: '既存作品からスペースのために制作されたアーティストコミッションまで、最適な作品を選定します。交渉、契約、スケジュール管理はすべて私たちが対応します。',
     },
-    img: '/images/services/exhibition-design.jpg',
+    img: '/images/services/sourcing-commissioning.jpg',
   },
   {
     num: '04',
@@ -55,7 +55,7 @@ const steps = [
       en: 'You receive full documentation — artists, provenance, care instructions — so the collection is properly managed long after we have gone.',
       ja: 'アーティスト情報、来歴、ケア方法など、完全なドキュメントをお渡しします。私たちが去った後も、コレクションが適切に管理されるようにします。',
     },
-    img: '/images/services/art-curation.jpg',
+    img: '/images/services/handover.jpg',
   },
 ];
 ---
@@ -92,8 +92,8 @@ const steps = [
         <div class="flex items-baseline gap-6 md:gap-10 min-w-0">
           <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{step.num}</span>
           <div class="min-w-0">
-            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(0.9rem, 1.5vw, 1.25rem);" data-en={step.title.en} data-ja={step.title.ja}>{step.title.en}</p>
-            <p class="text-brand-muted text-sm leading-relaxed max-w-md hidden md:block" data-en={step.desc.en} data-ja={step.desc.ja}>{step.desc.en}</p>
+            <p class="font-sans uppercase tracking-widest leading-none mb-2 text-sm" data-en={step.title.en} data-ja={step.title.ja}>{step.title.en}</p>
+            <p class="text-brand-muted text-sm leading-relaxed max-w-md" data-en={step.desc.en} data-ja={step.desc.ja}>{step.desc.en}</p>
             {step.link && (
               <a
                 href={step.link.href}
