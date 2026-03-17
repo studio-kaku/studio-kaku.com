@@ -1,4 +1,10 @@
 ---
+interface Props {
+  activeSection?: string;
+}
+
+const { activeSection } = Astro.props;
+
 const nav = [
   { label: 'Journal', ja: 'ジャーナル', href: '/journal' },
   { label: 'Projects', ja: 'プロジェクト', href: '/projects' },
@@ -8,6 +14,11 @@ const nav = [
 ];
 
 const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  if (activeSection) return activeSection === href.replace('/', '');
+  return currentPath.startsWith(href);
+}
 ---
 
 <header class="border-b border-brand-border">
@@ -21,7 +32,7 @@ const currentPath = Astro.url.pathname;
         <a
           href={href}
           class={`text-sm tracking-wide transition-opacity hover:opacity-70 ${
-            currentPath.startsWith(href) ? 'opacity-100 font-medium' : 'opacity-60'
+            isActive(href) ? 'opacity-100 font-medium' : 'opacity-60'
           }`}
         >
           {label.toUpperCase()}
@@ -50,7 +61,7 @@ const currentPath = Astro.url.pathname;
         <a
           href={href}
           class={`text-base tracking-widest transition-opacity hover:opacity-70 ${
-            currentPath.startsWith(href) ? 'opacity-100 font-medium' : 'opacity-60'
+            isActive(href) ? 'opacity-100 font-medium' : 'opacity-60'
           }`}
         >
           {label.toUpperCase()}

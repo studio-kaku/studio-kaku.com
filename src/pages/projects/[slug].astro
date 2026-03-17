@@ -14,17 +14,15 @@ const [hero, ...gallery] = project.images;
 const paragraphs = project.description ? project.description.split('\n\n') : [];
 ---
 
-<Layout title={project.title}>
+<Layout title={project.title} activeSection={project.journal ? 'journal' : 'projects'}>
 
   <!-- Back link -->
   <div class="px-8 md:px-12 pt-8">
     <a
-      href="/projects"
+      href={project.journal ? '/journal' : '/projects'}
       class="text-brand-muted text-xs tracking-widest uppercase hover:opacity-50 transition-opacity"
-      data-en="← Projects"
-      data-ja="← プロジェクト一覧"
     >
-      ← Projects
+      {project.journal ? '← Journal' : '← Projects'}
     </a>
   </div>
 
@@ -169,12 +167,10 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
   <section class="px-8 md:px-12 py-20 border-t border-brand-border mt-1 reveal">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
       <a
-        href="/projects"
+        href={project.journal ? '/journal' : '/projects'}
         class="text-sm tracking-wide underline underline-offset-4 hover:opacity-50 transition-opacity"
-        data-en="← Back to all projects"
-        data-ja="← プロジェクト一覧に戻る"
       >
-        ← Back to all projects
+        {project.journal ? '← Back to journal' : '← Back to all projects'}
       </a>
       <a
         href="/contact"

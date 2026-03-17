@@ -6,9 +6,10 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  activeSection?: string;
 }
 
-const { title, description = 'Studio Kaku — Art framing, installation, consultancy and creative direction.' } = Astro.props;
+const { title, description = 'Studio Kaku — Art framing, installation, consultancy and creative direction.', activeSection } = Astro.props;
 ---
 
 <!doctype html>
@@ -46,7 +47,7 @@ const { title, description = 'Studio Kaku — Art framing, installation, consult
     </style>
   </head>
   <body class="bg-brand-bg text-brand-text font-sans antialiased min-h-screen flex flex-col">
-    <Header />
+    <Header activeSection={activeSection} />
     <main class="flex-1">
       <slot />
     </main>
