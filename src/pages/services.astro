@@ -92,7 +92,7 @@ const steps = [
         <div class="flex items-baseline gap-6 md:gap-10 min-w-0">
           <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{step.num}</span>
           <div class="min-w-0">
-            <p class="font-sans uppercase tracking-widest leading-none mb-2 text-sm" data-en={step.title.en} data-ja={step.title.ja}>{step.title.en}</p>
+            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(0.9rem, 1.5vw, 1.25rem); -webkit-text-stroke: 0;" data-en={step.title.en} data-ja={step.title.ja}>{step.title.en}</p>
             <p class="text-brand-muted text-sm leading-relaxed max-w-md" data-en={step.desc.en} data-ja={step.desc.ja}>{step.desc.en}</p>
             {step.link && (
               <a
