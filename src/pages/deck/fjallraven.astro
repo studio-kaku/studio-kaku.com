@@ -144,6 +144,62 @@
         document.getElementById('pw-input').focus();
       }
     });
+
+    function addPlayButton(video, iframeDoc) {
+      if (video.dataset.playBtnAdded) return;
+      video.dataset.playBtnAdded = '1';
+
+      const btn = iframeDoc.createElement('div');
+      btn.style.cssText = `
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 64px; height: 64px;
+        background: rgba(0,0,0,0.55);
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+        z-index: 9999;
+        pointer-events: all;
+        transition: background 0.15s;
+      `;
+      btn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg>`;
+
+      // Position btn relative to video's parent
+      const parent = video.parentElement;
+      const prevPosition = parent.style.position;
+      if (!prevPosition || prevPosition === 'static') parent.style.position = 'relative';
+
+      parent.appendChild(btn);
+
+      function syncBtn() {
+        btn.style.display = video.paused ? 'flex' : 'none';
+      }
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.paused ? video.play() : video.pause();
+      });
+      btn.addEventListener('mouseover', () => btn.style.background = 'rgba(0,0,0,0.75)');
+      btn.addEventListener('mouseout', () => btn.style.background = 'rgba(0,0,0,0.55)');
+      video.addEventListener('play', syncBtn);
+      video.addEventListener('pause', syncBtn);
+      video.addEventListener('ended', syncBtn);
+      syncBtn();
+    }
+
+    function injectPlayButtons(iframeDoc) {
+      iframeDoc.querySelectorAll('video').forEach(v => addPlayButton(v, iframeDoc));
+      new MutationObserver(() => {
+        iframeDoc.querySelectorAll('video').forEach(v => addPlayButton(v, iframeDoc));
+      }).observe(iframeDoc.body, { childList: true, subtree: true });
+    }
+
+    document.getElementById('pitch-frame').addEventListener('load', () => {
+      try {
+        injectPlayButtons(document.getElementById('pitch-frame').contentDocument);
+      } catch(e) {}
+    });
   </script>
 
 </body>
