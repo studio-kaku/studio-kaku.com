@@ -71,11 +71,38 @@ Do **not** use the Bash tool's `run_in_background` parameter — it exits after 
 
 ## Content folder (`content/`)
 
-Eleanor drops assets (images, copy, logos, etc.) into the `content/` folder at the project root to share them. This folder is:
+Eleanor drops assets (images, copy, logos, etc.) into the `content/` folder at the project root to share them. The canonical location is:
+
+**`/Users/Eleanor/Sites/studio-kaku.com/content/`**
+
+This folder is:
 
 - **Local only** — gitignored, never committed or pushed
 - **Not a build source** — never reference it directly in the website
 - When using an asset from here, always copy and convert it first (e.g. compress/resize images) before placing in `public/` or `src/`
+
+## Pitch decks and presentation files
+
+Pitch decks are served as static HTML exports dropped into `public/d/<deck-name>/`.
+
+**Always use HTML format.** When Keynote exports to HTML (File → Export To → HTML), it produces a self-contained folder with an `index.html` and an `assets/` subfolder containing images, PDFs, and JSON data — all browser-safe and git-friendly.
+
+**Never use `.key`, `.ppt`, or `.pptx` files directly.** These are binary archives. Attempting to extract content from them programmatically creates UUID-named folders, embedded `.mov` video files, and other large binaries that bloat git history and can't be reversed without rewriting history (as we learned the hard way in March 2026).
+
+**If Eleanor drops a non-HTML presentation file into `content/`:**
+1. Stop immediately — do not commit anything.
+2. Warn her that this format will cause git bloat.
+3. Ask her to re-export as HTML from Keynote (or equivalent), then share the resulting folder.
+
+## File size policy
+
+Before committing any file to git, check its size. Files over **5MB** need a clear justification:
+
+- **Images:** Compress first. Use `ffmpeg` or `sips` to resize/convert. JPEGs for photos should be under 500KB; PNGs under 1MB.
+- **Videos:** Never commit raw video files. Either compress heavily (CRF 35+) before committing, or link to an external host. Raw `.mov` or uncompressed `.mp4` files must not be committed.
+- **Binary files** (fonts, PDFs, etc.): Fine if genuinely needed and not huge. Flag anything over 5MB.
+
+If in doubt, check the file size before staging: `du -sh <file>`.
 
 ## Technology constraints
 
