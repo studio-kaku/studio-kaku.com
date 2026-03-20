@@ -350,8 +350,27 @@ import Layout from '../layouts/Layout.astro';
     <!-- Catalogue preview grid -->
     <div class="relative mb-10 overflow-hidden">
       <div class="grid grid-cols-6 gap-2">
-        {Array.from({ length: 18 }).map((_, i) => (
-          <div class="aspect-square bg-[#DDDBD7]"></div>
+        {[
+          '/images/catalogue/room-tatami-chair.jpg',
+          '/images/catalogue/object-wood-stools.jpg',
+          '/images/catalogue/room-japandi-chair.jpg',
+          '/images/catalogue/object-akari-lamps.jpg',
+          '/images/catalogue/furniture-table-ceramics.jpg',
+          '/images/catalogue/object-pewter-cup.jpg',
+          '/images/catalogue/room-lounge-flowers.jpg',
+          '/images/catalogue/object-dark-cabinet.jpg',
+          '/images/catalogue/room-dining-art.jpg',
+          '/images/catalogue/object-mirror.jpg',
+          '/images/catalogue/furniture-table-bench.jpg',
+          '/images/catalogue/object-black-teapot.jpg',
+          '/images/catalogue/room-dining-overhead.jpg',
+          '/images/catalogue/object-pendant-lamps.jpg',
+          '/images/catalogue/room-tatami-lowtable.jpg',
+          null, null, null,
+        ].map((img) => (
+          img
+            ? <div class="aspect-square overflow-hidden"><img src={img} alt="" class="w-full h-full object-cover" /></div>
+            : <div class="aspect-square bg-[#DDDBD7]"></div>
         ))}
       </div>
       <!-- Fade out third row -->
