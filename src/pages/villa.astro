@@ -1,0 +1,425 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Villa Curation — Studio Kaku" description="Studio Kaku curates art, objects, and interiors for private residences across Japan — rooted in Hokkaido craft and contemporary Japanese art.">
+
+  <!-- Hero -->
+  <section class="min-h-[90vh] grid md:grid-cols-2 bg-brand-text">
+    <div class="flex flex-col justify-between px-8 md:px-16 pt-32 pb-28 md:pt-48 md:pb-40">
+      <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent">Art · Curation · Space · Hokkaido</p>
+      <div>
+        <h1 class="font-display uppercase leading-[1.08] text-brand-bg" style="font-size: clamp(2.5rem, 5vw, 4.5rem);" data-fade-text>
+          A space that<br />speaks <em class="not-italic text-brand-accent">for itself</em>
+        </h1>
+        <p class="text-brand-bg/45 text-sm leading-relaxed max-w-sm mt-7" data-fade-text style="transition-delay:80ms">
+          Studio Kaku curates art, objects, and interiors for private residences and hospitality spaces across Japan — rooted in Hokkaido craft and contemporary Japanese art.
+        </p>
+      </div>
+      <p class="text-brand-bg/25 text-[11px] tracking-wide">Studio Kaku · Villa curation</p>
+    </div>
+    <div class="hidden md:block border-l border-brand-bg/[0.08] overflow-hidden">
+      <img src="/images/catalogue/room-tatami-chair.jpg" alt="" class="w-full h-full object-cover" />
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="px-8 md:px-16 pt-40 pb-28 md:pt-56 md:pb-40 border-t border-brand-border">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-8 flex items-center gap-4">
+      How it works
+      <span class="block h-px w-12 bg-brand-accent/40"></span>
+    </p>
+    <h2 class="font-display uppercase leading-[1.1] mb-8" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+      One relationship.<br />Everything considered.
+    </h2>
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-24">
+      Studio Kaku is your sole creative partner — from first conversation to final installation. Whether you want art only, furniture only, or a complete interior, one call begins the process.
+    </p>
+    <div class="grid md:grid-cols-3 gap-px bg-brand-border">
+      {[
+        { num: '01', title: 'Consultation', body: 'We visit the space and learn how you live in it — your aesthetic instincts, how the property will be used, and what you\'d like guests to feel. This informs everything.' },
+        { num: '02', title: 'Curation', body: 'We select works, objects, and furniture from our artist network and the Hokkaido artisan community — edited specifically for your space and your taste.' },
+        { num: '03', title: 'Installation', body: 'We manage every detail — hanging, placement, finishing — and remain available for adjustments. The space is handed back complete.' },
+      ].map((step, i) => (
+        <div class="bg-brand-bg p-12 md:p-14" data-fade style={`transition-delay:${i * 80}ms`}>
+          <p class="font-display text-brand-border leading-none mb-5" style="font-size: 2.5rem;">{step.num}</p>
+          <h3 class="font-display uppercase text-lg mb-4">{step.title}</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Service tiers -->
+  <section class="px-8 md:px-16 pt-40 pb-28 md:pt-56 md:pb-40 border-t border-brand-border bg-brand-border/20">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-8 flex items-center gap-4">
+      Studio service fee
+      <span class="block h-px w-12 bg-brand-accent/40"></span>
+    </p>
+    <h2 class="font-display uppercase leading-[1.1] mb-8" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+      Our professional fee,<br />clearly stated.
+    </h2>
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 mb-24">
+      <p class="text-brand-muted text-sm leading-relaxed">
+        The service fee covers everything Studio Kaku does — consultation, curation, installation, and management. It is separate from the cost of the works and objects themselves, which are chosen together through the process.
+      </p>
+      <p class="text-brand-muted text-sm leading-relaxed border-t md:border-t-0 md:border-l border-brand-border pt-5 md:pt-0 md:pl-10">
+        Furniture and interior design is introduced through our design collaborator and coordinated by Studio Kaku. You deal with one contact throughout — Studio Kaku invoices for everything.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-px bg-brand-border">
+      <!-- Essentials -->
+      <div class="bg-brand-bg p-12 md:p-14" data-fade>
+        <p class="text-[10px] tracking-[0.18em] uppercase text-brand-accent mb-5">Studio</p>
+        <h3 class="font-display uppercase leading-[1.15] mb-2" style="font-size: clamp(1.3rem, 2vw, 1.6rem);">Essentials</h3>
+        <p class="text-brand-muted text-xs mb-6 tracking-wide">Smaller spaces · up to 3 rooms</p>
+        <p class="font-display leading-none text-brand-text mb-1" style="font-size: clamp(2rem, 3vw, 2.5rem);">¥150–250k</p>
+        <p class="text-brand-muted text-xs mb-8">service fee</p>
+        <ul class="space-y-0 border-t border-brand-border pt-6">
+          {['One consultation visit to the space', 'Art curation for up to 3 rooms', 'Hokkaido craft framing included', 'Full installation managed', 'One revision round'].map(item => (
+            <li class="text-[11px] text-brand-muted py-3 border-b border-brand-border flex gap-2">
+              <span class="text-brand-accent/50 flex-shrink-0">—</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <!-- Full villa (featured) -->
+      <div class="bg-brand-text p-12 md:p-14" data-fade style="transition-delay:80ms">
+        <p class="text-[10px] tracking-[0.18em] uppercase text-brand-accent/70 mb-5">Studio+</p>
+        <h3 class="font-display uppercase text-brand-bg leading-[1.15] mb-2" style="font-size: clamp(1.3rem, 2vw, 1.6rem);">Full villa</h3>
+        <p class="text-brand-bg/40 text-xs mb-6 tracking-wide">Mid-size · all rooms</p>
+        <p class="font-display leading-none text-brand-bg mb-1" style="font-size: clamp(2rem, 3vw, 2.5rem);">¥350–550k</p>
+        <p class="text-brand-bg/40 text-xs mb-8">service fee</p>
+        <ul class="space-y-0 border-t border-brand-bg/10 pt-6">
+          {['Two consultation visits', 'Art curation throughout the villa', 'Furniture introduction & coordination', 'Local goods curation included', 'Gallery introduction event', 'Two revision rounds'].map(item => (
+            <li class="text-[11px] text-brand-bg/40 py-3 border-b border-brand-bg/[0.08] flex gap-2">
+              <span class="text-brand-accent/50 flex-shrink-0">—</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <!-- Considered -->
+      <div class="bg-brand-bg p-12 md:p-14" data-fade style="transition-delay:160ms">
+        <p class="text-[10px] tracking-[0.18em] uppercase text-brand-accent mb-5">Studio Bespoke</p>
+        <h3 class="font-display uppercase leading-[1.15] mb-2" style="font-size: clamp(1.3rem, 2vw, 1.6rem);">Considered</h3>
+        <p class="text-brand-muted text-xs mb-6 tracking-wide">Largest spaces · no fixed scope</p>
+        <p class="font-display leading-none text-brand-text mb-1" style="font-size: clamp(2rem, 3vw, 2.5rem);">¥700k+</p>
+        <p class="text-brand-muted text-xs mb-8">by arrangement</p>
+        <ul class="space-y-0 border-t border-brand-border pt-6">
+          {['Ongoing consultation, no limit', 'Full space — art, objects, furniture', 'Artist introductions arranged', 'Commission facilitation', 'Collection documentation', 'Revisions until complete'].map(item => (
+            <li class="text-[11px] text-brand-muted py-3 border-b border-brand-border flex gap-2">
+              <span class="text-brand-accent/50 flex-shrink-0">—</span>{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Entry print selection -->
+  <section class="bg-brand-text px-8 md:px-16 pt-40 pb-28 md:pt-56 md:pb-40">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-8 flex items-center gap-4">
+      Entry print selection
+      <span class="block h-px w-12 bg-brand-accent/30"></span>
+    </p>
+    <h2 class="font-display uppercase leading-[1.1] text-brand-bg mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+      Ten works to begin with
+    </h2>
+    <p class="text-brand-bg/50 text-sm leading-relaxed max-w-lg mb-24">
+      A curated set of ten limited edition prints — the foundation of the Essentials package. Each work is edition-numbered, framed in Hokkaido timber, and chosen to live well in a rental property: beautiful, considered, and replaceable.
+    </p>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-16">
+      {[
+        { artist: 'Kawase Hasui', title: 'Snowstorm, Ikaho', price: '¥45k · Ed. 50' },
+        { artist: 'Yoshitomo Nara', title: 'Untitled (Night)', price: '¥65k · Ed. 30' },
+        { artist: 'Toko Shinoda', title: 'Resonance II', price: '¥55k · Ed. 40' },
+        { artist: 'Naoko Matsubara', title: 'Forest, Early Light', price: '¥40k · Ed. 60' },
+        { artist: 'KYNE', title: 'Portrait No. 7', price: '¥70k · Ed. 25' },
+        { artist: 'Ayako Rokkaku', title: 'Untitled (Bloom)', price: '¥60k · Ed. 35' },
+        { artist: 'Kiyoshi Saito', title: 'Winter, Aizu', price: '¥50k · Ed. 45' },
+        { artist: 'Yu Miyazaki', title: 'Full Bloom', price: '¥55k · Ed. 40' },
+        { artist: 'Yusuke Hanai', title: 'Solitude No. 3', price: '¥65k · Ed. 30' },
+        { artist: 'Chiho Aoshima', title: 'City Glow', price: '¥60k · Ed. 35' },
+      ].map((print, i) => (
+        <div data-fade style={`transition-delay:${i * 40}ms`}>
+          <div class="aspect-[3/4] bg-brand-bg/10 flex items-center justify-center mb-3">
+            <p class="text-brand-bg/20 text-[9px] tracking-widest uppercase text-center px-2">Image<br />here</p>
+          </div>
+          <p class="text-brand-bg text-xs font-medium">{print.artist}</p>
+          <p class="text-brand-bg/40 text-xs italic font-serif">{print.title}</p>
+          <p class="text-brand-accent text-[11px] mt-1">{print.price}</p>
+        </div>
+      ))}
+    </div>
+    <div class="grid md:grid-cols-2 gap-px bg-brand-bg/[0.05] border-t border-brand-bg/10">
+      <div class="bg-brand-text p-12 md:p-14">
+        <p class="text-brand-bg/45 text-sm leading-relaxed">All prints in the entry selection are available as part of the Essentials package, or purchased individually. Each is supplied framed in Hokkaido timber by Baihodo. Edition numbers and availability confirmed on enquiry.</p>
+      </div>
+      <div class="bg-brand-text p-12 md:p-14">
+        <p class="text-brand-bg/45 text-sm leading-relaxed">Works are chosen to suit the light, scale, and mood of villa spaces. If you have a particular aesthetic in mind, we are happy to build a selection around it during consultation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The collection / artists -->
+  <section class="px-8 md:px-16 pt-40 pb-28 md:pt-56 md:pb-40 border-t border-brand-border">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-8 flex items-center gap-4">
+      The collection
+      <span class="block h-px w-12 bg-brand-accent/40"></span>
+    </p>
+    <h2 class="font-display uppercase leading-[1.1] mb-8" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+      Japanese artists<br />we work with
+    </h2>
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-24">
+      From mid-century masters to emerging voices, these are the artists whose work forms the backbone of our curation. Available as prints, editions, and originals depending on the artist.
+    </p>
+    <div class="grid md:grid-cols-2 gap-px bg-brand-border">
+      {[
+        { en: 'Born in Hokkaido, the artist creates paintings that flow like water, where vivid colors and undulating lines appear and fade across the surface. Layers of paper are built up and then sanded down, revealing traces of what lies beneath. This process uncovers quiet depths within the work—transforming what first seems abstract and mysterious into a scene that gradually takes shape before the viewer\'s eyes.', jp: '北海道生まれのアーティストは、水のように流れる色彩と揺らめく線を描き出します。鮮やかな色が現れては消え、重ねられた紙の層を削ることで内側の世界が少しずつ姿を現します。抽象的で神秘的に見える作品は、時間とともに静かな深みを帯び、見る人の前でゆっくりと風景へと変わっていきます。' },
+        { en: 'A contemporary artist from the Ainu community in Akan, Hokkaido. Their work blends traditional Ainu craftsmanship with modern design, reimagining heritage patterns through everyday objects and immersive installations that connect tradition with contemporary culture.', jp: '北海道・阿寒のアイヌ民族出身の現代アーティスト。伝統的なアイヌの工芸とモダンデザインを融合させ、日常のプロダクトを通して文化の継承と現代性をつなぐ作品を制作している。' },
+        { en: 'Born in Sapporo in 1977, he studied sculpture at Tama Art University and has been based in Shiraoi, Hokkaido since 2002. Working across sculpture, painting, and installation, he explores boundaries in nature—horizons, ridgelines, and the spaces that connect earth and sky. He exhibits widely in Japan and abroad while leading Hokkaido\'s artist community.', jp: '1977年札幌生まれ。多摩美術大学彫刻学科卒業後、2002年より北海道白老町を拠点に活動。彫刻、絵画、インスタレーションを通じ、地平線や山脈など自然の中にある「境界」を探求している。国内外での展示に加え、北海道のアートコミュニティを牽引している。' },
+        { en: 'Born in Hokkaido in 1982, he played ice hockey from elementary school through college. After learning welding and carpentry at construction companies, he became independent, working on renovations and store interiors before starting his own woodwork two years ago.', jp: '1982年北海道生まれ。小学校から大学までアイスホッケーに打ち込む。土木会社で溶接、建設会社で大工を学んだ後、独立。リノベーションや店舗内装を手掛け、2年前から木工作品の制作を始める。' },
+        { en: 'Born in Tokyo and raised in the U.S., she later studied Fine Art at Chelsea College of Arts, University of the Arts London. With an international background, she has exhibited in Japan and London and collaborated with major brands worldwide. Her playful use of organic shapes and pastel tones invites viewers to connect and find joy in her work.', jp: '東京生まれ、アメリカ育ち。ロンドン芸術大学チェルシー・カレッジ・オブ・アーツでファインアートを専攻。国際的な背景を持ち、日本やロンドンでの展示のほか、国内外のブランドとのコラボレーションも行う。柔らかな色彩と有機的な形を用いた遊び心あふれる作風で、見る人に共感と楽しさを与えている。' },
+        { en: 'An artist who expresses everyday emotions and memories through fluid lines and vibrant colors. Having developed a unique style through projects in Japan and abroad, they held their first solo exhibition this year.', jp: '流れるような線と鮮やかな色彩で日々の感情や記憶を描き出すアーティスト。日本国内外での活動を経て独自のスタイルを確立し、今年初の個展を開催した。' },
+        { en: 'An artist reimagining traditional Japanese calligraphy through a modern lens of light and expression. Born in Okinawa, he began shodō at four, inheriting Zen and Okinawan spiritual influences from his grandfather. He now lives and works in Okinawa.', jp: '光と現代的感性で書道を再構築するアーティスト。沖縄生まれ。4歳から書を学び、祖父から禅と沖縄の精神文化を受け継ぐ。現在は沖縄を拠点に活動している。' },
+        { en: 'Since 2013, he has developed The Couple series, inspired by the hands and feet in ukiyo-e shunga and exploring the theme of "relationships." Working across sculpture, painting, and drawing, he visualizes invisible human connections as "entanglement," expressing the complexity and depth of these ties through intertwined limbs.', jp: '2013年より、浮世絵春画の手足から着想を得た《the Couple》シリーズを展開し、「関係性」を探求。彫刻、絵画、ドローイングなどを通じ、目に見えないつながりを「もつれ」として表し、絡み合う手足に人間関係の複雑さと深さを映し出している。' },
+        { en: 'The Reconstructing Broken Objects (Rebuilding) series restores broken things to their original form. Clay is intentionally cracked, then fired, glazed, and reassembled. Using traditional Japanese techniques, fragility is transformed into permanence, capturing time and emotion in each piece.', jp: '「壊れたものを再構築する（リビルディング）」シリーズでは、壊れたものを元の形に戻します。粘土は意図的にひびを入れ、焼成・釉掛け・再組立を行います。伝統技法で、もろさを永続性に変え、時間や感情を作品に閉じ込めています。' },
+        { en: 'Born in Osaka in 1969 and raised in Amagasaki, Hyogo, he has long explored the impermanence of life and the workings of the universe. At fifteen, he lived with farmers in rural Hyogo, working the land and caring for livestock. After studying in California, he returned to Japan and now splits his time between organic rice farming, fishing, and art in a Chiba fishing village.', jp: '1969年大阪生まれ、兵庫県尼崎育ち。幼少期より、人生の無常と宇宙の仕組みに関心を持つ。15歳で兵庫県の農村で農作業や家畜の世話を経験。カリフォルニアでの留学を経て帰国し、現在は千葉県の漁村で有機米の栽培、漁業、アート活動を行っている。' },
+      ].map((artist, i) => (
+        <div class="bg-brand-bg grid grid-cols-[100px_1fr] md:grid-cols-[160px_1fr]" data-fade style={`transition-delay:${(i % 2) * 80}ms`}>
+          <div class="bg-brand-border/50 flex items-center justify-center">
+            <p class="text-brand-muted text-[9px] tracking-widest uppercase text-center px-2">Image</p>
+          </div>
+          <div class="p-8 md:p-10 border-l border-brand-border">
+            <p class="text-brand-muted text-xs leading-relaxed mb-4">{artist.en}</p>
+            <p class="text-brand-muted text-xs leading-relaxed opacity-60">{artist.jp}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Local goods -->
+  <section class="px-8 md:px-16 pt-40 pb-28 md:pt-56 md:pb-40 border-t border-brand-border bg-brand-border/20">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-8 flex items-center gap-4">
+      Local goods
+      <span class="block h-px w-12 bg-brand-accent/40"></span>
+    </p>
+    <h2 class="font-display uppercase leading-[1.1] mb-8" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+      Hokkaido,<br />made by hand
+    </h2>
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-24">
+      A curated selection of objects made in Hokkaido — for the villa, for the bath, for the table. Each piece is sourced through Baihodo and tells a story of place.
+    </p>
+    <div class="grid md:grid-cols-2 gap-px bg-brand-border mb-px">
+      <div class="aspect-[4/3] overflow-hidden">
+        <img src="/images/catalogue/room-lounge-flowers.jpg" alt="" class="w-full h-full object-cover" />
+      </div>
+      <div class="bg-brand-bg p-10 md:p-14 flex flex-col justify-center">
+        <h3 class="font-display uppercase leading-[1.15] mb-5" style="font-size: clamp(1.5rem, 3vw, 2.25rem);">Things that belong<br />in this place</h3>
+        <p class="text-brand-muted text-sm leading-relaxed">The local goods edit is not souvenir culture. These are objects made with care by people who have lived here for generations — textiles, ceramics, bath goods, and woodwork that guests will notice and ask about. Available as part of a package or arranged independently.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-brand-border">
+      {[
+        { title: 'Woven bath towels', body: 'Double-gauze cotton woven in small batches by a Hokkaido textile studio. Soft, fast-drying, and nothing like a hotel towel.', price: 'From ¥4,500 per towel', img: '/images/catalogue/object-wood-stools.jpg' },
+        { title: 'Cold-press soap', body: 'Handmade with local botanicals — lavender, mint, and birch — by a small producer in Furano. Minimal packaging, long-lasting.', price: 'From ¥1,800 per bar', img: '/images/catalogue/object-dark-cabinet.jpg' },
+        { title: 'Kiri wood bowls', body: 'Turned from paulownia wood by a craftsman in Asahikawa. Lightweight, beautiful, and unique to Hokkaido\'s forest tradition.', price: 'From ¥8,000 per piece', img: '/images/catalogue/object-akari-lamps.jpg' },
+        { title: 'Ainu-inspired textiles', body: 'Contemporary pieces drawing on Ainu pattern traditions, made in collaboration with local weavers. Available as cushion covers and small wall pieces.', price: 'From ¥12,000', img: '/images/catalogue/object-mirror.jpg' },
+        { title: 'Ceramic cups & plates', body: 'Wood-fired stoneware by a Sapporo ceramicist working in an earthy, functional tradition. Mismatched sets add warmth to kitchen shelves.', price: 'From ¥3,500 per piece', img: '/images/catalogue/object-pendant-lamps.jpg' },
+        { title: 'Beeswax candles', body: 'Poured in small batches from Hokkaido honey farm beeswax. A subtle honey scent and long burn time. Beautiful grouped on a table.', price: 'From ¥2,200 per candle', img: '/images/catalogue/object-pewter-cup.jpg' },
+        { title: 'Linen room spray', body: 'A single scent developed with a Hokkaido perfumer — cedar, cold air, and a touch of white birch. Used across the villa for a consistent atmosphere.', price: '¥4,800 per bottle', img: '/images/catalogue/object-black-teapot.jpg' },
+        { title: 'Framed botanical prints', body: 'Pressed and framed local flora from Hokkaido\'s alpine meadows. Each frame is different — made from timber offcuts by Baihodo.', price: 'From ¥6,500', img: '/images/catalogue/room-japandi-chair.jpg' },
+      ].map((item, i) => (
+        <div class="bg-brand-bg" data-fade style={`transition-delay:${(i % 4) * 60}ms`}>
+          <div class="aspect-square overflow-hidden">
+            <img src={item.img} alt={item.title} class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 md:p-8">
+            <h4 class="font-display uppercase text-sm mb-2">{item.title}</h4>
+            <p class="text-brand-muted text-xs leading-relaxed mb-2">{item.body}</p>
+            <p class="text-brand-accent text-[11px]">{item.price}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Craftspeople -->
+  <section class="px-8 md:px-16 pt-40 pb-28 md:pt-56 md:pb-40 border-t border-brand-border">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-8 flex items-center gap-4">
+      The craftspeople
+      <span class="block h-px w-12 bg-brand-accent/40"></span>
+    </p>
+    <h2 class="font-display uppercase leading-[1.1] mb-8" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+      People who have been<br />here a long time
+    </h2>
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-24">
+      Every object we source has a maker behind it. These are some of the people Studio Kaku works with — their knowledge of Hokkaido's materials and traditions is built into everything they produce.
+    </p>
+    {[
+      {
+        gen: 'Fourth generation · Est. 1921',
+        sub: 'Baihodo, Otaru',
+        title: 'The shop that frames everything',
+        body: 'Kenji Takahashi\'s great-grandfather opened a framing and woodwork shop in Otaru in 1921. Today Kenji runs it with his daughter, using the same Japanese joinery techniques passed down through the family. Every piece of art that leaves Studio Kaku passes through their hands first — the timber, the mitred corners, the finish.',
+        detail: 'Framing · Woodwork · Art mounting · Custom furniture',
+        reverse: false,
+        img: '/images/catalogue/room-dining-art.jpg',
+      },
+      {
+        gen: 'Second generation · Est. 1978',
+        sub: 'Mori Ceramics, Sapporo',
+        title: 'Wood-fired in the hills above the city',
+        body: 'Yuki Mori learned to throw clay from her father, who built his first kiln in the hills behind Sapporo in 1978. She fires twice a year in a wood-fired anagama kiln — each batch slightly different depending on the weather, the wood, and the clay. Her work is functional, unhurried, and entirely local.',
+        detail: 'Wood-fired stoneware · Tableware · Custom commissions',
+        reverse: true,
+        img: '/images/catalogue/room-tatami-lowtable.jpg',
+      },
+      {
+        gen: 'Third generation · Est. 1953',
+        sub: 'Asahikawa Wood Studio',
+        title: 'The furniture makers of Hokkaido',
+        body: 'Hokkaido has some of Japan\'s finest timber — birch, oak, and elm grown slowly in cold conditions. The Asahikawa wood studio has been working with it since 1953. Our design collaborator works closely with them on bespoke furniture pieces, combining contemporary design with materials that are genuinely, specifically of this place.',
+        detail: 'Solid timber furniture · Bespoke commissions · Interior joinery',
+        reverse: false,
+        img: '/images/catalogue/furniture-table-bench.jpg',
+      },
+    ].map((craft) => (
+      <div class="grid md:grid-cols-2 gap-px bg-brand-border mb-px" data-fade>
+        <div class={`aspect-[4/3] overflow-hidden ${craft.reverse ? 'md:order-2' : ''}`}>
+          <img src={craft.img} alt="" class="w-full h-full object-cover" />
+        </div>
+        <div class={`bg-brand-bg p-10 md:p-14 flex flex-col justify-center ${craft.reverse ? 'md:order-1' : ''}`}>
+          <p class="text-[10px] tracking-[0.2em] uppercase text-brand-accent mb-2">{craft.gen}</p>
+          <p class="text-brand-muted text-xs mb-5 tracking-wide">{craft.sub}</p>
+          <h3 class="font-display uppercase leading-[1.2] mb-5" style="font-size: clamp(1.3rem, 2.5vw, 2rem);">{craft.title}</h3>
+          <p class="text-brand-muted text-sm leading-relaxed mb-5">{craft.body}</p>
+          <p class="text-brand-muted text-[11px] tracking-wide border-t border-brand-border pt-4">{craft.detail}</p>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <!-- Product pricing -->
+  <section class="px-8 md:px-16 pt-40 pb-28 md:pt-56 md:pb-40 border-t border-brand-border bg-brand-border/20">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-8 flex items-center gap-4">
+      Works & objects
+      <span class="block h-px w-12 bg-brand-accent/40"></span>
+    </p>
+    <h2 class="font-display uppercase leading-[1.1] mb-8" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+      What goes in the space<br />is a separate conversation.
+    </h2>
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-24">
+      The cost of art, furniture, and objects is in addition to the service fee. Through consultation, we find what suits your space and your appetite. All pricing is indicative — confirmed on enquiry.
+    </p>
+    <div class="grid md:grid-cols-2 gap-px bg-brand-border">
+      <div class="bg-brand-bg p-12 md:p-14" data-fade>
+        <h3 class="font-display uppercase text-xl mb-2">Art</h3>
+        <p class="text-brand-muted text-xs tracking-wide mb-8">Prints · editions · originals · commissions</p>
+        {[
+          { label: 'Limited edition prints', price: '¥20–80k per work' },
+          { label: 'Mixed originals', price: '¥80–500k per work' },
+          { label: 'Collector originals', price: '¥500k+ per work' },
+          { label: 'Bespoke commissions', price: 'By arrangement' },
+        ].map(row => (
+          <div class="flex justify-between items-baseline py-4 border-b border-brand-border text-sm">
+            <span class="text-brand-muted">{row.label}</span>
+            <span class="text-brand-text font-medium text-right ml-4">{row.price}</span>
+          </div>
+        ))}
+        <p class="text-brand-muted text-xs mt-8 leading-relaxed">All works are framed by Baihodo. Edition prints are chosen to be rental-appropriate — beautiful and replaceable if needed.</p>
+      </div>
+      <div class="bg-brand-bg p-12 md:p-14" data-fade style="transition-delay:80ms">
+        <h3 class="font-display uppercase text-xl mb-2">Furniture & interiors</h3>
+        <p class="text-brand-muted text-xs tracking-wide mb-8">Via our design collaborator · Hokkaido craft materials</p>
+        {[
+          { label: 'Hokkaido craft standard', price: 'On consultation' },
+          { label: 'Designer collaboration pieces', price: 'On consultation' },
+          { label: 'Fully bespoke & commissioned', price: 'By arrangement' },
+        ].map(row => (
+          <div class="flex justify-between items-baseline py-4 border-b border-brand-border text-sm">
+            <span class="text-brand-muted">{row.label}</span>
+            <span class="text-brand-text font-medium text-right ml-4">{row.price}</span>
+          </div>
+        ))}
+        <p class="text-brand-muted text-xs mt-8 leading-relaxed">Introduced and managed through Studio Kaku. You deal with one contact throughout. If you only want furniture, the process is the same — Studio Kaku leads.</p>
+      </div>
+      <div class="bg-brand-bg p-12 md:p-14" data-fade>
+        <h3 class="font-display uppercase text-xl mb-2">Local goods</h3>
+        <p class="text-brand-muted text-xs tracking-wide mb-8">Baihodo edit · made in Hokkaido</p>
+        {[
+          { label: 'Curated villa goods selection', price: '¥50–200k' },
+          { label: 'Welcome gift curation', price: 'From ¥20k' },
+          { label: 'Individual pieces', price: 'From ¥1,800' },
+        ].map(row => (
+          <div class="flex justify-between items-baseline py-4 border-b border-brand-border text-sm">
+            <span class="text-brand-muted">{row.label}</span>
+            <span class="text-brand-text font-medium text-right ml-4">{row.price}</span>
+          </div>
+        ))}
+        <p class="text-brand-muted text-xs mt-8 leading-relaxed">Can be bundled into any tier or arranged independently. All goods are sourced from Hokkaido makers and supplied through Baihodo.</p>
+      </div>
+      <div class="bg-brand-text p-12 md:p-14" data-fade style="transition-delay:80ms">
+        <h3 class="font-display uppercase text-xl text-brand-bg mb-2">Ongoing</h3>
+        <p class="text-brand-bg/40 text-xs tracking-wide mb-8">For clients who want the space to evolve</p>
+        {[
+          { label: 'Seasonal art rotation', price: '¥150–200k / yr' },
+          { label: 'Damage replacement', price: 'As needed' },
+          { label: 'Collection upgrades', price: 'On request' },
+        ].map(row => (
+          <div class="flex justify-between items-baseline py-4 border-b border-brand-bg/[0.08] text-sm">
+            <span class="text-brand-bg/50">{row.label}</span>
+            <span class="text-brand-bg font-medium text-right ml-4">{row.price}</span>
+          </div>
+        ))}
+        <p class="text-brand-bg/30 text-xs mt-8 leading-relaxed">Available to existing clients. Not a subscription — arranged when you want it. Works are refreshed from the gallery programme and new Hokkaido editions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaborators -->
+  <section class="bg-brand-text px-8 md:px-16 pt-40 pb-28 md:pt-56 md:pb-40">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-start">
+      <div>
+        <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-8 flex items-center gap-4">
+          Our collaborators
+          <span class="block h-px w-12 bg-brand-accent/30"></span>
+        </p>
+        <h2 class="font-display uppercase leading-[1.1] text-brand-bg mb-6" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+          The people<br />behind the work
+        </h2>
+        <p class="text-brand-bg/50 text-sm leading-relaxed max-w-sm">
+          Studio Kaku brings together a small, trusted group of collaborators. Every introduction we make is one we stand behind — and every relationship is managed through us.
+        </p>
+      </div>
+      <div>
+        {[
+          { title: 'Architecture & interior design', body: 'Our design collaborator brings deep knowledge of Hokkaido materials, regional furniture makers, and craft traditions. Introduced and coordinated by Studio Kaku throughout.' },
+          { title: 'Craft framing & local goods', body: 'Baihodo — a fourth-generation Hokkaido craft shop. Their framing uses regional timber and reflects a craft tradition that connects every work to this place.' },
+          { title: 'Artists & makers', body: 'A network of artists across Japan and internationally, curated through our gallery programme. Works range from accessible editions to significant originals and bespoke commissions.' },
+        ].map((item, i) => (
+          <div class={`py-8 border-b border-brand-bg/10 ${i === 0 ? 'border-t border-brand-bg/10' : ''}`} data-fade style={`transition-delay:${i * 80}ms`}>
+            <h4 class="font-display uppercase text-brand-bg mb-2" style="font-size: 1rem;">{item.title}</h4>
+            <p class="text-brand-bg/40 text-xs leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="px-8 md:px-16 pt-40 pb-28 md:pt-56 md:pb-40 border-t border-brand-border flex flex-col items-center text-center">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5">Begin</p>
+    <h2 class="font-display uppercase leading-[1.1] mb-6" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-fade-text>
+      Let's see the space<br /><em class="not-italic text-brand-accent">together.</em>
+    </h2>
+    <p class="text-brand-muted text-sm leading-relaxed max-w-sm mb-10" data-fade-text style="transition-delay:80ms">
+      Every project starts with a conversation. Tell us about the space and what you are hoping for — we will take it from there.
+    </p>
+    <a href="mailto:hello@studiokaku.com" class="inline-block border border-brand-text text-brand-text px-10 py-3 text-[11px] tracking-[0.2em] uppercase hover:bg-brand-text hover:text-brand-bg transition-colors" data-fade style="transition-delay:160ms">
+      Arrange a consultation
+    </a>
+  </section>
+
+</Layout>
