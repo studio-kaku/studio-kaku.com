@@ -6,61 +6,61 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- Cover -->
   <section class="min-h-[90vh] grid md:grid-cols-2 bg-brand-text">
-    <div class="flex flex-col justify-between px-8 md:px-16 py-16 md:py-20">
+    <div class="flex flex-col justify-between px-8 md:px-16 py-20 md:py-28">
       <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent">For the resort — private document</p>
       <div>
         <h1 class="font-display uppercase leading-[1.08] text-brand-bg" style="font-size: clamp(2.5rem, 5vw, 4.5rem);" data-fade-text>
           A creative team<br />built <em class="not-italic text-brand-accent">around</em><br />this place
         </h1>
-        <p class="text-brand-bg/45 text-sm leading-relaxed max-w-sm mt-6" data-fade-text style="transition-delay:80ms">
-          A proposal for how Studio Kaku, your local craft partner, and a furniture design collaborator can work together as a single structured creative team — giving the resort a coherent cultural identity from the gallery to the villas.
+        <p class="text-brand-bg/45 text-sm leading-relaxed max-w-sm mt-7" data-fade-text style="transition-delay:80ms">
+          A proposal for how Studio Kaku, Baihodo, and a furniture design collaborator can work together as a single structured creative team — giving the resort a coherent cultural identity from the gallery to the villas.
         </p>
       </div>
       <p class="text-brand-bg/25 text-[11px] tracking-wide">Studio Kaku · Prepared for the resort · Confidential</p>
     </div>
-    <div class="border-t md:border-t-0 md:border-l border-brand-bg/[0.08] px-8 md:px-16 py-16 md:py-20 flex flex-col justify-center gap-8">
+    <div class="border-t md:border-t-0 md:border-l border-brand-bg/[0.08] px-8 md:px-16 py-20 md:py-28 flex flex-col justify-center gap-10">
       {[
         { num: '150', label: 'Villas available to curate — if clients choose to order through us' },
         { num: '2', label: 'Key spaces — gallery and members lounge' },
         { num: '1', label: 'Creative lead — Studio Kaku, your single point of contact' },
       ].map((stat, i) => (
-        <div class="border-t border-brand-bg/10 pt-5" data-fade style={`transition-delay:${i * 80}ms`}>
+        <div class="border-t border-brand-bg/10 pt-6" data-fade style={`transition-delay:${i * 80}ms`}>
           <p class="font-display text-brand-bg leading-none" style="font-size: clamp(2.5rem, 5vw, 3rem);">{stat.num}</p>
-          <p class="text-brand-bg/40 text-xs mt-1 tracking-wide">{stat.label}</p>
+          <p class="text-brand-bg/40 text-xs mt-2 tracking-wide">{stat.label}</p>
         </div>
       ))}
     </div>
   </section>
 
   <!-- The situation -->
-  <section class="px-8 md:px-16 py-16 md:py-24 border-t border-brand-border">
-    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-4 flex items-center gap-4">
+  <section class="px-8 md:px-16 py-20 md:py-28 border-t border-brand-border">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
       The situation
       <span class="block h-px w-12 bg-brand-accent/40"></span>
     </p>
-    <h2 class="font-display uppercase leading-[1.1] mb-4" style="font-size: clamp(2rem, 4vw, 3.25rem);">
-      What the resort needs<br />that doesn't exist yet
+    <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+      The opportunity<br />we see here
     </h2>
-    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-12">
-      A resort of this scale and ambition needs a creative structure — not individual suppliers working in isolation. Right now there are pieces but no framework. This proposal puts one in place.
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-16">
+      A resort of this scale has something genuinely special to work with — the location, the heritage, the ambition. This proposal is our thinking on how a small creative structure could help bring those things together.
     </p>
     <div class="grid md:grid-cols-3 gap-px bg-brand-border">
       {[
         {
           q: 'Who decides what the resort looks and feels like?',
-          a: 'Without a creative lead, decisions get made by default — by whoever speaks loudest, or whoever the contractor happens to know. The resort ends up with no coherent identity.',
+          a: 'A creative lead gives the resort a single voice for everything visual — someone whose job is to make sure the gallery, the villas, and the shared spaces all feel like they belong to the same place.',
         },
         {
           q: 'How do local craft and contemporary art sit together?',
-          a: 'The resort has an extraordinary local resource in Hokkaido\'s craft tradition. Without curation, it either gets ignored or becomes decoration. With it, it becomes the resort\'s defining characteristic.',
+          a: 'Hokkaido\'s craft tradition is one of the most distinctive things about this place. Handled thoughtfully, it becomes the resort\'s defining characteristic — something guests and owners can\'t find anywhere else.',
         },
         {
           q: 'Who does each villa owner talk to?',
-          a: '150 buyers will want to personalise their spaces. Without a managed process, that becomes 150 separate conversations with no consistency and no quality control.',
+          a: '150 villa owners, each wanting to make their space their own. A managed curation process means every one of those conversations is handled well — and the resort keeps a coherent identity throughout.',
         },
       ].map((item, i) => (
-        <div class="bg-brand-bg p-8 md:p-10" data-fade style={`transition-delay:${i * 80}ms`}>
-          <h3 class="font-display uppercase text-lg leading-[1.2] mb-4">{item.q}</h3>
+        <div class="bg-brand-bg p-10 md:p-12" data-fade style={`transition-delay:${i * 80}ms`}>
+          <h3 class="font-display uppercase text-lg leading-[1.2] mb-5">{item.q}</h3>
           <p class="text-brand-muted text-sm leading-relaxed">{item.a}</p>
         </div>
       ))}
@@ -68,38 +68,38 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- The creative team -->
-  <section class="bg-brand-text px-8 md:px-16 py-16 md:py-24">
-    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-4 flex items-center gap-4">
+  <section class="bg-brand-text px-8 md:px-16 py-20 md:py-28">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
       The creative team
       <span class="block h-px w-12 bg-brand-accent/30"></span>
     </p>
-    <h2 class="font-display uppercase leading-[1.1] text-brand-bg mb-4" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+    <h2 class="font-display uppercase leading-[1.1] text-brand-bg mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);">
       One structure.<br />Three specialisms.
     </h2>
-    <p class="text-brand-bg/50 text-sm leading-relaxed max-w-lg mb-12">
+    <p class="text-brand-bg/50 text-sm leading-relaxed max-w-lg mb-16">
       Studio Kaku acts as creative lead — the resort's single point of contact for everything art, object, and interior. Beneath that, two specialist collaborators handle what they do best, coordinated and managed by Studio Kaku throughout.
     </p>
 
     <!-- Studio Kaku lead -->
-    <div class="border border-brand-accent/50 relative p-8 md:p-10 mb-8" data-fade>
+    <div class="border border-brand-accent/50 relative p-10 md:p-12 mb-10" data-fade>
       <span class="absolute -top-px left-8 bg-brand-text px-2 text-[10px] tracking-[0.2em] uppercase text-brand-accent">Creative lead</span>
       <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
         <div>
-          <h3 class="font-display uppercase text-brand-bg mb-3" style="font-size: clamp(1.5rem, 2.5vw, 2rem);">Studio Kaku</h3>
+          <h3 class="font-display uppercase text-brand-bg mb-4" style="font-size: clamp(1.5rem, 2.5vw, 2rem);">Studio Kaku</h3>
           <p class="text-brand-bg/50 text-sm leading-relaxed">
             Creative lead, art director, and the resort's primary relationship. Responsible for the overall vision, for selecting and placing all artwork, for curating the gallery programme, and for coordinating the full team. Every decision passes through Studio Kaku — the resort never manages multiple contractors.
           </p>
         </div>
         <div class="flex flex-col gap-2">
           {['Overall creative direction', 'Art selection & placement', 'Gallery programme', 'Villa owner consultation', 'Team coordination', 'Single point of contact'].map(role => (
-            <div class="bg-brand-accent/10 border border-brand-accent/25 px-4 py-2 text-xs text-brand-accent tracking-wide">{role}</div>
+            <div class="bg-brand-accent/10 border border-brand-accent/25 px-4 py-2.5 text-xs text-brand-accent tracking-wide">{role}</div>
           ))}
         </div>
       </div>
     </div>
 
     <!-- Connector -->
-    <div class="flex items-center gap-0 mb-8">
+    <div class="flex items-center gap-0 mb-10">
       <div class="flex-1 h-px bg-brand-bg/10"></div>
       <div class="w-1.5 h-1.5 rounded-full bg-brand-accent mx-1"></div>
       <div class="flex-1 h-px bg-brand-bg/10"></div>
@@ -120,7 +120,7 @@ import Layout from '../layouts/Layout.astro';
         },
         {
           type: 'Local craft & framing',
-          name: 'The craft shop\n— local partner',
+          name: 'Baihodo',
           body: 'Fourth-generation Hokkaido craft expertise. Responsible for all framing, local goods sourcing, and the craft identity of the resort. An essential local voice — their knowledge of the region is irreplaceable.',
           items: ['All artwork framing', 'Local goods curation', 'Hokkaido craft sourcing', 'Community relationships', 'Regional material knowledge'],
           accent: 'text-[#7a9e8e]',
@@ -128,20 +128,20 @@ import Layout from '../layouts/Layout.astro';
         },
         {
           type: 'Furniture & interiors',
-          name: 'Design collaborator\n— architect friend',
+          name: 'Design collaborator\n— space man',
           body: 'Spatial design, furniture selection, and interior identity. Deep knowledge of Hokkaido materials and regional furniture makers. Works within the creative direction set by Studio Kaku to ensure consistency across all spaces.',
           items: ['Furniture selection & sourcing', 'Interior spatial design', 'Hokkaido material expertise', 'Bespoke furniture commissions', 'Villa interior consistency'],
           accent: 'text-[#a08060]',
           border: 'border-t-[#a08060]',
         },
       ].map((card, i) => (
-        <div class={`border border-brand-bg/10 border-t-2 ${card.border} p-7`} data-fade style={`transition-delay:${i * 80}ms`}>
-          <p class={`text-[10px] tracking-[0.18em] uppercase mb-3 ${card.accent}`}>{card.type}</p>
-          <h4 class="font-display uppercase text-brand-bg leading-[1.2] mb-3" style="font-size: 1.2rem; white-space: pre-line;">{card.name}</h4>
-          <p class="text-brand-bg/45 text-xs leading-relaxed mb-4">{card.body}</p>
+        <div class={`border border-brand-bg/10 border-t-2 ${card.border} p-8 md:p-10`} data-fade style={`transition-delay:${i * 80}ms`}>
+          <p class={`text-[10px] tracking-[0.18em] uppercase mb-4 ${card.accent}`}>{card.type}</p>
+          <h4 class="font-display uppercase text-brand-bg leading-[1.2] mb-4" style="font-size: 1.2rem; white-space: pre-line;">{card.name}</h4>
+          <p class="text-brand-bg/45 text-xs leading-relaxed mb-5">{card.body}</p>
           <ul class="space-y-0">
             {card.items.map(item => (
-              <li class="text-[11px] text-brand-bg/35 py-1.5 border-b border-brand-bg/[0.06] flex gap-2">
+              <li class="text-[11px] text-brand-bg/35 py-2 border-b border-brand-bg/[0.06] flex gap-2">
                 <span class="text-brand-bg/20 flex-shrink-0">—</span>
                 {item}
               </li>
@@ -153,15 +153,15 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- The spaces -->
-  <section class="px-8 md:px-16 py-16 md:py-24 border-t border-brand-border bg-brand-border/20">
-    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-4 flex items-center gap-4">
+  <section class="px-8 md:px-16 py-20 md:py-28 border-t border-brand-border bg-brand-border/20">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
       The spaces
       <span class="block h-px w-12 bg-brand-accent/40"></span>
     </p>
-    <h2 class="font-display uppercase leading-[1.1] mb-4" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+    <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);">
       What the team delivers<br />across the resort
     </h2>
-    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-12">
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-16">
       Each space has a different brief and a different audience. The team structure means all of them share a common language — they feel like one resort, not a collection of unrelated rooms.
     </p>
     <div class="grid md:grid-cols-3 gap-px bg-brand-border">
@@ -188,12 +188,12 @@ import Layout from '../layouts/Layout.astro';
           dark: false,
         },
       ].map((space, i) => (
-        <div class={`p-10 md:p-12 ${space.dark ? 'bg-brand-text' : 'bg-brand-border/20'}`} data-fade style={`transition-delay:${(i % 2) * 80}ms`}>
-          <span class={`font-display text-[11px] tracking-[0.2em] mb-4 block ${space.dark ? 'text-brand-accent' : 'text-brand-accent'}`}>{space.num}</span>
-          <h3 class={`font-display uppercase leading-[1.15] mb-3`} style="font-size: clamp(1.4rem, 2.5vw, 1.75rem);">
+        <div class={`p-10 md:p-14 ${space.dark ? 'bg-brand-text' : 'bg-brand-border/20'}`} data-fade style={`transition-delay:${(i % 2) * 80}ms`}>
+          <span class={`font-display text-[11px] tracking-[0.2em] mb-5 block ${space.dark ? 'text-brand-accent' : 'text-brand-accent'}`}>{space.num}</span>
+          <h3 class={`font-display uppercase leading-[1.15] mb-4`} style="font-size: clamp(1.4rem, 2.5vw, 1.75rem);">
             <span class={space.dark ? 'text-brand-bg' : ''}>{space.title}</span>
           </h3>
-          <p class={`text-sm leading-relaxed mb-5 ${space.dark ? 'text-brand-bg/50' : 'text-brand-muted'}`}>{space.body}</p>
+          <p class={`text-sm leading-relaxed mb-6 ${space.dark ? 'text-brand-bg/50' : 'text-brand-muted'}`}>{space.body}</p>
           <div class="flex flex-wrap gap-2">
             {space.tags.map(tag => (
               <span class={`text-[10px] tracking-[0.12em] uppercase px-3 py-1 border ${space.dark ? 'text-brand-accent border-brand-accent/30' : 'text-brand-accent border-brand-accent/40'}`}>{tag}</span>
@@ -206,24 +206,24 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- Members lounge vision -->
   <section class="border-t border-brand-border">
-    <div class="px-8 md:px-16 py-16 md:py-20">
-      <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-4 flex items-center gap-4">
+    <div class="px-8 md:px-16 py-20 md:py-24">
+      <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
         The members lounge
         <span class="block h-px w-12 bg-brand-accent/40"></span>
       </p>
-      <h2 class="font-display uppercase leading-[1.1] mb-4" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+      <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);">
         What your members<br />lounge could look like
       </h2>
-      <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-12">
+      <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-16">
         A space for villa owners that feels genuinely considered — not a hotel lobby, not a bar, but something closer to a private home that happens to be shared. Every object earns its place.
       </p>
     </div>
     <!-- Main image placeholder -->
-    <div class="mx-8 md:mx-16 aspect-[16/7] bg-brand-border flex items-center justify-center mb-4">
+    <div class="mx-8 md:mx-16 aspect-[16/7] bg-brand-border flex items-center justify-center mb-5">
       <p class="text-brand-muted text-xs tracking-widest uppercase">Reference image — members lounge</p>
     </div>
     <!-- Three supporting images -->
-    <div class="grid grid-cols-3 gap-4 mx-8 md:mx-16 mb-16 md:mb-24">
+    <div class="grid grid-cols-3 gap-4 mx-8 md:mx-16 mb-20 md:mb-28">
       <div class="aspect-square bg-brand-border flex items-center justify-center">
         <p class="text-brand-muted text-[10px] tracking-widest uppercase text-center px-4">Art selection</p>
       </div>
@@ -241,8 +241,8 @@ import Layout from '../layouts/Layout.astro';
         { heading: 'The art', body: 'A small permanent collection anchors the space — two or three significant works the owners get to know over time. A rotating element keeps it alive across seasons.' },
         { heading: 'The objects', body: 'Local craft sits alongside contemporary design. Nothing is there to fill a gap — every piece is chosen because it earns attention or starts a conversation.' },
       ].map((note, i) => (
-        <div class="bg-brand-bg p-8 md:p-10" data-fade style={`transition-delay:${i * 80}ms`}>
-          <h4 class="font-display uppercase text-base mb-3">{note.heading}</h4>
+        <div class="bg-brand-bg p-10 md:p-12" data-fade style={`transition-delay:${i * 80}ms`}>
+          <h4 class="font-display uppercase text-base mb-4">{note.heading}</h4>
           <p class="text-brand-muted text-sm leading-relaxed">{note.body}</p>
         </div>
       ))}
@@ -251,24 +251,24 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- Gallery vision -->
   <section class="bg-brand-text border-t border-brand-bg/10">
-    <div class="px-8 md:px-16 py-16 md:py-20">
-      <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-4 flex items-center gap-4">
+    <div class="px-8 md:px-16 py-20 md:py-24">
+      <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
         The gallery
         <span class="block h-px w-12 bg-brand-accent/30"></span>
       </p>
-      <h2 class="font-display uppercase leading-[1.1] text-brand-bg mb-4" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+      <h2 class="font-display uppercase leading-[1.1] text-brand-bg mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);">
         What your gallery<br />could look like
       </h2>
-      <p class="text-brand-bg/50 text-sm leading-relaxed max-w-lg mb-12">
+      <p class="text-brand-bg/50 text-sm leading-relaxed max-w-lg mb-16">
         A gallery that belongs to this place — rooted in the family's story, open to the wider Japanese art world. A programme that gives villa owners a reason to come back each season.
       </p>
     </div>
     <!-- Main image placeholder -->
-    <div class="mx-8 md:mx-16 aspect-[16/7] bg-brand-bg/10 flex items-center justify-center mb-4">
+    <div class="mx-8 md:mx-16 aspect-[16/7] bg-brand-bg/10 flex items-center justify-center mb-5">
       <p class="text-brand-bg/25 text-xs tracking-widest uppercase">Reference image — gallery</p>
     </div>
     <!-- Three supporting images -->
-    <div class="grid grid-cols-3 gap-4 mx-8 md:mx-16 mb-16 md:mb-24">
+    <div class="grid grid-cols-3 gap-4 mx-8 md:mx-16 mb-20 md:mb-28">
       <div class="aspect-square bg-brand-bg/10 flex items-center justify-center">
         <p class="text-brand-bg/25 text-[10px] tracking-widest uppercase text-center px-4">Opening exhibition</p>
       </div>
@@ -286,8 +286,8 @@ import Layout from '../layouts/Layout.astro';
         { heading: 'The collection', body: 'A small permanent collection is developed over time — works acquired through the programme that belong to the resort. This is what makes the gallery feel like it has a point of view.' },
         { heading: 'For owners', body: 'Villa owners get early access to editions, invitations to openings, and the option to acquire works for their own spaces. The gallery becomes a reason to be part of this resort community.' },
       ].map((note, i) => (
-        <div class="bg-brand-text border border-brand-bg/[0.06] p-8 md:p-10" data-fade style={`transition-delay:${i * 80}ms`}>
-          <h4 class="font-display uppercase text-brand-bg text-base mb-3">{note.heading}</h4>
+        <div class="bg-brand-text border border-brand-bg/[0.06] p-10 md:p-12" data-fade style={`transition-delay:${i * 80}ms`}>
+          <h4 class="font-display uppercase text-brand-bg text-base mb-4">{note.heading}</h4>
           <p class="text-brand-bg/45 text-sm leading-relaxed">{note.body}</p>
         </div>
       ))}
@@ -295,15 +295,15 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- The process -->
-  <section class="px-8 md:px-16 py-16 md:py-24 border-t border-brand-border">
-    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-4 flex items-center gap-4">
+  <section class="px-8 md:px-16 py-20 md:py-28 border-t border-brand-border">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
       The process
       <span class="block h-px w-12 bg-brand-accent/40"></span>
     </p>
-    <h2 class="font-display uppercase leading-[1.1] mb-4" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+    <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);">
       How it works in practice
     </h2>
-    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-12">
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-16">
       From initial brief to ongoing management — a clear sequence that the resort can follow and trust. At every stage, Studio Kaku is the single point of contact.
     </p>
     <div class="grid md:grid-cols-4 border border-brand-border">
@@ -313,26 +313,135 @@ import Layout from '../layouts/Layout.astro';
         { num: '03', title: 'Villa owners', body: 'As owners take possession, Studio Kaku conducts individual consultations — art, furniture, local goods chosen for each villa. One invoice, one contact.', who: 'Studio Kaku leads' },
         { num: '04', title: 'Ongoing', body: 'Gallery programme runs continuously. Art rotation available for villas. Owners can upgrade over time. The resort\'s cultural identity compounds.', who: 'Studio Kaku manages' },
       ].map((step, i) => (
-        <div class={`p-7 md:p-8 ${i < 3 ? 'border-b md:border-b-0 md:border-r border-brand-border' : ''}`} data-fade style={`transition-delay:${i * 80}ms`}>
-          <p class="font-display text-brand-border/80 leading-none mb-4" style="font-size: 2.5rem;">{step.num}</p>
-          <h4 class="font-display uppercase text-lg mb-2">{step.title}</h4>
-          <p class="text-brand-muted text-xs leading-relaxed mb-4">{step.body}</p>
+        <div class={`p-9 md:p-11 ${i < 3 ? 'border-b md:border-b-0 md:border-r border-brand-border' : ''}`} data-fade style={`transition-delay:${i * 80}ms`}>
+          <p class="font-display text-brand-border/80 leading-none mb-5" style="font-size: 2.5rem;">{step.num}</p>
+          <h4 class="font-display uppercase text-lg mb-3">{step.title}</h4>
+          <p class="text-brand-muted text-xs leading-relaxed mb-5">{step.body}</p>
           <p class="text-[10px] tracking-[0.15em] uppercase text-brand-accent">{step.who}</p>
         </div>
       ))}
     </div>
   </section>
 
+  <!-- The catalogue — how villa curation works for owners -->
+  <section class="px-8 md:px-16 py-20 md:py-28 border-t border-brand-border bg-brand-border/20">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
+      How it works for owners
+      <span class="block h-px w-12 bg-brand-accent/40"></span>
+    </p>
+    <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+      The catalogue
+    </h2>
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-16">
+      We've assembled a catalogue of 200 pieces — interior design objects and works of art, each chosen to work in these villas. The package you choose shapes how we work through it together — whether you'd rather browse independently, want us to do the selecting, or want something made entirely around your villa.
+    </p>
+
+    <!-- Catalogue stat -->
+    <div class="border border-brand-border bg-brand-bg px-10 py-8 mb-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-16" data-fade>
+      <div class="border-r-0 md:border-r border-brand-border md:pr-16">
+        <p class="font-display text-brand-text leading-none" style="font-size: clamp(3rem, 6vw, 4.5rem);">200</p>
+        <p class="text-brand-muted text-xs tracking-widest uppercase mt-1">pieces in the catalogue</p>
+      </div>
+      <p class="text-brand-muted text-sm leading-relaxed max-w-md">
+        Interior objects, art prints, original works, and craft pieces — built up over years of studio relationships, and chosen specifically with these villas in mind.
+      </p>
+    </div>
+
+    <!-- Catalogue preview grid -->
+    <div class="relative mb-10 overflow-hidden">
+      <div class="grid grid-cols-6 gap-2">
+        {Array.from({ length: 18 }).map((_, i) => (
+          <div class="aspect-square bg-[#DDDBD7]"></div>
+        ))}
+      </div>
+      <!-- Fade out third row -->
+      <div class="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#F6F5F3] to-transparent pointer-events-none"></div>
+    </div>
+
+    <!-- Three tiers -->
+    <div class="grid md:grid-cols-3 gap-px bg-brand-border">
+
+      <!-- Tier 1 — Catalogue Access -->
+      <div class="bg-brand-bg p-10 md:p-12" data-fade style="transition-delay:0ms">
+        <h3 class="font-display uppercase leading-[1.15] mb-2" style="font-size: clamp(1.3rem, 2vw, 1.6rem);">Entry<br />Plan</h3>
+        <p class="text-brand-accent text-[11px] tracking-wide mb-6">A private link, yours to explore</p>
+        <p class="text-brand-muted text-sm leading-relaxed mb-8">
+          A password-protected page arrives in your inbox — access to a curated selection of pieces from the full catalogue. Browse at your own pace, shortlist what speaks to you, and let us know what you'd like. The process is yours to drive; we handle everything from there.
+        </p>
+        <ul class="space-y-0 border-t border-brand-border pt-5">
+          {[
+            'Password-protected catalogue page',
+            'Curated selection of 60 pieces',
+            'Browse and shortlist independently',
+            'Fulfilment and delivery managed',
+          ].map(item => (
+            <li class="text-[11px] text-brand-muted py-2.5 border-b border-brand-border flex gap-2">
+              <span class="text-brand-accent/50 flex-shrink-0">—</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Tier 2 — The Edit -->
+      <div class="bg-brand-bg p-10 md:p-12" data-fade style="transition-delay:80ms">
+        <h3 class="font-display uppercase leading-[1.15] mb-2" style="font-size: clamp(1.3rem, 2vw, 1.6rem);">Curated<br />Plan</h3>
+        <p class="text-brand-accent text-[11px] tracking-wide mb-6">A personal edit, built around your space</p>
+        <p class="text-brand-muted text-sm leading-relaxed mb-8">
+          We spend time with you first — your space, how you use it, what you're drawn to. Then we go to the full catalogue and put together a shortlist of 15–25 pieces that feel right for your villa. Rather than a catalogue to wade through alone, you get something already filtered down to what suits you.
+        </p>
+        <ul class="space-y-0 border-t border-brand-border pt-5">
+          {[
+            'Consultation with Studio Kaku',
+            'Access to the full 200-piece catalogue',
+            'Personal edit of 15–25 curated pieces',
+            'Selection rationale for each piece',
+            'Installation guidance included',
+          ].map(item => (
+            <li class="text-[11px] text-brand-muted py-2.5 border-b border-brand-border flex gap-2">
+              <span class="text-brand-accent/50 flex-shrink-0">—</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Tier 3 — The Commission -->
+      <div class="bg-brand-text p-10 md:p-12" data-fade style="transition-delay:160ms">
+        <h3 class="font-display uppercase text-brand-bg leading-[1.15] mb-2" style="font-size: clamp(1.3rem, 2vw, 1.6rem);">Commissioned<br />Plan</h3>
+        <p class="text-brand-accent text-[11px] tracking-wide mb-6">The catalogue is a starting point</p>
+        <p class="text-brand-bg/50 text-sm leading-relaxed mb-8">
+          For owners who want their villa to feel genuinely one of a kind. We work beyond the catalogue — reaching out to makers we have relationships with, commissioning pieces for your specific space, and tracking down works that aren't easy to come by. Everything is chosen with your villa in mind.
+        </p>
+        <ul class="space-y-0 border-t border-brand-bg/10 pt-5">
+          {[
+            'Full creative consultation and space brief',
+            'Sourcing beyond the catalogue',
+            'Commissioned and bespoke pieces',
+            'Artist and maker introductions',
+            'Ongoing collection development',
+          ].map(item => (
+            <li class="text-[11px] text-brand-bg/40 py-2.5 border-b border-brand-bg/[0.08] flex gap-2">
+              <span class="text-brand-accent/50 flex-shrink-0">—</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Why this matters -->
-  <section class="bg-brand-text px-8 md:px-16 py-16 md:py-24">
-    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-4 flex items-center gap-4">
+  <section class="bg-brand-text px-8 md:px-16 py-20 md:py-28">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
       Why this matters
       <span class="block h-px w-12 bg-brand-accent/30"></span>
     </p>
-    <h2 class="font-display uppercase leading-[1.1] text-brand-bg mb-4" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+    <h2 class="font-display uppercase leading-[1.1] text-brand-bg mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);">
       What the resort gains<br />from a creative structure
     </h2>
-    <p class="text-brand-bg/50 text-sm leading-relaxed max-w-lg mb-12">
+    <p class="text-brand-bg/50 text-sm leading-relaxed max-w-lg mb-16">
       This is not interior decoration. A coherent creative identity adds measurable value to the resort — to villa pricing, to owner retention, and to the resort's reputation over time.
     </p>
     <div class="grid md:grid-cols-2 gap-px bg-brand-bg/[0.05]">
@@ -349,7 +458,7 @@ import Layout from '../layouts/Layout.astro';
         },
         {
           title: 'Genuine local roots',
-          body: 'The craft shop partnership means the resort\'s identity is not imported luxury. It is specifically, authentically Hokkaido — which is increasingly what buyers at this level want and are willing to pay for.',
+          body: 'The Baihodo partnership means the resort\'s identity is not imported luxury. It is specifically, authentically Hokkaido — which is increasingly what buyers at this level want and are willing to pay for.',
           note: 'Builds authentic regional credibility',
         },
         {
@@ -358,10 +467,10 @@ import Layout from '../layouts/Layout.astro';
           note: 'Reduces complexity for the resort',
         },
       ].map((item, i) => (
-        <div class="bg-brand-text border border-brand-bg/[0.06] p-8 md:p-10" data-fade style={`transition-delay:${(i % 2) * 80}ms`}>
-          <h4 class="font-display uppercase text-brand-bg mb-3" style="font-size: 1.2rem;">{item.title}</h4>
+        <div class="bg-brand-text border border-brand-bg/[0.06] p-10 md:p-12" data-fade style={`transition-delay:${(i % 2) * 80}ms`}>
+          <h4 class="font-display uppercase text-brand-bg mb-4" style="font-size: 1.2rem;">{item.title}</h4>
           <p class="text-brand-bg/45 text-sm leading-relaxed">{item.body}</p>
-          <p class="text-brand-accent text-xs mt-4 tracking-wide">{item.note}</p>
+          <p class="text-brand-accent text-xs mt-5 tracking-wide">{item.note}</p>
         </div>
       ))}
     </div>
@@ -369,26 +478,26 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- CTA -->
   <section class="grid md:grid-cols-2 border-t border-brand-border">
-    <div class="px-8 md:px-16 py-16 md:py-24 bg-brand-border/20">
-      <h2 class="font-display uppercase leading-[1.15] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-fade-text>
+    <div class="px-8 md:px-16 py-20 md:py-28 bg-brand-border/20">
+      <h2 class="font-display uppercase leading-[1.15] mb-6" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-fade-text>
         The next<br /><em class="not-italic text-brand-accent">conversation</em>
       </h2>
       <p class="text-brand-muted text-sm leading-relaxed max-w-sm" data-fade-text style="transition-delay:80ms">
         This proposal is a starting point. Studio Kaku would like to meet to discuss the spaces, the timeline, and how the team structure can be formalised. Everything here is flexible — the structure adapts to what the resort needs.
       </p>
     </div>
-    <div class="bg-brand-text px-8 md:px-16 py-16 md:py-24 flex flex-col justify-center">
+    <div class="bg-brand-text px-8 md:px-16 py-20 md:py-28 flex flex-col justify-center">
       {[
         { title: 'Define the brief together', body: 'A working session with the resort contact to align on priorities, spaces, and timeline before any formal agreement.' },
-        { title: 'Meet the full team', body: 'Studio Kaku can arrange an introductory meeting with the craft shop partner and design collaborator — so the resort sees the team before committing.' },
+        { title: 'Meet the full team', body: 'Studio Kaku can arrange an introductory meeting with Baihodo and the design collaborator — so the resort sees the team before committing.' },
         { title: 'Formalise the structure', body: 'Once aligned, Studio Kaku proposes a simple agreement covering scope, roles, and first steps. One contract, one relationship.' },
       ].map((point, i) => (
-        <div class={`py-6 border-b border-brand-bg/20 ${i === 0 ? 'border-t border-brand-bg/20' : ''}`} data-fade style={`transition-delay:${i * 80}ms`}>
-          <h4 class="font-display uppercase text-brand-bg mb-1" style="font-size: 1rem;">{point.title}</h4>
+        <div class={`py-7 border-b border-brand-bg/20 ${i === 0 ? 'border-t border-brand-bg/20' : ''}`} data-fade style={`transition-delay:${i * 80}ms`}>
+          <h4 class="font-display uppercase text-brand-bg mb-2" style="font-size: 1rem;">{point.title}</h4>
           <p class="text-brand-bg/40 text-xs leading-relaxed">{point.body}</p>
         </div>
       ))}
-      <a href="mailto:hello@studiokaku.com" class="mt-8 inline-block border border-brand-bg/30 text-brand-bg px-8 py-3 text-[11px] tracking-[0.2em] uppercase hover:bg-brand-bg hover:text-brand-text transition-colors self-start" data-fade style="transition-delay:240ms">
+      <a href="mailto:hello@studiokaku.com" class="mt-10 inline-block border border-brand-bg/30 text-brand-bg px-8 py-3 text-[11px] tracking-[0.2em] uppercase hover:bg-brand-bg hover:text-brand-text transition-colors self-start" data-fade style="transition-delay:240ms">
         Get in touch
       </a>
     </div>
