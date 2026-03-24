@@ -28,9 +28,11 @@ function isActive(href: string) {
     </a>
     <!-- Desktop nav -->
     <nav class="hidden md:flex items-center gap-10">
-      {nav.map(({ label, href }) => (
+      {nav.map(({ label, ja, href }) => (
         <a
           href={href}
+          data-en={label.toUpperCase()}
+          data-ja={ja.toUpperCase()}
           class={`text-sm tracking-wide transition-opacity hover:opacity-70 ${
             isActive(href) ? 'opacity-100 font-medium' : 'opacity-60'
           }`}
@@ -57,9 +59,11 @@ function isActive(href: string) {
     class="md:hidden hidden border-t border-brand-border bg-brand-bg"
   >
     <nav class="px-8 py-8 flex flex-col gap-6">
-      {nav.map(({ label, href }) => (
+      {nav.map(({ label, ja, href }) => (
         <a
           href={href}
+          data-en={label.toUpperCase()}
+          data-ja={ja.toUpperCase()}
           class={`text-base tracking-widest transition-opacity hover:opacity-70 ${
             isActive(href) ? 'opacity-100 font-medium' : 'opacity-60'
           }`}

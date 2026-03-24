@@ -9,7 +9,7 @@ interface Props {
   activeSection?: string;
 }
 
-const { title, description = 'Studio Kaku — Art framing, installation, consultancy and creative direction.', activeSection } = Astro.props;
+const { title, description = 'Studio Kaku - Art framing, installation, consultancy and creative direction.', activeSection } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,7 +22,7 @@ const { title, description = 'Studio Kaku — Art framing, installation, consult
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet" />
-    <title>{title} — Studio Kaku</title>
+    <title>{title} - Studio Kaku</title>
     <style>
       [data-fade] {
         opacity: 0;
@@ -43,6 +43,16 @@ const { title, description = 'Studio Kaku — Art framing, installation, consult
       [data-fade-text].is-visible {
         opacity: 1;
         transform: translateY(0);
+      }
+      html.lang-ja body,
+      html.lang-ja p,
+      html.lang-ja h1,
+      html.lang-ja h2,
+      html.lang-ja h3,
+      html.lang-ja a,
+      html.lang-ja span,
+      html.lang-ja button {
+        font-family: 'Noto Sans JP', sans-serif;
       }
     </style>
   </head>
@@ -65,6 +75,35 @@ const { title, description = 'Studio Kaku — Art framing, installation, consult
         { threshold: 0.05, rootMargin: '0px 0px -30px 0px' }
       );
       document.querySelectorAll('[data-fade], [data-fade-text]').forEach((el) => observer.observe(el));
+    </script>
+    <script>
+      (function () {
+        const KEY = 'sk-lang';
+
+        function applyLang(lang: string) {
+          const isJa = lang === 'ja';
+          document.documentElement.classList.toggle('lang-ja', isJa);
+          document.documentElement.lang = lang;
+
+          document.querySelectorAll('[data-ja]').forEach(function (el) {
+            const text = isJa ? el.getAttribute('data-ja') : el.getAttribute('data-en');
+            if (text !== null) (el as HTMLElement).innerHTML = text;
+          });
+
+          document.querySelectorAll('.lang-toggle').forEach(function (btn) {
+            (btn as HTMLElement).textContent = isJa ? 'EN' : '日本語';
+          });
+
+          localStorage.setItem(KEY, lang);
+        }
+
+        (window as any).toggleLang = function () {
+          const current = localStorage.getItem(KEY) || 'en';
+          applyLang(current === 'en' ? 'ja' : 'en');
+        };
+
+        applyLang(localStorage.getItem(KEY) || 'en');
+      })();
     </script>
   </body>
 </html>
