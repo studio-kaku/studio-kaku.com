@@ -106,42 +106,6 @@ const { title, description = 'Studio Kaku - Art framing, installation, consultan
       })();
     </script>
 
-    <!-- Cursor ball -->
-    <div id="cursor-ball"></div>
-    <style>
-      body { cursor: none; }
-      a, button, [role="button"] { cursor: none; }
-      #cursor-ball {
-        position: fixed;
-        top: 0; left: 0;
-        width: 48px; height: 48px;
-        border-radius: 50%;
-        background: radial-gradient(circle at 40% 40%, #4a7c5e, #2d5a3d 60%, #1a3d28);
-        filter: blur(8px);
-        opacity: 0;
-        pointer-events: none;
-        z-index: 9999;
-        transform: translate(-50%, -50%);
-        transition: opacity 0.3s ease;
-        mix-blend-mode: multiply;
-      }
-    </style>
-    <script>
-      const ball = document.getElementById('cursor-ball');
-      let mx = 0, my = 0, bx = 0, by = 0;
-      document.addEventListener('mousemove', (e) => {
-        mx = e.clientX; my = e.clientY;
-        ball.style.opacity = '1';
-      });
-      document.addEventListener('mouseleave', () => ball.style.opacity = '0');
-      function animate() {
-        bx += (mx - bx) * 0.12;
-        by += (my - by) * 0.12;
-        ball.style.left = bx + 'px';
-        ball.style.top = by + 'px';
-        requestAnimationFrame(animate);
-      }
-      animate();
-    </script>
+
   </body>
 </html>
