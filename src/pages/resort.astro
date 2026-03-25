@@ -477,67 +477,6 @@ import PasswordGate from '../components/PasswordGate.astro';
     </div>
   </section>
 
-  <!-- The process -->
-  <section class="px-8 md:px-16 py-20 md:py-28 border-t border-brand-border">
-    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
-      <span data-en="The process" data-ja="プロセス">The process</span>
-      <span class="block h-px w-12 bg-brand-accent/40"></span>
-    </p>
-    <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-en="How it works in practice" data-ja="実際の進め方">
-      How it works in practice
-    </h2>
-    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-16" data-en="From first brief to ongoing management. Studio Kaku is the single contact throughout." data-ja="最初のブリーフから継続的な管理まで。Studio Kakuが常に唯一の窓口です。">
-      From first brief to ongoing management. Studio Kaku is the single contact throughout.
-    </p>
-    <div class="grid md:grid-cols-4 border border-brand-border">
-      {[
-        {
-          num: '01',
-          title: 'Creative brief',
-          titleJa: 'クリエイティブブリーフ',
-          body: 'Studio Kaku works with the resort to agree on the overall vision - the identity, the tone, the priorities for each space.',
-          bodyJa: 'Studio Kakuがリゾートと協力して、全体的なビジョン - アイデンティティ、トーン、各スペースの優先事項 - について合意します。',
-          who: 'Studio Kaku leads',
-          whoJa: 'Studio Kakuがリード',
-        },
-        {
-          num: '02',
-          title: 'Space by space',
-          titleJa: 'スペースごとの展開',
-          body: 'Gallery and members lounge are each developed with clear briefs. Villa curation is offered to owners who choose to order through us. Baihodo and the design collaborator are briefed per space.',
-          bodyJa: 'ギャラリーとメンバーズラウンジはそれぞれ明確なブリーフで開発。ヴィラキュレーションは注文を選ぶオーナーに提供。梅鳳堂とデザインコラボレーターは各スペースごとにブリーフを受けます。',
-          who: 'Full team engaged',
-          whoJa: 'チーム全体が関与',
-        },
-        {
-          num: '03',
-          title: 'Villa owners',
-          titleJa: 'ヴィラオーナー',
-          body: 'As owners take possession, Studio Kaku runs individual consultations: art, furniture, local goods chosen for each villa. You may have multiple invoices but one point of contact.',
-          bodyJa: 'オーナーが入居すると、Studio Kakuが個別コンサルテーションを実施：各ヴィラに選ばれたアート、家具、地元品。請求書一本、窓口一本。',
-          who: 'Studio Kaku leads',
-          whoJa: 'Studio Kakuがリード',
-        },
-        {
-          num: '04',
-          title: 'Ongoing',
-          titleJa: '継続的な管理',
-          body: 'Gallery programme runs continuously. Art rotation available for villas. Owners can upgrade over time. The resort\'s cultural identity compounds.',
-          bodyJa: 'ギャラリープログラムは継続して運営。ヴィラへのアートローテーションも提供。オーナーは時間とともにアップグレード可能。リゾートの文化的アイデンティティが積み重なります。',
-          who: 'Studio Kaku manages',
-          whoJa: 'Studio Kakuが管理',
-        },
-      ].map((step, i) => (
-        <div class={`p-9 md:p-11 ${i < 3 ? 'border-b md:border-b-0 md:border-r border-brand-border' : ''}`} data-fade style={`transition-delay:${i * 80}ms`}>
-          <p class="font-display text-brand-border/80 leading-none mb-5" style="font-size: 2.5rem;">{step.num}</p>
-          <h4 class="font-display uppercase text-lg mb-3" data-en={step.title} data-ja={step.titleJa}>{step.title}</h4>
-          <p class="text-brand-muted text-xs leading-relaxed mb-5" data-en={step.body} data-ja={step.bodyJa}>{step.body}</p>
-          <p class="text-[10px] tracking-[0.15em] uppercase text-brand-accent" data-en={step.who} data-ja={step.whoJa}>{step.who}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
   <!-- The catalogue - how villa curation works for owners -->
   <section class="px-8 md:px-16 py-20 md:py-28 border-t border-brand-border bg-brand-border/20">
     <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
