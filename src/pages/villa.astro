@@ -19,10 +19,10 @@ import Layout from '../layouts/Layout.astro';
           A space that<br />speaks <em class="not-italic text-brand-accent">for itself</em>
         </h1>
         <p class="text-brand-bg/45 text-sm leading-relaxed max-w-sm mt-7" data-fade-text style="transition-delay:80ms"
-          data-en="Studio Kaku curates art, objects, and interiors for private villas at Kamui resort. A space that has been considered is one guests remember - and return to."
+          data-en="Studio Kaku curates art, objects, and interiors for private villas at Kamui resort. A considered space is one guests remember - and return to."
           data-ja="Studio Kakuは、カムイリゾートのプライベートヴィラのためにアート、オブジェ、インテリアをキュレーションします。丁寧に考えられた空間は、ゲストの記憶に残り、また訪れたくなる場所になります。"
         >
-          Studio Kaku curates art, objects, and interiors for private villas at Kamui resort. A space that has been considered is one guests remember - and return to.
+          Studio Kaku curates art, objects, and interiors for private villas at Kamui resort. A considered space is one guests remember - and return to.
         </p>
       </div>
       <p class="text-brand-bg/25 text-[11px] tracking-wide"
@@ -57,7 +57,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5">
       {[
-        { img: '/images/artists/artist-1.jpg', bio: 'Paintings that flow like water - vivid colour and undulating line, built up in layers and sanded back to reveal what lies beneath.', bioJa: '水が流れるような絵画——鮮やかな色彩と波打つ線が層を重ね、研き出されることで内側が現れる。' },
+        { img: '/images/artists/artist-1.jpg', bio: 'Paintings that flow like water - vivid colour and undulating lines, built up in layers and sanded back to reveal what lies beneath.', bioJa: '水が流れるような絵画——鮮やかな色彩と波打つ線が層を重ね、研き出されることで内側が現れる。' },
         { img: '/images/artists/artist-2.jpg', bio: 'Contemporary artist from the Ainu community in Akan, Hokkaido. Traditional craft reimagined through modern design and everyday objects.', bioJa: '北海道阿寒のアイヌコミュニティ出身のコンテンポラリーアーティスト。伝統工芸をモダンデザインと日用品を通じて再解釈する。' },
         { img: '/images/artists/artist-3.jpg', bio: 'Based in Shiraoi since 2002. Sculpture, painting, and installation exploring the boundaries between earth and sky.', bioJa: '2002年から白老を拠点に活動。彫刻、絵画、インスタレーションを通じて大地と空の境界を探求する。', contain: true },
         { img: '/images/artists/artist-4.jpg', bio: 'Hokkaido-born woodworker. Construction, joinery, and renovation inform a practice that began two years ago.', bioJa: '北海道生まれの木工家。建築・木工・リノベーションの経験を活かし、2年前から制作活動を開始。' },
@@ -104,7 +104,7 @@ import Layout from '../layouts/Layout.astro';
         { title: 'Sapporo Ceramic Plate', titleJa: '札幌陶器プレート', body: 'A wide, shallow plate with a sandy textured glaze. Shown here set at a table - the kind of piece that improves with use.', bodyJa: '砂のような釉薬が施された幅広の浅皿。テーブルに映える一枚——使うほどに味わいが増します。', price: '¥10,000 · Asahikawa', img: '/images/products/sapporo-plate.jpg' },
         { title: 'Blue Cut Glass', titleJa: 'ブルー切子グラス', body: 'Deep cobalt blue with a repeating circular cut pattern across the entire body. A bold piece from the Otaru glass tradition.', bodyJa: '全体に繰り返す円形のカットパターンが施された深いコバルトブルー。小樽ガラスの伝統から生まれた力強い一品。', price: '¥27,500 · Otaru', img: '/images/products/wine-glass.jpg' },
         { title: 'Foldable Rain Boots', titleJa: '折りたたみレインブーツ', body: 'Bright teal boots with a pink sole and yellow trim that pack flat into their own pouch. Practical for Hokkaido\'s unpredictable weather.', bodyJa: '専用ポーチに平たく収納できる、ピンクソールとイエロートリムのティールブーツ。北海道の変わりやすい天気にも対応。', price: '¥20,000 · Otaru', img: '/images/products/rain-boots.jpg' },
-        { title: 'Higashikawa Ceramics', titleJa: '東川焼', body: 'A workshop range of mugs and vases in blue-green gradient glaze. Each piece is slightly different - available from ¥5,000 per item.', bodyJa: '青緑のグラデーション釉薬のマグカップと花瓶のワークショップシリーズ。一点一点が少しずつ異なります。', price: 'From ¥5,000 · Higashikawa', img: '/images/products/ceramics-mugs.jpg' },
+        { title: 'Higashikawa Ceramics', titleJa: '東川焼', body: 'A workshop range of mugs and vases in blue-green gradient glaze. Each piece is slightly different.', bodyJa: '青緑のグラデーション釉薬のマグカップと花瓶のワークショップシリーズ。一点一点が少しずつ異なります。', price: 'From ¥5,000 · Higashikawa', img: '/images/products/ceramics-mugs.jpg' },
         { title: 'Wood Craft Lamp', titleJa: '木工クラフトランプ', body: 'A layered, mushroom-shaped lamp turned from light Asahikawa timber. Warm light, quiet form - the kind of object that anchors a room.', bodyJa: '旭川の淡い木材から削り出した層状のきのこ型ランプ。温かな灯りと静かなフォルムが部屋を引き締めます。', price: '¥66,000 · Asahikawa', img: '/images/products/wood-lamp.jpg' },
       ].map((item, i) => (
         <div class="bg-brand-bg" data-fade style={`transition-delay:${(i % 4) * 60}ms`}>
@@ -114,6 +114,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="p-6 md:p-8">
             <h4 class="font-display uppercase text-sm mb-2" data-en={item.title} data-ja={item.titleJa}>{item.title}</h4>
             <p class="text-brand-muted text-xs leading-relaxed" data-en={item.body} data-ja={item.bodyJa}>{item.body}</p>
+            {item.price && <p class="text-brand-muted text-xs mt-3 font-medium">{item.price}</p>}
           </div>
         </div>
       ))}
@@ -133,10 +134,10 @@ import Layout from '../layouts/Layout.astro';
       People who have been<br />here a long time
     </h2>
     <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-14"
-      data-en="Every object we source has a maker behind it. These are some of the people Studio Kaku works with - their knowledge of Hokkaido's materials and traditions is built into everything they produce."
+      data-en="Every object we curate has a story and an artist behind it. These are some of the people Studio Kaku works with - their knowledge of Hokkaido's materials and traditions is built into everything they produce."
       data-ja="私たちが選ぶすべての品には作り手がいます。Studio Kakuが協働する職人の一部をご紹介します——北海道の素材と伝統への深い知識が、彼らの作品のすべてに宿っています。"
     >
-      Every object we source has a maker behind it. These are some of the people Studio Kaku works with - their knowledge of Hokkaido's materials and traditions is built into everything they produce.
+      Every object we curate has a story and an artist behind it. These are some of the people Studio Kaku works with - their knowledge of Hokkaido's materials and traditions is built into everything they produce.
     </p>
     <div class="grid md:grid-cols-3 gap-px bg-brand-border">
       {[
