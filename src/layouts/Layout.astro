@@ -7,9 +7,40 @@ interface Props {
   title: string;
   description?: string;
   activeSection?: string;
+  ogImage?: string;
+  noindex?: boolean;
 }
 
-const { title, description = 'Studio Kaku - Art framing, installation, consultancy and creative direction.', activeSection } = Astro.props;
+const {
+  title,
+  description = 'Studio Kaku — Art framing, installation, consultancy and creative direction in Tokyo.',
+  activeSection,
+  ogImage = '/images/exhibition-space.jpg',
+  noindex = false,
+} = Astro.props;
+
+const siteURL = 'https://studio-kaku.com';
+const canonicalURL = new URL(Astro.url.pathname, siteURL).href;
+const ogImageURL = new URL(ogImage, siteURL).href;
+const pageTitle = title === 'Home' ? 'Studio Kaku' : `${title} — Studio Kaku`;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Studio Kaku',
+  description: 'Art framing, installation, consultancy and creative direction in Tokyo.',
+  url: siteURL,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Tokyo',
+    addressCountry: 'JP',
+  },
+  founder: [
+    { '@type': 'Person', name: 'Yuki Kakuno' },
+    { '@type': 'Person', name: 'Eleanor Ford' },
+  ],
+  knowsLanguage: ['en', 'ja'],
+};
 ---
 
 <!doctype html>
@@ -17,12 +48,38 @@ const { title, description = 'Studio Kaku - Art framing, installation, consultan
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Studio Kaku" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ja_JP" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Icons & theme -->
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="theme-color" content="#FAFAF8" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet" />
-    <title>{title} - Studio Kaku</title>
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <style>
 [data-fade] {
         opacity: 0;

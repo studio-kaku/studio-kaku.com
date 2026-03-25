@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PasswordGate from '../components/PasswordGate.astro';
 ---
 
-<Layout title="Villa Curation - Studio Kaku" description="Studio Kaku curates art, objects, and interiors for private residences across Japan - rooted in Hokkaido craft and contemporary Japanese art.">
+<Layout title="Villa Curation - Studio Kaku" description="Studio Kaku curates art, objects, and interiors for private residences across Japan - rooted in Hokkaido craft and contemporary Japanese art." noindex={true}>
+
+  <PasswordGate password="kaku-villa" />
 
   <!-- Hero -->
   <section class="min-h-[90vh] grid md:grid-cols-2 bg-brand-text">
