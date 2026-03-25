@@ -14,18 +14,6 @@ export const projects = [
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg", "image3.jpg", "image4.jpg"],
   },
-  {
-    slug: "private-commission-march-2026",
-    journal: true,
-    title: "Private Commission",
-    tagline: "Framing",
-    subtitle: "Private framing",
-    year: "March 2026",
-    credits: [],
-    description: "Private framing commission.",
-    cover: "cover.jpg",
-    images: ["cover.jpg", "image2.jpg", "image3.jpg"],
-  },
   // February 2026
   {
     slug: "supper-club-kura-2026",
@@ -109,6 +97,18 @@ export const projects = [
     description: "Curation and installation for Casual Magazine.",
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"],
+  },
+  {
+    slug: "private-commission-march-2026",
+    journal: true,
+    title: "Private Commission",
+    tagline: "Framing",
+    subtitle: "Private framing",
+    year: "March 2026",
+    credits: [],
+    description: "Private framing commission.",
+    cover: "cover.jpg",
+    images: ["cover.jpg", "image2.jpg", "image3.jpg"],
   },
   // September 2025
   {
