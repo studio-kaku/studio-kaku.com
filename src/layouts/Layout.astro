@@ -24,6 +24,12 @@ const { title, description = 'Studio Kaku - Art framing, installation, consultan
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet" />
     <title>{title} - Studio Kaku</title>
     <style>
+      *, *::before, *::after {
+        cursor: url('/cursor.png') 32 32, auto;
+      }
+      a, button, [role="button"], label, select, input[type="submit"], input[type="button"] {
+        cursor: url('/cursor.png') 32 32, pointer;
+      }
       [data-fade] {
         opacity: 0;
         transform: translateY(28px) scale(0.97);
