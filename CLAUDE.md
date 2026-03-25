@@ -15,7 +15,7 @@ You are editing the Studio Kaku website, a static Astro 5 site served at **studi
 | Branch | Site | How to deploy |
 |--------|------|---------------|
 | `staging` | staging.studio-kaku.com | Push to `staging` — GitHub Actions builds automatically |
-| `main` | studio-kaku.com | Use `/approve` in Slack — creates & merges a PR from staging→main |
+| `main` | studio-kaku.com | Use `gh pr create --base main --head staging` then `gh pr merge` |
 
 ## Repository structure
 
