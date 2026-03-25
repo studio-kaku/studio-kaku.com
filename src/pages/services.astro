@@ -1,124 +1,148 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const steps = [
+  {
+    num: '01',
+    title: { en: 'Discovery', ja: 'ディスカバリー' },
+    desc: {
+      en: 'We visit the space and get under the skin of it - the light, the architecture, the story you are trying to tell. We listen more than we talk.',
+      ja: '物件を訪問し、光の入り方や建築、伝えたいストーリーを深く理解します。まず聞くことを大切にします。',
+    },
+    img: '/images/services/discovery.jpg',
+  },
+  {
+    num: '02',
+    title: { en: 'Concept', ja: 'コンセプト' },
+    desc: {
+      en: 'We develop a curatorial direction - a considered proposal for what the art should do in each space, and why. Not a mood board, but a point of view.',
+      ja: '各空間においてアートが果たすべき役割と、その理由を明確にしたキュレーション方針を策定します。ムードボードではなく、確固たる視点をご提案します。',
+    },
+    img: '/images/services/concept.jpg',
+  },
+  {
+    num: '03',
+    title: { en: 'Sourcing & Commissioning', ja: '調達とコミッション' },
+    desc: {
+      en: 'We find the right works - from existing pieces to artist commissions created specifically for your space. We handle all negotiation, contracts and timelines.',
+      ja: '既存作品からスペースのために制作されたアーティストコミッションまで、最適な作品を選定します。交渉、契約、スケジュール管理はすべて私たちが対応します。',
+    },
+    img: '/images/services/sourcing-commissioning.jpg',
+  },
+  {
+    num: '04',
+    title: { en: 'Framing', ja: 'フレーミング' },
+    desc: {
+      en: 'Every piece is framed to museum standard using archival materials chosen for each individual work, in collaboration with Juka Framing.',
+      ja: 'すべての作品は、Juka Framingとの協働のもと、アーカイバル素材を用いて美術館水準の額装を施します。',
+    },
+    img: '/images/services/framing.jpg',
+    link: { label: 'jukaframing.com', href: 'http://jukaframing.com' },
+  },
+  {
+    num: '05',
+    title: { en: 'Shipment & Installation', ja: '輸送と設置' },
+    desc: {
+      en: 'We manage transport, logistics and installation from start to finish. You have one point of contact. Nothing falls through the gaps.',
+      ja: '輸送・ロジスティクス・設置をすべて一括管理します。窓口は一本化され、見落としが生じる心配はありません。',
+    },
+    img: '/images/services/shipment-and-installation.webp',
+  },
+  {
+    num: '06',
+    title: { en: 'Handover', ja: '引き渡し' },
+    desc: {
+      en: 'You receive full documentation - artists, provenance, care instructions - so the collection is properly managed long after we have gone.',
+      ja: 'アーティスト情報、来歴、ケア方法など、完全なドキュメントをお渡しします。私たちが去った後も、コレクションが適切に管理されるようにします。',
+    },
+    img: '/images/services/handover.jpg',
+  },
+];
 ---
 
 <Layout
   title="Services"
-  description="Studio Kaku offers expert framing, installation, art care, consultancy, creative direction and curation."
+  description="Studio Kaku offers art consultancy, creative direction, curation, bespoke framing and installation for hotels, collectors, galleries and organisations."
 >
   <!-- Page header -->
-  <section class="max-w-5xl mx-auto px-6 pt-16 pb-12 border-b border-brand-border">
-    <p class="text-brand-muted text-sm tracking-widest uppercase mb-4">What we do</p>
-    <h1 class="font-serif text-4xl">Services</h1>
+  <section class="px-8 md:px-12 pt-14 md:pt-20 pb-10 md:pb-16">
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-8" data-fade-text data-en="What we do" data-ja="サービス内容">What we do</p>
+    <h1 class="font-display uppercase leading-none mb-10" style="font-size: clamp(2rem, 5vw, 5rem);" data-fade-text data-en="We handle everything." data-ja="すべてお任せください。">We handle everything.</h1>
+    <p
+      class="text-brand-muted leading-relaxed max-w-xl"
+      data-fade-text
+      data-en="From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with hotels and hospitality groups, private collectors, galleries, and organisations who want art to do more than fill a wall."
+      data-ja="アートが空間に何をもたらすかという最初の対話から、最後の一点が壁に掛けられる瞬間まで。ホテルやホスピタリティグループ、個人コレクター、ギャラリー、そして壁を埋める以上のものをアートに求める組織と、ともに仕事をしています。"
+    >
+      From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with hotels and hospitality groups, private collectors, galleries, and organisations who want art to do more than fill a wall.
+    </p>
   </section>
 
-  <!-- Service 1: Framing, Installation & Art Care -->
-  <section id="framing" class="max-w-5xl mx-auto px-6 py-16 border-b border-brand-border">
-    <div class="grid md:grid-cols-2 gap-12 items-start">
-      <div>
-        <h2 class="font-serif text-3xl mb-6">
-          Framing, Installation<br />&amp; Art Care
-        </h2>
-        <div class="space-y-4 text-brand-muted leading-relaxed">
-          <p>
-            A great frame does more than protect — it activates a work. We
-            source, design and produce bespoke frames in dialogue with the art
-            itself, working with conservation-grade materials and trusted
-            specialist craftspeople.
-          </p>
-          <p>
-            Our installation service covers everything from a single piece in a
-            private home to large-scale hanging programmes for galleries and
-            institutional collections.
-          </p>
-          <p>
-            We also advise on the long-term care of works on paper, canvas and
-            other media: storage, lighting, environmental conditions and
-            handling — so your collection remains in peak condition.
-          </p>
-        </div>
-
-        <ul class="mt-8 space-y-2 text-sm">
-          {[
-            'Bespoke frame design & production',
-            'Conservation framing & glazing',
-            'Professional art installation',
-            'Collection storage advice',
-            'Lighting consultation',
-            'Art care & condition reporting',
-          ].map((item) => (
-            <li class="flex items-start gap-3">
-              <span class="mt-1 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="space-y-4">
-        <!-- Placeholder images -->
-        <div class="w-full aspect-square bg-brand-border flex items-center justify-center text-brand-muted text-sm">
-          Image placeholder — framing
-        </div>
-        <div class="w-full aspect-video bg-brand-border flex items-center justify-center text-brand-muted text-sm">
-          Image placeholder — installation
-        </div>
-      </div>
+  <!-- The Journey -->
+  <section class="border-t border-brand-border">
+    <div class="px-8 md:px-12 pt-14 md:pt-20 pb-8">
+      <p class="text-brand-muted text-xs tracking-widest uppercase" data-en="The Journey" data-ja="プロセス">The Journey</p>
     </div>
+    {steps.map((step, i) => (
+      <div
+        class="flex items-center justify-between gap-8 px-8 md:px-12 py-8 border-t border-brand-border hover:bg-brand-border/30 transition-colors group"
+        data-fade
+        style={`transition-delay: ${i * 60}ms`}
+      >
+        <div class="flex items-baseline gap-6 md:gap-10 min-w-0">
+          <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{step.num}</span>
+          <div class="min-w-0">
+            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(0.9rem, 1.5vw, 1.25rem); -webkit-text-stroke: 0;" data-en={step.title.en} data-ja={step.title.ja}>{step.title.en}</p>
+            <p class="text-brand-muted text-sm leading-relaxed max-w-md" data-en={step.desc.en} data-ja={step.desc.ja}>{step.desc.en}</p>
+            {step.link && (
+              <a
+                href={step.link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hidden md:inline-block mt-4 border border-brand-text px-5 py-2 text-xs tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors"
+              >
+                For more on framing, visit Juka Framing
+              </a>
+            )}
+          </div>
+        </div>
+        <div class="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 overflow-hidden">
+          <img
+            src={step.img}
+            alt={step.title.en}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    ))}
   </section>
 
-  <!-- Service 2: Art Consultancy & Creative Direction -->
-  <section id="consultancy" class="max-w-5xl mx-auto px-6 py-16">
-    <div class="grid md:grid-cols-2 gap-12 items-start">
-      <div class="order-2 md:order-1 space-y-4">
-        <!-- Placeholder images -->
-        <div class="w-full aspect-square bg-brand-border flex items-center justify-center text-brand-muted text-sm">
-          Image placeholder — consultancy
-        </div>
-        <div class="w-full aspect-video bg-brand-border flex items-center justify-center text-brand-muted text-sm">
-          Image placeholder — curation
-        </div>
-      </div>
+  <!-- Reassurance -->
+  <section class="px-8 md:px-12 py-12 border-t border-brand-border">
+    <p
+      class="text-brand-muted text-sm leading-relaxed"
+      data-en="Not every project needs all six steps. If you just need framing, that is a complete service in itself. Get in touch and we will take it from there."
+      data-ja="すべてのプロジェクトに6つのステップが必要なわけではありません。額装だけが必要な場合も、それ自体が完結したサービスです。まずはご連絡ください。"
+    >
+      Not every project needs all six steps. If you just need framing, that is a complete service in itself. Get in touch and we will take it from there.
+    </p>
+  </section>
 
-      <div class="order-1 md:order-2">
-        <h2 class="font-serif text-3xl mb-6">
-          Art Consultancy, Creative<br />Direction &amp; Curation
-        </h2>
-        <div class="space-y-4 text-brand-muted leading-relaxed">
-          <p>
-            We work with private collectors, developers, hospitality brands and
-            organisations to build coherent, meaningful art programmes —
-            whether acquiring a first work or shaping an entire collection
-            strategy.
-          </p>
-          <p>
-            Our creative direction brings a strong curatorial perspective to
-            spaces and projects: developing narratives, identifying artists and
-            creating environments where art and context resonate together.
-          </p>
-          <p>
-            From artist commissions and exhibition development to brand
-            partnerships, we bring taste, rigour and practical experience to
-            every engagement.
-          </p>
-        </div>
-
-        <ul class="mt-8 space-y-2 text-sm">
-          {[
-            'Art acquisition & collection strategy',
-            'Artist sourcing & commissions',
-            'Exhibition development & curation',
-            'Spatial creative direction',
-            'Corporate art programmes',
-            'Brand & cultural partnerships',
-          ].map((item) => (
-            <li class="flex items-start gap-3">
-              <span class="mt-1 w-1 h-1 rounded-full bg-brand-accent flex-shrink-0"></span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
+  <!-- CTA -->
+  <section class="px-8 md:px-12 py-16 md:py-28 border-t border-brand-border">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10" data-fade-text>
+      <p class="font-display uppercase leading-none" style="font-size: clamp(1.5rem, 3vw, 2.5rem);" data-en="Ready to work together?" data-ja="一緒に取り組みませんか？">
+        Ready to work<br />together?
+      </p>
+      <a
+        href="/contact"
+        class="inline-block bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity flex-shrink-0"
+        data-en="Get in Touch"
+        data-ja="お問い合わせ"
+      >
+        Get in Touch
+      </a>
     </div>
   </section>
 </Layout>

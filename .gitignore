@@ -34,3 +34,17 @@ yarn-error.log*
 
 # Claude Code local config
 .claude/settings.local.json
+
+# Uploaded files (working folder, not needed in repo)
+_uploads/
+
+# Slack bot build artifacts
+slack-bot/*.egg-info/
+
+# Original source assets (too large for git)
+content/
+
+# Misc generated files
+claude-insights-report.html
+*\ 2.js
+*\ 2.astro

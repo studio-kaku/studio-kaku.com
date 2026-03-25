@@ -2,9 +2,52 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-brand-border mt-24">
-  <div class="max-w-5xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-brand-muted">
+<footer class="border-t border-brand-border mt-32">
+  <div class="px-8 md:px-12 py-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between text-sm text-brand-muted">
     <span>© {year} Studio Kaku</span>
-    <span class="italic">London</span>
+    <!-- Language switcher -->
+    <div class="flex items-center gap-1 text-xs tracking-widest uppercase" id="lang-switcher">
+      <button
+        id="lang-en"
+        class="px-3 py-1 border border-brand-border transition-colors duration-200 lang-btn"
+        aria-pressed="true"
+      >EN</button>
+      <button
+        id="lang-ja"
+        class="px-3 py-1 border border-brand-border transition-colors duration-200 lang-btn"
+        aria-pressed="false"
+      >日本語</button>
+    </div>
+    <span class="italic" data-en="Tokyo, Japan" data-ja="東京, 日本">Tokyo, Japan</span>
   </div>
 </footer>
+
+<script>
+  // Language switcher - swaps all [data-en] / [data-ja] text on the page
+  const btnEn = document.getElementById('lang-en') as HTMLButtonElement;
+  const btnJa = document.getElementById('lang-ja') as HTMLButtonElement;
+  const activeClasses = ['bg-brand-text', 'text-brand-bg', 'border-brand-text'] as const;
+
+  function applyLang(lang: 'en' | 'ja') {
+    document.querySelectorAll<HTMLElement>('[data-en][data-ja]').forEach((el) => {
+      el.innerHTML = el.dataset[lang]!;
+    });
+
+    [btnEn, btnJa].forEach((btn) => {
+      const active = btn.id === `lang-${lang}`;
+      btn.setAttribute('aria-pressed', String(active));
+      btn.classList.toggle('bg-brand-text', active);
+      btn.classList.toggle('text-brand-bg', active);
+      btn.classList.toggle('border-brand-text', active);
+    });
+
+    localStorage.setItem('sk-lang', lang);
+    document.documentElement.lang = lang;
+  }
+
+  const saved = localStorage.getItem('sk-lang') as 'en' | 'ja' | null;
+  applyLang(saved === 'ja' ? 'ja' : 'en');
+
+  btnEn.addEventListener('click', () => applyLang('en'));
+  btnJa.addEventListener('click', () => applyLang('ja'));
+</script>

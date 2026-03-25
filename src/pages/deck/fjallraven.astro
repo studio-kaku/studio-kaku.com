@@ -1,0 +1,206 @@
+---
+// Password-protected pitch viewer
+// Pitch files are served from /d/fjallraven-2026/
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Kaku - Deck</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #FAFAF8;
+      color: #1C1C1C;
+      font-family: system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #gate {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    #gate img.logo {
+      width: 200px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    #gate form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 260px;
+    }
+
+    #gate input[type="password"] {
+      background: #fff;
+      border: 1px solid #E5E3DF;
+      border-radius: 4px;
+      color: #1C1C1C;
+      font-size: 1rem;
+      padding: 0.65rem 0.85rem;
+      outline: none;
+      transition: border-color 0.15s;
+      width: 100%;
+    }
+
+    #gate input[type="password"]:focus {
+      border-color: #B5A694;
+    }
+
+    #gate button {
+      background: #1C1C1C;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      padding: 0.65rem;
+      text-transform: uppercase;
+      transition: opacity 0.15s;
+    }
+
+    #gate button:hover { opacity: 0.85; }
+
+    #error-msg {
+      color: #c0392b;
+      font-size: 0.8rem;
+      text-align: center;
+      min-height: 1.2em;
+    }
+
+    #viewer {
+      display: none;
+      position: fixed;
+      inset: 0;
+    }
+
+    #viewer iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="gate">
+    <img src="/fjallraven-logo.png" alt="Fjällräven" class="logo" />
+    <form id="pw-form">
+      <input type="password" id="pw-input" placeholder="Enter password" autocomplete="off" />
+      <button type="submit">View Deck</button>
+      <div id="error-msg"></div>
+    </form>
+  </div>
+
+  <div id="viewer">
+    <iframe id="pitch-frame" src="" title="Pitch Deck"></iframe>
+  </div>
+
+  <script>
+    const HASH = '497d6b31e5b45ed7192d78b5d505c8c9f5964acbb45f7ef816b9f54f5f3e0fa2';
+    const SESSION_KEY = 'sk_deck_fjr';
+
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function showDeck() {
+      document.getElementById('gate').style.display = 'none';
+      const viewer = document.getElementById('viewer');
+      viewer.style.display = 'block';
+      document.getElementById('pitch-frame').src = '/d/fjallraven-2026/index.html';
+    }
+
+    // Restore session
+    if (sessionStorage.getItem(SESSION_KEY) === '1') {
+      showDeck();
+    }
+
+    document.getElementById('pw-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const val = document.getElementById('pw-input').value;
+      const hash = await sha256(val);
+      if (hash === HASH) {
+        sessionStorage.setItem(SESSION_KEY, '1');
+        showDeck();
+      } else {
+        document.getElementById('error-msg').textContent = 'Incorrect password.';
+        document.getElementById('pw-input').value = '';
+        document.getElementById('pw-input').focus();
+      }
+    });
+
+    function addPlayButton(video, iframeDoc) {
+      if (video.dataset.playBtnAdded) return;
+      video.dataset.playBtnAdded = '1';
+
+      const btn = iframeDoc.createElement('div');
+      btn.style.cssText = `
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 64px; height: 64px;
+        background: rgba(0,0,0,0.55);
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+        z-index: 9999;
+        pointer-events: all;
+        transition: background 0.15s;
+      `;
+      btn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg>`;
+
+      // Position btn relative to video's parent
+      const parent = video.parentElement;
+      const prevPosition = parent.style.position;
+      if (!prevPosition || prevPosition === 'static') parent.style.position = 'relative';
+
+      parent.appendChild(btn);
+
+      function syncBtn() {
+        btn.style.display = video.paused ? 'flex' : 'none';
+      }
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.paused ? video.play() : video.pause();
+      });
+      btn.addEventListener('mouseover', () => btn.style.background = 'rgba(0,0,0,0.75)');
+      btn.addEventListener('mouseout', () => btn.style.background = 'rgba(0,0,0,0.55)');
+      video.addEventListener('play', syncBtn);
+      video.addEventListener('pause', syncBtn);
+      video.addEventListener('ended', syncBtn);
+      syncBtn();
+    }
+
+    function injectPlayButtons(iframeDoc) {
+      iframeDoc.querySelectorAll('video').forEach(v => addPlayButton(v, iframeDoc));
+      new MutationObserver(() => {
+        iframeDoc.querySelectorAll('video').forEach(v => addPlayButton(v, iframeDoc));
+      }).observe(iframeDoc.body, { childList: true, subtree: true });
+    }
+
+    document.getElementById('pitch-frame').addEventListener('load', () => {
+      try {
+        injectPlayButtons(document.getElementById('pitch-frame').contentDocument);
+      } catch(e) {}
+    });
+  </script>
+
+</body>
+</html>

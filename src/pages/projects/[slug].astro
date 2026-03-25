@@ -1,0 +1,229 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projects } from '../../data/projects.js';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const [hero, ...gallery] = project.images;
+const paragraphs = project.description ? project.description.split('\n\n') : [];
+---
+
+<Layout title={project.title} activeSection={project.journal ? 'journal' : 'projects'}>
+
+  <!-- Back link -->
+  <div class="px-8 md:px-12 pt-8">
+    <a
+      href={project.journal ? '/journal' : '/projects'}
+      class="text-brand-muted text-xs tracking-widest uppercase hover:opacity-50 transition-opacity"
+    >
+      {project.journal ? '← Journal' : '← Projects'}
+    </a>
+  </div>
+
+  <!-- Hero image -->
+  <div class="mt-6 overflow-hidden reveal">
+    <img
+      src={`/projects/${project.slug}/${encodeURIComponent(hero)}`}
+      alt={project.title}
+      class="w-full h-auto block hero-img"
+    />
+  </div>
+
+  <!-- Title + subtitle + year -->
+  <section class="px-8 md:px-12 pt-12 pb-8 reveal">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+      <div>
+        <h1 class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 7vw, 8rem);">
+          {project.title}
+        </h1>
+        {project.subtitle && (
+          <p class="text-brand-muted text-sm tracking-widest uppercase mt-3">{project.subtitle}</p>
+        )}
+      </div>
+      {project.year && (
+        <p class="text-brand-muted text-sm tracking-widest uppercase flex-shrink-0 md:pt-2">{project.year}</p>
+      )}
+    </div>
+  </section>
+
+  <!-- Credits + Description -->
+  {(project.credits.length > 0 || paragraphs.length > 0) && (
+    <section class="px-8 md:px-12 py-12 border-t border-brand-border reveal">
+      <div class="grid md:grid-cols-[280px_1fr] gap-12">
+
+        <!-- Credits -->
+        {project.credits.length > 0 && (
+          <div class="space-y-4">
+            {project.credits.map((credit) => (
+              <div>
+                <p class="text-brand-muted text-xs tracking-widest uppercase mb-0.5">{credit.label}</p>
+                <p class="text-sm">{credit.value}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <!-- Description -->
+        {paragraphs.length > 0 && (
+          <div class="space-y-5">
+            {paragraphs.map((para) => (
+              <p class="text-base leading-relaxed text-brand-muted">{para}</p>
+            ))}
+          </div>
+        )}
+
+      </div>
+    </section>
+  )}
+
+  <!-- Video -->
+  {project.video && (
+    <section class="mt-1 reveal">
+      <video
+        src={`/projects/${project.slug}/${encodeURIComponent(project.video)}`}
+        controls
+        playsinline
+        preload="metadata"
+        class="w-full max-h-[80vh] object-cover bg-black"
+      />
+    </section>
+  )}
+
+  <!-- Gallery -->
+  {gallery.length > 0 && (
+    <section class="p-3 mt-1">
+      {project.galleryStyle === 'masonry' ? (
+        <div class="columns-1 sm:columns-2 gap-3">
+          {gallery.map((img, i) => (
+            <div class="break-inside-avoid mb-3 overflow-hidden reveal" style={`transition-delay:${(i % 2) * 80}ms`}>
+              <img
+                src={`/projects/${project.slug}/${encodeURIComponent(img)}`}
+                alt={`${project.title} ${i + 2}`}
+                class="w-full h-auto block photo-hover"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      ) : project.lastTwoHalf ? (
+        <>
+          {gallery.length > 2 && (
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-3">
+              {gallery.slice(0, -2).map((img, i) => (
+                <div class="overflow-hidden reveal aspect-[4/3]" style={`transition-delay:${(i % 3) * 80}ms`}>
+                  <img
+                    src={`/projects/${project.slug}/${encodeURIComponent(img)}`}
+                    alt={`${project.title} ${i + 2}`}
+                    class="w-full h-full object-cover photo-hover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {gallery.slice(-2).map((img, i) => (
+              <div class="overflow-hidden reveal aspect-[4/3]" style={`transition-delay:${i * 80}ms`}>
+                <img
+                  src={`/projects/${project.slug}/${encodeURIComponent(img)}`}
+                  alt={`${project.title} ${gallery.length - 2 + i + 2}`}
+                  class="w-full h-full object-cover photo-hover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </>
+      ) : (
+        <div class={`grid gap-3 ${project.galleryColumns === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}`}>
+          {gallery.map((img, i) => {
+            const cols = project.galleryColumns === 2 ? 2 : 3;
+            const isLastAlone = i === gallery.length - 1 && gallery.length % cols === 1;
+            const isFull = isLastAlone && project.lastImageFull;
+            const aspect = project.galleryAspect ? `aspect-[${project.galleryAspect}]` : project.galleryColumns === 2 ? 'aspect-[3/4]' : 'aspect-[4/3]';
+            return (
+              <div class={`overflow-hidden reveal${isFull ? '' : ` ${aspect}${isLastAlone ? ` col-span-${cols}` : ''}`}`} style={`transition-delay:${(i % cols) * 80}ms${isFull ? ';grid-column:1/-1' : ''}`}>
+                <img
+                  src={`/projects/${project.slug}/${encodeURIComponent(img)}`}
+                  alt={`${project.title} ${i + 2}`}
+                  class={`w-full photo-hover${isFull ? ' h-auto block' : ' h-full object-cover'}`}
+                  loading="lazy"
+                />
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </section>
+  )}
+
+  <!-- Footer CTA -->
+  <section class="px-8 md:px-12 py-20 border-t border-brand-border mt-1 reveal">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+      <a
+        href={project.journal ? '/journal' : '/projects'}
+        class="text-sm tracking-wide underline underline-offset-4 hover:opacity-50 transition-opacity"
+      >
+        {project.journal ? '← Back to journal' : '← Back to all projects'}
+      </a>
+      <a
+        href="/contact"
+        class="inline-block bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
+        data-en="Work with us"
+        data-ja="ご一緒しませんか"
+      >
+        Work with us
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .photo-hover {
+    transition: transform 0.7s ease;
+  }
+  .photo-hover:hover {
+    transform: scale(1.04);
+  }
+  .hero-img {
+    will-change: transform;
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  const heroImg = document.querySelector('.hero-img') as HTMLElement | null;
+  if (heroImg) {
+    window.addEventListener('scroll', () => {
+      heroImg.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+    }, { passive: true });
+  }
+</script>

@@ -1,78 +1,263 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { projects } from '../data/projects.js';
+const featuredProjects = projects.filter(p => !p.journal && p.slug !== 'tcs-2025').slice(0, 5);
+const journalEntries = projects.filter(p => p.journal).slice(0, 8);
 ---
 
 <Layout title="Home">
   <!-- Hero -->
-  <section class="max-w-5xl mx-auto px-6 pt-20 pb-16 border-b border-brand-border">
-    <div class="max-w-2xl">
-      <!-- Placeholder: replace with logo / wordmark when branding is ready -->
-      <div class="inline-block border border-brand-border text-brand-muted text-xs tracking-widest uppercase px-3 py-1 mb-8">
-        Logo placeholder
-      </div>
-      <h1 class="font-serif text-5xl leading-tight mb-6">
-        Where art finds<br />its place.
-      </h1>
-      <p class="text-brand-muted text-lg leading-relaxed max-w-prose mb-10">
-        Studio Kaku brings together specialist expertise in framing, installation
-        and art care alongside art consultancy, creative direction and curation.
-        We help collectors, galleries and organisations live and work with art
-        at its best.
+  <section class="px-8 md:px-12 pt-10 md:pt-16 pb-6 md:pb-8">
+    <h1
+      class="font-display uppercase leading-[1.15] mb-8"
+      style="font-size: clamp(1.75rem, 4vw, 3.5rem);"
+      data-en="Where art<br />finds its place."
+      data-ja="アートを、<br />その場所へ。"
+    >
+      Where art<br />finds its place.
+    </h1>
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 border-t border-brand-border pt-8">
+      <p
+        class="text-brand-muted text-base leading-relaxed max-w-md"
+        data-en="From the first conversation to the final installation - we bring together specialist framing, art care and consultancy for hotels, collectors and galleries who want art to do more than fill a wall."
+        data-ja="Studio Kakuは、額装・設置・アートケアの専門知識と、アートコンサルタンシー・クリエイティブディレクション・キュレーションを組み合わせたスタジオです。コレクター、ギャラリー、企業が最良の形でアートと共に暮らし、働けるよう支援します。"
+      >
+        From the first conversation to the final installation - we bring together
+        specialist framing, art care and consultancy for hotels, collectors and
+        galleries who want art to do more than fill a wall.
       </p>
       <a
         href="/services"
-        class="inline-block border border-brand-text px-6 py-3 text-sm tracking-wide hover:bg-brand-text hover:text-brand-bg transition-colors"
+        class="inline-block border border-brand-text px-7 py-3 text-sm tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors flex-shrink-0"
+        data-en="Our Services"
+        data-ja="サービス一覧"
       >
         Our Services
       </a>
     </div>
   </section>
 
-  <!-- Two-service overview -->
-  <section class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 border-b border-brand-border">
-    <!-- Service 1 -->
-    <div>
-      <!-- Placeholder image -->
-      <div class="w-full aspect-[4/3] bg-brand-border flex items-center justify-center text-brand-muted text-sm mb-6">
-        Image placeholder
-      </div>
-      <h2 class="font-serif text-2xl mb-3">Framing, Installation &amp; Art Care</h2>
-      <p class="text-brand-muted leading-relaxed mb-4">
-        Expert framing and professional installation for works of all scales,
-        alongside guidance on how to live with and look after your art for
-        generations to come.
-      </p>
-      <a href="/services#framing" class="text-sm underline underline-offset-4 hover:opacity-70 transition-opacity">
-        Learn more
+  <!-- Journal carousel -->
+  <section class="py-8 md:py-12 border-t border-brand-border mt-1">
+    <div class="px-8 md:px-12 flex items-end justify-between mb-10">
+      <h2 class="font-display uppercase leading-none" style="font-size: clamp(1.75rem, 4vw, 3.5rem);" data-en="Journal" data-ja="ジャーナル">Journal</h2>
+      <a
+        href="/journal"
+        class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity flex-shrink-0"
+        data-en="View all"
+        data-ja="すべて見る"
+      >
+        View all
       </a>
     </div>
+    <!-- Draggable carousel -->
+    <div
+      id="journal-carousel"
+      class="flex gap-5 overflow-x-auto px-8 md:px-12 pb-4 cursor-grab select-none"
+      style="scrollbar-width: none; -ms-overflow-style: none;"
+    >
+      {journalEntries.map((entry) => (
+        <a
+          href={`/projects/${entry.slug}`}
+          class="group flex-none w-72 md:w-80"
+          draggable="false"
+        >
+          <div class="overflow-hidden aspect-[3/4] bg-brand-border mb-4">
+            <img
+              src={`/projects/${entry.slug}/${encodeURIComponent(entry.cover)}`}
+              alt={entry.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+              loading="lazy"
+              draggable="false"
+            />
+          </div>
+          <p class="text-xs text-brand-muted tracking-widest uppercase mb-1">{entry.year}</p>
+          <p class="font-display uppercase leading-snug text-base break-words group-hover:opacity-50 transition-opacity">{entry.title}</p>
+          <p class="text-xs text-brand-muted mt-1">{entry.tagline}</p>
+        </a>
+      ))}
+    </div>
+  </section>
 
-    <!-- Service 2 -->
-    <div>
-      <!-- Placeholder image -->
-      <div class="w-full aspect-[4/3] bg-brand-border flex items-center justify-center text-brand-muted text-sm mb-6">
-        Image placeholder
-      </div>
-      <h2 class="font-serif text-2xl mb-3">Art Consultancy &amp; Creative Direction</h2>
-      <p class="text-brand-muted leading-relaxed mb-4">
-        Strategic art consultancy, curatorial vision and creative direction for
-        private collectors, corporate clients and cultural institutions seeking
-        a distinctive voice.
-      </p>
-      <a href="/services#consultancy" class="text-sm underline underline-offset-4 hover:opacity-70 transition-opacity">
-        Learn more
+  <script>
+    const carousel = document.getElementById('journal-carousel');
+    if (carousel) {
+      let isDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+      let moved = false;
+
+      carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        moved = false;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        carousel.style.cursor = 'grabbing';
+      });
+      carousel.addEventListener('mouseleave', () => { isDown = false; carousel.style.cursor = 'grab'; });
+      carousel.addEventListener('mouseup', () => { isDown = false; carousel.style.cursor = 'grab'; });
+      carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        if (Math.abs(walk) > 4) moved = true;
+        carousel.scrollLeft = scrollLeft - walk;
+      });
+      // Single delegated listener prevents navigation after a drag
+      carousel.addEventListener('click', (e) => { if (moved) e.preventDefault(); }, true);
+    }
+  </script>
+
+  <!-- Projects preview -->
+  <section class="px-8 md:px-12 py-12 md:py-20 border-t border-brand-border mt-1">
+    <div class="flex items-end justify-between mb-10">
+      <h2 class="font-display uppercase leading-none" style="font-size: clamp(1.75rem, 4vw, 3.5rem);" data-en="Projects" data-ja="プロジェクト">Projects</h2>
+      <a
+        href="/projects"
+        class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity flex-shrink-0"
+        data-en="View all"
+        data-ja="すべて見る"
+      >
+        View all
+      </a>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7">
+      {featuredProjects.map((project, i) => {
+        const featured = i === 0;
+        return (
+          <a href={`/projects/${project.slug}`} class={`group${featured ? ' col-span-2' : ''}`} data-fade style={`transition-delay: ${(i % 3) * 80}ms`}>
+            <div class="overflow-hidden aspect-[3/2]">
+              <img
+                src={`/projects/${project.slug}/${encodeURIComponent(project.cover)}`}
+                alt={project.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-3">
+              <p class="font-display uppercase leading-snug text-base group-hover:opacity-40 transition-opacity">{project.title}</p>
+              {project.tagline && (
+                <p class="text-xs text-brand-muted mt-1 group-hover:opacity-40 transition-opacity">{project.tagline}</p>
+              )}
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Services list -->
+  <section class="border-t border-brand-border mt-1">
+    <div class="px-8 md:px-12 pt-16 md:pt-24 pb-4">
+      <h2 class="font-display uppercase leading-none" style="font-size: clamp(1.75rem, 4vw, 3.5rem);" data-en="Services" data-ja="サービス">Services</h2>
+    </div>
+    {[
+      {
+        num: '01',
+        title: 'Discovery',
+        titleJa: 'ディスカバリー',
+        description: 'We visit the space and get under the skin of it - the light, the architecture, the story you are trying to tell.',
+        descJa: '物件を訪問し、光の入り方や建築、伝えたいストーリーを深く理解します。',
+        href: '/services',
+        img: '/images/services/discovery.jpg',
+      },
+      {
+        num: '02',
+        title: 'Sourcing & Commissioning',
+        titleJa: '調達とコミッション',
+        description: 'We find the right works - from existing pieces to artist commissions created specifically for your space.',
+        descJa: '既存作品からスペースのために制作されたアーティストコミッションまで、最適な作品を選定します。',
+        href: '/services',
+        img: '/images/services/sourcing-commissioning.jpg',
+      },
+      {
+        num: '03',
+        title: 'Framing',
+        titleJa: 'フレーミング',
+        description: 'Every piece framed to museum standard using archival materials chosen for each individual work.',
+        descJa: 'アーカイバル素材を用いて、すべての作品を美術館水準で額装します。',
+        href: '/services',
+        img: '/images/services/framing.jpg',
+      },
+      {
+        num: '04',
+        title: 'Shipment & Installation',
+        titleJa: '輸送と設置',
+        description: 'We manage transport, logistics and installation from start to finish. You have one point of contact.',
+        descJa: '輸送・ロジスティクス・設置をすべて一括管理します。窓口は一本化されています。',
+        href: '/services',
+        img: '/images/services/shipment-and-installation.webp',
+      },
+    ].map((service, i) => (
+      <a
+        href={service.href}
+        class="group flex items-center justify-between gap-8 px-8 md:px-12 py-8 border-t border-brand-border hover:bg-brand-border/30 transition-colors"
+        data-fade
+        style={`transition-delay: ${i * 60}ms`}
+      >
+        <div class="flex items-baseline gap-6 md:gap-10 min-w-0">
+          <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{service.num}</span>
+          <div class="min-w-0">
+            <p class="font-display uppercase leading-none mb-2" style="font-size: clamp(1rem, 2vw, 1.5rem); -webkit-text-stroke: 0;" data-en={service.title} data-ja={service.titleJa}>{service.title}</p>
+            <p class="text-brand-muted text-sm leading-relaxed max-w-md" data-en={service.description} data-ja={service.descJa}>{service.description}</p>
+          </div>
+        </div>
+        <div class="flex-shrink-0 w-28 h-20 md:w-40 md:h-28 overflow-hidden">
+          <img
+            src={service.img}
+            alt={service.title}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
+        </div>
+      </a>
+    ))}
+    <div class="px-8 md:px-12 py-8 border-t border-brand-border">
+      <a href="/services" class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity" data-en="View all services" data-ja="サービスをすべて見る">
+        View all services
       </a>
     </div>
   </section>
 
+  <!-- Selected Clients -->
+  <section class="px-8 md:px-12 py-12 md:py-20 border-t border-brand-border">
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-12" data-en="Selected Clients" data-ja="主なクライアント">Selected Clients</p>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-10 items-center">
+      {[
+        { src: '/images/logos/ceysson-benetiere.jpg', alt: 'Ceysson & Bénétière', xl: true },
+        { src: '/images/logos/haneda.png', alt: 'Haneda Japan Airport Terminal', large: true },
+        { src: '/images/logos/soho-house.png', alt: 'Soho House', large: true },
+        { src: '/images/logos/mitsui-fudosan.png', alt: 'Mitsui Fudosan', large: true },
+        { src: '/images/logos/gallery-ether.png', alt: 'Gallery Ether', large: true },
+        { src: '/images/logos/bluebell.jpg', alt: 'Bluebell', large: true },
+        { src: '/images/logos/tokyo-american-club.webp', alt: 'Tokyo American Club', small: true },
+        { src: '/images/logos/isetan.svg', alt: 'Isetan', small: true },
+        { src: '/images/logos/courtyard-hiroo.png', alt: 'Courtyard Hiroo' },
+        { src: '/images/logos/ultra-super-new.png', alt: 'Ultra Super New', small: true },
+        { src: '/images/logos/somsoc-gallery.png', alt: 'Somsoc Gallery', small: true },
+      ].map(({ src, alt, large, small, xl }) => (
+        <div class="flex items-center justify-center h-20">
+          <img src={src} alt={alt} class={`w-auto object-contain mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-300 ${xl ? 'max-h-32 max-w-[340px]' : large ? 'max-h-24 max-w-[280px]' : small ? 'max-h-10 max-w-[140px]' : 'max-h-12 max-w-[160px]'}`} loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </section>
+
   <!-- CTA -->
-  <section class="max-w-5xl mx-auto px-6 py-20 text-center">
-    <p class="font-serif text-3xl mb-8">Ready to work together?</p>
-    <a
-      href="/contact"
-      class="inline-block bg-brand-text text-brand-bg px-8 py-4 text-sm tracking-wide hover:opacity-80 transition-opacity"
-    >
-      Get in Touch
-    </a>
+  <section class="px-8 md:px-12 py-16 md:py-28 border-t border-brand-border">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+      <p class="font-display uppercase leading-none" style="font-size: clamp(1.5rem, 3vw, 2.5rem);" data-en="Ready to work<br />together?" data-ja="一緒に<br />取り組みませんか？">
+        Ready to work<br />together?
+      </p>
+      <a
+        href="/contact"
+        class="inline-block bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity flex-shrink-0"
+        data-en="Get in Touch"
+        data-ja="お問い合わせ"
+      >
+        Get in Touch
+      </a>
+    </div>
   </section>
 </Layout>

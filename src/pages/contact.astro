@@ -7,53 +7,51 @@ import Layout from '../layouts/Layout.astro';
   description="Get in touch with Studio Kaku for framing, installation, art consultancy and creative direction enquiries."
 >
   <!-- Page header -->
-  <section class="max-w-5xl mx-auto px-6 pt-16 pb-12 border-b border-brand-border">
-    <p class="text-brand-muted text-sm tracking-widest uppercase mb-4">Reach us</p>
-    <h1 class="font-serif text-4xl">Contact</h1>
+  <section class="px-8 md:px-12 pt-14 md:pt-20 pb-10 md:pb-16">
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-8" data-en="Reach us" data-ja="お問い合わせ">Reach us</p>
+    <h1 class="font-display uppercase leading-none" style="font-size: clamp(2rem, 5vw, 5rem);" data-en="Contact" data-ja="コンタクト">Contact</h1>
   </section>
 
-  <section class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-16">
+  <section class="px-8 md:px-12 py-14 md:py-24 border-t border-brand-border grid md:grid-cols-2 gap-14 md:gap-24">
     <!-- Contact info -->
     <div>
-      <h2 class="font-serif text-2xl mb-8">Let's talk</h2>
-      <p class="text-brand-muted leading-relaxed mb-10">
-        Whether you're looking to frame a single work, install a collection,
-        build an art programme or commission something entirely new — we'd
-        love to hear from you.
+      <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);" data-en="Let's talk" data-ja="ご相談はこちら">Let's talk</h2>
+      <p class="text-brand-muted leading-relaxed mb-16" data-en="Whether you're looking to frame a single work, transform a hotel, build an art programme from scratch or simply have a project in mind and aren't sure where to start - we'd love to hear from you." data-ja="額装1点から、コレクション全体の設置、アートプログラムの構築、新しいコミッションまで--お気軽にご相談ください。">
+        Whether you're looking to frame a single work, transform a hotel,
+        build an art programme from scratch or simply have a project in mind
+        and aren't sure where to start - we'd love to hear from you.
       </p>
 
-      <div class="space-y-6 text-sm">
+      <div class="space-y-10 text-sm">
         <div>
-          <p class="text-brand-muted tracking-widest uppercase text-xs mb-1">Email</p>
-          <!-- Placeholder: update with real email address -->
-          <a href="mailto:hello@studio-kaku.com" class="hover:opacity-70 transition-opacity underline underline-offset-4">
+          <p class="text-brand-muted tracking-widest uppercase text-xs mb-3" data-en="Email" data-ja="メール">Email</p>
+          <a href="mailto:hello@studio-kaku.com" class="text-base hover:opacity-50 transition-opacity underline underline-offset-4">
             hello@studio-kaku.com
           </a>
         </div>
         <div>
-          <p class="text-brand-muted tracking-widest uppercase text-xs mb-1">Based in</p>
-          <p>London, UK</p>
+          <p class="text-brand-muted tracking-widest uppercase text-xs mb-3" data-en="Based in" data-ja="拠点">Based in</p>
+          <p class="text-base" data-en="Tokyo, Japan" data-ja="東京, 日本">Tokyo, Japan</p>
         </div>
         <div>
-          <p class="text-brand-muted tracking-widest uppercase text-xs mb-1">Instagram</p>
-          <!-- Placeholder: update with real handle -->
-          <a href="#" class="hover:opacity-70 transition-opacity underline underline-offset-4">
-            @studiokaku
+          <p class="text-brand-muted tracking-widest uppercase text-xs mb-3" data-en="Instagram" data-ja="インスタグラム">Instagram</p>
+          <a href="https://www.instagram.com/studio.kaku" class="text-base hover:opacity-50 transition-opacity underline underline-offset-4">
+            @studio.kaku
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Simple enquiry form (static — wire up to a service like Formspree or Netlify Forms) -->
+    <!-- Enquiry form -->
     <div>
-      <h2 class="font-serif text-2xl mb-8">Enquiry form</h2>
+      <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);" data-en="Enquiry form" data-ja="お問い合わせフォーム">Enquiry form</h2>
       <form
-        action="https://formspree.io/f/placeholder"
+        action="https://formspree.io/f/xbdzovpk"
         method="POST"
-        class="space-y-5"
+        class="space-y-7"
       >
         <div>
-          <label for="name" class="block text-xs tracking-widest uppercase text-brand-muted mb-2">
+          <label for="name" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Name" data-ja="お名前">
             Name
           </label>
           <input
@@ -61,12 +59,12 @@ import Layout from '../layouts/Layout.astro';
             name="name"
             type="text"
             required
-            class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
             placeholder="Your name"
           />
         </div>
         <div>
-          <label for="email" class="block text-xs tracking-widest uppercase text-brand-muted mb-2">
+          <label for="email" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Email" data-ja="メールアドレス">
             Email
           </label>
           <input
@@ -74,18 +72,18 @@ import Layout from '../layouts/Layout.astro';
             name="email"
             type="email"
             required
-            class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
             placeholder="your@email.com"
           />
         </div>
         <div>
-          <label for="service" class="block text-xs tracking-widest uppercase text-brand-muted mb-2">
+          <label for="service" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Service" data-ja="サービス">
             Service
           </label>
           <select
             id="service"
             name="service"
-            class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
           >
             <option value="">Select a service</option>
             <option value="framing">Framing &amp; Installation</option>
@@ -97,7 +95,7 @@ import Layout from '../layouts/Layout.astro';
           </select>
         </div>
         <div>
-          <label for="message" class="block text-xs tracking-widest uppercase text-brand-muted mb-2">
+          <label for="message" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Message" data-ja="メッセージ">
             Message
           </label>
           <textarea
@@ -105,13 +103,15 @@ import Layout from '../layouts/Layout.astro';
             name="message"
             rows="5"
             required
-            class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors resize-none"
+            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors resize-none"
             placeholder="Tell us about your project…"
           ></textarea>
         </div>
         <button
           type="submit"
-          class="w-full bg-brand-text text-brand-bg py-3 text-sm tracking-wide hover:opacity-80 transition-opacity"
+          class="w-full bg-brand-text text-brand-bg py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity mt-4"
+          data-en="Send Enquiry"
+          data-ja="送信する"
         >
           Send Enquiry
         </button>
