@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { projects } from '../../data/projects.js';
-const mainProjects = projects.filter(p => !p.journal);
+const mainProjects = projects.filter(p => !p.journal && !p.hidden);
 ---
 
 <Layout title="Projects" description="Explore Studio Kaku's portfolio of art framing, installation, curation and creative direction projects across Tokyo and Japan.">

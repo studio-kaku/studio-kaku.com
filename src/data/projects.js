@@ -33,6 +33,7 @@ export const projects = [
   {
     slug: "event-of-disinformation",
     journal: true,
+    hidden: true,
     title: "Talk on Disinformation",
     tagline: "Curation and talk event",
     subtitle: "Maya Sobchuk at UltraSuperNew KURA",
