@@ -82,8 +82,8 @@ function isActive(href: string) {
 
 <script>
   // Proposal back link logic
-  const path = window.location.pathname;
-  if (path === '/resort/' || path === '/villa/') {
+  const path = window.location.pathname.replace(/\/$/, '') || '/';
+  if (path === '/resort' || path === '/villa') {
     sessionStorage.setItem('proposalUrl', '/resort/');
     sessionStorage.setItem('proposalLabel', 'Back to resort proposal');
   } else {
