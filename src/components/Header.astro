@@ -81,26 +81,20 @@ function isActive(href: string) {
 </header>
 
 <script>
-  // Proposal back link logic
-  const path = window.location.pathname;
+  // Proposal back link logic — only show on the page immediately after visiting resort/villa
   const proposalPaths: Record<string, string> = {
     '/resort/': 'Back to resort proposal',
     '/villa/': 'Back to resort proposal',
   };
-  if (proposalPaths[path]) {
-    sessionStorage.setItem('proposalUrl', path);
-    sessionStorage.setItem('proposalLabel', proposalPaths[path]);
-  } else {
-    const storedUrl = sessionStorage.getItem('proposalUrl');
-    const storedLabel = sessionStorage.getItem('proposalLabel');
-    if (storedUrl && storedLabel) {
-      const bar = document.getElementById('proposal-bar') as HTMLDivElement;
-      const link = document.getElementById('proposal-back-link') as HTMLAnchorElement;
-      const label = document.getElementById('proposal-back-label') as HTMLSpanElement;
-      bar.classList.remove('hidden');
-      link.href = storedUrl;
-      label.textContent = storedLabel;
-    }
+  const referrerPath = document.referrer ? new URL(document.referrer).pathname : '';
+  const label = proposalPaths[referrerPath];
+  if (label) {
+    const bar = document.getElementById('proposal-bar') as HTMLDivElement;
+    const link = document.getElementById('proposal-back-link') as HTMLAnchorElement;
+    const labelEl = document.getElementById('proposal-back-label') as HTMLSpanElement;
+    bar.classList.remove('hidden');
+    link.href = referrerPath;
+    labelEl.textContent = label;
   }
 
   const btn = document.getElementById('mobile-menu-btn') as HTMLButtonElement;
