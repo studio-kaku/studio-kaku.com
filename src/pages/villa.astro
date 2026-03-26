@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PasswordGate from '../components/PasswordGate.astro';
 ---
 
-<Layout title="Villa Curation - Studio Kaku" description="Studio Kaku curates art, objects, and interiors for private residences across Japan - rooted in Hokkaido craft and contemporary Japanese art.">
+<Layout title="Villa Curation - Studio Kaku" description="Studio Kaku curates art, objects, and interiors for private residences across Japan - rooted in Hokkaido craft and contemporary Japanese art." noindex={true}>
+
+  <PasswordGate password="kaku-villa" />
 
   <!-- Hero -->
   <section class="min-h-[90vh] grid md:grid-cols-2 bg-brand-text">
@@ -217,10 +220,10 @@ import Layout from '../layouts/Layout.astro';
       Choose the level<br />that suits you.
     </h2>
     <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-14"
-      data-en="Each plan covers consultation, curation, and installation - everything managed by us. A well-curated space commands attention. The plan you choose shapes how far we take it."
-      data-ja="すべてのプランにはコンサルテーション、キュレーション、設置が含まれ、一括管理します。丁寧にキュレーションされた空間は人の心を動かします。プランの選択が、どこまで追求するかを決めます。"
+      data-en="Each plan covers consultation, curation, and installation - everything managed by us. If you already have pieces you love - artwork or furniture you want to ship in from elsewhere - we can arrange installation for those too. A well-curated space commands attention. The plan you choose shapes how far we take it."
+      data-ja="すべてのプランにはコンサルテーション、キュレーション、設置が含まれ、一括管理します。すでにお持ちの作品や、他から取り寄せたい家具がある場合も、その設置を手配することができます。丁寧にキュレーションされた空間は人の心を動かします。プランの選択が、どこまで追求するかを決めます。"
     >
-      Each plan covers consultation, curation, and installation - everything managed by us. A well-curated space commands attention. The plan you choose shapes how far we take it.
+      Each plan covers consultation, curation, and installation - everything managed by us. If you already have pieces you love - artwork or furniture you want to ship in from elsewhere - we can arrange installation for those too. A well-curated space commands attention. The plan you choose shapes how far we take it.
     </p>
     <div class="grid md:grid-cols-3 gap-px bg-brand-border">
       <!-- Entry Plan -->
@@ -234,7 +237,7 @@ import Layout from '../layouts/Layout.astro';
           data-ja="厳選されたセレクション、自由にお選びください"
         >A curated selection, yours to explore</p>
         <p class="font-display leading-none text-brand-text mb-1" style="font-size: clamp(1.6rem, 2.5vw, 2rem);">¥400,000</p>
-        <p class="text-brand-muted text-xs mb-6" data-en="studio fee" data-ja="スタジオ料金">studio fee</p>
+        <p class="text-brand-muted text-xs mb-6" data-en="studio fee · pieces priced separately" data-ja="スタジオ料金 · 作品代別途">studio fee · pieces priced separately</p>
         <p class="text-brand-muted text-sm leading-relaxed mb-8"
           data-en="We put together a selection of art, objects, and framed works from our studio practice - chosen with your villa in mind. Browse, tell us what speaks to you, and we handle everything from there."
           data-ja="スタジオのプラクティスから、ヴィラを念頭に選んだアート、オブジェ、額装作品のセレクションをご提案します。気に入ったものをお伝えいただければ、あとはすべてお任せください。"
@@ -243,8 +246,8 @@ import Layout from '../layouts/Layout.astro';
         </p>
         <ul class="space-y-0 border-t border-brand-border pt-5">
           {[
-            ['Art for up to 3 rooms', '最大3部屋分のアート'],
-            ['Hokkaido timber framing included', '北海道木材の額装込み'],
+            ['A private studio selection, ready to browse', 'プライベートなスタジオセレクション、自由にご覧いただけます'],
+            ['A studio edit, sent to you privately', 'スタジオ編集、非公開でお届けします'],
             ['Full installation managed', '設置作業をすべて管理'],
             ['Fulfilment and delivery coordinated', '配送・手配をコーディネート'],
           ].map(([en, ja]) => (
@@ -266,7 +269,7 @@ import Layout from '../layouts/Layout.astro';
           data-ja="あなたの空間のための、パーソナルな選定"
         >A personal edit, built around your space</p>
         <p class="font-display leading-none text-brand-text mb-1" style="font-size: clamp(1.6rem, 2.5vw, 2rem);">¥1,000,000</p>
-        <p class="text-brand-muted text-xs mb-6" data-en="studio fee" data-ja="スタジオ料金">studio fee</p>
+        <p class="text-brand-muted text-xs mb-6" data-en="studio fee · pieces priced separately" data-ja="スタジオ料金 · 作品代別途">studio fee · pieces priced separately</p>
         <p class="text-brand-muted text-sm leading-relaxed mb-8"
           data-en="We spend time with your villa first - the light, the rooms, how you imagine it feeling. Then we put together a selection of art, furniture, and local objects chosen specifically for you. You receive something already filtered to what suits your space."
           data-ja="まずあなたのヴィラに時間をかけて向き合います——光、部屋の雰囲気、どんな空間にしたいか。その上でアート、家具、地元のオブジェをあなたのために厳選してご提案します。"
@@ -299,7 +302,7 @@ import Layout from '../layouts/Layout.astro';
           data-ja="あなたのヴィラを起点に"
         >Your villa as a starting point</p>
         <p class="font-display leading-none text-brand-bg mb-1" style="font-size: clamp(1.6rem, 2.5vw, 2rem);">¥2M+</p>
-        <p class="text-brand-bg/40 text-xs mb-6" data-en="by arrangement" data-ja="応相談">by arrangement</p>
+        <p class="text-brand-bg/40 text-xs mb-6" data-en="by arrangement · pieces priced separately" data-ja="応相談 · 作品代別途">by arrangement · pieces priced separately</p>
         <p class="text-brand-bg/50 text-sm leading-relaxed mb-8"
           data-en="For owners who want their villa to feel genuinely singular. We work with artists and makers directly, finding and commissioning pieces for your specific space. The brief is yours - we build around it."
           data-ja="唯一無二のヴィラを目指すオーナーのために。アーティストや作家と直接連携し、あなたの空間のための作品を探し、コミッションします。ブリーフはあなたのもの——私たちはそれを軸に組み立てます。"

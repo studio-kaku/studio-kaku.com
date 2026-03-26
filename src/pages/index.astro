@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { projects } from '../data/projects.js';
-const featuredProjects = projects.filter(p => !p.journal && p.slug !== 'tcs-2025').slice(0, 5);
-const journalEntries = projects.filter(p => p.journal).slice(0, 8);
+const featuredProjects = projects.filter(p => !p.journal && !p.hidden && p.slug !== 'tcs-2025').slice(0, 5);
+const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
 ---
 
-<Layout title="Home">
+<Layout title="Home" description="Studio Kaku is a Tokyo-based studio specialising in art framing, installation, curation and creative direction — for galleries, hotels, private residences and art fairs.">
   <!-- Hero -->
   <section class="px-8 md:px-12 pt-10 md:pt-16 pb-6 md:pb-8">
     <h1

@@ -1,19 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PasswordGate from '../components/PasswordGate.astro';
 ---
 
-<Layout title="A Creative Structure for the Resort" description="Studio Kaku - a proposal for how a structured creative team can give the resort a coherent identity from the gallery to the villas.">
+<Layout title="A Creative Structure for the Resort" description="Studio Kaku - a proposal for how a structured creative team can give the resort a coherent identity from the gallery to the villas." noindex={true}>
+
+  <PasswordGate password="kaku-resort" />
 
   <!-- Cover -->
   <section class="min-h-[90vh] grid md:grid-cols-2 bg-brand-text">
-    <div class="flex flex-col justify-between px-8 md:px-16 py-20 md:py-28">
+    <div class="flex flex-col justify-between px-8 md:px-16 pt-12 pb-20 md:pt-14 md:pb-28">
       <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent" data-en="For the resort - private document" data-ja="リゾート向け - 非公開資料">For the resort - private document</p>
       <div>
         <h1 class="font-display uppercase leading-[1.08] text-brand-bg" style="font-size: clamp(2.5rem, 5vw, 4.5rem);" data-fade-text data-en="A creative team<br />built <em class=&quot;not-italic text-brand-accent&quot;>around</em><br />this place" data-ja="この場所のために<br />組まれた<br /><em class=&quot;not-italic text-brand-accent&quot;>クリエイティブチーム</em>">
           A creative team<br />built <em class="not-italic text-brand-accent">around</em><br />this place
         </h1>
-        <p class="text-brand-bg/45 text-sm leading-relaxed max-w-sm mt-7" data-fade-text style="transition-delay:80ms" data-en="A proposal for how Studio Kaku, Baihodo, and a furniture design collaborator work as a single creative team - giving the resort a consistent identity across the gallery, the members lounge, and the villas." data-ja="Studio Kaku、梅鳳堂、家具デザインのコラボレーターが一体のチームとして動く提案。ギャラリー、メンバーズラウンジ、ヴィラ全体にわたって、リゾートに一貫したアイデンティティをもたらします。">
-          A proposal for how Studio Kaku, Baihodo, and a furniture design collaborator work as a single creative team - giving the resort a consistent identity across the gallery, the members lounge, and the villas.
+        <p class="text-brand-bg/45 text-sm leading-relaxed max-w-sm mt-7" data-fade-text style="transition-delay:80ms" data-en="A proposal for how Studio Kaku, Baihodo, and Spaceman, an interior architecture studio, work as a single creative team - giving the resort a consistent identity across the gallery, the members lounge, and the villas." data-ja="Studio Kaku、梅鳳堂、インテリアアーキテクチャースタジオのSpacemanが一体のチームとして動く提案。ギャラリー、メンバーズラウンジ、ヴィラ全体にわたって、リゾートに一貫したアイデンティティをもたらします。">
+          A proposal for how Studio Kaku, Baihodo, and Spaceman, an interior architecture studio, work as a single creative team - giving the resort a consistent identity across the gallery, the members lounge, and the villas.
         </p>
       </div>
       <p class="text-brand-bg/25 text-[11px] tracking-wide" data-en="Studio Kaku · Prepared for the resort · Confidential" data-ja="Studio Kaku · リゾート向け資料 · 機密">Studio Kaku · Prepared for the resort · Confidential</p>
@@ -32,42 +35,57 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- The situation -->
-  <section class="px-8 md:px-16 py-20 md:py-28 border-t border-brand-border">
+  <!-- Why this matters -->
+  <section class="bg-brand-bg px-8 md:px-16 py-20 md:py-28 border-t border-brand-border">
     <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
-      <span data-en="The situation" data-ja="現状について">The situation</span>
+      <span data-en="Why this matters" data-ja="なぜこれが重要か">Why this matters</span>
       <span class="block h-px w-12 bg-brand-accent/40"></span>
     </p>
-    <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-en="Three questions<br />worth answering" data-ja="答えるべき<br />三つの問い">
-      Three questions<br />worth answering
+    <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-en="What the resort gains<br />from a creative structure" data-ja="クリエイティブな構造から<br />リゾートが得るもの">
+      What the resort gains<br />from a creative structure
     </h2>
-    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-16" data-en="This resort has real assets: the location, the heritage, the scale. Individually, each is valuable. Brought together under one creative structure, they become a far more compelling offer than the sum of their parts." data-ja="このリゾートには確かな資産があります。ロケーション、歴史、スケール。それぞれが独自の価値を持っています。ひとつのクリエイティブな構造のもとに統合されることで、各要素の足し算をはるかに超えた魅力的な提案となります。">
-      This resort has real assets: the location, the heritage, the scale. Individually, each is valuable. Brought together under one creative structure, they become a far more compelling offer than the sum of their parts.
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-16" data-en="A coherent creative identity adds real value: to the appeal of each villa, to owner retention, and to the resort's reputation. This isn't decoration." data-ja="一貫したクリエイティブなアイデンティティは本物の価値を生みます：各ヴィラの魅力、オーナーの継続性、リゾートの評判。これは装飾ではありません。">
+      A coherent creative identity adds real value: to the appeal of each villa, to owner retention, and to the resort's reputation. This isn't decoration.
     </p>
-    <div class="grid md:grid-cols-3 gap-px bg-brand-border">
+    <div class="grid md:grid-cols-2 gap-px bg-brand-border">
       {[
         {
-          q: 'Who decides what the resort looks like?',
-          qJa: 'リゾートのビジュアルアイデンティティを誰が決めるのか？',
-          a: 'Right now, probably no one person. A creative lead gives the resort one voice - someone whose job is to make sure the gallery, the villas, and the shared spaces feel like they belong to the same place.',
-          aJa: '現状、おそらく誰も一貫して担っていません。クリエイティブリードがリゾートに一つの声を与えます。ギャラリー、ヴィラ、共用スペースが同じ場所に属していると感じさせるのが、その役割です。',
+          title: 'A resort with a story',
+          titleJa: '物語を持つリゾート',
+          body: 'Hokkaido craft, Japanese art, family heritage, and contemporary culture - one coherent identity. This is what makes a resort worth remembering, worth photographing, and worth the premium.',
+          bodyJa: '北海道工芸、日本アート、ファミリーヘリテージ、現代文化 - 一つの一貫したアイデンティティ。これが、リゾートを記憶に値し、写真に収める価値があり、プレミアムを正当化するものです。',
+          note: 'Differentiates the resort from competitors',
+          noteJa: '競合他社との差別化',
         },
         {
-          q: 'How does local craft work with contemporary art?',
-          qJa: '地元の工芸と現代アートはどう機能するか？',
-          a: 'Few resort locations carry what Hokkaido has: centuries of craft tradition, extraordinary natural landscape, and a cultural depth most places can only imitate. Used well, that becomes the resort\'s defining characteristic - something guests and owners will not find anywhere else.',
-          aJa: '北海道が持つものを備えたリゾート地はほとんどありません。何世紀にもわたる工芸の伝統、卓越した自然景観、そして他の場所がまねることしかできない文化的な深さ。上手く活用すれば、それはリゾートの最大の特徴となります。ゲストにもオーナーにも、他では決して見つけられないものです。',
+          title: 'Villa owners who stay',
+          titleJa: '留まるヴィラオーナー',
+          body: 'Owners with properly curated villas form a stronger connection to the resort. A gallery programme and seasonal art rotation gives them a real reason to come back - and something to be part of.',
+          bodyJa: '適切にキュレーションされたヴィラを持つオーナーはリゾートとのより強い繋がりを形成します。ギャラリープログラムと季節ごとのアートローテーションが、戻ってくる本物の理由と、何かの一部になる感覚を提供します。',
+          note: 'Increases owner satisfaction and retention',
+          noteJa: 'オーナーの満足度と継続率の向上',
         },
         {
-          q: 'Who does each villa owner deal with?',
-          qJa: '各ヴィラオーナーの窓口は誰か？',
-          a: '150 owners, each wanting something different. A managed process means Studio Kaku handles those conversations properly, and the resort stays consistent throughout.',
-          aJa: '150人のオーナー、それぞれが異なるものを求めています。管理されたプロセスによってStudio Kakuが適切に対話を進め、リゾート全体の一貫性が保たれます。',
+          title: 'Genuine local roots',
+          titleJa: '本物の地域に根ざしたアイデンティティ',
+          body: 'The Baihodo partnership means the resort\'s identity is genuinely Hokkaido, not imported luxury. That\'s increasingly what buyers at this level want and are prepared to pay for.',
+          bodyJa: '梅鳳堂とのパートナーシップにより、リゾートのアイデンティティは輸入された高級感ではなく、本物の北海道のものとなります。このレベルのバイヤーが求め、支払う用意のあるものです。',
+          note: 'Builds authentic regional credibility',
+          noteJa: '本物の地域的信頼性の構築',
+        },
+        {
+          title: 'One team, not many problems',
+          titleJa: '一つのチーム、多くの問題なし',
+          body: 'Without a creative structure, you\'re managing multiple contractors, resolving supplier conflicts, and ending up with spaces that don\'t match. Studio Kaku handles all of that.',
+          bodyJa: 'クリエイティブな構造がなければ、複数の業者を管理し、サプライヤーの競合を解決し、空間がばらばらになります。Studio Kakuがそのすべてを処理します。',
+          note: 'Reduces complexity for the resort',
+          noteJa: 'リゾートの複雑さの軽減',
         },
       ].map((item, i) => (
-        <div class="bg-brand-bg p-10 md:p-12" data-fade style={`transition-delay:${i * 80}ms`}>
-          <h3 class="font-display uppercase text-lg leading-[1.2] mb-5" data-en={item.q} data-ja={item.qJa}>{item.q}</h3>
-          <p class="text-brand-muted text-sm leading-relaxed" data-en={item.a} data-ja={item.aJa}>{item.a}</p>
+        <div class="bg-brand-bg p-10 md:p-12" data-fade style={`transition-delay:${(i % 2) * 80}ms`}>
+          <h4 class="font-display uppercase mb-4" style="font-size: 1.2rem;" data-en={item.title} data-ja={item.titleJa}>{item.title}</h4>
+          <p class="text-brand-muted text-sm leading-relaxed" data-en={item.body} data-ja={item.bodyJa}>{item.body}</p>
+          <p class="text-brand-accent text-xs mt-5 tracking-wide" data-en={item.note} data-ja={item.noteJa}>{item.note}</p>
         </div>
       ))}
     </div>
@@ -146,7 +164,7 @@ import Layout from '../layouts/Layout.astro';
         {
           type: 'Furniture & interiors',
           typeJa: '家具とインテリア',
-          name: 'Design collaborator\n- spaceman',
+          name: 'Spaceman',
           body: 'Spatial design, furniture selection, and interior identity. Deep knowledge of Hokkaido materials and regional furniture makers. Works within the creative direction set by Studio Kaku.',
           bodyJa: '空間デザイン、家具選定、インテリアアイデンティティ。北海道の素材と地域の家具メーカーへの深い知識を持ちます。Studio Kakuが設定するクリエイティブディレクションのもとで活動します。',
           pdf: '/spaceman-cv.pdf',
@@ -251,11 +269,6 @@ import Layout from '../layouts/Layout.astro';
             <span class={space.dark ? 'text-brand-bg' : ''} data-en={space.title} data-ja={space.titleJa}>{space.title}</span>
           </h3>
           <p class={`text-sm leading-relaxed mb-6 ${space.dark ? 'text-brand-bg/50' : 'text-brand-muted'}`} data-en={space.body} data-ja={space.bodyJa}>{space.body}</p>
-          <div class="flex flex-wrap gap-2">
-            {space.tags.map(tag => (
-              <span class={`text-[10px] tracking-[0.12em] uppercase px-3 py-1 border ${space.dark ? 'text-brand-accent border-brand-accent/30' : 'text-brand-accent border-brand-accent/40'}`} data-en={tag.en} data-ja={tag.ja}>{tag.en}</span>
-            ))}
-          </div>
         </div>
       ))}
     </div>
@@ -369,62 +382,55 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- The process -->
-  <section class="px-8 md:px-16 py-20 md:py-28 border-t border-brand-border">
-    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
-      <span data-en="The process" data-ja="プロセス">The process</span>
-      <span class="block h-px w-12 bg-brand-accent/40"></span>
-    </p>
-    <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-en="How it works in practice" data-ja="実際の進め方">
-      How it works in practice
-    </h2>
-    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-16" data-en="From first brief to ongoing management. Studio Kaku is the single contact throughout." data-ja="最初のブリーフから継続的な管理まで。Studio Kakuが常に唯一の窓口です。">
-      From first brief to ongoing management. Studio Kaku is the single contact throughout.
-    </p>
-    <div class="grid md:grid-cols-4 border border-brand-border">
+  <!-- Villa vision -->
+  <section class="border-t border-brand-border">
+    <div class="px-8 md:px-16 pt-20 pb-8 md:pt-24 md:pb-10">
+      <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
+        <span data-en="The villas" data-ja="ヴィラ">The villas</span>
+        <span class="block h-px w-12 bg-brand-accent/40"></span>
+      </p>
+      <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-en="What your villa<br />could look like" data-ja="ヴィラの<br />ビジョン">
+        What your villa<br />could look like
+      </h2>
+      <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-0" data-en="Each villa is different. We work within the space, the budget, and the owner's taste — choosing art, furniture, and objects that feel like they belong there." data-ja="それぞれのヴィラは異なります。スペース、予算、オーナーの好みに合わせて、アート、家具、オブジェクトを選びます。">
+        Each villa is different. We work within the space, the budget, and the owner's taste — choosing art, furniture, and objects that feel like they belong there.
+      </p>
+    </div>
+    <!-- Main image -->
+    <div class="mx-8 md:mx-16 aspect-[1/1] overflow-hidden mb-5">
+      <img src="/images/resort/villa-exterior.jpg" alt="" class="w-full h-full object-cover object-center" />
+    </div>
+    <!-- Three supporting images -->
+    <div class="grid grid-cols-3 gap-4 mx-8 md:mx-16 mb-20 md:mb-28">
+      <div class="aspect-square overflow-hidden"><img src="/images/resort/villa-living.jpg" alt="" class="w-full h-full object-cover" /></div>
+      <div class="aspect-square overflow-hidden"><img src="/images/resort/villa-shelving.jpg" alt="" class="w-full h-full object-cover" /></div>
+      <div class="aspect-square overflow-hidden"><img src="/images/resort/villa-bedroom.jpg" alt="" class="w-full h-full object-cover" /></div>
+    </div>
+    <!-- Descriptive notes -->
+    <div class="grid md:grid-cols-3 gap-px bg-brand-border border-t border-brand-border">
       {[
         {
-          num: '01',
-          title: 'Creative brief',
-          titleJa: 'クリエイティブブリーフ',
-          body: 'Studio Kaku works with the resort to agree on the overall vision - the identity, the tone, the priorities for each space.',
-          bodyJa: 'Studio Kakuがリゾートと協力して、全体的なビジョン - アイデンティティ、トーン、各スペースの優先事項 - について合意します。',
-          who: 'Studio Kaku leads',
-          whoJa: 'Studio Kakuがリード',
+          heading: 'The feel',
+          headingJa: '空間の雰囲気',
+          body: 'Japanese-influenced and locally grounded. Warm without being rustic. Each villa gets a distinct point of view, not a template.',
+          bodyJa: '日本的な影響を受け、地域に根ざしています。素朴すぎず、温かみがある。それぞれのヴィラは独自の視点を持ち、テンプレートではありません。',
         },
         {
-          num: '02',
-          title: 'Space by space',
-          titleJa: 'スペースごとの展開',
-          body: 'Gallery and members lounge are each developed with clear briefs. Villa curation is offered to owners who choose to order through us. Craft shop and design collaborator are briefed per space.',
-          bodyJa: 'ギャラリーとメンバーズラウンジはそれぞれ明確なブリーフで開発。ヴィラキュレーションは注文を選ぶオーナーに提供。工芸品ショップとデザインコラボレーターは各スペースごとにブリーフを受けます。',
-          who: 'Full team engaged',
-          whoJa: 'チーム全体が関与',
+          heading: 'The art',
+          headingJa: 'アート',
+          body: 'Chosen for the scale and light of the specific space. Original works, limited editions, and framed pieces — never generic hotel prints.',
+          bodyJa: '特定の空間のスケールと光に合わせて選ばれます。オリジナル作品、リミテッドエディション、額装作品 — ありきたりなホテルのプリントは一切なし。',
         },
         {
-          num: '03',
-          title: 'Villa owners',
-          titleJa: 'ヴィラオーナー',
-          body: 'As owners take possession, Studio Kaku runs individual consultations: art, furniture, local goods chosen for each villa. You may have multiple invoices but one point of contact.',
-          bodyJa: 'オーナーが入居すると、Studio Kakuが個別コンサルテーションを実施：各ヴィラに選ばれたアート、家具、地元品。請求書一本、窓口一本。',
-          who: 'Studio Kaku leads',
-          whoJa: 'Studio Kakuがリード',
+          heading: 'For rental use',
+          headingJa: 'レンタル対応',
+          body: 'Where owners use the villa for rental income, we select pieces that work for both personal use and guests — durable, beautiful, and replaceable where needed.',
+          bodyJa: 'レンタル収入のためにヴィラを使用するオーナーのために、個人使用とゲスト両方に対応する作品を選択します。耐久性があり、美しく、必要に応じて交換可能です。',
         },
-        {
-          num: '04',
-          title: 'Ongoing',
-          titleJa: '継続的な管理',
-          body: 'Gallery programme runs continuously. Art rotation available for villas. Owners can upgrade over time. The resort\'s cultural identity compounds.',
-          bodyJa: 'ギャラリープログラムは継続して運営。ヴィラへのアートローテーションも提供。オーナーは時間とともにアップグレード可能。リゾートの文化的アイデンティティが積み重なります。',
-          who: 'Studio Kaku manages',
-          whoJa: 'Studio Kakuが管理',
-        },
-      ].map((step, i) => (
-        <div class={`p-9 md:p-11 ${i < 3 ? 'border-b md:border-b-0 md:border-r border-brand-border' : ''}`} data-fade style={`transition-delay:${i * 80}ms`}>
-          <p class="font-display text-brand-border/80 leading-none mb-5" style="font-size: 2.5rem;">{step.num}</p>
-          <h4 class="font-display uppercase text-lg mb-3" data-en={step.title} data-ja={step.titleJa}>{step.title}</h4>
-          <p class="text-brand-muted text-xs leading-relaxed mb-5" data-en={step.body} data-ja={step.bodyJa}>{step.body}</p>
-          <p class="text-[10px] tracking-[0.15em] uppercase text-brand-accent" data-en={step.who} data-ja={step.whoJa}>{step.who}</p>
+      ].map((note, i) => (
+        <div class="bg-brand-bg p-10 md:p-12" data-fade style={`transition-delay:${i * 80}ms`}>
+          <h4 class="font-display uppercase text-base mb-4" data-en={note.heading} data-ja={note.headingJa}>{note.heading}</h4>
+          <p class="text-brand-muted text-sm leading-relaxed" data-en={note.body} data-ja={note.bodyJa}>{note.body}</p>
         </div>
       ))}
     </div>
@@ -458,23 +464,23 @@ import Layout from '../layouts/Layout.astro';
     <div class="relative mb-10 overflow-hidden">
       <div class="grid grid-cols-6 gap-2">
         {[
-          '/images/catalogue/room-tatami-chair.jpg',
-          '/images/catalogue/object-wood-stools.jpg',
-          '/images/catalogue/room-japandi-chair.jpg',
           '/images/catalogue/object-akari-lamps.jpg',
-          '/images/catalogue/furniture-table-ceramics.jpg',
-          '/images/catalogue/object-pewter-cup.jpg',
-          '/images/catalogue/room-lounge-flowers.jpg',
-          '/images/catalogue/object-dark-cabinet.jpg',
-          '/images/catalogue/room-dining-art.jpg',
-          '/images/catalogue/object-mirror.jpg',
-          '/images/catalogue/furniture-table-bench.jpg',
-          '/images/catalogue/object-black-teapot.jpg',
-          '/images/catalogue/room-dining-overhead.jpg',
-          '/images/catalogue/object-pendant-lamps.jpg',
-          '/images/catalogue/room-tatami-lowtable.jpg',
           '/images/catalogue/object-glass-goblets.jpg',
+          '/images/catalogue/object-black-teapot.jpg',
+          '/images/catalogue/furniture-table-ceramics.jpg',
+          '/images/catalogue/object-mirror.jpg',
           '/images/catalogue/object-abstract-artwork.jpg',
+          '/images/catalogue/object-wood-stools.jpg',
+          '/images/catalogue/room-dining-art.jpg',
+          '/images/catalogue/object-pewter-cup.jpg',
+          '/images/catalogue/room-tatami-lowtable.jpg',
+          '/images/catalogue/object-pendant-lamps.jpg',
+          '/images/catalogue/furniture-table-bench.jpg',
+          '/images/catalogue/room-tatami-chair.jpg',
+          '/images/catalogue/object-dark-cabinet.jpg',
+          '/images/catalogue/room-dining-overhead.jpg',
+          '/images/catalogue/room-japandi-chair.jpg',
+          '/images/catalogue/room-lounge-flowers.jpg',
           '/images/catalogue/object-wire-sculpture.jpg',
         ].map((img) => (
           img
@@ -558,61 +564,8 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
     </div>
-  </section>
-
-  <!-- Why this matters -->
-  <section class="bg-brand-text px-8 md:px-16 py-20 md:py-28">
-    <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-5 flex items-center gap-4">
-      <span data-en="Why this matters" data-ja="なぜこれが重要か">Why this matters</span>
-      <span class="block h-px w-12 bg-brand-accent/30"></span>
-    </p>
-    <h2 class="font-display uppercase leading-[1.1] text-brand-bg mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-en="What the resort gains<br />from a creative structure" data-ja="クリエイティブな構造から<br />リゾートが得るもの">
-      What the resort gains<br />from a creative structure
-    </h2>
-    <p class="text-brand-bg/50 text-sm leading-relaxed max-w-lg mb-16" data-en="A coherent creative identity adds real value: to the appeal of each villa, to owner retention, and to the resort's reputation. This isn't decoration." data-ja="一貫したクリエイティブなアイデンティティは本物の価値を生みます：各ヴィラの魅力、オーナーの継続性、リゾートの評判。これは装飾ではありません。">
-      A coherent creative identity adds real value: to the appeal of each villa, to owner retention, and to the resort's reputation. This isn't decoration.
-    </p>
-    <div class="grid md:grid-cols-2 gap-px bg-brand-bg/[0.05]">
-      {[
-        {
-          title: 'A resort with a story',
-          titleJa: '物語を持つリゾート',
-          body: 'Hokkaido craft, Japanese art, family heritage, and contemporary culture - one coherent identity. This is what makes a resort worth remembering, worth photographing, and worth the premium.',
-          bodyJa: '北海道工芸、日本アート、ファミリーヘリテージ、現代文化 - 一つの一貫したアイデンティティ。これが、リゾートを記憶に値し、写真に収める価値があり、プレミアムを正当化するものです。',
-          note: 'Differentiates the resort from competitors',
-          noteJa: '競合他社との差別化',
-        },
-        {
-          title: 'Villa owners who stay',
-          titleJa: '留まるヴィラオーナー',
-          body: 'Owners with properly curated villas form a stronger connection to the resort. A gallery programme and seasonal art rotation gives them a real reason to come back - and something to be part of.',
-          bodyJa: '適切にキュレーションされたヴィラを持つオーナーはリゾートとのより強い繋がりを形成します。ギャラリープログラムと季節ごとのアートローテーションが、戻ってくる本物の理由と、何かの一部になる感覚を提供します。',
-          note: 'Increases owner satisfaction and retention',
-          noteJa: 'オーナーの満足度と継続率の向上',
-        },
-        {
-          title: 'Genuine local roots',
-          titleJa: '本物の地域に根ざしたアイデンティティ',
-          body: 'The Baihodo partnership means the resort\'s identity is genuinely Hokkaido, not imported luxury. That\'s increasingly what buyers at this level want and are prepared to pay for.',
-          bodyJa: '梅鳳堂とのパートナーシップにより、リゾートのアイデンティティは輸入された高級感ではなく、本物の北海道のものとなります。このレベルのバイヤーが求め、支払う用意のあるものです。',
-          note: 'Builds authentic regional credibility',
-          noteJa: '本物の地域的信頼性の構築',
-        },
-        {
-          title: 'One team, not many problems',
-          titleJa: '一つのチーム、多くの問題なし',
-          body: 'Without a creative structure, you\'re managing multiple contractors, resolving supplier conflicts, and ending up with spaces that don\'t match. Studio Kaku handles all of that.',
-          bodyJa: 'クリエイティブな構造がなければ、複数の業者を管理し、サプライヤーの競合を解決し、空間がばらばらになります。Studio Kakuがそのすべてを処理します。',
-          note: 'Reduces complexity for the resort',
-          noteJa: 'リゾートの複雑さの軽減',
-        },
-      ].map((item, i) => (
-        <div class="bg-brand-text border border-brand-bg/[0.06] p-10 md:p-12" data-fade style={`transition-delay:${(i % 2) * 80}ms`}>
-          <h4 class="font-display uppercase text-brand-bg mb-4" style="font-size: 1.2rem;" data-en={item.title} data-ja={item.titleJa}>{item.title}</h4>
-          <p class="text-brand-bg/45 text-sm leading-relaxed" data-en={item.body} data-ja={item.bodyJa}>{item.body}</p>
-          <p class="text-brand-accent text-xs mt-5 tracking-wide" data-en={item.note} data-ja={item.noteJa}>{item.note}</p>
-        </div>
-      ))}
+    <div class="mt-12 text-center">
+      <p class="text-brand-muted text-sm" data-en="If an owner already has pieces they want to ship in — artwork, furniture, or objects from elsewhere — we can arrange installation for those too." data-ja="オーナーがすでに持っている作品や、他から取り寄せたい家具・オブジェがある場合も、その設置を手配することができます。">If an owner already has pieces they want to ship in — artwork, furniture, or objects from elsewhere — we can arrange installation for those too.</p>
     </div>
   </section>
 
@@ -631,20 +584,26 @@ import Layout from '../layouts/Layout.astro';
         {
           title: 'Define the brief together',
           titleJa: '一緒にブリーフを定義する',
-          body: 'A working session with the resort contact to align on priorities, spaces, and timeline before any formal agreement.',
-          bodyJa: 'リゾートの担当者とのワーキングセッションで、正式な合意前に優先事項、スペース、タイムラインを整理します。',
+          body: 'A working session with the resort to align on priorities, spaces, and timeline before any formal agreement.',
+          bodyJa: 'リゾートとのワーキングセッションで、正式な合意前に優先事項、スペース、タイムラインを整理します。',
         },
         {
           title: 'Meet the full team',
           titleJa: 'チーム全員に会う',
-          body: 'Studio Kaku can set up a meeting with Baihodo and the design collaborator so you can see the whole team before committing to anything.',
-          bodyJa: 'Studio Kakuが梅鳳堂とデザインコラボレーターとの打ち合わせを設定できます。何かに確定する前にチーム全体を確認できます。',
+          body: 'Studio Kaku can set up a meeting with Baihodo and Spaceman so you can see the whole team before committing to anything.',
+          bodyJa: 'Studio Kakuが梅鳳堂とSpacemanとの打ち合わせを設定できます。何かに確定する前にチーム全体を確認できます。',
+        },
+        {
+          title: 'Bring in what the project needs',
+          titleJa: 'プロジェクトに必要なものを加える',
+          body: 'Studio Kaku works with a wider network of creative collaborators — graphic designers, videographers, photographers, and more. If the brief calls for it, we bring them in.',
+          bodyJa: 'Studio Kakuはグラフィックデザイナー、映像作家、フォトグラファーなど、より広いクリエイティブネットワークと連携しています。ブリーフに応じてプロジェクトに加わります。',
         },
         {
           title: 'Formalise the structure',
           titleJa: '構造を正式化する',
-          body: 'Once aligned, Studio Kaku proposes a simple agreement covering scope, roles, and first steps. One contract, one relationship.',
-          bodyJa: '合意後、Studio Kakuはスコープ、役割、最初のステップを含む簡単な合意書を提案します。契約一本、関係一本。',
+          body: 'Once aligned, Studio Kaku proposes a simple agreement covering scope, roles, and first steps — and you\'re ready to begin.',
+          bodyJa: '合意後、Studio Kakuはスコープ、役割、最初のステップを含む簡単な合意書を提案します。そこからスタートです。',
         },
       ].map((point, i) => (
         <div class={`py-7 border-b border-brand-bg/20 ${i === 0 ? 'border-t border-brand-bg/20' : ''}`} data-fade style={`transition-delay:${i * 80}ms`}>

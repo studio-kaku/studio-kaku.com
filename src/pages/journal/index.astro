@@ -1,10 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { projects } from '../../data/projects.js';
-const entries = projects.filter(p => p.journal);
+const entries = projects.filter(p => p.journal && !p.hidden);
 ---
 
-<Layout title="Journal">
+<Layout title="Journal" description="Insights, process notes and stories from Studio Kaku — behind the work of art framing, curation and creative direction in Tokyo.">
   <section class="px-8 md:px-12 pt-24 pb-16">
     <h1 class="font-display uppercase leading-none mb-6" style="font-size: clamp(1.75rem, 4vw, 3.5rem);" data-en="Journal" data-ja="ジャーナル">
       Journal

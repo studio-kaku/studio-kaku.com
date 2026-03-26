@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /resort
+Disallow: /villa
+
+Sitemap: https://studio-kaku.com/sitemap.xml
