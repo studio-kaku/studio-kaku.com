@@ -96,9 +96,6 @@ function isActive(href: string) {
       bar.classList.remove('hidden');
       link.href = storedUrl;
       labelEl.textContent = storedLabel;
-      // Clear immediately so it only shows on this one page
-      sessionStorage.removeItem('proposalUrl');
-      sessionStorage.removeItem('proposalLabel');
     }
   }
 
