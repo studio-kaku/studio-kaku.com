@@ -22,6 +22,11 @@ function isActive(href: string) {
 ---
 
 <header class="border-b border-brand-border">
+  <div id="proposal-bar" class="hidden px-8 md:px-12 py-2 border-b border-brand-border bg-brand-bg flex items-center">
+    <a id="proposal-back-link" href="#" class="text-[10px] tracking-[0.2em] uppercase text-brand-accent hover:opacity-70 transition-opacity flex items-center gap-2">
+      <span>←</span><span id="proposal-back-label">Back to proposal</span>
+    </a>
+  </div>
   <div class="px-8 md:px-12 py-6 flex items-center justify-between">
     <a href="/" class="hover:opacity-70 transition-opacity">
       <img src="/studio-kaku-logo.png" alt="Studio Kaku" class="h-24 md:h-32 w-auto" />
@@ -76,6 +81,28 @@ function isActive(href: string) {
 </header>
 
 <script>
+  // Proposal back link logic
+  const path = window.location.pathname;
+  const proposalPaths: Record<string, string> = {
+    '/resort/': 'Back to resort proposal',
+    '/villa/': 'Back to resort proposal',
+  };
+  if (proposalPaths[path]) {
+    sessionStorage.setItem('proposalUrl', path);
+    sessionStorage.setItem('proposalLabel', proposalPaths[path]);
+  } else {
+    const storedUrl = sessionStorage.getItem('proposalUrl');
+    const storedLabel = sessionStorage.getItem('proposalLabel');
+    if (storedUrl && storedLabel) {
+      const bar = document.getElementById('proposal-bar') as HTMLDivElement;
+      const link = document.getElementById('proposal-back-link') as HTMLAnchorElement;
+      const label = document.getElementById('proposal-back-label') as HTMLSpanElement;
+      bar.classList.remove('hidden');
+      link.href = storedUrl;
+      label.textContent = storedLabel;
+    }
+  }
+
   const btn = document.getElementById('mobile-menu-btn') as HTMLButtonElement;
   const menu = document.getElementById('mobile-menu') as HTMLDivElement;
   const bar1 = document.getElementById('bar1') as HTMLSpanElement;
