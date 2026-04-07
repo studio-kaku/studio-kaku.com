@@ -5,7 +5,6 @@ export const projects = [
   {
     slug: "mason-saltarrelli-march-2026",
     journal: true,
-    hidden: true,
     title: "Mason Saltarrelli",
     tagline: "Framing",
     subtitle: "Private commission",
@@ -13,7 +12,7 @@ export const projects = [
     credits: [],
     description: "Framing commission for Mason Saltarrelli.",
     cover: "cover.jpg",
-    images: ["cover.jpg", "image2.jpg", "image3.jpg", "image4.jpg"],
+    images: ["cover.jpg", "image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"],
   },
   // February 2026
   {
