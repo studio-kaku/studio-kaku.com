@@ -194,6 +194,7 @@ export const projects = [
   {
     slug: "private-sept-2025",
     journal: true,
+    hidden: true,
     title: "Private Commission",
     tagline: "Framing",
     subtitle: "Private framing",
@@ -216,7 +217,6 @@ export const projects = [
     cover: "Murakami - July 2025 - Framing.jpg",
     images: [
       "Murakami - July 2025 - Framing.jpg",
-      "Murakami - July 2025 - Framing 1.jpg",
     ],
   },
   {
@@ -234,18 +234,6 @@ export const projects = [
     description: "Curation and installation for an exhibition with Yusuke Kuriki and Vincent Ruffin.",
     cover: "cover.JPG",
     images: ["cover.JPG"],
-  },
-  {
-    slug: "private-july-2025",
-    journal: true,
-    title: "Private Commission",
-    tagline: "Framing",
-    subtitle: "Private framing",
-    year: "July 2025",
-    credits: [],
-    description: "Private framing commission.",
-    cover: "cover.jpg",
-    images: ["cover.jpg"],
   },
   // June 2025
   {

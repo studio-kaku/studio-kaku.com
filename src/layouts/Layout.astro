@@ -13,16 +13,16 @@ interface Props {
 
 const {
   title,
-  description = 'Studio Kaku — Art framing, installation, consultancy and creative direction in Tokyo.',
+  description = 'Studio Kaku: Art framing, installation, consultancy and creative direction in Tokyo.',
   activeSection,
-  ogImage = '/images/exhibition-space.jpg',
+  ogImage = '/images/og-logo.jpg',
   noindex = false,
 } = Astro.props;
 
 const siteURL = 'https://studio-kaku.com';
 const canonicalURL = new URL(Astro.url.pathname, siteURL).href;
 const ogImageURL = new URL(ogImage, siteURL).href;
-const pageTitle = title === 'Home' ? 'Studio Kaku' : `${title} — Studio Kaku`;
+const pageTitle = title === 'Home' ? 'Studio Kaku' : `${title} | Studio Kaku`;
 
 const structuredData = {
   '@context': 'https://schema.org',
