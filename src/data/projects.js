@@ -11,8 +11,8 @@ export const projects = [
     year: "March 2026",
     credits: [],
     description: "Framing commission for Mason Saltarrelli.",
-    cover: "cover.jpg",
-    images: ["cover.jpg", "image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"],
+    cover: "image1.jpg",
+    images: ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"],
   },
   // February 2026
   {
