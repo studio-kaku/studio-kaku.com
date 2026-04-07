@@ -1,0 +1,339 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PasswordGate from '../components/PasswordGate.astro';
+---
+
+<Layout title="Art curation for private homes - Studio Kaku" description="Studio Kaku curates art, objects, and interiors for private homes - contemporary Japanese art and craft, considered for your space." noindex={true}>
+
+  <PasswordGate password="kaku-homes" />
+
+  <!-- Hero -->
+  <section class="min-h-[90vh] grid md:grid-cols-2 bg-[#EEF6F2]">
+    <div class="flex flex-col justify-between px-8 md:px-16 pt-32 pb-28 md:pt-48 md:pb-40">
+      <p class="text-[10px] tracking-[0.25em] uppercase" style="color:#6B8F71"
+        data-en="Art · Curation · Space · Japan"
+        data-ja="アート・キュレーション・空間・日本"
+      >Art · Curation · Space · Japan</p>
+      <div>
+        <h1 class="font-display uppercase leading-[1.08] text-brand-muted" style="font-size: clamp(2.5rem, 5vw, 4.5rem);" data-fade-text
+          data-en={`A home that<br />speaks <em class="not-italic" style="color:#6B8F71">for itself</em>`}
+          data-ja={`空間が、<br />自ら<em class="not-italic" style="color:#6B8F71">語る。</em>`}
+        >
+          A home that<br />speaks <em class="not-italic" style="color:#6B8F71">for itself</em>
+        </h1>
+        <p class="text-brand-muted text-sm leading-relaxed max-w-sm mt-7" data-fade-text style="transition-delay:80ms"
+          data-en="Most homes have good pieces. What they rarely have is a thread - something that ties the art, the objects, and the room together into a space that feels intentional. That is what we do."
+          data-ja="良い作品のある住まいは多い。でも、アート、オブジェ、部屋をひとつにつなぐ「糸」があるものは少ない——意図を感じさせる空間。それが私たちの仕事です。"
+        >
+          Most homes have good pieces. What they rarely have is a thread - something that ties the art, the objects, and the room together into a space that feels intentional. That is what we do.
+        </p>
+      </div>
+      <p class="text-brand-muted/60 text-[11px] tracking-wide"
+        data-en="Studio Kaku · Residential curation"
+        data-ja="Studio Kaku · 住宅キュレーション"
+      >Studio Kaku · Residential curation</p>
+    </div>
+    <div class="hidden md:block border-l border-brand-border overflow-hidden">
+      <img src="/images/projects/homes-hero.jpg" alt="" class="w-full h-full object-cover" />
+    </div>
+  </section>
+
+
+  <!-- Rooms showcase -->
+  <section class="border-t border-brand-border">
+    <div class="px-8 md:px-16 pt-20 pb-8 md:pt-24 md:pb-10">
+      <p class="text-[10px] tracking-[0.25em] uppercase text-[#6B8F71] mb-5 flex items-center gap-4">
+        <span data-en="What it looks like" data-ja="空間のイメージ">What it looks like</span>
+        <span class="block h-px w-12 bg-[#6B8F71]/40"></span>
+      </p>
+      <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-en="Spaces we've<br />helped shape" data-ja="私たちが<br />かたちにした空間">
+        Spaces we've<br />helped shape
+      </h2>
+      <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-0" data-en="Art, furniture, and objects chosen to work together — for private clients including Duncan Swann and a number of confidential residential commissions." data-ja="アート、家具、オブジェをひとつの文脈で選ぶ——ダンカン・スワンをはじめ、複数の個人邸宅でのご依頼を手がけてきました。">
+        Art, furniture, and objects chosen to work together, for private clients including Duncan Swann and a number of confidential residential commissions.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-px bg-brand-border">
+      <div class="aspect-[3/4] overflow-hidden bg-brand-bg">
+        <img src="/images/projects/duncan-swann/room-wide.jpg" alt="" class="w-full h-full object-cover" />
+      </div>
+      <div class="aspect-[3/4] overflow-hidden bg-brand-bg">
+        <img src="/images/projects/private-commission-1.jpg" alt="" class="w-full h-full object-cover" />
+      </div>
+    </div>
+    <div class="grid grid-cols-2 px-8 md:px-16 mt-3 mb-20 md:mb-28">
+      <p class="text-[10px] tracking-[0.15em] uppercase text-brand-muted" data-en="Duncan Swann — private residence" data-ja="ダンカン・スワン邸">Duncan Swann — private residence</p>
+      <p class="text-[10px] tracking-[0.15em] uppercase text-brand-muted" data-en="Private commission" data-ja="個人邸宅">Private commission</p>
+    </div>
+  </section>
+
+  <!-- The artists -->
+  <section class="px-8 md:px-16 pt-16 pb-10 md:pt-24 md:pb-16 border-t border-brand-border">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-[#6B8F71] mb-8 flex items-center gap-4">
+      <span data-en="The collection" data-ja="コレクション">The collection</span>
+      <span class="block h-px w-12 bg-[#6B8F71]/40"></span>
+    </p>
+    <div class="flex flex-col md:flex-row md:items-end gap-6 md:gap-24 mb-16">
+      <h2 class="font-display uppercase leading-[1.1] shrink-0" style="font-size: clamp(2rem, 4vw, 3.25rem);"
+        data-en="Japanese artists<br />we work with"
+        data-ja="ともに歩む<br />日本のアーティスト"
+      >
+        Japanese artists<br />we work with
+      </h2>
+      <p class="text-brand-muted text-sm leading-relaxed max-w-sm pb-1"
+        data-en="Most of the artists we work with aren't in commercial galleries. They work quietly, from studios in Tokyo, Okinawa, and smaller cities, and their work has a relationship with space and restraint that belongs in homes. Japanese art is made to live with. It doesn't compete with a room. It changes with the light, the season, the years."
+        data-ja="確立されたアーティストから新進の作家まで——プリント、エディション、オリジナル作品として購入可能です。"
+      >
+        From established voices to emerging makers - art available as prints, editions, and originals.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 mb-24">
+      {[
+        { img: '/images/artists/artist-1.jpg', bio: 'Paintings that flow like water - vivid colour and undulating lines, built up in layers and sanded back to reveal what lies beneath.', bioJa: '水が流れるような絵画——鮮やかな色彩と波打つ線が層を重ね、研き出されることで内側が現れる。' },
+        { img: '/images/artists/artist-11.jpg', bio: 'Bold, vivid paintings that are both abstract and alive. Her work has been commissioned by Nike, Shake Shack, and Sony Music — and still feels entirely personal.', bioJa: '大胆で鮮やかな絵画——抽象でありながら生き生きとしている。ナイキ、シェイク・シャック、ソニー・ミュージックへの作品提供を通じても、作品はあくまでも個人的な表現に満ちている。' },
+        { img: '/images/artists/artist-4.jpg', bio: 'Hokkaido-born woodworker. Construction, joinery, and renovation inform a practice that began two years ago.', bioJa: '北海道生まれの木工家。建築・木工・リノベーションの経験を活かし、2年前から制作活動を開始。' },
+        { img: '/images/artists/artist-5.jpg', bio: 'Studied at Chelsea College of Arts. Organic shapes and pastel tones - work that has exhibited in Japan, London, and beyond.', bioJa: 'チェルシー・カレッジ・オブ・アーツで学ぶ。有機的なフォルムとパステルトーンの作品は、日本・ロンドンをはじめ世界各地で展示されている。' },
+        { img: '/images/artists/artist-6.jpg', bio: 'Fluid lines and vivid colour expressing everyday emotion. First solo exhibition this year.', bioJa: '流れるような線と鮮やかな色彩で日常の感情を表現する。今年、初の個展を開催。' },
+        { img: '/images/artists/artist-7.jpg', bio: 'Born in Okinawa. Calligraphy reimagined through light and contemporary expression - rooted in Zen and Okinawan tradition.', bioJa: '沖縄出身。禅と沖縄の伝統を根底に、光とコンテンポラリーな表現を通じて書を再解釈する。' },
+        { img: '/images/artists/artist-8.jpg', bio: 'The Couple series - sculpture, painting, and drawing exploring invisible human connection through intertwined form.', bioJa: '「カップルシリーズ」——絡み合うフォルムを通じて、見えない人間のつながりを彫刻・絵画・ドローイングで探求する。' },
+        { img: '/images/artists/artist-9.jpg', bio: 'Ceramics that restore broken things. Clay cracked, fired, glazed, and reassembled - fragility made permanent.', bioJa: '壊れたものを再生する陶芸。割れた土を焼き、釉薬をかけ、組み直す——儚さを永遠に変える試み。', position: 'left center' },
+        { img: '/images/artists/artist-10.jpg', bio: 'Born in Osaka. Now farming, fishing, and making art from a village on the Chiba coast.', bioJa: '大阪生まれ。千葉の海岸沿いの村で農業、漁業、そしてアート制作に取り組む。' },
+        { img: '/images/artists/artist-12.jpg', bio: 'Large-scale textile installations that work with light, Washi, and Indigo Dyeing. Patterns drawn from natural environments — wood, ground, snow, sand.', bioJa: '光、和紙、藍染めを用いた大型テキスタイルインスタレーション。自然環境——木、大地、雪、砂——から引き出されたパターンで構成される。' },
+        { img: '/images/artists/artist-13.jpg', bio: 'Visual artist and film director working in Glitch Art — circuit-bent video gear from the 80s and 90s building distorted, nostalgic portraits. Clients include A$AP Rocky, Charli XCX, and Tame Impala.', bioJa: 'グリッチアートを手がけるビジュアルアーティスト兼映像監督。80〜90年代の改造ビデオ機材で歪んだ肖像を制作。A$APロッキー、チャーリーXCX、テーム・インパラなどのクライアントを持つ。' },
+        { img: '/images/artists/artist-14.jpg', bio: 'Painter with roots in Japan, Korea, and Russia. Psychedelic pop canvases in pastel — street surf culture, ennui, and something quietly fierce beneath the surface.', bioJa: '日本、韓国、ロシアにルーツを持つ画家。パステルカラーのサイケデリックなポップ絵画——ストリートサーフカルチャーと倦怠感、そしてその奥に潜む静かな激しさ。' },
+      ].map((artist, i) => (
+        <div data-fade style={`transition-delay:${(i % 4) * 60}ms`}>
+          <div class="aspect-[3/4] overflow-hidden mb-3">
+            <img src={artist.img} alt="" class={`w-full h-full ${artist.contain ? 'object-contain bg-brand-bg' : 'object-cover'}`} style={artist.position ? `object-position: ${artist.position}` : ''} />
+          </div>
+          <p class="text-brand-muted text-[11px] leading-relaxed" data-en={artist.bio} data-ja={artist.bioJa}>{artist.bio}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- In conversation -->
+    <div class="border-t border-brand-border pt-16 md:pt-20">
+      <p class="text-[10px] tracking-[0.25em] uppercase text-[#6B8F71] mb-5 flex items-center gap-4">
+        <span data-en="In conversation" data-ja="アーティストの言葉">In conversation</span>
+        <span class="block h-px w-12 bg-[#6B8F71]/40"></span>
+      </p>
+      <h3 class="font-display uppercase leading-[1.1] mb-12" style="font-size: clamp(1.5rem, 3vw, 2.25rem);"
+        data-en="Three artists,<br />in their own words"
+        data-ja="三人のアーティスト、<br />それぞれの言葉で"
+      >
+        Three artists,<br />in their own words
+      </h3>
+      <div class="grid md:grid-cols-3 gap-px bg-brand-border">
+        {[
+          {
+            img: '/images/artists/artist-1.jpg',
+            medium: 'Painting · Tokyo',
+            mediumJa: '絵画 · 東京',
+            bio: 'Her paintings begin with water - vats of vivid colour poured over canvas laid flat on the floor. The pools dry, are sanded back, and new colour is added. Some layers disappear entirely. Others surface as thin traces, like light through amber. She works slowly. Each piece takes months.',
+            bioJa: '彼女の絵画は水から始まる——床に寝かせたキャンバスに鮮やかな色を流し込む。それが乾き、研ぎ落とされ、新しい色が加わる。いくつかの層は完全に消え、別の層は薄い痕跡として浮かび上がる——琥珀を通した光のように。ゆっくりと制作し、一点に数ヶ月をかける。',
+          },
+          {
+            img: '/images/artists/artist-7.jpg',
+            medium: 'Calligraphy · Okinawa',
+            mediumJa: '書 · 沖縄',
+            bio: 'He grew up in Okinawa with calligraphy as a given. What changed was finding, much later, that the mark of a brush held something beyond language. His recent work uses light - projections, reflections, the quality of a surface - to extend the practice into something spatial. He describes it as writing without the need to be read.',
+            bioJa: '彼は沖縄で書を当たり前のものとして育った。変わったのは、後になって筆の痕跡に言語を超えた何かが宿ることに気づいたとき。最近の作品は光——プロジェクション、反射、表面の質——を使い、実践をより空間的なものへと広げる。「読まれる必要のない書」と彼は表現する。',
+          },
+          {
+            img: '/projects/wandler-kamei/DSC_2263.JPG',
+            medium: 'Moss · Kamakura',
+            mediumJa: '苔 · 鎌倉',
+            bio: 'Norihiko Kamei works with moss, dried flowers, and organic material in ways that blur the line between arrangement and installation. His studio in Kamakura is a world entirely its own, textured, living, quietly extraordinary.',
+            bioJa: '亀井則彦は苔、ドライフラワー、有機素材を使い、アレンジメントとインスタレーションの境界を曖昧にする。鎌倉のスタジオは、まるでそれ自体が一つの世界——重層的で、生き生きとしていて、静かに非凡だ。',
+            link: '/projects/wandler-kamei/',
+          },
+        ].map((artist, i) => (
+          <div class="bg-brand-bg flex flex-col" data-fade style={`transition-delay:${i * 80}ms`}>
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src={artist.img} alt="" class="w-full h-full object-cover" style={artist.position ? `object-position: ${artist.position}` : ''} />
+            </div>
+            <div class="p-10 md:p-12 flex flex-col flex-1">
+              <p class="text-[10px] tracking-[0.2em] uppercase text-[#6B8F71] mb-5" data-en={artist.medium} data-ja={artist.mediumJa}>{artist.medium}</p>
+              <p class="text-brand-muted text-sm leading-relaxed flex-1" data-en={artist.bio} data-ja={artist.bioJa}>{artist.bio}</p>
+              {artist.link && <a href={artist.link} class="mt-6 text-[10px] tracking-[0.2em] uppercase text-brand-text hover:opacity-50 transition-opacity" data-en="View project →" data-ja="プロジェクトを見る →">View project →</a>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- How it works -->
+  <section class="bg-[#EEF6F2] px-8 md:px-16 py-20 md:py-28 border-t border-brand-border">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-[#6B8F71] mb-5 flex items-center gap-4">
+      <span data-en="How it works" data-ja="進め方">How it works</span>
+      <span class="block h-px w-12 bg-[#6B8F71]/30"></span>
+    </p>
+    <h2 class="font-display uppercase leading-[1.1] text-brand-text mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-en="Simple from your end.<br />A lot behind the scenes." data-ja="あなたにとってはシンプル。<br />裏側には、多くのこと。">
+      Simple from your end.<br />A lot behind the scenes.
+    </h2>
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-16" data-en="Every project starts with a conversation. From there, we handle the sourcing, the framing, and the installation. Here is how a typical project unfolds." data-ja="すべてのプロジェクトは会話から始まります。そこから先——調達、額装、設置——は私たちが担います。典型的なプロジェクトの流れをご紹介します。">
+      Every project starts with a conversation. From there, we handle the sourcing, the framing, and the installation. Here is how a typical project unfolds.
+    </p>
+    <div class="max-w-2xl">
+      {[
+        { num: '01', title: 'We talk', titleJa: '話す', body: 'A short call to understand your home, your taste, and what you are hoping for. No commitment — we just want to know if it is a good fit.', bodyJa: '短い通話で、あなたの住まい、好み、希望をお聞きします。コミットメントは不要——まず相性を確かめます。' },
+        { num: '02', title: 'We visit', titleJa: '訪問する', body: 'We come to the space. We look at the light, the scale, the things you already have. This visit is what makes the curation personal rather than generic.', bodyJa: '空間を訪問します。光、スケール、すでにあるものを見ます。この訪問が、キュレーションを一般的なものではなく、あなたのためのものにします。' },
+        { num: '03', title: 'We propose', titleJa: '提案する', body: 'A curated selection of art, objects, and furniture — presented privately. You tell us what feels right. We refine until it does.', bodyJa: 'アート、オブジェ、家具のキュレーテッドセレクションを非公開でご提案します。何が合うかお伝えください。納得いくまで調整します。' },
+        { num: '04', title: 'We install', titleJa: '設置する', body: 'We handle everything from framing to final placement. You come home to a space that feels like it was always meant to be that way.', bodyJa: '額装から最終配置まで、すべてをお任せください。帰宅したとき、その空間はずっとそうだったように感じられるはずです。' },
+      ].map((step, i) => (
+        <div class="flex gap-8 md:gap-16 py-8 border-b border-brand-border" data-fade style={`transition-delay:${i * 60}ms`}>
+          <span class="font-display text-[#6B8F71] text-[11px] tracking-[0.2em] pt-1 shrink-0 w-6">{step.num}</span>
+          <div>
+            <h3 class="font-display uppercase text-brand-text leading-[1.2] mb-2" style="font-size: 1.1rem;" data-en={step.title} data-ja={step.titleJa}>{step.title}</h3>
+            <p class="text-brand-muted text-sm leading-relaxed" data-en={step.body} data-ja={step.bodyJa}>{step.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Service tiers -->
+  <section class="px-8 md:px-16 pt-16 pb-10 md:pt-24 md:pb-16 border-t border-brand-border">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-[#6B8F71] mb-8 flex items-center gap-4">
+      <span data-en="How we work" data-ja="サービスについて">How we work</span>
+      <span class="block h-px w-12 bg-[#6B8F71]/40"></span>
+    </p>
+    <h2 class="font-display uppercase leading-[1.1] mb-5" style="font-size: clamp(2rem, 4vw, 3.25rem);"
+      data-en="A gallery shows you<br />what it has."
+      data-ja="ギャラリーは在庫を見せる。"
+    >
+      A gallery shows you<br />what it has.
+    </h2>
+    <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-14"
+      data-en="We start with your space. We visit, we look at the light, the rooms, what you already love, then we find work that belongs there. We handle the framing, the objects, and the installation. One relationship, not four."
+      data-ja="私たちはあなたの空間から始めます。訪問し、光を見て、部屋を感じ、あなたがすでに愛しているものを知る——そしてそこに属する作品を見つけます。額装、オブジェ、設置まですべてお任せください。一つの関係性で、すべてが完結します。"
+    >
+      We start with your space. We visit, we look at the light, the rooms, what you already love, then we find work that belongs there. We handle the framing, the objects, and the installation. One relationship, not four.
+    </p>
+    <div class="grid md:grid-cols-3 gap-px bg-brand-border">
+      <!-- A piece -->
+      <div class="bg-brand-bg p-10 md:p-12" data-fade style="transition-delay:0ms">
+        <h3 class="font-display uppercase leading-[1.15] mb-2" style="font-size: clamp(1rem, 1.8vw, 1.35rem);"
+          data-en="A piece"
+          data-ja="一点の作品"
+        >A piece</h3>
+        <p class="text-[#6B8F71] text-[11px] tracking-wide mb-6"
+          data-en="Let us help you find the one you want."
+          data-ja="あなたが求める一点を、一緒に探しましょう。"
+        >Let us help you find the one you want.</p>
+        <p class="font-display leading-none text-brand-text mb-1" style="font-size: clamp(1.6rem, 2.5vw, 2rem);">—</p>
+        <p class="text-brand-muted text-xs mb-6" data-en="price depends on the piece · installation charged separately" data-ja="作品によって異なります · 設置費別途">price depends on the piece · installation charged separately</p>
+        <p class="text-brand-muted text-sm leading-relaxed"
+          data-en="You have something in mind, a feeling, a style, a space on a wall. Tell us, and we'll find it. We have direct relationships with artists whose work isn't available in galleries. No fee to start the conversation."
+          data-ja="何かイメージがある——感覚、スタイル、壁のスペース。お聞かせください。ギャラリーでは手に入らないアーティストへの直接ルートがあります。まずはお気軽にご相談ください。"
+        >
+          You have something in mind, a feeling, a style, a space on a wall. Tell us, and we'll find it. We have direct relationships with artists whose work isn't available in galleries. No fee to start the conversation.
+        </p>
+      </div>
+      <!-- A home -->
+      <div class="bg-brand-bg p-10 md:p-12" data-fade style="transition-delay:160ms">
+        <h3 class="font-display uppercase leading-[1.15] mb-2" style="font-size: clamp(1rem, 1.8vw, 1.35rem);"
+          data-en="A home"
+          data-ja="住まい全体"
+        >A home</h3>
+        <p class="text-[#6B8F71] text-[11px] tracking-wide mb-6"
+          data-en="Whole-home curation, room by room."
+          data-ja="部屋ごとに、住まい全体をキュレーション。"
+        >Whole-home curation, room by room.</p>
+        <p class="font-display leading-none text-brand-text mb-1" style="font-size: clamp(1.6rem, 2.5vw, 2rem);">¥700,000+</p>
+        <p class="text-brand-muted text-xs mb-6" data-en="studio fee · pieces priced separately" data-ja="スタジオ料金 · 作品代別途">studio fee · pieces priced separately</p>
+        <p class="text-brand-muted text-sm leading-relaxed mb-8"
+          data-en="We spend time with the whole space, the light in each room, how you live, what you already love. Then we build a selection across all of it: art, objects, and framing that feels considered from room to room, not just wall to wall."
+          data-ja="住まい全体に時間をかけます——各部屋の光、あなたの暮らし方、すでに大切にしているもの。そこから、部屋ごとに考えられたアート、オブジェ、額装のセレクションを組み立てます。"
+        >
+          We spend time with the whole space, the light in each room, how you live, what you already love. Then we build a selection across all of it: art, objects, and framing that feels considered from room to room, not just wall to wall.
+        </p>
+        <ul class="space-y-0 border-t border-brand-border pt-5">
+          {[
+            ['Extended consultation across all rooms', '全室にわたる詳細なコンサルテーション'],
+            ['Art, objects, and framing curated together', 'アート・オブジェ・額装を統合的にキュレーション'],
+            ['Japanese craft woven in throughout', '日本工芸を全体に織り交ぜる'],
+            ['Full installation managed', '設置作業をすべて管理'],
+            ['Revision rounds included', '修正ラウンド込み'],
+          ].map(([en, ja]) => (
+            <li class="text-[11px] text-brand-muted py-2.5 border-b border-brand-border flex gap-2" data-en={en} data-ja={ja}>
+              <span class="text-[#6B8F71]/50 flex-shrink-0">—</span>
+              {en}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <!-- A commission -->
+      <div class="bg-brand-bg p-10 md:p-12" data-fade style="transition-delay:240ms">
+        <h3 class="font-display uppercase leading-[1.15] mb-2" style="font-size: clamp(1rem, 1.8vw, 1.35rem);"
+          data-en="A commission"
+          data-ja="コミッション"
+        >A commission</h3>
+        <p class="text-[#6B8F71] text-[11px] tracking-wide mb-6"
+          data-en="When the right work doesn't exist yet."
+          data-ja="まだ存在しない作品のために。"
+        >When the right work doesn't exist yet.</p>
+        <p class="font-display leading-none text-brand-text mb-1" style="font-size: clamp(1.6rem, 2.5vw, 2rem);">¥2M+</p>
+        <p class="text-brand-muted text-xs mb-6" data-en="by arrangement · pieces priced separately" data-ja="応相談 · 作品代別途">by arrangement · pieces priced separately</p>
+        <p class="text-brand-muted text-sm leading-relaxed mb-8"
+          data-en="Some of the most considered homes aren't built by buying what's available, they're built by asking for what's needed. We approach artists directly to make something for your specific space. The brief is yours. We build around it."
+          data-ja="最も考え抜かれた住まいは、手に入るものを買うのではなく、必要なものを依頼することで生まれます。アーティストに直接アプローチし、あなたの空間のための作品を制作します。ブリーフはあなたのもの——私たちはそれを軸に組み立てます。"
+        >
+          Some of the most considered homes aren't built by buying what's available, they're built by asking for what's needed. We approach artists directly to make something for your specific space. The brief is yours. We build around it.
+        </p>
+        <ul class="space-y-0 border-t border-brand-border pt-5">
+          {[
+            ['Direct artist introductions and briefing', 'アーティストへの直接紹介とブリーフィング'],
+            ['Bespoke and commissioned pieces', 'ビスポーク・コミッション作品'],
+            ['Full scope, art, objects, framing, installation', '全スコープ——アート・オブジェ・額装・設置'],
+            ['Ongoing collection care', 'コレクションの継続的なケア'],
+          ].map(([en, ja]) => (
+            <li class="text-[11px] text-brand-muted py-2.5 border-b border-brand-border flex gap-2" data-en={en} data-ja={ja}>
+              <span class="text-[#6B8F71]/50 flex-shrink-0">—</span>
+              {en}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 text-center">
+      <p class="text-brand-muted text-sm mb-4"
+        data-en="Not sure where to start? We're happy to talk it through first."
+        data-ja="どこから始めればいいか迷っていますか？まずお気軽にご相談ください。"
+      >Not sure where to start? We're happy to talk it through first.</p>
+      <a href="mailto:hello@studiokaku.com" class="text-brand-text text-[11px] tracking-[0.2em] uppercase underline underline-offset-4 hover:text-[#6B8F71] transition-colors"
+        data-en="Arrange a conversation →"
+        data-ja="相談を予約する →"
+      >Arrange a conversation →</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="px-8 md:px-16 pt-16 pb-20 md:pt-24 md:pb-28 border-t border-brand-border flex flex-col items-center text-center">
+    <p class="text-[10px] tracking-[0.25em] uppercase text-[#6B8F71] mb-5"
+      data-en="Begin"
+      data-ja="はじめに"
+    >Begin</p>
+    <h2 class="font-display uppercase leading-[1.1] mb-6" style="font-size: clamp(2rem, 4vw, 3.25rem);" data-fade-text
+      data-en={`Let's see the space<br /><em class="not-italic text-[#6B8F71]">together.</em>`}
+      data-ja={`一緒に空間を<br /><em class="not-italic text-[#6B8F71]">見に行きましょう。</em>`}
+    >
+      Let's see the space<br /><em class="not-italic text-[#6B8F71]">together.</em>
+    </h2>
+    <p class="text-brand-muted text-sm leading-relaxed max-w-sm mb-14" data-fade-text style="transition-delay:80ms"
+      data-en="Every project starts with a conversation. Tell us about the space and what you are hoping for - we will take it from there."
+      data-ja="すべてのプロジェクトは会話から始まります。空間と希望についてお聞かせください——あとは私たちが進めます。"
+    >
+      Every project starts with a conversation. Tell us about the space and what you are hoping for - we will take it from there.
+    </p>
+    <a href="mailto:hello@studiokaku.com" class="inline-block border border-brand-text text-brand-text px-10 py-3 text-[11px] tracking-[0.2em] uppercase hover:bg-brand-text hover:text-brand-bg transition-colors" data-fade style="transition-delay:160ms"
+      data-en="Arrange a consultation"
+      data-ja="コンサルテーションを予約する"
+    >
+      Arrange a consultation
+    </a>
+  </section>
+
+</Layout>
