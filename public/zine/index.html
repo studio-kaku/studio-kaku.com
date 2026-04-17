@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Studio Kaku — No. ___ / 20</title>
+  <style>
+    @page { size: A5; margin: 0; }
+
+    @font-face {
+      font-family: 'Wooddale';
+      src: url('../fonts/Wooddale-Condensed.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+      background: #888;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8mm 0;
+      gap: 6mm;
+    }
+
+    .spread {
+      display: flex;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.45);
+    }
+
+    .spread-blank {
+      width: 148mm;
+      height: 210mm;
+      background: #FAFAF8;
+    }
+
+    .spread-blank.dark { background: #1C1C1C; }
+
+    .page {
+      width: 148mm;
+      height: 210mm;
+      overflow: hidden;
+      page-break-after: always;
+      position: relative;
+      background: #FAFAF8;
+      margin: 0;
+    }
+
+    .page:last-child { page-break-after: avoid; }
+
+    @media print {
+      body { display: block; background: none; padding: 0; }
+      .spread { display: block; box-shadow: none; }
+      .spread-blank { display: none; }
+      .page { margin: 0; break-after: page; page-break-after: always; }
+      .page:last-of-type { break-after: avoid; page-break-after: avoid; }
+    }
+
+    .label {
+      font-size: 6pt;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8A8A8A;
+    }
+
+    .label-light {
+      font-size: 6pt;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(250,250,248,0.45);
+    }
+
+    /* ─────────────────────────────────────
+       PAGE 1: COVER
+    ───────────────────────────────────── */
+    .p1 {
+      background: #1C1C1C;
+      color: #FAFAF8;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .p1-header {
+      padding: 8mm 10mm 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      z-index: 2;
+    }
+
+    .p1-image {
+      flex: 1;
+      margin: 5mm 10mm;
+      overflow: hidden;
+    }
+
+    .p1-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .p1-footer {
+      padding: 5mm 10mm 8mm;
+      border-top: 0.4pt solid rgba(255,255,255,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .p1-tagline {
+      font-family: 'Wooddale', Georgia, serif;
+      font-size: 14pt;
+      text-transform: uppercase;
+      color: #FAFAF8;
+      line-height: 1.2;
+    }
+
+    .p1-edition {
+      font-size: 7.5pt;
+      letter-spacing: 0.12em;
+      color: rgba(250,250,248,0.45);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ─────────────────────────────────────
+       PAGE 2: MISSION
+    ───────────────────────────────────── */
+    .p2 {
+      display: flex;
+      flex-direction: column;
+      padding: 10mm 10mm 0;
+    }
+
+    .p2-label { margin-bottom: 7mm; }
+
+    .p2-statement {
+      font-family: 'Wooddale', Georgia, serif;
+      font-size: 13pt;
+      line-height: 1.3;
+      text-transform: uppercase;
+      color: #1C1C1C;
+      max-width: 112mm;
+      margin-bottom: 2mm;
+    }
+
+    .p2-statement-ja {
+      font-size: 6.5pt;
+      line-height: 1.6;
+      color: #8A8A8A;
+      margin-bottom: 5mm;
+    }
+
+    .p2-body {
+      font-size: 7.5pt;
+      line-height: 1.7;
+      color: #8A8A8A;
+      max-width: 112mm;
+      margin-bottom: 2mm;
+    }
+
+    .p2-image {
+      flex: 1;
+      overflow: hidden;
+      margin: 5mm -10mm 0;
+    }
+
+    .p2-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    /* Japanese helper */
+    .ja {
+      font-size: 7.5pt;
+      line-height: 1.65;
+      color: #8A8A8A;
+      margin-top: 1.5mm;
+    }
+
+    /* ─────────────────────────────────────
+       PAGE 3: TEAM (COMBINED)
+    ───────────────────────────────────── */
+    .p3 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .team-member {
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+    }
+
+    .team-member.dark {
+      height: 121mm;
+      background: #1C1C1C;
+      color: #FAFAF8;
+    }
+
+    .team-member.light {
+      height: 89mm;
+      background: #FAFAF8;
+      color: #1C1C1C;
+      border-top: 0.4pt solid #E5E3DF;
+    }
+
+    .team-photo {
+      width: 42mm;
+      flex-shrink: 0;
+      overflow: hidden;
+      order: 2;
+      align-self: center;
+      margin-right: 6mm;
+    }
+
+    .team-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .team-info {
+      flex: 1;
+      padding: 6mm 5mm 6mm 6mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      order: 1;
+    }
+
+    .team-name {
+      font-family: 'Wooddale', Georgia, serif;
+      font-size: 10pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 1mm;
+    }
+
+    .team-member.dark .team-name { color: #FAFAF8; }
+    .team-member.light .team-name { color: #1C1C1C; }
+
+    .team-role {
+      font-size: 5.5pt;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #B5A694;
+      margin-bottom: 3mm;
+    }
+
+    .team-bio {
+      font-size: 6.5pt;
+      line-height: 1.6;
+    }
+
+    .team-member.dark .team-bio { color: rgba(250,250,248,0.6); }
+    .team-member.light .team-bio { color: #8A8A8A; }
+
+    /* ─────────────────────────────────────
+       PAGES 4 & 5: SERVICES SPREAD
+    ───────────────────────────────────── */
+    .p4, .p5 {
+      display: flex;
+      flex-direction: column;
+      padding: 9mm 10mm 8mm;
+      position: relative;
+    }
+
+    .services-header {
+      margin-bottom: 4mm;
+      padding-bottom: 3mm;
+      border-bottom: 0.4pt solid #E5E3DF;
+    }
+
+    .services-title {
+      position: absolute;
+      top: 9mm;
+      right: 10mm;
+      font-family: 'Wooddale', Georgia, serif;
+      font-size: 18pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #1C1C1C;
+    }
+
+    .service-item {
+      display: flex;
+      flex-direction: row;
+      gap: 4mm;
+      flex: 1;
+      border-bottom: 0.4pt solid #E5E3DF;
+      padding-bottom: 3mm;
+      margin-bottom: 3mm;
+    }
+
+    .service-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .service-img {
+      width: 46mm;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-text { flex: 1; }
+
+    .service-num {
+      font-size: 6pt;
+      letter-spacing: 0.15em;
+      color: #B5A694;
+      margin-bottom: 1mm;
+    }
+
+    .service-name {
+      font-family: 'Wooddale', Georgia, serif;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #1C1C1C;
+      margin-bottom: 2mm;
+    }
+
+    .service-desc {
+      font-size: 6.5pt;
+      line-height: 1.6;
+      color: #8A8A8A;
+    }
+
+    .services-note {
+      font-size: 6.5pt;
+      color: #8A8A8A;
+      font-style: italic;
+      margin-top: auto;
+      padding-top: 4mm;
+    }
+
+    /* ─────────────────────────────────────
+       PAGE 6: SELECTED WORK
+    ───────────────────────────────────── */
+    .p6 {
+      padding: 10mm 10mm 7mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .p6-header { margin-bottom: 4mm; }
+
+    .p6-title {
+      font-family: 'Wooddale', Georgia, serif;
+      font-size: 17pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #1C1C1C;
+      margin-top: 2mm;
+    }
+
+    .p6-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 3mm;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .p6-item { overflow: hidden; display: flex; flex-direction: column; min-height: 0; }
+
+    .p6-item-image { flex: 1; overflow: hidden; min-height: 0; }
+
+    .p6-item-image img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+
+    .p6-cap-title {
+      font-size: 6pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #1C1C1C;
+      padding-top: 1.5mm;
+    }
+
+    .p6-cap-sub {
+      font-size: 5.5pt;
+      color: #8A8A8A;
+      margin-top: 0.5mm;
+    }
+
+    /* ─────────────────────────────────────
+       PAGE 7: CLIENTS
+    ───────────────────────────────────── */
+    .p7 {
+      padding: 10mm 10mm 10mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .p7-header { margin-bottom: 4mm; padding-bottom: 3mm; border-bottom: 0.4pt solid #E5E3DF; }
+
+    .p7-title {
+      font-family: 'Wooddale', Georgia, serif;
+      font-size: 17pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #1C1C1C;
+      margin-top: 2mm;
+    }
+
+    .client-list { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+
+    .client-row {
+      display: flex;
+      align-items: center;
+      gap: 4mm;
+      padding: 1.5mm 0;
+      border-bottom: 0.4pt solid #E5E3DF;
+    }
+
+    .client-logo {
+      width: 16mm;
+      height: 8mm;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .client-logo img {
+      max-width: 16mm;
+      max-height: 8mm;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      opacity: 0.85;
+      mix-blend-mode: multiply;
+    }
+
+    .client-info { flex: 1; }
+
+    .client-name {
+      font-family: 'Wooddale', Georgia, serif;
+      font-size: 8.5pt;
+      color: #1C1C1C;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .client-type {
+      font-size: 5.5pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #B5A694;
+      margin-top: 0.5mm;
+    }
+
+    .p7-note {
+      margin-top: 2mm;
+      font-size: 6.5pt;
+      color: #8A8A8A;
+      font-style: italic;
+    }
+
+    /* ─────────────────────────────────────
+       PAGE 8: BACK COVER
+    ───────────────────────────────────── */
+    .p8 {
+      background: #1C1C1C;
+      color: #FAFAF8;
+      display: flex;
+      flex-direction: column;
+      padding: 10mm 10mm 9mm;
+    }
+
+    .p8-top {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .p8-tagline {
+      font-size: 8pt;
+      font-style: italic;
+      color: rgba(250,250,248,0.5);
+      margin-bottom: 10mm;
+      line-height: 1.5;
+    }
+
+    .p8-contact-line {
+      font-size: 7.5pt;
+      color: rgba(250,250,248,0.6);
+      letter-spacing: 0.04em;
+      line-height: 2;
+    }
+
+    .p8-contact-line strong {
+      color: #FAFAF8;
+      font-weight: normal;
+    }
+
+    .p8-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 6mm;
+      border-top: 0.4pt solid rgba(255,255,255,0.12);
+    }
+
+    .p8-location {
+      font-size: 6pt;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(250,250,248,0.3);
+    }
+
+    .p8-edition {
+      font-size: 7.5pt;
+      letter-spacing: 0.1em;
+      color: rgba(250,250,248,0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── SPREAD 1: COVER ── -->
+  <div class="spread">
+  <!-- ── PAGE 1: COVER ── -->
+  <div class="page p1">
+    <div class="p1-header">
+      <img src="../images/logo-brand-white.png" alt="Studio Kaku" style="height: 26mm; width: auto;">
+      <span class="label-light">Tokyo · 2026</span>
+    </div>
+    <div class="p1-image">
+      <img src="../projects/iwazaki-jan-2026/cover.jpg" alt="Studio Kaku">
+    </div>
+    <div class="p1-footer">
+      <p class="p1-tagline">Where art<br>finds its place.</p>
+    </div>
+  </div>
+  </div><!-- /spread 1 -->
+
+  <!-- ── SPREAD 2: MISSION + TEAM ── -->
+  <div class="spread">
+  <!-- ── PAGE 2: MISSION ── -->
+  <div class="page p2">
+    <p class="label p2-label">Who we are　／　私たちについて</p>
+    <p class="p2-statement">Studio Kaku was founded on the belief that art deserves the right context, and the care to match.</p>
+    <p class="p2-statement-ja">Studio Kakuは、アートには適切なコンテクストと、それに見合ったケアが必要であるという信念のもとに設立されました。</p>
+    <p class="p2-body">Bringing together the specialties of an Art Consultant and Framer - the full package. One rooted in the material and physical world of framing, installation and conservation; the other in the cultural work of consultancy, direction and curation - with a deep passion for Japanese art and craft. Together, we offer a complete picture.</p>
+    <p class="ja" style="max-width:112mm; margin-bottom:3mm;">アートコンサルタントとフレーマーの専門性を融合させたスタジオです。フレーミング（額装）・設置・保存という物質的な世界と、コンサルタンシー・ディレクション・キュレーションという文化的な仕事を担う二人が、日本のアートへの深い情熱とともに、完成された空間を描きます。</p>
+    <p class="p2-body">Bridging East and West is at the heart of what we do, supporting Japanese creatives in building an international profile, and guiding international brands to the right creative partners in Japan.</p>
+    <p class="ja" style="max-width:112mm;">東西をつなぐことが、私たちの仕事の中心にあります。日本のクリエイターが国際的な舞台で存在感を高めるサポートをするとともに、日本でのプロジェクトに適したパートナーを求める海外ブランドのサポートも行っています。</p>
+    <div class="p2-image">
+      <img src="../images/wandler-kamei-cover.jpg" alt="Studio Kaku work">
+    </div>
+  </div>
+
+  <!-- ── PAGE 3: TEAM ── (right page of spread 2) -->
+  <div class="page p3">
+    <div class="team-member dark">
+      <div class="team-photo">
+        <img src="../images/team-yuki.jpg" alt="Yuki Kakuno">
+      </div>
+      <div class="team-info">
+        <p class="team-name">Yuki Kakuno</p>
+        <p class="team-role">Framing, Installation &amp; Art Care　／　フレーミング、設置とアートケア</p>
+        <p class="team-bio">Born in Tsushima and educated in New York, Yuki has been based in Tokyo for nearly 20 years. Founder of Juka Framing, he specialises in high-quality framing for artists and galleries, with projects including the Tokyo American Club and the Ginza flagship of Ceysson &amp; Bénétière. Guided by the belief in "framing that lets the artwork speak."</p>
+        <p class="ja" style="color:rgba(250,250,248,0.5);">対馬生まれ、ニューヨーク育ち。Juka Framingの創業者として、東京を拠点に10年以上、アーティストやギャラリーのための高品質なフレーミングを専門にしています。「作品が語るフレーミング」を信念に。</p>
+      </div>
+    </div>
+    <div class="team-member light">
+      <div class="team-photo">
+        <img src="../images/team-eleanor.jpg" alt="Eleanor Ford Kakuno">
+      </div>
+      <div class="team-info">
+        <p class="team-name">Eleanor Ford Kakuno</p>
+        <p class="team-role">Art Consultancy, Creative Direction &amp; Curation　／　アートコンサルタンシー、クリエイティブディレクション＆キュレーション</p>
+        <p class="team-bio">Born in France and raised between the UK and Hong Kong, Eleanor studied Spatial Design at UAL before moving to Japan. Just under 10 years creating art projects spanning government installations, private residences, galleries and working with art in airports, with a deep love for Japanese art and craft.</p>
+        <p class="ja">フランス生まれ、イギリスと香港で育ち、UALでSpatial Designを学んだ後、日本へ移住。8年間、政府施設・個人邸宅・ギャラリー・国際アートフェアにまたがるプロジェクトを手がける。</p>
+      </div>
+    </div>
+  </div>
+  </div><!-- /spread 2 -->
+
+  <!-- ── SPREAD 3: SERVICES ── -->
+  <div class="spread">
+  <!-- ── PAGE 4: SERVICES LEFT ── -->
+  <div class="page p4">
+    <div class="services-header">
+      <p class="label">What we do　／　サービス内容</p>
+    </div>
+    <div class="service-item">
+      <div class="service-img">
+        <img src="../images/services/discovery.jpg" alt="Discovery">
+      </div>
+      <div class="service-text">
+        <p class="service-num">01</p>
+        <p class="service-name">Discovery　ディスカバリー</p>
+        <p class="service-desc">We visit the space and get under the skin of it - the light, the architecture, the story you are trying to tell. We listen more than we talk.</p>
+        <p class="ja">物件を訪問し、光の入り方や建築、伝えたいストーリーを深く理解します。まず聞くことを大切にします。</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-img">
+        <img src="../images/services/concept.jpg" alt="Concept">
+      </div>
+      <div class="service-text">
+        <p class="service-num">02</p>
+        <p class="service-name">Concept　コンセプト</p>
+        <p class="service-desc">We develop a curatorial direction - a considered proposal for what the art should do in each space, and why. Not a mood board, but a point of view.</p>
+        <p class="ja">各空間においてアートが果たすべき役割を明確にしたキュレーション方針を策定します。ムードボードではなく、確固たる視点をご提案します。</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-img">
+        <img src="../images/services/sourcing-commissioning.jpg" alt="Sourcing">
+      </div>
+      <div class="service-text">
+        <p class="service-num">03</p>
+        <p class="service-name">Sourcing &amp; Commissioning　調達とコミッション</p>
+        <p class="service-desc">We find the right works - from existing pieces to artist commissions created specifically for your space. We handle all negotiation, contracts and timelines.</p>
+        <p class="ja">既存作品からスペースのために制作されたコミッションまで、最適な作品を選定します。交渉・契約・スケジュール管理はすべて対応します。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PAGE 5: SERVICES RIGHT ── -->
+  <div class="page p5">
+    <p class="services-title">The Journey</p>
+    <div class="service-item" style="margin-top: 16mm;">
+      <div class="service-img">
+        <img src="../images/services/framing.jpg" alt="Framing">
+      </div>
+      <div class="service-text">
+        <p class="service-num">04</p>
+        <p class="service-name">Framing　フレーミング</p>
+        <p class="service-desc">Every piece framed to museum standard using archival materials chosen for each individual work, in collaboration with Juka Framing.</p>
+        <p class="ja">すべての作品は、Juka Framingとの協働のもと、アーカイバル素材を用いて美術館水準の額装を施します。</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-img">
+        <img src="../images/services/shipment-and-installation.webp" alt="Installation">
+      </div>
+      <div class="service-text">
+        <p class="service-num">05</p>
+        <p class="service-name">Shipment &amp; Installation　輸送と設置</p>
+        <p class="service-desc">We manage transport, logistics and installation from start to finish. One point of contact. Nothing falls through the gaps.</p>
+        <p class="ja">輸送・ロジスティクス・設置をすべて一括管理します。窓口は一本化され、見落としが生じる心配はありません。</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-img">
+        <img src="../images/services/handover.jpg" alt="Handover">
+      </div>
+      <div class="service-text">
+        <p class="service-num">06</p>
+        <p class="service-name">Handover　引き渡し</p>
+        <p class="service-desc">You receive full documentation - artists, provenance, care instructions - so the collection is properly managed long after we have gone.</p>
+        <p class="ja">アーティスト情報、来歴、ケア方法など、完全なドキュメントをお渡しします。私たちが去った後も、コレクションが適切に管理されるようにします。</p>
+      </div>
+    </div>
+    <p class="services-note">すべてのプロジェクトに6つのステップが必要なわけではありません。額装だけが必要な場合も、それ自体が完結したサービスです。<br>Not every project needs all six steps. If you just need framing, that is a complete service in itself.</p>
+  </div>
+  </div><!-- /spread 3 -->
+
+  <!-- ── SPREAD 4: WORK + CLIENTS ── -->
+  <div class="spread">
+  <!-- ── PAGE 6: SELECTED WORK ── -->
+  <div class="page p6">
+    <div class="p6-header">
+      <p class="label">Portfolio</p>
+      <p class="p6-title">Selected Work</p>
+    </div>
+    <div class="p6-grid">
+      <div class="p6-item">
+        <div class="p6-item-image">
+          <img src="../projects/body-language/Front%20image.jpg" alt="Body Language">
+        </div>
+        <p class="p6-cap-title">Body Language</p>
+        <p class="p6-cap-sub">Conal Kelly · Curation &amp; installation · 2025</p>
+      </div>
+      <div class="p6-item">
+        <div class="p6-item-image">
+          <img src="../projects/wandler/wandler-bag-crop.jpg" alt="Wandler × Isetan">
+        </div>
+        <p class="p6-cap-title">Wandler × Isetan</p>
+        <p class="p6-cap-sub">Creative direction · 2025</p>
+      </div>
+      <div class="p6-item">
+        <div class="p6-item-image">
+          <img src="../projects/haneda-tcs-2023/Front%20main%20image.jpg" alt="Haneda Airport">
+        </div>
+        <p class="p6-cap-title">Haneda Airport</p>
+        <p class="p6-cap-sub">Creative direction · 2023–2025</p>
+      </div>
+      <div class="p6-item">
+        <div class="p6-item-image">
+          <img src="../projects/mason-saltarrelli-march-2026/mason-frame-detail.jpg" alt="Mason Saltarrelli">
+        </div>
+        <p class="p6-cap-title">Mason Saltarrelli</p>
+        <p class="p6-cap-sub">Framing · 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PAGE 7: CLIENTS ── -->
+  <div class="page p7">
+    <div class="p7-header">
+      <p class="label">Trusted by</p>
+      <p class="p7-title">Selected Clients</p>
+    </div>
+    <div class="client-list">
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/ceysson-benetiere.jpg" alt="" style="max-width:28mm;max-height:16mm;"></div>
+        <div class="client-info">
+          <p class="client-name">Ceysson &amp; Bénétière</p>
+          <p class="client-type">Gallery</p>
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/haneda.png" alt=""></div>
+        <div class="client-info">
+          <p class="client-name">Haneda Airport</p>
+          <p class="client-type">Public installation</p>
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/soho-house.png" alt=""></div>
+        <div class="client-info">
+          <p class="client-name">Soho House</p>
+          <p class="client-type">Hospitality</p>
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/mitsui-fudosan.png" alt=""></div>
+        <div class="client-info">
+          <p class="client-name">Mitsui Fudosan</p>
+          <p class="client-type">Real estate &amp; hotels</p>
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/tokyo-american-club.webp" alt=""></div>
+        <div class="client-info">
+          <p class="client-name">Tokyo American Club</p>
+          <p class="client-type">Private members club</p>
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/isetan.svg" alt="" style="max-width:11mm;max-height:7mm;"></div>
+        <div class="client-info">
+          <p class="client-name">Isetan Shinjuku</p>
+          <p class="client-type">Retail</p>
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/bluebell.jpg" alt=""></div>
+        <div class="client-info">
+          <p class="client-name">Bluebell</p>
+          <p class="client-type">Luxury distribution</p>
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/ultra-super-new.png" alt=""></div>
+        <div class="client-info">
+          <p class="client-name">UltraSuperNew</p>
+          <p class="client-type">Gallery &amp; creative</p>
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/the-harmonyst.png" alt="The Harmonyst" style="max-width:22mm;max-height:13mm;"></div>
+        <div class="client-info">
+          <p class="client-name">The Harmonyst</p>
+          <p class="client-type">Gallery &amp; venue</p>
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/gallery-ether.png" alt=""></div>
+        <div class="client-info">
+          <p class="client-name">Gallery Ether</p>
+          <p class="client-type">Gallery</p>
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/ginza-six.jpg" alt="" style="max-width:20mm;max-height:8mm;"></div>
+        <div class="client-info">
+          <p class="client-name">Ginza Six</p>
+          <p class="client-type">Retail &amp; culture</p>
+        </div>
+      </div>
+      <div class="client-row">
+        <div class="client-logo"><img src="../images/logos/tsutaya.jpg" alt="" style="max-width:20mm;max-height:8mm;"></div>
+        <div class="client-info">
+          <p class="client-name">Tsutaya Books</p>
+          <p class="client-type">Retail</p>
+        </div>
+      </div>
+    </div>
+    <p class="p7-note">And many private collectors, independent galleries, and creative clients across Tokyo and beyond.<br>その他にも、多くの個人コレクター、独立系ギャラリー、東京をはじめ各地のクリエイティブなクライアントたちと。</p>
+  </div>
+  </div><!-- /spread 4 -->
+
+  <!-- ── SPREAD 5: BACK COVER ── -->
+  <div class="spread">
+  <!-- ── PAGE 8: BACK COVER ── -->
+  <div class="page p8">
+    <div class="p8-top">
+      <img src="../images/logo-brand-white.png" alt="Studio Kaku" style="width: 60mm; height: auto; margin-bottom: 4mm;">
+      <p class="p8-tagline">Art framing, installation, curation and creative direction. Tokyo.<br>アートの額装、設置、キュレーション、クリエイティブディレクション。東京。</p>
+      <div>
+        <p class="p8-contact-line"><strong>studio-kaku.com</strong></p>
+        <p class="p8-contact-line">hello@studio-kaku.com</p>
+        <p class="p8-contact-line">@studio.kaku</p>
+      </div>
+    </div>
+    <div class="p8-footer">
+      <p class="p8-location">Tokyo, Japan · 2026</p>
+    </div>
+  </div>
+  </div><!-- /spread 5 -->
+
+</body>
+</html>
