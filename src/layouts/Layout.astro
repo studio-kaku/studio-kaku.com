@@ -81,6 +81,14 @@ const structuredData = {
     <!-- Structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <style>
+      @font-face {
+        font-family: 'YuMincho';
+        src: url('/fonts/YuMincho-Medium.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
 [data-fade] {
         opacity: 0;
         transform: translateY(28px) scale(0.97);
@@ -103,13 +111,15 @@ const structuredData = {
       }
       html.lang-ja body,
       html.lang-ja p,
-      html.lang-ja h1,
-      html.lang-ja h2,
-      html.lang-ja h3,
       html.lang-ja a,
       html.lang-ja span,
       html.lang-ja button {
         font-family: 'Noto Sans JP', sans-serif;
+      }
+      html.lang-ja h1,
+      html.lang-ja h2,
+      html.lang-ja h3 {
+        font-family: 'YuMincho', 'Noto Sans JP', serif;
       }
     </style>
   </head>
