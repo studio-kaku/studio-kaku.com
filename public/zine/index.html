@@ -134,7 +134,8 @@
     .p2 {
       display: flex;
       flex-direction: column;
-      padding: 10mm 10mm 0;
+      padding: 10mm 10mm 89mm;
+      position: relative;
     }
 
     .p2-label { margin-bottom: 7mm; }
@@ -145,14 +146,14 @@
       line-height: 1.3;
       text-transform: uppercase;
       color: #1C1C1C;
-      max-width: 112mm;
       margin-bottom: 2mm;
     }
 
     .p2-statement-ja {
-      font-size: 6.5pt;
+      font-size: 7.5pt;
       line-height: 1.6;
       color: #8A8A8A;
+      margin-top: 3mm;
       margin-bottom: 5mm;
     }
 
@@ -160,14 +161,16 @@
       font-size: 7.5pt;
       line-height: 1.7;
       color: #8A8A8A;
-      max-width: 112mm;
       margin-bottom: 2mm;
     }
 
     .p2-image {
-      flex: 1;
+      position: absolute;
+      top: 121mm;
+      left: 0;
+      right: 0;
+      bottom: 0;
       overflow: hidden;
-      margin: 5mm -10mm 0;
     }
 
     .p2-image img {
@@ -335,7 +338,16 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: #1C1C1C;
+      margin-bottom: 1mm;
+    }
+    .service-name-ja {
+      font-family: 'YuMincho', Georgia, serif;
+      font-size: 8.5pt;
+      text-transform: none;
+      letter-spacing: 0.06em;
+      color: #3A3A3A;
       margin-bottom: 2mm;
+      display: block;
     }
 
     .service-desc {
@@ -563,11 +575,11 @@
   <div class="page p2">
     <p class="label p2-label">Who we are　／　私たちについて</p>
     <p class="p2-statement">Studio Kaku was founded on the belief that art deserves the right context, and the care to match.</p>
-    <p class="p2-statement-ja">Studio Kakuは、アートには適切なコンテクストと、それに見合ったケアが必要であるという信念のもとに設立されました。</p>
+    <p class="p2-statement-ja">Studio Kakuは、アートには適切なコンテクストと、<br>それに見合ったケアが必要であるという信念のもとに設立されました。</p>
     <p class="p2-body">Bringing together the specialties of an Art Consultant and Framer - the full package. One rooted in the material and physical world of framing, installation and conservation; the other in the cultural work of consultancy, direction and curation - with a deep passion for Japanese art and craft. Together, we offer a complete picture.</p>
-    <p class="ja" style="max-width:112mm; margin-bottom:3mm;">アートコンサルタントとフレーマーの専門性を融合させたスタジオです。フレーミング（額装）・設置・保存という物質的な世界と、コンサルタンシー・ディレクション・キュレーションという文化的な仕事を担う二人が、日本のアートへの深い情熱とともに、完成された空間を描きます。</p>
+    <p class="ja" style="margin-bottom:3mm;">東西を繋ぐ架け橋として、クリエイティブの可能性を広げる。日本のアーティストが国際的な舞台で価値を確立することを支援し、同時に、日本での展開を見据えるグローバルブランドを理想的なパートナーへと導く。私たちは共通の言語を持つ対話者として、そのプロセスに寄り添い続けます。</p>
     <p class="p2-body">Bridging East and West is at the heart of what we do, supporting Japanese creatives in building an international profile, and guiding international brands to the right creative partners in Japan.</p>
-    <p class="ja" style="max-width:112mm;">東西をつなぐことが、私たちの仕事の中心にあります。日本のクリエイターが国際的な舞台で存在感を高めるサポートをするとともに、日本でのプロジェクトに適したパートナーを求める海外ブランドのサポートも行っています。</p>
+    <p class="ja">東西を繋ぐ架け橋として、クリエイティブの可能性を広げる。日本の表現者が国際的な舞台で価値を確立することを支援し、同時に、日本での展開を見据えるグローバルブランドを理想的なパートナーへと導く。私たちは共通の言語を持つ対話者として、そのプロセスに寄り添い続けます。</p>
     <div class="p2-image">
       <img src="../images/wandler-kamei-cover.jpg" alt="Studio Kaku work">
     </div>
@@ -582,8 +594,8 @@
       <div class="team-info">
         <p class="team-name">Yuki Kakuno</p>
         <p class="team-role">Framing, Installation &amp; Art Care　／　フレーミング、設置とアートケア</p>
-        <p class="team-bio">Born in Tsushima and educated in New York, Yuki has been based in Tokyo for nearly 20 years. Founder of Juka Framing, he specialises in high-quality framing for artists and galleries, with projects including the Tokyo American Club and the Ginza flagship of Ceysson &amp; Bénétière. Guided by the belief in "framing that lets the artwork speak."</p>
-        <p class="ja" style="color:rgba(250,250,248,0.5);">対馬生まれ、ニューヨーク育ち。Juka Framingの創業者として、東京を拠点に10年以上、アーティストやギャラリーのための高品質なフレーミングを専門にしています。「作品が語るフレーミング」を信念に。</p>
+        <p class="team-bio">Born on Tsushima Island and having refined his aesthetic sensibilities in New York, Yuki found his calling in the art of framing in Tokyo. After a decade honing his craft, he established Studio Kaku, where he remains dedicated to a singular pursuit: creating frames that let the artwork speak. His portfolio spans exhibitions at Ceysson &amp; Bénétière and installations at Toranomon Hills and GINZA SIX, to personal mementos and cherished sketches by young children. Regardless of a work's background, Yuki believes in a deep dialogue with each piece - ensuring, through bespoke custom framing, that its essence is always brought to the fore.</p>
+        <p class="ja" style="color:rgba(250,250,248,0.5);">対馬に生まれ、ニューヨークで感性を磨いた後、東京で額装の道へ。10年にわたり技術を研鑽し、Studio Kakuを設立。「作品の声を届ける」という一貫した姿勢のもと、Ceysson &amp; Bénétièreでの展示や虎ノ門ヒルズ・GINZA SIXでの作品から、旅の思い出や子供のスケッチまで、幅広いプロジェクトを手がける。どのような作品に対しても丁寧な対話を重ね、カスタムフレーミングを通じてその本質を引き出している。</p>
       </div>
     </div>
     <div class="team-member light">
@@ -593,8 +605,8 @@
       <div class="team-info">
         <p class="team-name">Eleanor Ford Kakuno</p>
         <p class="team-role">Art Consultancy, Creative Direction &amp; Curation　／　アートコンサルタンシー、クリエイティブディレクション＆キュレーション</p>
-        <p class="team-bio">Born in France and raised between the UK and Hong Kong, Eleanor studied Spatial Design at UAL before moving to Japan. Just under 10 years creating art projects spanning government installations, private residences, galleries and working with art in airports, with a deep love for Japanese art and craft.</p>
-        <p class="ja">フランス生まれ、イギリスと香港で育ち、UALでSpatial Designを学んだ後、日本へ移住。8年間、政府施設・個人邸宅・ギャラリー・国際アートフェアにまたがるプロジェクトを手がける。</p>
+        <p class="team-bio">Born in France and raised between the UK and Hong Kong, Eleanor studied Spatial Design at UAL before moving to Tokyo. Over nearly a decade she has been at the heart of the city's art world - directing creative programmes for government installations at Haneda Airport, and running KURA, UltraSuperNew's gallery in Tokyo. Through this work she has developed a deep and enduring love for Japanese art and craft.</p>
+        <p class="ja">フランス生まれ、イギリスと香港で育ち、UALでSpatial Designを学んだ後、東京へ。約10年にわたり東京のアートシーンの中心に身を置き、羽田空港における政府主導の文化発信プロジェクトのクリエイティブ・ディレクションや、UltraSuperNewのギャラリー「KURA」の運営に携わってきた。この仕事を通じて、日本のアートとクラフトへの深い愛情を育んできた。</p>
       </div>
     </div>
   </div>
@@ -613,9 +625,10 @@
       </div>
       <div class="service-text">
         <p class="service-num">01</p>
-        <p class="service-name">Discovery　ディスカバリー</p>
+        <p class="service-name">Discovery</p>
+        <p class="service-name-ja">ディスカバリー</p>
         <p class="service-desc">We visit the space and get under the skin of it - the light, the architecture, the story you are trying to tell. We listen more than we talk.</p>
-        <p class="ja">物件を訪問し、光の入り方や建築、伝えたいストーリーを深く理解します。まず聞くことを大切にします。</p>
+        <p class="ja">私たちはその空間を訪れ、光や建築、そしてあなたが紡ごうとする物語を肌で感じ取ります。語ることよりも、まずは深く耳を傾けること。その場所の呼応を聴くことから、私たちの提案は始まります。</p>
       </div>
     </div>
     <div class="service-item">
@@ -624,9 +637,10 @@
       </div>
       <div class="service-text">
         <p class="service-num">02</p>
-        <p class="service-name">Concept　コンセプト</p>
+        <p class="service-name">Concept</p>
+        <p class="service-name-ja">コンセプト</p>
         <p class="service-desc">We develop a curatorial direction - a considered proposal for what the art should do in each space, and why. Not a mood board, but a point of view.</p>
-        <p class="ja">各空間においてアートが果たすべき役割を明確にしたキュレーション方針を策定します。ムードボードではなく、確固たる視点をご提案します。</p>
+        <p class="ja">私たちはキュレーションの方向性を定め、それぞれの空間でアートが果たすべき役割とその根拠を、深く考察し提案します。それは単なるイメージの羅列ではなく、一つの確固たる視点を示すものです。</p>
       </div>
     </div>
     <div class="service-item">
@@ -635,9 +649,10 @@
       </div>
       <div class="service-text">
         <p class="service-num">03</p>
-        <p class="service-name">Sourcing &amp; Commissioning　調達とコミッション</p>
+        <p class="service-name">Sourcing &amp; Commissioning</p>
+        <p class="service-name-ja">調達とコミッション</p>
         <p class="service-desc">We find the right works - from existing pieces to artist commissions created specifically for your space. We handle all negotiation, contracts and timelines.</p>
-        <p class="ja">既存作品からスペースのために制作されたコミッションまで、最適な作品を選定します。交渉・契約・スケジュール管理はすべて対応します。</p>
+        <p class="ja">既存の作品から、その空間のために描き下ろされる委託制作まで、最適な一点を見出し提案します。作家との交渉や契約、進行管理に至るすべての工程を、私たちが責任を持って担います。</p>
       </div>
     </div>
   </div>
@@ -651,7 +666,8 @@
       </div>
       <div class="service-text">
         <p class="service-num">04</p>
-        <p class="service-name">Framing　フレーミング</p>
+        <p class="service-name">Framing</p>
+        <p class="service-name-ja">フレーミング</p>
         <p class="service-desc">Every piece framed to museum standard using archival materials chosen for each individual work, in collaboration with Juka Framing.</p>
         <p class="ja">すべての作品は、Juka Framingとの協働のもと、アーカイバル素材を用いて美術館水準の額装を施します。</p>
       </div>
@@ -662,9 +678,10 @@
       </div>
       <div class="service-text">
         <p class="service-num">05</p>
-        <p class="service-name">Shipment &amp; Installation　輸送と設置</p>
+        <p class="service-name">Shipment &amp; Installation</p>
+        <p class="service-name-ja">輸送と設置</p>
         <p class="service-desc">We manage transport, logistics and installation from start to finish. One point of contact. Nothing falls through the gaps.</p>
-        <p class="ja">輸送・ロジスティクス・設置をすべて一括管理します。窓口は一本化され、見落としが生じる心配はありません。</p>
+        <p class="ja">輸送から設営まで、すべての工程をワンストップで管理します。窓口を一つに絞ることで、細部に至るまで滞りなく、確実な設置を実現します。</p>
       </div>
     </div>
     <div class="service-item">
@@ -673,12 +690,13 @@
       </div>
       <div class="service-text">
         <p class="service-num">06</p>
-        <p class="service-name">Handover　引き渡し</p>
+        <p class="service-name">Handover</p>
+        <p class="service-name-ja">引き渡し</p>
         <p class="service-desc">You receive full documentation - artists, provenance, care instructions - so the collection is properly managed long after we have gone.</p>
-        <p class="ja">アーティスト情報、来歴、ケア方法など、完全なドキュメントをお渡しします。私たちが去った後も、コレクションが適切に管理されるようにします。</p>
+        <p class="ja">作家情報や来歴、メンテナンス方法などをまとめた完全なドキュメントをお渡しします。私たちの手を離れた後も、コレクションが末永く適切に管理されるよう、その未来を支える一冊を託します。</p>
       </div>
     </div>
-    <p class="services-note">すべてのプロジェクトに6つのステップが必要なわけではありません。額装だけが必要な場合も、それ自体が完結したサービスです。<br>Not every project needs all six steps. If you just need framing, that is a complete service in itself.</p>
+    <p class="services-note">Step 1 to 6 — どのフェーズからでも。額装のみでも、妥協のないクオリティを。<br>Not every project needs all six steps. If you just need framing, that is a complete service in itself.</p>
   </div>
   </div><!-- /spread 3 -->
 
