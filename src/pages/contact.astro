@@ -42,80 +42,29 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
 
-    <!-- Enquiry form -->
-    <div>
-      <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);" data-en="Enquiry form" data-ja="お問い合わせフォーム">Enquiry form</h2>
-      <form
-        action="https://formspree.io/f/xbdzovpk"
-        method="POST"
-        class="space-y-7"
-      >
-        <div>
-          <label for="name" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Name" data-ja="お名前">
-            Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
-            placeholder="Your name"
-          />
-        </div>
-        <div>
-          <label for="email" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Email" data-ja="メールアドレス">
-            Email
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
-            placeholder="your@email.com"
-          />
-        </div>
-        <div>
-          <label for="service" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Service" data-ja="サービス">
-            Service
-          </label>
-          <select
-            id="service"
-            name="service"
-            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
-          >
-            <option value="">Select a service</option>
-            <option value="framing">Framing &amp; Installation</option>
-            <option value="care">Art Care</option>
-            <option value="consultancy">Art Consultancy</option>
-            <option value="direction">Creative Direction</option>
-            <option value="curation">Curation</option>
-            <option value="other">Other / Not sure</option>
-          </select>
-        </div>
-        <div>
-          <label for="message" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Message" data-ja="メッセージ">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            required
-            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors resize-none"
-            placeholder="Tell us about your project…"
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          class="w-full bg-brand-text text-brand-bg py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity mt-4"
-          data-en="Send Enquiry"
-          data-ja="送信する"
+    <!-- Enquiry CTA -->
+    <div class="flex flex-col justify-between">
+      <div>
+        <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);" data-en="Start a conversation" data-ja="お問い合わせはこちら">Start a conversation</h2>
+        <p class="text-brand-muted leading-relaxed mb-10" data-en="Fill in our enquiry form and we'll come back to you within two working days. The more detail you share, the better we can prepare for our first conversation." data-ja="お問い合わせフォームにご記入いただければ、2営業日以内にご連絡いたします。プロジェクトの詳細をできるだけお知らせください。">
+          Fill in our enquiry form and we'll come back to you within two working days.
+          The more detail you share, the better we can prepare for our first conversation.
+        </p>
+        <a
+          href="https://22fc8c3d-6544-4b6b-b605-7e59cfee464c-00-2vqegt3sxzzcq.pike.replit.dev/enquire.html"
+          class="inline-block bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
+          data-en="Submit an Enquiry"
+          data-ja="お問い合わせフォームへ"
         >
-          Send Enquiry
-        </button>
-      </form>
+          Submit an Enquiry
+        </a>
+      </div>
+      <div class="mt-16 pt-10 border-t border-brand-border">
+        <p class="text-brand-muted text-xs tracking-widest uppercase mb-3" data-en="Prefer to write directly?" data-ja="直接メールの場合">Prefer to write directly?</p>
+        <a href="mailto:hello@studio-kaku.com" class="text-sm hover:opacity-50 transition-opacity underline underline-offset-4">
+          hello@studio-kaku.com
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
