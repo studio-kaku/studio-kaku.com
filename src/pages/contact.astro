@@ -42,24 +42,109 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
 
-    <!-- Enquiry CTA -->
-    <div class="flex flex-col justify-between">
-      <div>
-        <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);" data-en="Start a conversation" data-ja="お問い合わせはこちら">Start a conversation</h2>
-        <p class="text-brand-muted leading-relaxed mb-10" data-en="Fill in our enquiry form and we'll come back to you within two working days. The more detail you share, the better we can prepare for our first conversation." data-ja="お問い合わせフォームにご記入いただければ、2営業日以内にご連絡いたします。プロジェクトの詳細をできるだけお知らせください。">
-          Fill in our enquiry form and we'll come back to you within two working days.
-          The more detail you share, the better we can prepare for our first conversation.
+    <!-- Enquiry form -->
+    <div id="enquire">
+      <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);" data-en="Start a conversation" data-ja="お問い合わせはこちら">Start a conversation</h2>
+
+      <form
+        class="space-y-6"
+        id="enquiry-form"
+      >
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="First name" data-ja="名">First name</label>
+            <input
+              type="text"
+              name="first_name"
+              required
+              class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            />
+          </div>
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Last name" data-ja="姓">Last name</label>
+            <input
+              type="text"
+              name="last_name"
+              class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Email" data-ja="メールアドレス">Email</label>
+          <input
+            type="email"
+            name="email"
+            required
+            class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+          />
+        </div>
+
+        <div>
+          <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="How can we help?" data-ja="ご依頼の種類">How can we help?</label>
+          <select
+            name="service_type"
+            class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+          >
+            <option value="">Select a service…</option>
+            <option value="Framing">Framing</option>
+            <option value="Art Consultancy">Art Consultancy</option>
+            <option value="Art Sourcing">Sourcing &amp; Commissioning</option>
+            <option value="General">Other / Not sure yet</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Tell us about your project" data-ja="プロジェクトについて">Tell us about your project</label>
+          <textarea
+            name="message"
+            rows="5"
+            class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors resize-none"
+          ></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Approximate budget" data-ja="おおよそのご予算">Approximate budget</label>
+          <select
+            name="budget"
+            class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+          >
+            <option value="">Prefer not to say</option>
+            <option value="Under ¥100,000">Under ¥100,000</option>
+            <option value="¥100,000 – ¥500,000">¥100,000 – ¥500,000</option>
+            <option value="¥500,000 – ¥2,000,000">¥500,000 – ¥2,000,000</option>
+            <option value="¥2,000,000+">¥2,000,000+</option>
+          </select>
+        </div>
+
+        <!-- Honeypot spam trap -->
+        <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+
+        <div class="pt-2">
+          <button
+            type="submit"
+            class="w-full bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
+            data-en="Send Enquiry"
+            data-ja="送信する"
+          >
+            Send Enquiry
+          </button>
+        </div>
+
+        <p class="text-brand-muted text-xs" data-en="We'll reply within two working days." data-ja="2営業日以内にご連絡いたします。">
+          We'll reply within two working days.
         </p>
-        <a
-          href="https://22fc8c3d-6544-4b6b-b605-7e59cfee464c-00-2vqegt3sxzzcq.pike.replit.dev/enquire.html"
-          class="inline-block bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
-          data-en="Submit an Enquiry"
-          data-ja="お問い合わせフォームへ"
-        >
-          Submit an Enquiry
-        </a>
+      </form>
+
+      <!-- Success message (shown after submission) -->
+      <div id="enquiry-success" class="hidden border border-brand-border p-8 text-center">
+        <p class="font-display uppercase text-lg mb-3" data-en="Thank you" data-ja="ありがとうございます">Thank you</p>
+        <p class="text-brand-muted text-sm" data-en="We've received your enquiry and will be in touch within two working days." data-ja="お問い合わせを受け付けました。2営業日以内にご連絡いたします。">
+          We've received your enquiry and will be in touch within two working days.
+        </p>
       </div>
-      <div class="mt-16 pt-10 border-t border-brand-border">
+
+      <div class="mt-10 pt-10 border-t border-brand-border">
         <p class="text-brand-muted text-xs tracking-widest uppercase mb-3" data-en="Prefer to write directly?" data-ja="直接メールの場合">Prefer to write directly?</p>
         <a href="mailto:hello@studio-kaku.com" class="text-sm hover:opacity-50 transition-opacity underline underline-offset-4">
           hello@studio-kaku.com
@@ -67,4 +152,50 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </section>
+  <script>
+    const SUPABASE_URL = 'https://alrlwazeylmfmzephsnk.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_cgnbFz34egi4K75n7kQ_dg_Shh7ygV2';
+
+    const form = document.getElementById('enquiry-form') as HTMLFormElement | null;
+    const success = document.getElementById('enquiry-success') as HTMLElement | null;
+    const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+
+    if (form && success) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+        const data = new FormData(form);
+        const firstName = (data.get('first_name') as string || '').trim();
+        const lastName = (data.get('last_name') as string || '').trim();
+
+        const payload = {
+          name: [firstName, lastName].filter(Boolean).join(' '),
+          email: data.get('email'),
+          service_type: data.get('service_type') || 'General',
+          description: data.get('message') || '',
+          form_data: { budget: data.get('budget') || '', source: 'website' },
+        };
+
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/inquiries`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (res.ok) {
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+        } else {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Enquiry'; }
+          alert('Something went wrong — please email us at hello@studio-kaku.com');
+        }
+      });
+    }
+  </script>
 </Layout>

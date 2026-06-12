@@ -26,14 +26,24 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
         specialist framing, art care and consultancy for hotels, collectors and
         galleries who want art to do more than fill a wall.
       </p>
-      <a
-        href="/services"
-        class="inline-block border border-brand-text px-7 py-3 text-sm tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors flex-shrink-0"
-        data-en="Our Services"
-        data-ja="サービス一覧"
-      >
-        Our Services
-      </a>
+      <div class="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+        <a
+          href="/contact#enquire"
+          class="inline-block bg-brand-text text-brand-bg px-7 py-3 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity text-center"
+          data-en="Start an Enquiry"
+          data-ja="お問い合わせ"
+        >
+          Start an Enquiry
+        </a>
+        <a
+          href="/services"
+          class="inline-block border border-brand-text px-7 py-3 text-sm tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors text-center"
+          data-en="Our Services"
+          data-ja="サービス一覧"
+        >
+          Our Services
+        </a>
+      </div>
     </div>
   </section>
 
