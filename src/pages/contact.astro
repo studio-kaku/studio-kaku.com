@@ -103,21 +103,7 @@ import Layout from '../layouts/Layout.astro';
           ></textarea>
         </div>
 
-        <div>
-          <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Approximate budget" data-ja="おおよそのご予算">Approximate budget</label>
-          <select
-            name="budget"
-            class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
-          >
-            <option value="">Prefer not to say</option>
-            <option value="Under ¥100,000">Under ¥100,000</option>
-            <option value="¥100,000 – ¥500,000">¥100,000 – ¥500,000</option>
-            <option value="¥500,000 – ¥2,000,000">¥500,000 – ¥2,000,000</option>
-            <option value="¥2,000,000+">¥2,000,000+</option>
-          </select>
-        </div>
-
-        <!-- Honeypot spam trap -->
+<!-- Honeypot spam trap -->
         <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
 
         <div class="pt-2">
@@ -174,7 +160,7 @@ import Layout from '../layouts/Layout.astro';
           email: data.get('email'),
           service_type: data.get('service_type') || 'General',
           description: data.get('message') || '',
-          form_data: { budget: data.get('budget') || '', source: 'website' },
+          form_data: { source: 'website' },
         };
 
         const res = await fetch(`${SUPABASE_URL}/rest/v1/inquiries`, {
