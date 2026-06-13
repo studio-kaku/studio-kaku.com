@@ -81,9 +81,24 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <div>
+          <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Client type" data-ja="クライアントの種類">Client type</label>
+          <select
+            name="client_type"
+            class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+          >
+            <option value="">Select…</option>
+            <option value="private">Private individual</option>
+            <option value="company">Company</option>
+            <option value="gallery">Gallery</option>
+            <option value="artist">Artist</option>
+          </select>
+        </div>
+
+        <div>
           <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="How can we help?" data-ja="ご依頼の種類">How can we help?</label>
           <select
             name="service_type"
+            id="service-type-select"
             class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
           >
             <option value="">Select a service…</option>
@@ -92,6 +107,72 @@ import Layout from '../layouts/Layout.astro';
             <option value="Art Sourcing">Sourcing &amp; Commissioning</option>
             <option value="General">Other / Not sure yet</option>
           </select>
+        </div>
+
+        <!-- Framing sub-questions — shown only when Framing is selected -->
+        <div id="framing-fields" class="hidden space-y-6 border-l-2 border-brand-border pl-6">
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Frame style" data-ja="フレームスタイル">Frame style</label>
+            <select
+              name="framing_style"
+              class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+            >
+              <option value="">Select style…</option>
+              <option value="Classic with matting">Classic with matting</option>
+              <option value="Floating frame">Floating frame</option>
+              <option value="Acrylic box">Acrylic box</option>
+              <option value="L shape for canvas">L shape for canvas</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Width (mm)" data-ja="幅 (mm)">Width (mm)</label>
+              <input
+                type="number"
+                name="width_mm"
+                min="1"
+                class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+              />
+            </div>
+            <div>
+              <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Height (mm)" data-ja="高さ (mm)">Height (mm)</label>
+              <input
+                type="number"
+                name="height_mm"
+                min="1"
+                class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Matting" data-ja="マット">Matting</label>
+            <select
+              name="matting"
+              class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+            >
+              <option value="">Select…</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="Not sure">Not sure</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Glass / glazing" data-ja="ガラス">Glass / glazing</label>
+            <select
+              name="glass_type"
+              class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+            >
+              <option value="">Select…</option>
+              <option value="Standard glass">Standard glass</option>
+              <option value="Non-reflective glass">Non-reflective glass</option>
+              <option value="Acrylic">Acrylic</option>
+              <option value="Not sure">Not sure</option>
+            </select>
+          </div>
         </div>
 
         <div>
@@ -145,6 +226,18 @@ import Layout from '../layouts/Layout.astro';
     const form = document.getElementById('enquiry-form') as HTMLFormElement | null;
     const success = document.getElementById('enquiry-success') as HTMLElement | null;
     const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const serviceSelect = document.getElementById('service-type-select') as HTMLSelectElement | null;
+    const framingFields = document.getElementById('framing-fields') as HTMLElement | null;
+
+    if (serviceSelect && framingFields) {
+      serviceSelect.addEventListener('change', () => {
+        if (serviceSelect.value === 'Framing') {
+          framingFields.classList.remove('hidden');
+        } else {
+          framingFields.classList.add('hidden');
+        }
+      });
+    }
 
     if (form && success) {
       form.addEventListener('submit', async (e) => {
@@ -154,13 +247,29 @@ import Layout from '../layouts/Layout.astro';
         const data = new FormData(form);
         const firstName = (data.get('first_name') as string || '').trim();
         const lastName = (data.get('last_name') as string || '').trim();
+        const serviceType = (data.get('service_type') as string) || 'General';
+
+        const framingData: Record<string, string> = {};
+        if (serviceType === 'Framing') {
+          const fs = data.get('framing_style') as string;
+          const w = data.get('width_mm') as string;
+          const h = data.get('height_mm') as string;
+          const mat = data.get('matting') as string;
+          const glass = data.get('glass_type') as string;
+          if (fs) framingData.framing_style = fs;
+          if (w) framingData.width_mm = w;
+          if (h) framingData.height_mm = h;
+          if (mat) framingData.matting = mat;
+          if (glass) framingData.glass_type = glass;
+        }
 
         const payload = {
           name: [firstName, lastName].filter(Boolean).join(' '),
           email: data.get('email'),
-          service_type: data.get('service_type') || 'General',
+          service_type: serviceType,
+          client_type: (data.get('client_type') as string) || null,
           description: data.get('message') || '',
-          form_data: { source: 'website' },
+          form_data: { source: 'website', ...framingData },
         };
 
         const res = await fetch(`${SUPABASE_URL}/rest/v1/inquiries`, {
