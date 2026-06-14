@@ -6,7 +6,7 @@ const steps = [
     num: '01',
     title: { en: 'Discovery', ja: 'ディスカバリー' },
     desc: {
-      en: 'We visit the space and get under the skin of it - the light, the architecture, the story you are trying to tell. We listen more than we talk.',
+      en: 'We visit the space and get under the skin of it — the light, the architecture, the story you are trying to tell. We listen more than we talk.',
       ja: '私たちはその空間を訪れ、光や建築、そしてあなたが紡ごうとする物語を肌で感じ取ります。語ることよりも、まずは深く耳を傾けること。その場所の呼応を聴くことから、私たちの提案は始まります。',
     },
     img: '/images/services/discovery.jpg',
@@ -15,7 +15,7 @@ const steps = [
     num: '02',
     title: { en: 'Concept', ja: 'コンセプト' },
     desc: {
-      en: 'We develop a curatorial direction - a considered proposal for what the art should do in each space, and why. Not a mood board, but a point of view.',
+      en: 'We develop a curatorial direction — a considered proposal for what the art should do in each space, and why. Not a mood board, but a point of view.',
       ja: '私たちはキュレーションの方向性を定め、それぞれの空間でアートが果たすべき役割とその根拠を、深く考察し提案します。それは単なるイメージの羅列ではなく、一つの確固たる視点を示すものです。',
     },
     img: '/images/services/concept.jpg',
@@ -24,7 +24,7 @@ const steps = [
     num: '03',
     title: { en: 'Sourcing & Commissioning', ja: '調達とコミッション' },
     desc: {
-      en: 'We find the right works - from existing pieces to artist commissions created specifically for your space. We handle all negotiation, contracts and timelines.',
+      en: 'We find the right works — from existing pieces to artist commissions created specifically for your space. We handle all negotiation, contracts and timelines.',
       ja: '既存の作品から、その空間のために描き下ろされる委託制作まで、最適な一点を見出し提案します。作家との交渉や契約、進行管理に至るすべての工程を、私たちが責任を持って担います。',
     },
     img: '/images/services/sourcing-commissioning.jpg',
@@ -52,29 +52,84 @@ const steps = [
     num: '06',
     title: { en: 'Handover', ja: '引き渡し' },
     desc: {
-      en: 'You receive full documentation - artists, provenance, care instructions - so the collection is properly managed long after we have gone.',
+      en: 'You receive full documentation — artists, provenance, care instructions — so the collection is properly managed long after we have gone.',
       ja: '作家情報や来歴、メンテナンス方法などをまとめた完全なドキュメントをお渡しします。私たちの手を離れた後も、コレクションが末永く適切に管理されるよう、その未来を支える一冊を託します。',
     },
     img: '/images/services/handover.jpg',
+  },
+];
+
+const clients = [
+  {
+    type: { en: 'First-time buyers', ja: '初めてのコレクター' },
+    desc: {
+      en: 'Not sure where to start? We help you find the right piece, understand what you are buying, and make sure it is properly framed and cared for.',
+      ja: 'どこから始めればいいか分からない方へ。適切な作品を見つけ、購入の背景を理解し、適切な額装とケアまでサポートします。',
+    },
+  },
+  {
+    type: { en: 'Collectors', ja: 'コレクター' },
+    desc: {
+      en: 'For those building a collection over time — artist introductions, acquisition advice, and installation that treats every piece as it deserves.',
+      ja: '時間をかけてコレクションを築く方々へ。作家とのご縁、作品購入のアドバイス、そして一点一点を大切に扱う設置まで。',
+    },
+  },
+  {
+    type: { en: 'Artists', ja: 'アーティスト' },
+    desc: {
+      en: 'We work with artists on framing, placement and how to present their work to the right audiences. Honest advice, no gatekeeping.',
+      ja: 'アーティストの皆さんと、額装・展示・作品を適切な場へ届けることに取り組みます。率直なアドバイスを、オープンに。',
+    },
+  },
+  {
+    type: { en: 'Hotels & hospitality', ja: 'ホテル・ホスピタリティ' },
+    desc: {
+      en: 'Art programmes that shape guest experience and build long-term asset value — from a single suite to a full property rollout.',
+      ja: 'ゲスト体験を形成し、長期的な資産価値を築くアートプログラム。一室から施設全体まで対応します。',
+    },
+  },
+];
+
+const engagements = [
+  {
+    type: { en: 'One-off project', ja: 'スポットプロジェクト' },
+    desc: {
+      en: 'A single piece, a room, a whole building. Scoped and priced individually — no ongoing commitment needed.',
+      ja: '一点の作品から、一室、建物全体まで。個別にスコープと費用を設定します。継続的な契約は必要ありません。',
+    },
+  },
+  {
+    type: { en: 'Retainer', ja: 'リテイナー' },
+    desc: {
+      en: 'Ongoing access to our network, eye and advice. Good for collectors and organisations who want a trusted partner for the long haul.',
+      ja: '私たちのネットワーク、審美眼、アドバイスを継続的にご利用いただけます。長期的なパートナーを求めるコレクターや組織に最適です。',
+    },
+  },
+  {
+    type: { en: 'Advisory', ja: 'アドバイザリー' },
+    desc: {
+      en: 'You have a team. You just want an outside eye and a second opinion. We can do that too.',
+      ja: 'すでにチームはいる。ただ、外部の視点とセカンドオピニオンが欲しい。そのようなご要望にも対応しています。',
+    },
   },
 ];
 ---
 
 <Layout
   title="Services"
-  description="Studio Kaku offers art consultancy, creative direction, curation, bespoke framing and installation for hotels, collectors, galleries and organisations."
+  description="Studio Kaku offers art consultancy, framing, sourcing and installation for first-time buyers, collectors, artists, hotels and organisations."
 >
   <!-- Page header -->
   <section class="px-8 md:px-12 pt-14 md:pt-20 pb-10 md:pb-16">
     <p class="text-brand-muted text-xs tracking-widest uppercase mb-8" data-fade-text data-en="What we do" data-ja="サービス内容">What we do</p>
-    <h1 class="font-display uppercase leading-none mb-10" style="font-size: clamp(2rem, 5vw, 5rem);" data-fade-text data-en="We handle everything." data-ja="すべてお任せください。">We handle everything.</h1>
+    <h1 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3.5vw, 3.5rem);" data-fade-text data-en="From first look to final hang." data-ja="最初の出会いから、最後の設置まで。">From first look to final hang.</h1>
     <p
       class="text-brand-muted leading-relaxed max-w-xl"
       data-fade-text
-      data-en="From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with hotels and hospitality groups, private collectors, galleries, and organisations who want art to do more than fill a wall."
-      data-ja="アートが空間に何をもたらすかという最初の対話から、最後の一点が壁に掛けられる瞬間まで。ホテルやホスピタリティグループ、個人コレクター、ギャラリー、そして壁を埋める以上のものをアートに求める組織と、ともに仕事をしています。"
+      data-en="From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with first-time buyers, working artists, collectors, hotels — anyone who wants to live or work around art that means something."
+      data-ja="アートが空間に何をもたらすかという最初の対話から、最後の一点が壁に掛けられる瞬間まで。初めて作品を購入する方、現役アーティスト、コレクター、ホテルまで——意味のあるアートと共に生き、働きたいすべての方とともに歩みます。"
     >
-      From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with hotels and hospitality groups, private collectors, galleries, and organisations who want art to do more than fill a wall.
+      From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with first-time buyers, working artists, collectors, hotels — anyone who wants to live or work around art that means something.
     </p>
   </section>
 
@@ -129,6 +184,45 @@ const steps = [
     </p>
   </section>
 
+  <!-- Who we work with -->
+  <section class="px-8 md:px-12 py-14 md:py-24 border-t border-brand-border">
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-14" data-en="Who we work with" data-ja="クライアント">Who we work with</p>
+    <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+      {clients.map((c) => (
+        <div>
+          <p class="font-display uppercase leading-none mb-3" style="font-size: clamp(1rem, 1.5vw, 1.15rem);" data-en={c.type.en} data-ja={c.type.ja}>{c.type.en}</p>
+          <p class="text-brand-muted text-sm leading-relaxed" data-en={c.desc.en} data-ja={c.desc.ja}>{c.desc.en}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Projects teaser -->
+  <section class="border-t border-brand-border px-8 md:px-12 py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <p class="text-brand-muted text-sm leading-relaxed" data-en="Prefer to see examples of our work before getting in touch?" data-ja="お問い合わせの前に実績をご覧になりたい方へ。">Prefer to see examples of our work before getting in touch?</p>
+    <a
+      href="/projects"
+      class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity flex-shrink-0"
+      data-en="View projects →"
+      data-ja="プロジェクトを見る →"
+    >
+      View projects →
+    </a>
+  </section>
+
+  <!-- How to work with us -->
+  <section class="px-8 md:px-12 py-14 md:py-24 border-t border-brand-border">
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-14" data-en="How to work with us" data-ja="ご依頼の形式">How to work with us</p>
+    <div class="grid md:grid-cols-3 gap-x-12 gap-y-10">
+      {engagements.map((e) => (
+        <div class="border-t border-brand-border pt-6">
+          <p class="font-display uppercase leading-none mb-3" style="font-size: clamp(1rem, 1.2vw, 1.1rem);" data-en={e.type.en} data-ja={e.type.ja}>{e.type.en}</p>
+          <p class="text-brand-muted text-sm leading-relaxed" data-en={e.desc.en} data-ja={e.desc.ja}>{e.desc.en}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="px-8 md:px-12 py-16 md:py-28 border-t border-brand-border">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10" data-fade-text>
@@ -136,12 +230,12 @@ const steps = [
         Ready to work<br />together?
       </p>
       <a
-        href="/contact"
+        href="/contact#enquire"
         class="inline-block bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity flex-shrink-0"
-        data-en="Get in Touch"
+        data-en="Start an Enquiry"
         data-ja="お問い合わせ"
       >
-        Get in Touch
+        Start an Enquiry
       </a>
     </div>
   </section>
