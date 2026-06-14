@@ -157,6 +157,54 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
     </div>
   </section>
 
+  <!-- Artist Collection teaser -->
+  <section class="px-8 md:px-12 py-12 md:py-20 border-t border-brand-border mt-1">
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <h2 class="font-display uppercase leading-none mb-3" style="font-size: clamp(1.75rem, 4vw, 3.5rem);" data-en="Artist Collection" data-ja="アーティスト">Artist Collection</h2>
+        <p class="text-brand-muted text-sm max-w-md" data-en="We work with a curated selection of artists across disciplines. Clients get access to the full catalogue." data-ja="さまざまな分野のアーティストとともに活動しています。詳細なカタログはクライアント専用です。">
+          We work with a curated selection of artists across disciplines. Clients get access to the full catalogue.
+        </p>
+      </div>
+      <a
+        href="https://22fc8c3d-6544-4b6b-b605-7e59cfee464c-00-2vqegt3sxzzcq.pike.replit.dev/"
+        class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity flex-shrink-0"
+        data-en="Client login"
+        data-ja="ログイン"
+      >
+        Client login
+      </a>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+      {[
+        { name: 'Artist Name', discipline: 'Painting' },
+        { name: 'Artist Name', discipline: 'Photography' },
+        { name: 'Artist Name', discipline: 'Sculpture' },
+        { name: 'Artist Name', discipline: 'Mixed Media' },
+      ].map((artist, i) => (
+        <div class="group" data-fade style={`transition-delay: ${i * 60}ms`}>
+          <div class="aspect-[3/4] bg-brand-border mb-3 overflow-hidden relative">
+            <div class="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-brand-text/30 to-transparent">
+            </div>
+          </div>
+          <p class="font-display uppercase leading-snug text-sm">{artist.name}</p>
+          <p class="text-xs text-brand-muted mt-0.5">{artist.discipline}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-10 pt-8 border-t border-brand-border flex flex-col sm:flex-row sm:items-center gap-4">
+      <p class="text-brand-muted text-sm" data-en="Want to see the full roster?" data-ja="カタログの詳細はこちら">Want to see the full roster?</p>
+      <a
+        href="/contact#enquire"
+        class="text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity"
+        data-en="Enquire about becoming a client"
+        data-ja="クライアント登録のお問い合わせ"
+      >
+        Enquire about becoming a client
+      </a>
+    </div>
+  </section>
+
   <!-- Services list -->
   <section class="border-t border-brand-border mt-1">
     <div class="px-8 md:px-12 pt-16 md:pt-24 pb-4">
