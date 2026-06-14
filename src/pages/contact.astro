@@ -80,11 +80,33 @@ import Layout from '../layouts/Layout.astro';
           />
         </div>
 
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Phone (optional)" data-ja="電話番号（任意）">Phone (optional)</label>
+            <input
+              type="tel"
+              name="phone"
+              class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            />
+          </div>
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="City (optional)" data-ja="都市（任意）">City (optional)</label>
+            <input
+              type="text"
+              name="city"
+              class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            />
+          </div>
+        </div>
+
         <div>
           <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Client type" data-ja="クライアントの種類">Client type</label>
           <select
             name="client_type"
+            id="client-type-select"
             class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+            data-options-en='[{"v":"","l":"Select…"},{"v":"private","l":"Private individual"},{"v":"company","l":"Company"},{"v":"gallery","l":"Gallery"},{"v":"artist","l":"Artist"}]'
+            data-options-ja='[{"v":"","l":"選択してください"},{"v":"private","l":"個人"},{"v":"company","l":"企業"},{"v":"gallery","l":"ギャラリー"},{"v":"artist","l":"アーティスト"}]'
           >
             <option value="">Select…</option>
             <option value="private">Private individual</option>
@@ -100,6 +122,8 @@ import Layout from '../layouts/Layout.astro';
             name="service_type"
             id="service-type-select"
             class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+            data-options-en='[{"v":"","l":"Select a service…"},{"v":"Framing","l":"Framing"},{"v":"Art Consultancy","l":"Art Consultancy"},{"v":"Art Sourcing","l":"Sourcing & Commissioning"},{"v":"General","l":"Other / Not sure yet"}]'
+            data-options-ja='[{"v":"","l":"サービスを選択"},{"v":"Framing","l":"額装"},{"v":"Art Consultancy","l":"アートコンサルティング"},{"v":"Art Sourcing","l":"調達・コミッション"},{"v":"General","l":"その他 / まだ決まっていない"}]'
           >
             <option value="">Select a service…</option>
             <option value="Framing">Framing</option>
@@ -116,6 +140,8 @@ import Layout from '../layouts/Layout.astro';
             <select
               name="framing_style"
               class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+              data-options-en='[{"v":"","l":"Select style…"},{"v":"Classic with matting","l":"Classic with matting"},{"v":"Floating frame","l":"Floating frame"},{"v":"Acrylic box","l":"Acrylic box"},{"v":"L shape for canvas","l":"L shape for canvas"},{"v":"Other","l":"Other"}]'
+              data-options-ja='[{"v":"","l":"スタイルを選択"},{"v":"Classic with matting","l":"クラシック（マット付き）"},{"v":"Floating frame","l":"フローティングフレーム"},{"v":"Acrylic box","l":"アクリルボックス"},{"v":"L shape for canvas","l":"Lシェイプ（キャンバス用）"},{"v":"Other","l":"その他"}]'
             >
               <option value="">Select style…</option>
               <option value="Classic with matting">Classic with matting</option>
@@ -152,6 +178,8 @@ import Layout from '../layouts/Layout.astro';
             <select
               name="matting"
               class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+              data-options-en='[{"v":"","l":"Select…"},{"v":"Yes","l":"Yes"},{"v":"No","l":"No"},{"v":"Not sure","l":"Not sure"}]'
+              data-options-ja='[{"v":"","l":"選択してください"},{"v":"Yes","l":"あり"},{"v":"No","l":"なし"},{"v":"Not sure","l":"未定"}]'
             >
               <option value="">Select…</option>
               <option value="Yes">Yes</option>
@@ -165,6 +193,8 @@ import Layout from '../layouts/Layout.astro';
             <select
               name="glass_type"
               class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+              data-options-en='[{"v":"","l":"Select…"},{"v":"Standard glass","l":"Standard glass"},{"v":"Non-reflective glass","l":"Non-reflective glass"},{"v":"Acrylic","l":"Acrylic"},{"v":"Not sure","l":"Not sure"}]'
+              data-options-ja='[{"v":"","l":"選択してください"},{"v":"Standard glass","l":"標準ガラス"},{"v":"Non-reflective glass","l":"非反射ガラス"},{"v":"Acrylic","l":"アクリル"},{"v":"Not sure","l":"未定"}]'
             >
               <option value="">Select…</option>
               <option value="Standard glass">Standard glass</option>
@@ -229,6 +259,30 @@ import Layout from '../layouts/Layout.astro';
     const serviceSelect = document.getElementById('service-type-select') as HTMLSelectElement | null;
     const framingFields = document.getElementById('framing-fields') as HTMLElement | null;
 
+    // Bilingual select options
+    function applySelectLang(lang: string) {
+      document.querySelectorAll('select[data-options-en]').forEach((sel) => {
+        const key = lang === 'ja' ? 'data-options-ja' : 'data-options-en';
+        const raw = sel.getAttribute(key);
+        if (!raw) return;
+        try {
+          const opts = JSON.parse(raw) as Array<{v: string; l: string}>;
+          const current = (sel as HTMLSelectElement).value;
+          (sel as HTMLSelectElement).innerHTML = opts.map(o =>
+            `<option value="${o.v}"${o.v === current ? ' selected' : ''}>${o.l}</option>`
+          ).join('');
+        } catch {}
+      });
+    }
+
+    // Apply on load and whenever language toggles
+    applySelectLang(localStorage.getItem('sk-lang') || 'en');
+    const origToggle = (window as any).toggleLang;
+    (window as any).toggleLang = function () {
+      origToggle?.();
+      applySelectLang(localStorage.getItem('sk-lang') || 'en');
+    };
+
     if (serviceSelect && framingFields) {
       serviceSelect.addEventListener('change', () => {
         if (serviceSelect.value === 'Framing') {
@@ -264,13 +318,21 @@ import Layout from '../layouts/Layout.astro';
         }
 
         const lang = localStorage.getItem('sk-lang') || 'en';
+        const phone = (data.get('phone') as string || '').trim();
+        const city = (data.get('city') as string || '').trim();
         const payload = {
           name: [firstName, lastName].filter(Boolean).join(' '),
           email: data.get('email'),
           service_type: serviceType,
           client_type: (data.get('client_type') as string) || null,
           description: data.get('message') || '',
-          form_data: { source: 'website', lang, ...framingData },
+          form_data: {
+            source: 'website',
+            lang,
+            ...(phone ? { phone } : {}),
+            ...(city ? { city } : {}),
+            ...framingData,
+          },
         };
 
         const res = await fetch(`${SUPABASE_URL}/rest/v1/inquiries`, {
