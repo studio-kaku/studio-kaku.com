@@ -263,13 +263,14 @@ import Layout from '../layouts/Layout.astro';
           if (glass) framingData.glass_type = glass;
         }
 
+        const lang = localStorage.getItem('sk-lang') || 'en';
         const payload = {
           name: [firstName, lastName].filter(Boolean).join(' '),
           email: data.get('email'),
           service_type: serviceType,
           client_type: (data.get('client_type') as string) || null,
           description: data.get('message') || '',
-          form_data: { source: 'website', ...framingData },
+          form_data: { source: 'website', lang, ...framingData },
         };
 
         const res = await fetch(`${SUPABASE_URL}/rest/v1/inquiries`, {
