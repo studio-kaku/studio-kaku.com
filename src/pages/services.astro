@@ -28,6 +28,7 @@ const steps = [
       ja: '既存の作品から、その空間のために描き下ろされる委託制作まで、最適な一点を見出し提案します。作家との交渉や契約、進行管理に至るすべての工程を、私たちが責任を持って担います。',
     },
     img: '/images/services/sourcing-commissioning.jpg',
+    link: { label: 'Enquire to access our artist collection', href: '/contact#enquire' },
   },
   {
     num: '04',
@@ -152,11 +153,11 @@ const engagements = [
             {step.link && (
               <a
                 href={step.link.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={step.link.href.startsWith('http') ? '_blank' : undefined}
+                rel={step.link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 class="hidden md:inline-block mt-4 border border-brand-text px-5 py-2 text-xs tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors"
               >
-                For more on framing, visit Juka Framing
+                {step.link.label}
               </a>
             )}
           </div>
