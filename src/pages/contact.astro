@@ -174,21 +174,6 @@ import Layout from '../layouts/Layout.astro';
           </div>
 
           <div>
-            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Matting" data-ja="マット">Matting</label>
-            <select
-              name="matting"
-              class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
-              data-options-en='[{"v":"","l":"Select…"},{"v":"Yes","l":"Yes"},{"v":"No","l":"No"},{"v":"Not sure","l":"Not sure"}]'
-              data-options-ja='[{"v":"","l":"選択してください"},{"v":"Yes","l":"あり"},{"v":"No","l":"なし"},{"v":"Not sure","l":"未定"}]'
-            >
-              <option value="">Select…</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-              <option value="Not sure">Not sure</option>
-            </select>
-          </div>
-
-          <div>
             <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Glass / glazing" data-ja="ガラス">Glass / glazing</label>
             <select
               name="glass_type"
@@ -308,12 +293,10 @@ import Layout from '../layouts/Layout.astro';
           const fs = data.get('framing_style') as string;
           const w = data.get('width_mm') as string;
           const h = data.get('height_mm') as string;
-          const mat = data.get('matting') as string;
           const glass = data.get('glass_type') as string;
           if (fs) framingData.framing_style = fs;
           if (w) framingData.width_mm = w;
           if (h) framingData.height_mm = h;
-          if (mat) framingData.matting = mat;
           if (glass) framingData.glass_type = glass;
         }
 
