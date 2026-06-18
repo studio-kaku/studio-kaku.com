@@ -503,6 +503,26 @@ export const projects = [
   // ── Portfolio projects (journal: false) — newest first ──────────────────
 
   {
+    slug: "ceysson-benetiere-may-2026",
+    title: "Ceysson & Bénétière",
+    tagline: "Framing & installation",
+    subtitle: "Peter Halley",
+    year: "May 2026",
+    credits: [
+      { label: "Client", value: "Ceysson & Bénétière" },
+      { label: "Artist", value: "Peter Halley" },
+      { label: "Photography", value: "Sakamoto Osamu" },
+    ],
+    description: `Framing and installation for Peter Halley's exhibition at Ceysson & Bénétière, Tokyo.`,
+    cover: "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B1.jpg",
+    images: [
+      "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B1.jpg",
+      "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B5.jpg",
+      "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B9.jpg",
+      "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B19.jpg",
+    ],
+  },
+  {
     slug: "wandler-kamei",
     title: "Wandler × Kamei san",
     tagline: "Creative direction & artist management",
