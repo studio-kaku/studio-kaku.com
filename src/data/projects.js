@@ -300,6 +300,24 @@ export const projects = [
     cover: "cover.JPG",
     images: ["cover.JPG", "image2.JPG"],
   },
+  {
+    slug: "ceysson-benetiere-may-2025",
+    journal: true,
+    title: "Ceysson & Bénétière",
+    tagline: "Framing",
+    year: "May 2025",
+    credits: [
+      { label: "Client", value: "Ceysson & Bénétière" },
+      { label: "Photography", value: "Sakamoto Osamu" },
+    ],
+    description: "A selection of framing work done for Ceysson & Bénétière, Tokyo.",
+    cover: "Showroom-2026©Sakamoto-Osamu-C&B3.jpg",
+    images: [
+      "Showroom-2026©Sakamoto-Osamu-C&B3.jpg",
+      "Showroom-2026©Sakamoto-Osamu-C&B5.jpg",
+      "Showroom-2026©Sakamoto-Osamu-C&B6.jpg",
+    ],
+  },
   // April 2025
   {
     slug: "private-commission-april-2025",
