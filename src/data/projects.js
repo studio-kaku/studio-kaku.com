@@ -555,11 +555,11 @@ export const projects = [
       { label: "Photography", value: "Sakamoto Osamu" },
     ],
     description: `Framing and installation for Peter Halley's exhibition at Ceysson & Bénétière, Tokyo.`,
-    cover: "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B1.jpg",
+    cover: "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B9.jpg",
     images: [
+      "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B9.jpg",
       "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B1.jpg",
       "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B5.jpg",
-      "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B9.jpg",
       "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B19.jpg",
     ],
   },
