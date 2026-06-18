@@ -22,6 +22,26 @@ export const projects = [
       "DSC06575.jpg","DSC06587.jpg",
     ],
   },
+  // May 2026
+  {
+    slug: "sapphire-lounge-may-2026",
+    journal: true,
+    title: "Sapphire Lounge",
+    tagline: "Framing",
+    year: "May 2026",
+    credits: [
+      { label: "Client", value: "Sapphire Lounge" },
+      { label: "Photography", value: "Sakamoto Osamu" },
+    ],
+    description: `Framing commission for Sapphire Lounge.`,
+    cover: "Sapphire-052026©Sakamoto-Osamu-C&B14.jpg",
+    images: [
+      "Sapphire-052026©Sakamoto-Osamu-C&B14.jpg",
+      "Sapphire-052026©Sakamoto-Osamu-C&B16.jpg",
+      "Sapphire-052026©Sakamoto-Osamu-C&B17.jpg",
+      "Sapphire-052026©Sakamoto-Osamu-C&B5.jpg",
+    ],
+  },
   // March 2026
   {
     slug: "mason-saltarrelli-march-2026",
@@ -523,24 +543,6 @@ export const projects = [
   },
   // ── Portfolio projects (journal: false) — newest first ──────────────────
 
-  {
-    slug: "sapphire-lounge-may-2026",
-    title: "Sapphire Lounge",
-    tagline: "Framing",
-    year: "May 2026",
-    credits: [
-      { label: "Client", value: "Sapphire Lounge" },
-      { label: "Photography", value: "Sakamoto Osamu" },
-    ],
-    description: `Framing commission for Sapphire Lounge.`,
-    cover: "Sapphire-052026©Sakamoto-Osamu-C&B14.jpg",
-    images: [
-      "Sapphire-052026©Sakamoto-Osamu-C&B14.jpg",
-      "Sapphire-052026©Sakamoto-Osamu-C&B16.jpg",
-      "Sapphire-052026©Sakamoto-Osamu-C&B17.jpg",
-      "Sapphire-052026©Sakamoto-Osamu-C&B5.jpg",
-    ],
-  },
   {
     slug: "ceysson-benetiere-may-2026",
     title: "Ceysson & Bénétière",
