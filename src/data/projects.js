@@ -1,6 +1,27 @@
 export const projects = [
   // ── Journal entries (journal: true) — newest first ──────────────────────
 
+  // June 2026
+  {
+    slug: "supper-club-kura-june-2026",
+    journal: true,
+    title: "Supper Club KURA",
+    tagline: "Curation & direction",
+    subtitle: "UltraSuperNew KURA",
+    year: "June 2026",
+    credits: [
+      { label: "Venue", value: "UltraSuperNew KURA" },
+      { label: "Curation & Direction", value: "Studio Kaku" },
+    ],
+    description: "Curation and creative direction for a supper club evening at KURA, with UltraSuperNew.",
+    cover: "DSC06406.jpg",
+    images: [
+      "DSC06406.jpg",
+      "DSC06449.jpg","DSC06450.jpg","DSC06454.jpg","DSC06458.jpg",
+      "DSC06490.jpg","DSC06510.jpg","DSC06561.jpg","DSC06566.jpg",
+      "DSC06575.jpg","DSC06587.jpg",
+    ],
+  },
   // March 2026
   {
     slug: "mason-saltarrelli-march-2026",
