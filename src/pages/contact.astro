@@ -43,79 +43,300 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <!-- Enquiry form -->
-    <div>
-      <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);" data-en="Enquiry form" data-ja="お問い合わせフォーム">Enquiry form</h2>
+    <div id="enquire">
+      <h2 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3vw, 3rem);" data-en="Start a conversation" data-ja="お問い合わせはこちら">Start a conversation</h2>
+
       <form
-        action="https://formspree.io/f/xbdzovpk"
-        method="POST"
-        class="space-y-7"
+        class="space-y-6"
+        id="enquiry-form"
       >
-        <div>
-          <label for="name" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Name" data-ja="お名前">
-            Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
-            placeholder="Your name"
-          />
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="First name" data-ja="名">First name</label>
+            <input
+              type="text"
+              name="first_name"
+              required
+              class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            />
+          </div>
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Last name" data-ja="姓">Last name</label>
+            <input
+              type="text"
+              name="last_name"
+              class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            />
+          </div>
         </div>
+
         <div>
-          <label for="email" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Email" data-ja="メールアドレス">
-            Email
-          </label>
+          <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Email" data-ja="メールアドレス">Email</label>
           <input
-            id="email"
-            name="email"
             type="email"
+            name="email"
             required
-            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
-            placeholder="your@email.com"
+            class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
           />
         </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Phone (optional)" data-ja="電話番号（任意）">Phone (optional)</label>
+            <input
+              type="tel"
+              name="phone"
+              class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            />
+          </div>
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="City (optional)" data-ja="都市（任意）">City (optional)</label>
+            <input
+              type="text"
+              name="city"
+              class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            />
+          </div>
+        </div>
+
         <div>
-          <label for="service" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Service" data-ja="サービス">
-            Service
-          </label>
+          <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Client type" data-ja="クライアントの種類">Client type</label>
           <select
-            id="service"
-            name="service"
-            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            name="client_type"
+            id="client-type-select"
+            class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+            data-options-en='[{"v":"","l":"Select…"},{"v":"private","l":"Private individual"},{"v":"company","l":"Company"},{"v":"gallery","l":"Gallery"},{"v":"artist","l":"Artist"}]'
+            data-options-ja='[{"v":"","l":"選択してください"},{"v":"private","l":"個人"},{"v":"company","l":"企業"},{"v":"gallery","l":"ギャラリー"},{"v":"artist","l":"アーティスト"}]'
           >
-            <option value="">Select a service</option>
-            <option value="framing">Framing &amp; Installation</option>
-            <option value="care">Art Care</option>
-            <option value="consultancy">Art Consultancy</option>
-            <option value="direction">Creative Direction</option>
-            <option value="curation">Curation</option>
-            <option value="other">Other / Not sure</option>
+            <option value="">Select…</option>
+            <option value="private">Private individual</option>
+            <option value="company">Company</option>
+            <option value="gallery">Gallery</option>
+            <option value="artist">Artist</option>
           </select>
         </div>
+
         <div>
-          <label for="message" class="block text-xs tracking-widest uppercase text-brand-muted mb-3" data-en="Message" data-ja="メッセージ">
-            Message
-          </label>
+          <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="How can we help?" data-ja="ご依頼の種類">How can we help?</label>
+          <select
+            name="service_type"
+            id="service-type-select"
+            class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+            data-options-en='[{"v":"","l":"Select a service…"},{"v":"Framing","l":"Framing"},{"v":"Art Consultancy","l":"Art Consultancy"},{"v":"Art Sourcing","l":"Sourcing & Commissioning"},{"v":"General","l":"Other / Not sure yet"}]'
+            data-options-ja='[{"v":"","l":"サービスを選択"},{"v":"Framing","l":"額装"},{"v":"Art Consultancy","l":"アートコンサルティング"},{"v":"Art Sourcing","l":"調達・コミッション"},{"v":"General","l":"その他 / まだ決まっていない"}]'
+          >
+            <option value="">Select a service…</option>
+            <option value="Framing">Framing</option>
+            <option value="Art Consultancy">Art Consultancy</option>
+            <option value="Art Sourcing">Sourcing &amp; Commissioning</option>
+            <option value="General">Other / Not sure yet</option>
+          </select>
+        </div>
+
+        <!-- Framing sub-questions — shown only when Framing is selected -->
+        <div id="framing-fields" class="hidden space-y-6 border-l-2 border-brand-border pl-6">
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Frame style" data-ja="フレームスタイル">Frame style</label>
+            <select
+              name="framing_style"
+              class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+              data-options-en='[{"v":"","l":"Select style…"},{"v":"Classic with matting","l":"Classic with matting"},{"v":"Floating frame","l":"Floating frame"},{"v":"Acrylic box","l":"Acrylic box"},{"v":"L shape for canvas","l":"L shape for canvas"},{"v":"Other","l":"Other"}]'
+              data-options-ja='[{"v":"","l":"スタイルを選択"},{"v":"Classic with matting","l":"クラシック（マット付き）"},{"v":"Floating frame","l":"フローティングフレーム"},{"v":"Acrylic box","l":"アクリルボックス"},{"v":"L shape for canvas","l":"Lシェイプ（キャンバス用）"},{"v":"Other","l":"その他"}]'
+            >
+              <option value="">Select style…</option>
+              <option value="Classic with matting">Classic with matting</option>
+              <option value="Floating frame">Floating frame</option>
+              <option value="Acrylic box">Acrylic box</option>
+              <option value="L shape for canvas">L shape for canvas</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Width (mm)" data-ja="幅 (mm)">Width (mm)</label>
+              <input
+                type="number"
+                name="width_mm"
+                min="1"
+                class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+              />
+            </div>
+            <div>
+              <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Height (mm)" data-ja="高さ (mm)">Height (mm)</label>
+              <input
+                type="number"
+                name="height_mm"
+                min="1"
+                class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Glass / glazing" data-ja="ガラス">Glass / glazing</label>
+            <select
+              name="glass_type"
+              class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
+              data-options-en='[{"v":"","l":"Select…"},{"v":"Standard glass","l":"Standard glass"},{"v":"Non-reflective glass","l":"Non-reflective glass"},{"v":"Acrylic","l":"Acrylic"},{"v":"Not sure","l":"Not sure"}]'
+              data-options-ja='[{"v":"","l":"選択してください"},{"v":"Standard glass","l":"標準ガラス"},{"v":"Non-reflective glass","l":"非反射ガラス"},{"v":"Acrylic","l":"アクリル"},{"v":"Not sure","l":"未定"}]'
+            >
+              <option value="">Select…</option>
+              <option value="Standard glass">Standard glass</option>
+              <option value="Non-reflective glass">Non-reflective glass</option>
+              <option value="Acrylic">Acrylic</option>
+              <option value="Not sure">Not sure</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Tell us about your project" data-ja="プロジェクトについて">Tell us about your project</label>
           <textarea
-            id="message"
             name="message"
             rows="5"
-            required
-            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors resize-none"
-            placeholder="Tell us about your project…"
+            class="w-full border border-brand-border bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors resize-none"
           ></textarea>
         </div>
-        <button
-          type="submit"
-          class="w-full bg-brand-text text-brand-bg py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity mt-4"
-          data-en="Send Enquiry"
-          data-ja="送信する"
-        >
-          Send Enquiry
-        </button>
+
+<!-- Honeypot spam trap -->
+        <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+
+        <div class="pt-2">
+          <button
+            type="submit"
+            class="w-full bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
+            data-en="Send Enquiry"
+            data-ja="送信する"
+          >
+            Send Enquiry
+          </button>
+        </div>
+
+        <p class="text-brand-muted text-xs" data-en="We'll reply within two working days." data-ja="2営業日以内にご連絡いたします。">
+          We'll reply within two working days.
+        </p>
       </form>
+
+      <!-- Success message (shown after submission) -->
+      <div id="enquiry-success" class="hidden border border-brand-border p-8 text-center">
+        <p class="font-display uppercase text-lg mb-3" data-en="Thank you" data-ja="ありがとうございます">Thank you</p>
+        <p class="text-brand-muted text-sm" data-en="We've received your enquiry and will be in touch within two working days." data-ja="お問い合わせを受け付けました。2営業日以内にご連絡いたします。">
+          We've received your enquiry and will be in touch within two working days.
+        </p>
+      </div>
+
+      <div class="mt-10 pt-10 border-t border-brand-border">
+        <p class="text-brand-muted text-xs tracking-widest uppercase mb-3" data-en="Prefer to write directly?" data-ja="直接メールの場合">Prefer to write directly?</p>
+        <a href="mailto:hello@studio-kaku.com" class="text-sm hover:opacity-50 transition-opacity underline underline-offset-4">
+          hello@studio-kaku.com
+        </a>
+      </div>
     </div>
   </section>
+  <script>
+    const SUPABASE_URL = 'https://alrlwazeylmfmzephsnk.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_cgnbFz34egi4K75n7kQ_dg_Shh7ygV2';
+
+    const form = document.getElementById('enquiry-form') as HTMLFormElement | null;
+    const success = document.getElementById('enquiry-success') as HTMLElement | null;
+    const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const serviceSelect = document.getElementById('service-type-select') as HTMLSelectElement | null;
+    const framingFields = document.getElementById('framing-fields') as HTMLElement | null;
+
+    // Bilingual select options
+    function applySelectLang(lang: string) {
+      document.querySelectorAll('select[data-options-en]').forEach((sel) => {
+        const key = lang === 'ja' ? 'data-options-ja' : 'data-options-en';
+        const raw = sel.getAttribute(key);
+        if (!raw) return;
+        try {
+          const opts = JSON.parse(raw) as Array<{v: string; l: string}>;
+          const current = (sel as HTMLSelectElement).value;
+          (sel as HTMLSelectElement).innerHTML = opts.map(o =>
+            `<option value="${o.v}"${o.v === current ? ' selected' : ''}>${o.l}</option>`
+          ).join('');
+        } catch {}
+      });
+    }
+
+    // Apply on load and whenever language toggles
+    applySelectLang(localStorage.getItem('sk-lang') || 'en');
+    const origToggle = (window as any).toggleLang;
+    (window as any).toggleLang = function () {
+      origToggle?.();
+      applySelectLang(localStorage.getItem('sk-lang') || 'en');
+    };
+
+    if (serviceSelect && framingFields) {
+      serviceSelect.addEventListener('change', () => {
+        if (serviceSelect.value === 'Framing') {
+          framingFields.classList.remove('hidden');
+        } else {
+          framingFields.classList.add('hidden');
+        }
+      });
+    }
+
+    if (form && success) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+        const data = new FormData(form);
+        const firstName = (data.get('first_name') as string || '').trim();
+        const lastName = (data.get('last_name') as string || '').trim();
+        const serviceType = (data.get('service_type') as string) || 'General';
+
+        const framingData: Record<string, string> = {};
+        if (serviceType === 'Framing') {
+          const fs = data.get('framing_style') as string;
+          const w = data.get('width_mm') as string;
+          const h = data.get('height_mm') as string;
+          const glass = data.get('glass_type') as string;
+          if (fs) framingData.framing_style = fs;
+          if (w) framingData.width_mm = w;
+          if (h) framingData.height_mm = h;
+          if (glass) framingData.glass_type = glass;
+        }
+
+        const lang = localStorage.getItem('sk-lang') || 'en';
+        const phone = (data.get('phone') as string || '').trim();
+        const city = (data.get('city') as string || '').trim();
+        const payload = {
+          name: [firstName, lastName].filter(Boolean).join(' '),
+          email: data.get('email'),
+          service_type: serviceType,
+          client_type: (data.get('client_type') as string) || null,
+          description: data.get('message') || '',
+          form_data: {
+            source: 'website',
+            lang,
+            ...(phone ? { phone } : {}),
+            ...(city ? { city } : {}),
+            ...framingData,
+          },
+        };
+
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/inquiries`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (res.ok) {
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+        } else {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Enquiry'; }
+          alert('Something went wrong — please email us at hello@studio-kaku.com');
+        }
+      });
+    }
+  </script>
 </Layout>

@@ -1,6 +1,47 @@
 export const projects = [
   // ── Journal entries (journal: true) — newest first ──────────────────────
 
+  // June 2026
+  {
+    slug: "supper-club-kura-june-2026",
+    journal: true,
+    title: "Supper Club KURA",
+    tagline: "Curation & direction",
+    subtitle: "UltraSuperNew KURA",
+    year: "June 2026",
+    credits: [
+      { label: "Venue", value: "UltraSuperNew KURA" },
+      { label: "Curation & Direction", value: "Studio Kaku" },
+    ],
+    description: "Curation and creative direction for a supper club evening at KURA, with UltraSuperNew.",
+    cover: "DSC06406.jpg",
+    images: [
+      "DSC06406.jpg",
+      "DSC06449.jpg","DSC06450.jpg","DSC06454.jpg","DSC06458.jpg",
+      "DSC06490.jpg","DSC06510.jpg","DSC06561.jpg","DSC06566.jpg",
+      "DSC06575.jpg","DSC06587.jpg",
+    ],
+  },
+  // May 2026
+  {
+    slug: "sapphire-lounge-may-2026",
+    journal: true,
+    title: "Sapphire Lounge",
+    tagline: "Framing",
+    year: "May 2026",
+    credits: [
+      { label: "Client", value: "Sapphire Lounge" },
+      { label: "Photography", value: "Sakamoto Osamu" },
+    ],
+    description: `Framing commission for Sapphire Lounge.`,
+    cover: "Sapphire-052026©Sakamoto-Osamu-C&B14.jpg",
+    images: [
+      "Sapphire-052026©Sakamoto-Osamu-C&B14.jpg",
+      "Sapphire-052026©Sakamoto-Osamu-C&B16.jpg",
+      "Sapphire-052026©Sakamoto-Osamu-C&B17.jpg",
+      "Sapphire-052026©Sakamoto-Osamu-C&B5.jpg",
+    ],
+  },
   // March 2026
   {
     slug: "mason-saltarrelli-march-2026",
@@ -300,6 +341,24 @@ export const projects = [
     cover: "cover.JPG",
     images: ["cover.JPG", "image2.JPG"],
   },
+  {
+    slug: "ceysson-benetiere-may-2025",
+    journal: true,
+    title: "Ceysson & Bénétière",
+    tagline: "Framing",
+    year: "May 2025",
+    credits: [
+      { label: "Client", value: "Ceysson & Bénétière" },
+      { label: "Photography", value: "Sakamoto Osamu" },
+    ],
+    description: "A selection of framing work done for Ceysson & Bénétière, Tokyo.",
+    cover: "Showroom-2026©Sakamoto-Osamu-C&B3.jpg",
+    images: [
+      "Showroom-2026©Sakamoto-Osamu-C&B3.jpg",
+      "Showroom-2026©Sakamoto-Osamu-C&B5.jpg",
+      "Showroom-2026©Sakamoto-Osamu-C&B6.jpg",
+    ],
+  },
   // April 2025
   {
     slug: "private-commission-april-2025",
@@ -485,6 +544,26 @@ export const projects = [
   // ── Portfolio projects (journal: false) — newest first ──────────────────
 
   {
+    slug: "ceysson-benetiere-may-2026",
+    title: "Ceysson & Bénétière",
+    tagline: "Framing & installation",
+    subtitle: "Peter Halley",
+    year: "May 2026",
+    credits: [
+      { label: "Client", value: "Ceysson & Bénétière" },
+      { label: "Artist", value: "Peter Halley" },
+      { label: "Photography", value: "Sakamoto Osamu" },
+    ],
+    description: `Framing and installation for Peter Halley's exhibition at Ceysson & Bénétière, Tokyo.`,
+    cover: "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B9.jpg",
+    images: [
+      "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B9.jpg",
+      "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B1.jpg",
+      "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B5.jpg",
+      "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B19.jpg",
+    ],
+  },
+  {
     slug: "wandler-kamei",
     title: "Wandler × Kamei san",
     tagline: "Creative direction & artist management",
@@ -564,25 +643,6 @@ Studio Kaku handled curation, framing and installation for this exhibition.`,
     description: `Framing for the Italian restaurant at Tokyo American Club, in collaboration with artist Sante Vision.`,
     cover: "S__32784433.jpg",
     images: ["S__32784433.jpg","S__32784431.jpg"],
-  },
-  {
-    slug: "ceysson-benetiere",
-    title: "Ceysson & Bénétière",
-    tagline: "Framing & installation",
-    subtitle: "",
-    year: "May 2025",
-    credits: [
-      { label: "Client", value: "Ceysson & Bénétière" },
-    ],
-    lastImageFull: true,
-    description: `Since their opening we've been on call for installation, problem-solving and framing. A selection of frames done for the gallery.`,
-    cover: "Front main image.jpg",
-    images: [
-      "Front main image.jpg",
-      "S__32784409.jpg","S__32784427.jpg","S__32784426.jpg",
-      "S__32784419.jpg","S__32784416.jpg",
-      "S__32784412.jpg","S__32784407.jpg",
-    ],
   },
   {
     slug: "arthur-harmonyst",
