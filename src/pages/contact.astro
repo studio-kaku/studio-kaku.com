@@ -281,7 +281,7 @@ import Layout from '../layouts/Layout.astro';
     if (form && success) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = (localStorage.getItem('sk-lang') || 'en') === 'ja' ? '送信中…' : 'Sending…'; }
 
         const data = new FormData(form);
         const firstName = (data.get('first_name') as string || '').trim();
@@ -333,7 +333,7 @@ import Layout from '../layouts/Layout.astro';
           form.classList.add('hidden');
           success.classList.remove('hidden');
         } else {
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Enquiry'; }
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = (localStorage.getItem('sk-lang') || 'en') === 'ja' ? '送信する' : 'Send Enquiry'; }
           alert('Something went wrong — please email us at hello@studio-kaku.com');
         }
       });
