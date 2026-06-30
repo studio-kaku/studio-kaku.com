@@ -139,6 +139,7 @@ import Layout from '../layouts/Layout.astro';
             <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Frame style" data-ja="フレームスタイル">Frame style</label>
             <select
               name="framing_style"
+              id="framing-style-select"
               class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
               data-options-en='[{"v":"","l":"Select style…"},{"v":"Classic with matting","l":"Classic with matting"},{"v":"Floating frame","l":"Floating frame"},{"v":"Acrylic box","l":"Acrylic box"},{"v":"L shape for canvas","l":"L shape for canvas"},{"v":"Other","l":"Other"}]'
               data-options-ja='[{"v":"","l":"スタイルを選択"},{"v":"Classic with matting","l":"クラシック（マット付き）"},{"v":"Floating frame","l":"フローティングフレーム"},{"v":"Acrylic box","l":"アクリルボックス"},{"v":"L shape for canvas","l":"Lシェイプ（キャンバス用）"},{"v":"Other","l":"その他"}]'
@@ -177,6 +178,7 @@ import Layout from '../layouts/Layout.astro';
             <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Glass / glazing" data-ja="ガラス">Glass / glazing</label>
             <select
               name="glass_type"
+              id="glass-type-select"
               class="w-full border border-brand-border bg-brand-bg px-4 py-3 text-sm focus:outline-none focus:border-brand-text transition-colors appearance-none"
               data-options-en='[{"v":"","l":"Select…"},{"v":"Standard glass","l":"Standard glass"},{"v":"Non-reflective glass","l":"Non-reflective glass"},{"v":"Acrylic","l":"Acrylic"},{"v":"Not sure","l":"Not sure"}]'
               data-options-ja='[{"v":"","l":"選択してください"},{"v":"Standard glass","l":"標準ガラス"},{"v":"Non-reflective glass","l":"非反射ガラス"},{"v":"Acrylic","l":"アクリル"},{"v":"Not sure","l":"未定"}]'
@@ -244,19 +246,35 @@ import Layout from '../layouts/Layout.astro';
     const serviceSelect = document.getElementById('service-type-select') as HTMLSelectElement | null;
     const framingFields = document.getElementById('framing-fields') as HTMLElement | null;
 
-    // Bilingual select options
+    // Bilingual select options — defined inline to avoid HTML attribute encoding issues
+    const SELECT_OPTS: Record<string, {en: {v:string,l:string}[], ja: {v:string,l:string}[]}> = {
+      'client-type-select': {
+        en: [{v:'',l:'Select…'},{v:'private',l:'Private individual'},{v:'company',l:'Company'},{v:'gallery',l:'Gallery'},{v:'artist',l:'Artist'}],
+        ja: [{v:'',l:'選択してください'},{v:'private',l:'個人'},{v:'company',l:'企業'},{v:'gallery',l:'ギャラリー'},{v:'artist',l:'アーティスト'}]
+      },
+      'service-type-select': {
+        en: [{v:'',l:'Select a service…'},{v:'Framing',l:'Framing'},{v:'Art Consultancy',l:'Art Consultancy'},{v:'Art Sourcing',l:'Sourcing & Commissioning'},{v:'General',l:'Other / Not sure yet'}],
+        ja: [{v:'',l:'サービスを選択'},{v:'Framing',l:'額装'},{v:'Art Consultancy',l:'アートコンサルティング'},{v:'Art Sourcing',l:'調達・コミッション'},{v:'General',l:'その他 / まだ決まっていない'}]
+      },
+      'framing-style-select': {
+        en: [{v:'',l:'Select style…'},{v:'Classic with matting',l:'Classic with matting'},{v:'Floating frame',l:'Floating frame'},{v:'Acrylic box',l:'Acrylic box'},{v:'L shape for canvas',l:'L shape for canvas'},{v:'Other',l:'Other'}],
+        ja: [{v:'',l:'スタイルを選択'},{v:'Classic with matting',l:'クラシック（マット付き）'},{v:'Floating frame',l:'フローティングフレーム'},{v:'Acrylic box',l:'アクリルボックス'},{v:'L shape for canvas',l:'Lシェイプ（キャンバス用）'},{v:'Other',l:'その他'}]
+      },
+      'glass-type-select': {
+        en: [{v:'',l:'Select…'},{v:'Standard glass',l:'Standard glass'},{v:'Non-reflective glass',l:'Non-reflective glass'},{v:'Acrylic',l:'Acrylic'},{v:'Not sure',l:'Not sure'}],
+        ja: [{v:'',l:'選択してください'},{v:'Standard glass',l:'標準ガラス'},{v:'Non-reflective glass',l:'非反射ガラス'},{v:'Acrylic',l:'アクリル'},{v:'Not sure',l:'未定'}]
+      },
+    };
+
     function applySelectLang(lang: string) {
-      document.querySelectorAll('select[data-options-en]').forEach((sel) => {
-        const key = lang === 'ja' ? 'data-options-ja' : 'data-options-en';
-        const raw = sel.getAttribute(key);
-        if (!raw) return;
-        try {
-          const opts = JSON.parse(raw) as Array<{v: string; l: string}>;
-          const current = (sel as HTMLSelectElement).value;
-          (sel as HTMLSelectElement).innerHTML = opts.map(o =>
-            `<option value="${o.v}"${o.v === current ? ' selected' : ''}>${o.l}</option>`
-          ).join('');
-        } catch {}
+      const isJa = lang === 'ja';
+      Object.entries(SELECT_OPTS).forEach(([id, opts]) => {
+        const sel = document.getElementById(id) as HTMLSelectElement | null;
+        if (!sel) return;
+        const current = sel.value;
+        sel.innerHTML = (isJa ? opts.ja : opts.en).map(o =>
+          `<option value="${o.v}"${o.v === current ? ' selected' : ''}>${o.l}</option>`
+        ).join('');
       });
     }
 
