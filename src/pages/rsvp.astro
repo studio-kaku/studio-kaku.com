@@ -959,7 +959,7 @@ import Layout from '../layouts/Layout.astro';
       const h = tlColumn.getBoundingClientRect().height;
       if (h > 0) {
         tlIlloDesktop.style.height = h + 'px';
-        tlIlloMobile.style.height = (h * 1.09) + 'px';
+        tlIlloMobile.style.height = (h * 1.135) + 'px';
       }
     };
     new ResizeObserver(syncIlloHeight).observe(tlColumn);
