@@ -1,0 +1,833 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="RSVP · Yuki Kakuno & Eleanor Ford"
+  description="Please RSVP for the wedding of Yuki Kakuno & Eleanor Ford, 2 October 2027."
+  noindex={true}
+>
+  <style>
+    .name-script {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--color-brand-border);
+      margin: 2.5rem 0;
+    }
+    input[type="radio"] {
+      accent-color: var(--color-brand-text);
+    }
+
+    /* Vertical timeline */
+    .tl-item {
+      display: grid;
+      grid-template-columns: 4.5rem 1.5rem 1fr;
+      align-items: start;
+    }
+    .tl-time {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--color-brand-muted);
+      text-align: right;
+      padding-right: 0.75rem;
+      padding-top: 0.15rem;
+      min-height: 1rem;
+    }
+    .tl-connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .tl-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--color-brand-accent);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    .tl-dot-day {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid var(--color-brand-accent);
+      background: var(--color-brand-bg);
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+    .tl-line {
+      width: 1px;
+      background: var(--color-brand-border);
+      flex: 1;
+      min-height: 1.5rem;
+    }
+    .tl-content {
+      padding-left: 0.75rem;
+      padding-bottom: 1.75rem;
+    }
+    .tl-event {
+      font-size: 0.875rem;
+      line-height: 1.4;
+    }
+    .tl-note {
+      font-size: 0.7rem;
+      color: var(--color-brand-muted);
+      margin-top: 0.2rem;
+    }
+    .tl-day-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-brand-muted);
+      padding-left: 0.75rem;
+      padding-bottom: 1.25rem;
+      padding-top: 0.1rem;
+    }
+    .tl-illo {
+      position: absolute;
+      height: auto;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Info buttons */
+    .info-btn {
+      display: block;
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--color-brand-border);
+      background: transparent;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      text-align: center;
+    }
+    .info-btn:hover { border-color: var(--color-brand-text); }
+    .info-btn.active {
+      background: var(--color-brand-text);
+      color: var(--color-brand-bg);
+      border-color: var(--color-brand-text);
+    }
+    .info-panel {
+      display: none;
+      padding: 2rem 0;
+      border-top: 1px solid var(--color-brand-border);
+    }
+    .info-panel.open { display: block; }
+  </style>
+
+  <!-- Hero -->
+  <section class="px-8 md:px-12 pt-16 md:pt-28 pb-16 text-center">
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-10">2 · 3 October 2027 · Shimoda, Japan</p>
+    <h1 class="name-script leading-tight" style="font-size: clamp(3rem, 7vw, 6rem); text-align: center;">
+      Yuki Kakuno<br />
+      <span style="font-size: 0.7em;">&amp;</span><br />
+      Eleanor Ford
+    </h1>
+    <p class="text-brand-muted mt-8 text-sm leading-relaxed tracking-wide">
+      We would like to invite you to our wedding!<br />
+      Please let us know if you can join us.
+    </p>
+    <p class="text-brand-muted text-xs tracking-widest uppercase mt-10">Please respond by 20 January 2027</p>
+    <p class="text-brand-muted text-xs mt-6">
+      Questions on the day? <a href="https://wa.me/819066521550" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Rachel, +81 90-6652-1550</a> <span class="normal-case">(WhatsApp)</span>
+      &nbsp;·&nbsp;
+      <a href="mailto:hello@studio-kaku.com" class="underline underline-offset-2 hover:opacity-60 transition-opacity">hello@studio-kaku.com</a>
+    </p>
+  </section>
+
+  <!-- Vertical timeline -->
+  <section class="px-8 md:px-12 py-16 border-t border-brand-border">
+    <div class="relative max-w-7xl mx-auto">
+      <img src="/images/wedding/schedule-illustrations.png" alt="" class="hidden lg:block" style="position:absolute; left:0; top:0; width:1280px; height:730px; z-index:0; pointer-events:none;" />
+      <div class="max-w-xs mx-auto relative" style="z-index:1;">
+
+      <!-- Saturday -->
+      <div class="tl-item" id="tl-sat-label">
+        <div class="tl-time"></div>
+        <div class="tl-connector"><div class="tl-dot-day"></div><div class="tl-line"></div></div>
+        <div class="tl-day-label">Saturday 2 October 2027<span style="display:block;margin-top:0.2rem;color:var(--color-brand-accent);letter-spacing:0.06em;">Smart / Casual</span></div>
+      </div>
+      <div class="tl-item" id="tl-arrival">
+        <div class="tl-time">3:00pm</div>
+        <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <p class="tl-event">Arrival</p>
+          <p class="tl-note"><a href="https://maps.app.goo.gl/3esAWPnSevyEWgJfA" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Shirahama Shrine ↗</a> · parking available but limited</p>
+        </div>
+      </div>
+      <div class="tl-item" id="tl-ceremony">
+        <div class="tl-time">3:30pm</div>
+        <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <p class="tl-event">Ceremony</p>
+        </div>
+      </div>
+      <div class="tl-item" id="tl-shuttle">
+        <div class="tl-time">4:30pm</div>
+        <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <p class="tl-event">Shuttle buses depart</p>
+          <p class="tl-note">to Garden Villa Hotel, buses will run back and forth so everyone gets picked up</p>
+        </div>
+      </div>
+      <div class="tl-item" id="tl-aperitivo">
+        <div class="tl-time">5:00pm</div>
+        <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <p class="tl-event">Aperitivo</p>
+          <p class="tl-note"><a href="https://maps.app.goo.gl/hiNQoJXh1pRR5Db6A" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Garden Villa Hotel ↗</a> · if parking, take the first entrance (follow signs to BBQ Garden)</p>
+        </div>
+      </div>
+      <div class="tl-item" id="tl-dinner">
+        <div class="tl-time">7:00pm</div>
+        <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <p class="tl-event">Dinner &amp; Party</p>
+        </div>
+      </div>
+      <div class="tl-item" id="tl-lasttaxi">
+        <div class="tl-time">1:00am</div>
+        <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <p class="tl-event">Last taxi for non-hotel guests</p>
+          <p class="tl-note">please arrange your own taxi by this time</p>
+        </div>
+      </div>
+
+      <!-- Sunday -->
+      <div class="tl-item" id="tl-sun-label" style="margin-top: 1rem;">
+        <div class="tl-time"></div>
+        <div class="tl-connector"><div class="tl-dot-day"></div><div class="tl-line"></div></div>
+        <div class="tl-day-label">Sunday 3 October 2027<span style="display:block;margin-top:0.2rem;color:var(--color-brand-accent);letter-spacing:0.06em;">Beach Wear / Swimsuit</span></div>
+      </div>
+      <div class="tl-item" id="tl-beach">
+        <div class="tl-time"></div>
+        <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <p class="tl-event">Beach Party &amp; Snorkelling</p>
+          <p class="tl-note">food (TBC) and drinks included</p>
+        </div>
+      </div>
+      <div class="tl-item" id="tl-transport">
+        <div class="tl-time"></div>
+        <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line" style="visibility:hidden;"></div></div>
+        <div class="tl-content">
+          <p class="tl-event">Transportation</p>
+          <p class="tl-note">from the hotel, and back to the station or the hotel afterwards &nbsp;·&nbsp; price to follow</p>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Info buttons -->
+  <section class="px-8 md:px-12 py-12 border-t border-brand-border">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <button class="info-btn" data-panel="taxi">Taxi Recommendations</button>
+      <button class="info-btn" data-panel="spots">Favourite Shimoda Spots</button>
+      <button class="info-btn" data-panel="other">Other Questions</button>
+      <button class="info-btn" data-panel="access">Access</button>
+    </div>
+    <div id="panel-taxi" class="info-panel">
+      <div class="max-w-lg">
+        <p class="text-brand-muted text-xs tracking-widest uppercase mb-6">Taxi Recommendations &nbsp;·&nbsp; タクシー</p>
+        <p class="text-sm text-brand-muted leading-relaxed mb-8">There is a taxi stand outside Izukyu Shimoda Station. You can also call ahead using the numbers below.</p>
+        <div class="space-y-6">
+          <div>
+            <p class="text-sm font-medium mb-1">伊豆東海タクシー <span class="font-normal text-brand-muted">(Izu Tokai Taxi)</span></p>
+            <a href="tel:0558230129" class="text-sm text-brand-muted hover:opacity-60 transition-opacity">0558-23-0129</a>
+          </div>
+          <div>
+            <p class="text-sm font-medium mb-1">Eikyo Taxi</p>
+            <a href="tel:0558232288" class="text-sm text-brand-muted hover:opacity-60 transition-opacity">0558-23-2288</a>
+          </div>
+          <div>
+            <p class="text-sm font-medium mb-1">Hifumi Taxis <span class="font-normal text-brand-muted">一二三タクシー</span></p>
+            <a href="tel:0558220273" class="text-sm text-brand-muted hover:opacity-60 transition-opacity">0558-22-0273</a>
+          </div>
+        </div>
+        <p class="text-xs text-brand-muted mt-8 border-t border-brand-border pt-5">Taxis in Shimoda are limited late at night, so if you are not staying at Garden Villa Hotel, please arrange your taxi by 1:00am.</p>
+      </div>
+    </div>
+    <div id="panel-spots" class="info-panel">
+      <div class="space-y-14">
+        <div class="flex items-baseline justify-between flex-wrap gap-4">
+          <p class="text-brand-muted text-xs tracking-widest uppercase">Our Favourite Shimoda Spots</p>
+          <a href="https://maps.app.goo.gl/onx5XNNApwMwHCmZ7" target="_blank" rel="noopener" class="text-xs tracking-widest uppercase underline underline-offset-2 hover:opacity-60 transition-opacity">View All On One Map ↗</a>
+        </div>
+
+        <div>
+          <p class="text-xs tracking-widest uppercase mb-6" style="color:var(--color-brand-text);">Onsen &amp; Baths</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/sawada-onsen.jpg" alt="Sawada Park Open-Air Onsen" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://maps.app.goo.gl/wm7ZSeaEh77KK1b17" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Sawada Park Open-Air Onsen ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Open-air baths right above the sea, out in Nishiizu and worth the drive.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/yama-no-ie.jpg" alt="Yama no Ie" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://maps.app.goo.gl/Yhh6UrVjk4HQR1pV6" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Yama no Ie ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">A rustic riverside spot in the forest, reached over a little wooden bridge.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/stone-sauna.jpg" alt="Stone Sauna & Bath" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://maps.app.goo.gl/PQ3UKTLfiiJA99GT6" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Stone Sauna &amp; Bath ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Lie out on heated pebbles in a robe, a good one to slow right down in.</p>
+            </div>
+            <div>
+              <div class="acc-photo">Image placeholder</div>
+              <p class="text-sm font-medium mb-1">Kannon Onsen <span class="font-normal text-brand-muted">観音温泉</span></p>
+              <p class="text-brand-muted text-xs leading-relaxed">A quieter local onsen, a little further out of town.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-xs tracking-widest uppercase mb-6" style="color:var(--color-brand-text);">Food &amp; Drink</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/fermenco.jpg" alt="Fermenco" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/search/?api=1&amp;query=FermenCo.+348-37+Kisami+Shimoda" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Fermenco ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Wood-fired pizza, right on the beach.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/south-point.jpg" alt="South Point" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://maps.app.goo.gl/ytRnsc4mijjZAtJT8" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">South Point ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Cafe with a knockout coastal view.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/do-sanko.jpg" alt="Do Sanko" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/search/?api=1&amp;query=Cafe+do+Sanko+Shimoda" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Do Sanko ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Cosy local spot for homestyle pasta.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/le-petit-phare.jpg" alt="Le Petit Phare" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Petit+Phare+Shimoda" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Le Petit Phare ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">A tiny lighthouse-shaped café, impossible to miss.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/minorikawa.jpg" alt="Minorikawa" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%AF%E3%82%A4%E3%83%B3%E3%81%A8%E3%81%8A%E8%82%89%E6%96%99%E7%90%86MINORIKAWA+Shimoda" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Minorikawa ↗</a> <span class="font-normal text-brand-muted">ワインとお肉料理MINORIKAWA</span></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Wine bar and meat restaurant in a cosy brick nook.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/isoichi.jpg" alt="磯一" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A3%AF%E4%B8%80+%E9%9D%99%E5%B2%A1%E7%9C%8C%E4%B8%8B%E7%94%B0%E5%B8%82%E7%99%BD%E6%B5%9C2648-5" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">磯一 ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Seafood set meals, with a tableside flame-torched starter.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/paradise-coffee.jpg" alt="Paradise Coffee" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/search/?api=1&amp;query=PARADISE+COFFEE+Shimoda+%E5%A4%A7%E5%B7%9D%E7%AB%AF%E9%80%9A%E3%82%8A" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Paradise Coffee ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Specialty coffee and good cake, Shimoda's coolest café.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/gelato-amore.jpg" alt="Gelato Amore" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/search/?api=1&amp;query=Gelateria+Amore+Shimoda" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Gelato Amore ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Italian gelato, made fresh daily.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/gasshou.jpg" alt="Gasshou 合掌" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%90%88%E6%8E%8C+%E9%9D%99%E5%B2%A1%E7%9C%8C%E4%B8%8B%E7%94%B0%E5%B8%82%E4%B8%89%E4%B8%81%E7%9B%AE26-27" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Gasshou ↗</a> <span class="font-normal text-brand-muted">合掌</span></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Traditional irori hearth-table dining in an old farmhouse.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/gorosaya.jpg" alt="Gorosaya" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://maps.app.goo.gl/CrRBjFsaG3M35frf9" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Gorosaya ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Kaisendon piled high with the day's catch.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/as-it.jpg" alt="As it" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://maps.app.goo.gl/YgvDopuYQcse6Ryw7" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">As it ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Laid-back restaurant &amp; bar with an open-air, string-lit terrace.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-xs tracking-widest uppercase mb-6" style="color:var(--color-brand-text);">Sights &amp; Beaches</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/cape-tsumeki.jpg" alt="Cape Tsumeki" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/search/?api=1&amp;query=Cape+Tsumeki+%E7%88%AA%E6%9C%A8%E5%B4%8E+Shimoda" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Cape Tsumeki ↗</a> <span class="font-normal text-brand-muted">爪木崎</span></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Coastal walking trail, known for its flower gardens.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/perry-road.jpg" alt="Perry Road" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/place/Perry+Road,+Sanch%C5%8Dme,+Shimoda-shi,+Shizuoka-ken+415-0023,+Japan/@34.6714088,138.9423322,17z/data=!3m1!4b1!4m5!3m4!1s0x601758c0c5278123:0x67fb0d9172087ba8!8m2!3d34.6714088!4d138.9445209" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Perry Road ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">A willow-lined canal street, Shimoda's prettiest walk.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/cape-irozaki.jpg" alt="Cape Irozaki & Ishimuro Shrine" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/place/Cape+Irozaki/@34.6019582,138.8435582,17z/data=!3m1!4b1!4m6!3m5!1s0x6017571b790f878b:0x695184851d1c3a8c!8m2!3d34.6019582!4d138.8461331!16s%2Fg%2F1217cp0l" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Cape Irozaki ↗</a> <span class="font-normal text-brand-muted">石廊崎</span> &amp; <a href="https://www.google.com/maps/search/?api=1&amp;query=Ishimuro+Shrine+%E7%9F%B3%E5%AE%A4%E7%A5%9E%E7%A4%BE+Irozaki" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Ishimuro Shrine ↗</a> <span class="font-normal text-brand-muted">石室神社</span></p>
+              <p class="text-brand-muted text-xs leading-relaxed">A shrine built into the cliff face, with dramatic ocean views.</p>
+            </div>
+            <div>
+              <div class="acc-photo"><img src="/images/wedding/spots/hirizo-beach.jpg" alt="Hirizo Beach" /></div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%92%E3%83%AA%E3%82%BE%E6%B5%9C&amp;query_place_id=ChIJVWmuv1hWF2ARO862isNH55w" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Hirizo Beach ↗</a> <span class="font-normal text-brand-muted">ヒリゾ浜</span></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Crystal-clear cove, some of the best snorkelling in Japan.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-xs tracking-widest uppercase mb-6" style="color:var(--color-brand-text);">Hotel Recommendations</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+              <div class="acc-photo">Image placeholder</div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/search/?api=1&amp;query=Shimoda+Prince+Hotel+1547-1+Shirahamakaigan" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Shimoda Prince Hotel ↗</a></p>
+              <p class="text-brand-muted text-xs leading-relaxed">Beachfront option if Garden Villa fills up.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-xs tracking-widest uppercase mb-6" style="color:var(--color-brand-text);">If You're Passing Through Atami</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+              <div class="acc-photo">Image placeholder</div>
+              <p class="text-sm font-medium mb-1">Hillary's new hotel</p>
+              <p class="text-brand-muted text-xs leading-relaxed">Opening soon, details to follow.</p>
+            </div>
+            <div>
+              <div class="acc-photo">Image placeholder</div>
+              <p class="text-sm font-medium mb-1"><a href="https://www.google.com/maps/place/%E7%86%B1%E6%B5%B7%E7%A7%98%E5%AE%9D%E9%A4%A8/@35.0868336,139.0802098,14z/data=!4m8!3m7!1s0x6019be59750a71b7:0x6dc30fa0ce68e826!8m2!3d35.0868336!4d139.0802098!9m1!1b1!16s/g/11h7b5bqj6" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Atami Hihōkan ↗</a> <span class="font-normal text-brand-muted">熱海秘宝館</span></p>
+              <p class="text-brand-muted text-xs leading-relaxed">A quirky, adults-only local curiosity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="panel-other" class="info-panel">
+      <div class="max-w-lg space-y-12">
+        <div>
+          <p class="text-brand-muted text-xs tracking-widest uppercase mb-4">Dress Code</p>
+          <p class="text-sm text-brand-muted leading-relaxed">Saturday is smart / casual, think linen suits and pretty or cocktail dresses. Sunday is beach wear and swimsuits for the beach party.</p>
+        </div>
+        <div>
+          <p class="text-brand-muted text-xs tracking-widest uppercase mb-6">Packing List &nbsp;·&nbsp; 持ち物リスト</p>
+          <ul class="space-y-4">
+            <li class="flex items-baseline gap-4 text-sm">
+              <span style="color:var(--color-brand-accent); flex-shrink:0;">—</span>
+              <span><strong>Smart / casual outfit</strong> <span class="text-brand-muted">for Saturday evening</span></span>
+            </li>
+            <li class="flex items-baseline gap-4 text-sm">
+              <span style="color:var(--color-brand-accent); flex-shrink:0;">—</span>
+              <span><strong>Swimsuit</strong> <span class="text-brand-muted">for Sunday snorkelling</span></span>
+            </li>
+            <li class="flex items-baseline gap-4 text-sm">
+              <span style="color:var(--color-brand-accent); flex-shrink:0;">—</span>
+              <span><strong>Beachwear</strong></span>
+            </li>
+            <li class="flex items-baseline gap-4 text-sm">
+              <span style="color:var(--color-brand-accent); flex-shrink:0;">—</span>
+              <span><strong>Sun cream</strong></span>
+            </li>
+            <li class="flex items-baseline gap-4 text-sm">
+              <span style="color:var(--color-brand-accent); flex-shrink:0;">—</span>
+              <span><strong>Light rain jacket</strong> <span class="text-brand-muted">October is typhoon season in Japan, better safe than sorry</span></span>
+            </li>
+            <li class="flex items-baseline gap-4 text-sm">
+              <span style="color:var(--color-brand-accent); flex-shrink:0;">—</span>
+              <span><strong>A light layer</strong> <span class="text-brand-muted">coastal evenings can get cool after dark</span></span>
+            </li>
+            <li class="flex items-baseline gap-4 text-sm">
+              <span style="color:var(--color-brand-accent); flex-shrink:0;">—</span>
+              <span><strong>Cash</strong> <span class="text-brand-muted">many local spots don't take cards</span></span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-brand-muted text-xs tracking-widest uppercase mb-4">Weather</p>
+          <p class="text-sm text-brand-muted leading-relaxed">October is typhoon season in Japan, so we'll be keeping an eye on the forecast. If a typhoon does affect the weekend, we'll have a backup plan and will let everyone know as soon as we can.</p>
+        </div>
+        <div>
+          <p class="text-brand-muted text-xs tracking-widest uppercase mb-4">Gifts &nbsp;·&nbsp; ご祝儀</p>
+          <p class="text-sm text-brand-muted leading-relaxed">Your presence is truly the only present we need, so please don't feel any obligation. That said, if you'd like to mark the occasion, gifts (or goshugi, for those familiar with the tradition) are warmly welcomed too.</p>
+        </div>
+      </div>
+    </div>
+    <div id="panel-access" class="info-panel">
+      <div class="max-w-lg space-y-12">
+
+        <!-- By Train -->
+        <div>
+          <p class="text-brand-muted text-xs tracking-widest uppercase mb-6">By Train &nbsp;·&nbsp; 電車</p>
+
+          <!-- Direct route -->
+          <p class="text-xs tracking-widest uppercase mb-4" style="color:var(--color-brand-text);">Direct &nbsp;·&nbsp; 直通</p>
+          <div>
+            <div style="display:flex; gap:1rem; align-items:flex-start;">
+              <div style="display:flex; flex-direction:column; align-items:center; padding-top:3px; flex-shrink:0;">
+                <div style="width:9px; height:9px; border-radius:50%; background:var(--color-brand-accent);"></div>
+                <div style="width:1px; min-height:3rem; background:var(--color-brand-border);"></div>
+              </div>
+              <div style="padding-bottom:1rem;">
+                <p class="text-sm font-medium">Tokyo &nbsp;<span style="font-weight:400;">東京</span></p>
+                <p class="text-xs" style="color:var(--color-brand-muted); margin-top:0.25rem;">Odoriko · Super View Odoriko &nbsp;·&nbsp; ~2h 40min</p>
+                <p class="text-xs" style="color:var(--color-brand-muted);">踊り子号・スーパービュー踊り子号 &nbsp;·&nbsp; 約2時間40分</p>
+              </div>
+            </div>
+            <div style="display:flex; gap:1rem; align-items:center;">
+              <div style="width:9px; height:9px; border-radius:50%; background:var(--color-brand-accent); flex-shrink:0;"></div>
+              <p class="text-sm font-medium">Shimoda &nbsp;<span style="font-weight:400;">下田</span></p>
+            </div>
+          </div>
+
+          <!-- Via Shinkansen -->
+          <p class="text-xs tracking-widest uppercase mb-4" style="color:var(--color-brand-text); margin-top:2rem;">Via Shinkansen &nbsp;·&nbsp; 新幹線経由</p>
+          <div>
+            <div style="display:flex; gap:1rem; align-items:flex-start;">
+              <div style="display:flex; flex-direction:column; align-items:center; padding-top:3px; flex-shrink:0;">
+                <div style="width:9px; height:9px; border-radius:50%; background:var(--color-brand-accent);"></div>
+                <div style="width:1px; min-height:3.5rem; background:var(--color-brand-border);"></div>
+              </div>
+              <div style="padding-bottom:1rem;">
+                <p class="text-sm font-medium">Tokyo / Nagoya &nbsp;<span style="font-weight:400;">東京・名古屋</span></p>
+                <p class="text-xs" style="color:var(--color-brand-muted); margin-top:0.25rem;">Shinkansen (Kodama) &nbsp;·&nbsp; ~50min from Tokyo, ~2h from Nagoya</p>
+                <p class="text-xs" style="color:var(--color-brand-muted);">新幹線こだま &nbsp;·&nbsp; 東京から約50分・名古屋から約2時間</p>
+              </div>
+            </div>
+            <div style="display:flex; gap:1rem; align-items:flex-start;">
+              <div style="display:flex; flex-direction:column; align-items:center; padding-top:3px; flex-shrink:0;">
+                <div style="width:9px; height:9px; border-radius:50%; background:var(--color-brand-accent);"></div>
+                <div style="width:1px; min-height:3rem; background:var(--color-brand-border);"></div>
+              </div>
+              <div style="padding-bottom:1rem;">
+                <p class="text-sm font-medium">Atami &nbsp;<span style="font-weight:400;">熱海</span></p>
+                <p class="text-xs" style="color:var(--color-brand-muted); margin-top:0.25rem;">JR Ito Line &nbsp;·&nbsp; JR伊東線</p>
+              </div>
+            </div>
+            <div style="display:flex; gap:1rem; align-items:flex-start;">
+              <div style="display:flex; flex-direction:column; align-items:center; padding-top:3px; flex-shrink:0;">
+                <div style="width:9px; height:9px; border-radius:50%; background:var(--color-brand-accent);"></div>
+                <div style="width:1px; min-height:3rem; background:var(--color-brand-border);"></div>
+              </div>
+              <div style="padding-bottom:1rem;">
+                <p class="text-sm font-medium">Ito &nbsp;<span style="font-weight:400;">伊東</span></p>
+                <p class="text-xs" style="color:var(--color-brand-muted); margin-top:0.25rem;">Izukyu Line &nbsp;·&nbsp; ~90min &nbsp;·&nbsp; 伊豆急行線 約90分</p>
+              </div>
+            </div>
+            <div style="display:flex; gap:1rem; align-items:center;">
+              <div style="width:9px; height:9px; border-radius:50%; background:var(--color-brand-accent); flex-shrink:0;"></div>
+              <p class="text-sm font-medium">Shimoda &nbsp;<span style="font-weight:400;">下田</span></p>
+            </div>
+          </div>
+
+          <div class="border-t border-brand-border pt-5" style="margin-top:2rem;">
+            <p class="text-xs text-brand-muted tracking-widest uppercase mb-3">From Shimoda Station &nbsp;·&nbsp; 下田駅から</p>
+            <p class="text-sm leading-relaxed mb-1">Take the bus towards Shirahama Beach, about 10 minutes. Alight at the <strong>Itami</strong> stop, 1 minute on foot.</p>
+            <p class="text-xs text-brand-muted">伊豆急下田駅より白浜海岸行きバスで約10分。「板見」停留所下車、徒歩1分。</p>
+          </div>
+        </div>
+
+        <!-- By Car -->
+        <div>
+          <p class="text-brand-muted text-xs tracking-widest uppercase mb-5">By Car &nbsp;·&nbsp; お車</p>
+          <p class="text-sm leading-relaxed mb-1">About <strong>3.5 hours from Tokyo</strong>, 5 hours from Nagoya.</p>
+          <p class="text-xs text-brand-muted mb-7">東京より約3時間半、名古屋より約5時間。</p>
+          <div class="space-y-6 text-sm mb-7">
+            <div>
+              <p class="text-xs text-brand-muted tracking-widest uppercase mb-2">Route 1</p>
+              <p class="leading-relaxed mb-1">Tokyo → Tomei Expressway → Atsugi IC → Odawara-Atsugi Road → Odawara → <strong>Route 135</strong> → Shirahama</p>
+              <p class="text-xs text-brand-muted">東京 → 東名高速 → 厚木IC → 小田原厚木道路 → 小田原 → 国道135号 → 白浜</p>
+            </div>
+            <div>
+              <p class="text-xs text-brand-muted tracking-widest uppercase mb-2">Route 2</p>
+              <p class="leading-relaxed mb-1">Tokyo / Nagoya → Tomei Expressway → Numazu IC → Route 136 → Shuzenji → Route 414 → Kawazu → <strong>Route 135</strong> → Shirahama</p>
+              <p class="text-xs text-brand-muted">東京・名古屋 → 東名高速 → 沼津IC → 国道136号 → 修善寺 → 国道414号 → 河津 → 国道135号 → 白浜</p>
+            </div>
+          </div>
+          <div class="border-t border-brand-border pt-5">
+            <p class="text-xs text-brand-muted tracking-widest uppercase mb-3">Final approach &nbsp;·&nbsp; 最終アクセス</p>
+            <p class="text-sm leading-relaxed mb-1">From <strong>Shirahama Beach</strong>, continue 700m along Route 135. The entrance is on the <strong>left</strong>.</p>
+            <p class="text-xs text-brand-muted">白浜海岸より国道135号線を700m。左側に入口があります。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Hotel Map -->
+  <section class="px-8 md:px-12 py-16 border-t border-brand-border">
+    <div class="max-w-2xl mx-auto">
+      <p class="text-brand-muted text-xs tracking-widest uppercase mb-3 text-center">Garden Villa Hotel</p>
+      <h2 class="name-script text-center leading-tight mb-8" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">
+        Why We're Staying Here
+      </h2>
+      <p class="text-sm text-brand-muted leading-relaxed mb-10 text-center">
+        Everything for Saturday evening is on one property, from the aperitivo to the dinner &amp; party area and the pool, which is why we'd love for you to stay with us rather than commute in. Here's the layout:
+      </p>
+      <img src="/images/wedding/garden-villa-map.jpg" alt="Garden Villa Hotel property map, showing the hotel building, Koti Villas, the Dinner &amp; Party area, swimming pool, and parking" class="w-full h-auto border border-brand-border" />
+      <p class="text-xs text-brand-muted leading-relaxed mt-4 text-center">The Dinner &amp; Party area and pool are marked, to help you find your way around.</p>
+    </div>
+  </section>
+
+  <!-- RSVP form -->
+  <section class="px-8 md:px-12 py-16 border-t border-brand-border">
+    <div class="max-w-lg mx-auto">
+
+      <p class="text-brand-muted text-xs tracking-widest uppercase mb-3 text-center">Your RSVP</p>
+      <h2 class="name-script text-center leading-tight mb-14" style="font-size: clamp(2rem, 4vw, 3rem);">
+        Kindly reply below
+      </h2>
+
+      <form id="rsvp-form" action="https://script.google.com/macros/s/AKfycbwXto9d8w_xBzoXViaQcfv2g_XffG7gnI___62HETJhWEmAkuR3gUVdiJqKvqPXu2E/exec" method="POST">
+        <input type="hidden" name="_subject" value="Wedding RSVP · Yuki & Eleanor" />
+
+        <div class="mb-10">
+          <label for="name" class="block text-xs tracking-widest uppercase text-brand-muted mb-4">Your full name</label>
+          <input id="name" name="name" type="text" required
+            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            placeholder="Your full name" />
+        </div>
+
+        <div class="mb-10">
+          <label for="email" class="block text-xs tracking-widest uppercase text-brand-muted mb-4">Email address</label>
+          <input id="email" name="email" type="email" required
+            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            placeholder="your@email.com" />
+        </div>
+
+        <div class="mb-10">
+          <label for="phone" class="block text-xs tracking-widest uppercase text-brand-muted mb-4">Phone number <span class="normal-case">(for day-of contact)</span></label>
+          <input id="phone" name="phone" type="tel"
+            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+            placeholder="+81 or international number" />
+        </div>
+
+        <div class="mb-2">
+          <p class="text-xs tracking-widest uppercase text-brand-muted mb-6">Will you be attending?</p>
+          <div class="flex gap-10">
+            <label class="flex items-center gap-3 cursor-pointer text-sm">
+              <input type="radio" name="attending" value="yes" required class="w-4 h-4" id="attending-yes" />
+              Joyfully accept
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer text-sm">
+              <input type="radio" name="attending" value="no" class="w-4 h-4" id="attending-no" />
+              Regretfully decline
+            </label>
+          </div>
+        </div>
+
+        <div id="attending-fields" style="display:none;">
+
+          <hr class="form-divider" />
+
+          <div class="mb-10">
+            <p class="text-xs tracking-widest uppercase text-brand-muted mb-6">Dietary preference</p>
+            <div class="flex flex-wrap gap-8">
+              <label class="flex items-center gap-3 cursor-pointer text-sm">
+                <input type="radio" name="dietary" value="standard" class="w-4 h-4" />
+                Standard
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer text-sm">
+                <input type="radio" name="dietary" value="vegetarian" class="w-4 h-4" />
+                Vegetarian
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer text-sm">
+                <input type="radio" name="dietary" value="pescatarian" class="w-4 h-4" />
+                Pescatarian
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer text-sm">
+                <input type="radio" name="dietary" value="vegan" class="w-4 h-4" />
+                Vegan
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label for="allergies" class="block text-xs tracking-widest uppercase text-brand-muted mb-4">
+              Allergies or dietary notes <span class="normal-case">(optional)</span>
+            </label>
+            <input id="allergies" name="allergies" type="text"
+              class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+              placeholder="e.g. nut allergy, gluten free…" />
+          </div>
+
+          <hr class="form-divider" />
+
+          <div class="mb-10">
+            <p class="text-xs tracking-widest uppercase text-brand-muted mb-4">Hotel · Saturday night</p>
+            <p class="text-brand-muted text-sm leading-relaxed mb-2">
+              We have a discount code for <a href="https://maps.app.goo.gl/hiNQoJXh1pRR5Db6A" target="_blank" rel="noopener" class="underline underline-offset-2 hover:opacity-60 transition-opacity">Garden Villa Hotel ↗</a> for the night of Saturday 2nd October.
+            </p>
+            <p class="text-sm mb-8">
+              Code: <strong>yuki&amp;eleanor</strong>
+              <span class="text-brand-muted text-xs ml-2">, use when booking directly with the hotel</span>
+            </p>
+            <p class="text-xs tracking-widest uppercase text-brand-muted mb-6">Will you be staying at the hotel?</p>
+            <div class="flex flex-wrap gap-8">
+              <label class="flex items-center gap-3 cursor-pointer text-sm">
+                <input type="radio" name="hotel" value="yes" class="w-4 h-4" />
+                Yes, I'll book
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer text-sm">
+                <input type="radio" name="hotel" value="already_booked" class="w-4 h-4" />
+                Already booked
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer text-sm">
+                <input type="radio" name="hotel" value="no" class="w-4 h-4" />
+                Staying elsewhere
+              </label>
+            </div>
+          </div>
+
+          <hr class="form-divider" />
+
+          <div class="mb-10">
+            <p class="text-xs tracking-widest uppercase text-brand-muted mb-4">Sunday 3 October &nbsp;·&nbsp; Beach Party &amp; Snorkelling</p>
+            <p class="text-brand-muted text-sm leading-relaxed mb-8">
+              Food <span class="normal-case">(TBC)</span> and drinks, with transportation from the hotel and back to the station or the hotel. Price to follow.
+            </p>
+            <div class="flex gap-10 mb-8">
+              <label class="flex items-center gap-3 cursor-pointer text-sm">
+                <input type="radio" name="sunday_trip" value="yes" class="w-4 h-4" id="sunday-yes" />
+                I'm in!
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer text-sm">
+                <input type="radio" name="sunday_trip" value="no" class="w-4 h-4" id="sunday-no" />
+                I'll pass
+              </label>
+            </div>
+            <div id="snorkel-fields" style="display:none;">
+              <p class="text-xs tracking-widest uppercase text-brand-muted mb-5">How comfortable are you in open water?</p>
+              <div class="flex flex-wrap gap-8">
+                <label class="flex items-center gap-3 cursor-pointer text-sm">
+                  <input type="radio" name="swim_ability" value="strong" class="w-4 h-4" />
+                  Strong swimmer
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer text-sm">
+                  <input type="radio" name="swim_ability" value="comfortable" class="w-4 h-4" />
+                  Comfortable
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer text-sm">
+                  <input type="radio" name="swim_ability" value="nervous" class="w-4 h-4" />
+                  A little nervous, I'd like some support
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <hr class="form-divider" />
+
+          <div class="mb-2">
+            <p class="text-xs tracking-widest uppercase text-brand-muted mb-4">Will any children be joining you?</p>
+            <p class="text-brand-muted text-sm mb-6">Children are welcome for dinner. If you'd like a babysitter for later in the evening, let us know below and we'll message you directly about the details.</p>
+            <div class="flex gap-10 mb-8">
+              <label class="flex items-center gap-3 cursor-pointer text-sm">
+                <input type="radio" name="babysitter" value="yes" class="w-4 h-4" id="babysitter-yes" />
+                Yes, please arrange one
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer text-sm">
+                <input type="radio" name="babysitter" value="no" class="w-4 h-4" id="babysitter-no" />
+                No, we're fine
+              </label>
+            </div>
+            <div id="babysitter-fields" style="display:none;" class="space-y-6">
+              <div>
+                <label for="children_count" class="block text-xs tracking-widest uppercase text-brand-muted mb-4">How many children?</label>
+                <input id="children_count" name="children_count" type="number" min="1" max="10"
+                  class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+                  placeholder="Number of children" />
+              </div>
+              <div>
+                <label for="children_ages" class="block text-xs tracking-widest uppercase text-brand-muted mb-4">Their ages?</label>
+                <input id="children_ages" name="children_ages" type="text"
+                  class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
+                  placeholder="e.g. 3, 6" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <hr class="form-divider" />
+
+        <div class="mb-12">
+          <label for="message" class="block text-xs tracking-widest uppercase text-brand-muted mb-4">
+            Message <span class="normal-case">(optional)</span>
+          </label>
+          <textarea id="message" name="message" rows="3"
+            class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors resize-none"
+            placeholder="Anything you'd like us to know…"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-brand-text text-brand-bg py-5 text-xs tracking-widest uppercase hover:opacity-80 transition-opacity">
+          Send RSVP
+        </button>
+      </form>
+
+      <div id="success-msg" style="display:none;" class="py-20 text-center">
+        <h2 class="name-script mb-6" style="font-size: clamp(2rem, 4vw, 3rem);">Thank you!</h2>
+        <p class="text-brand-muted text-sm leading-relaxed">
+          We've received your RSVP.<br />
+          We'll be in touch with more details soon.
+        </p>
+      </div>
+      <p id="error-msg" style="display:none;" class="mt-4 text-sm text-red-600">
+        Something went wrong. Please try again or email us directly.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const attendingInputs = document.querySelectorAll<HTMLInputElement>('input[name="attending"]');
+  const attendingFields = document.getElementById('attending-fields')!;
+  attendingInputs.forEach(input => {
+    input.addEventListener('change', () => {
+      attendingFields.style.display = input.value === 'yes' ? 'block' : 'none';
+    });
+  });
+
+  document.getElementById('sunday-yes')!.addEventListener('change', () => {
+    document.getElementById('snorkel-fields')!.style.display = 'block';
+  });
+  document.getElementById('sunday-no')!.addEventListener('change', () => {
+    document.getElementById('snorkel-fields')!.style.display = 'none';
+  });
+
+  document.getElementById('babysitter-yes')!.addEventListener('change', () => {
+    document.getElementById('babysitter-fields')!.style.display = 'block';
+  });
+  document.getElementById('babysitter-no')!.addEventListener('change', () => {
+    document.getElementById('babysitter-fields')!.style.display = 'none';
+  });
+
+  const infoBtns = document.querySelectorAll<HTMLButtonElement>('.info-btn');
+  infoBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = document.getElementById('panel-' + btn.dataset.panel)!;
+      const isOpen = panel.classList.contains('open');
+      document.querySelectorAll('.info-panel').forEach(p => p.classList.remove('open'));
+      infoBtns.forEach(b => b.classList.remove('active'));
+      if (!isOpen) { panel.classList.add('open'); btn.classList.add('active'); }
+    });
+  });
+
+  const form = document.getElementById('rsvp-form') as HTMLFormElement;
+  const successMsg = document.getElementById('success-msg')!;
+  const errorMsg = document.getElementById('error-msg')!;
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (res.ok) { form.style.display = 'none'; successMsg.style.display = 'block'; }
+      else { errorMsg.style.display = 'block'; submitBtn.textContent = 'Send RSVP'; submitBtn.disabled = false; }
+    } catch { errorMsg.style.display = 'block'; submitBtn.textContent = 'Send RSVP'; submitBtn.disabled = false; }
+  });
+</script>
