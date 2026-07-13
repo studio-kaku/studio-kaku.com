@@ -197,9 +197,9 @@ import Layout from '../layouts/Layout.astro';
   <!-- Vertical timeline -->
   <section class="px-8 md:px-12 py-16 border-t border-brand-border">
     <div class="relative max-w-7xl mx-auto">
-      <img src="/images/wedding/schedule-illustrations.png" alt="" class="hidden lg:block" style="position:absolute; left:0; top:0; width:1280px; height:730px; z-index:0; pointer-events:none;" />
-      <img src="/images/wedding/schedule-illustrations-mobile.png" alt="" class="lg:hidden" style="position:absolute; left:50%; top:0; transform:translateX(-50%); width:320px; height:746px; z-index:0; pointer-events:none;" />
-      <div class="max-w-xs mx-auto relative" style="z-index:1;">
+      <img id="tl-illo-desktop" src="/images/wedding/schedule-illustrations.png" alt="" class="hidden lg:block" style="position:absolute; left:0; top:0; width:1280px; height:730px; z-index:0; pointer-events:none;" />
+      <img id="tl-illo-mobile" src="/images/wedding/schedule-illustrations-mobile.png" alt="" class="lg:hidden" style="position:absolute; left:50%; top:0; transform:translateX(-50%); width:320px; height:746px; z-index:0; pointer-events:none;" />
+      <div id="tl-column" class="max-w-xs mx-auto relative" style="z-index:1;">
 
       <div class="tl-item" id="tl-sat-label">
         <div class="tl-time"></div>
@@ -943,6 +943,24 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
+  // Keep the timeline background illustration's height in sync with the
+  // actual rendered text column, so it doesn't drift on devices/fonts/
+  // languages where the text is taller or shorter than the design assumed.
+  const tlColumn = document.getElementById('tl-column');
+  const tlIlloDesktop = document.getElementById('tl-illo-desktop') as HTMLImageElement;
+  const tlIlloMobile = document.getElementById('tl-illo-mobile') as HTMLImageElement;
+  if (tlColumn && tlIlloDesktop && tlIlloMobile) {
+    const syncIlloHeight = () => {
+      const h = tlColumn.getBoundingClientRect().height;
+      if (h > 0) {
+        tlIlloDesktop.style.height = h + 'px';
+        tlIlloMobile.style.height = h + 'px';
+      }
+    };
+    new ResizeObserver(syncIlloHeight).observe(tlColumn);
+    document.fonts.ready.then(syncIlloHeight);
+  }
+
   // Attendance toggle
   const attendingInputs = document.querySelectorAll<HTMLInputElement>('input[name="attending"]');
   const attendingFields = document.getElementById('attending-fields')!;
