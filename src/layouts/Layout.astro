@@ -10,6 +10,7 @@ interface Props {
   ogImage?: string;
   noindex?: boolean;
   hideHeader?: boolean;
+  favicon?: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   ogImage = '/images/og-logo.jpg',
   noindex = false,
   hideHeader = false,
+  favicon = '/favicon.png',
 } = Astro.props;
 
 const siteURL = 'https://studio-kaku.com';
@@ -72,7 +74,7 @@ const structuredData = {
     <meta name="twitter:image" content={ogImageURL} />
 
     <!-- Icons & theme -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href={favicon} />
     <meta name="theme-color" content="#FAFAF8" />
 
     <!-- Fonts -->
