@@ -106,6 +106,12 @@ import Layout from '../layouts/Layout.astro';
       pointer-events: none;
       z-index: 0;
     }
+    /* Japanese schedule text renders shorter per item than English, so the
+       mobile illustration drifts down relative to it. Nudge it up only for
+       the Japanese/mobile combination — English and desktop stay untouched. */
+    html.lang-ja #tl-illo-mobile {
+      top: -130px !important;
+    }
 
     /* Accommodation tables */
     .acc-table {
