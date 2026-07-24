@@ -9,6 +9,8 @@ interface Props {
   activeSection?: string;
   ogImage?: string;
   noindex?: boolean;
+  hideHeader?: boolean;
+  favicon?: string;
 }
 
 const {
@@ -17,6 +19,8 @@ const {
   activeSection,
   ogImage = '/images/og-logo.jpg',
   noindex = false,
+  hideHeader = false,
+  favicon = '/favicon.png',
 } = Astro.props;
 
 const siteURL = 'https://studio-kaku.com';
@@ -70,7 +74,7 @@ const structuredData = {
     <meta name="twitter:image" content={ogImageURL} />
 
     <!-- Icons & theme -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href={favicon} />
     <meta name="theme-color" content="#FAFAF8" />
 
     <!-- Fonts -->
@@ -137,7 +141,7 @@ const structuredData = {
     </style>
   </head>
   <body class="bg-brand-bg text-brand-text font-sans antialiased min-h-screen flex flex-col">
-    <Header activeSection={activeSection} />
+    {!hideHeader && <Header activeSection={activeSection} />}
     <main class="flex-1">
       <slot />
     </main>
