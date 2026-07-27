@@ -1,0 +1,304 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Price-tier diamonds are only shown when a real sourced price range overlaps a tier band:
+// yellow ~¥150k-300k, forest green ¥500k-700k, sapphire ~¥900k-1.1m.
+const TIER_COLORS = {
+  yellow: '#E0B400',
+  green: '#228B22',
+  sapphire: '#0F52BA',
+};
+
+const artists = [
+  {
+    bio: `Born in 1991 in Osaka and raised in Shiga, she studied as an exchange student at the École nationale supérieure des beaux-arts in Paris before completing an MFA in Japanese-style painting at Kyoto City University of Arts in 2016. Working with traditional mineral pigments and Japanese paper, she depicts the human body and the corporeality of plants, melding figures into one another through fluid, imaginative compositions. Her subjects, solitary bodies, multiplicitous forms, domestic textiles interwoven with flowers, explore boundaries between figure and organism. She is based in Kyoto and has held recent solo exhibitions including Spreading Vein and Portrait in the Rain.`,
+    jaBio: `1991年大阪生まれ、滋賀育ち。パリ国立高等美術学校への交換留学を経て、2016年に京都市立芸術大学大学院で日本画を修了した。伝統的な岩絵具と和紙を用いながら、人体と植物の質感を描き出し、複数の身体像を溶け合わせるような、自由で想像力豊かな構成をつくり上げる。孤独な身体、増殖する形態、花々と絡み合う布地といったモチーフを通して、人と有機物の境界を探る。現在は京都を拠点に活動し、近年の個展に「Spreading Vein」「Portrait in the Rain」などがある。`,
+    category: 'Painting (Nihonga)',
+    jaCategory: '絵画(日本画)',
+    price: 'Price on request',
+    tiers: ['green', 'sapphire'],
+    images: ['artist-01-1.jpg', 'artist-01-2.jpg', 'artist-01-3.jpg'],
+  },
+  {
+    bio: `Born in Kochi in 1999, he completed a BFA in oil painting at Musashino Art University in 2022 and an MFA in the same field at Kyoto University of the Arts in 2025, and now lives and works in Kyoto. His paintings draw on plant and animal motifs sourced from pottery, porcelain and dyed fabric found at flea markets, built up through repeated layers of colour applied with woodblocks and brushes. He deliberately allows the natural unevenness of the woodblock process to remain visible in the finished work, and has recently extended the practice into ceramic tile pieces. His work has been shown in group exhibitions in Kyoto and Tokyo.`,
+    jaBio: `1999年高知県生まれ。2022年武蔵野美術大学にて油絵を専攻し学部を卒業、2025年京都芸術大学大学院にて同分野の修士号を取得。現在は京都を拠点に制作している。蚤の市で見つけた陶磁器や染物からモチーフを得て、木版と筆による色の層を重ねていく絵画を制作する。木版特有の擦れやムラをあえて画面に残すことを大切にしており、近年はその手法を陶板作品にも展開している。京都・東京でのグループ展に参加。`,
+    category: 'Painting / Ceramic Tile',
+    jaCategory: '絵画 / 陶板',
+    price: 'Price on request',
+    tiers: ['green', 'sapphire'],
+    images: ['artist-02-1.jpg', 'artist-02-2.jpg', 'artist-02-3.jpg'],
+  },
+  {
+    bio: `Originally from Nagano, he completed a master's degree in fine arts and crafts at Kyoto University of Art, where he now creates paintings built from motifs selected out of photographs. His work translates found images into painted compositions that sit between documentary and invention. He has shown at galleries in Tokyo and Kyoto and exhibited at art fairs including ART OSAKA.`,
+    jaBio: `長野県出身。京都芸術大学大学院にて美術工芸の修士号を取得し、写真から選び取ったモチーフをもとに絵画を制作している。見出されたイメージを、記録と創作のあいだを行き来する絵画へと翻訳する。東京・京都のギャラリーで作品を発表し、ART OSAKAなどのアートフェアにも出展。`,
+    category: 'Painting',
+    jaCategory: '絵画',
+    price: '¥55,000-¥360,000',
+    tiers: ['yellow'],
+    images: ['artist-03-1.jpg', 'artist-03-2.jpg', 'artist-03-3.jpg'],
+  },
+  {
+    bio: `Born in Mie in 1997, he completed his MFA in oil painting at Kyoto University of the Arts and is now based in Kyoto. He has developed a distinctive technique of tearing, layering and reassembling canvas and linen to capture the ephemeral beauty and resilience of nature, using motifs of flowers and plants to move beyond conventional still life. His work is attentive to atmosphere, fleeting impressions of light, wind and seasonal change, blending a Western material sensibility with a quieter, poetic sensibility rooted in Japanese aesthetics. He has exhibited with COHJU Contemporary Art in Kyoto.`,
+    jaBio: `1997年三重県生まれ。京都芸術大学大学院にて油絵の修士号を取得し、現在は京都を拠点に活動する。キャンバスやリネンを裂き、重ね、再構成する独自の技法を編み出し、花や植物のモチーフを通して従来の静物画を超えた、自然の儚い美しさと強さを表現する。光や風、季節の移ろいといった大気の気配に敏感で、西洋的な素材感覚と、日本の美意識に根ざした静かで詩的な感性を融合させている。京都のCOHJU Contemporary Artで作品を発表。`,
+    category: 'Painting',
+    jaCategory: '絵画',
+    price: '¥88,000-¥165,000',
+    tiers: ['yellow'],
+    images: ['artist-05-1.jpg', 'artist-05-2.jpg', 'artist-05-3.jpg'],
+  },
+  {
+    bio: `Born in Shiga in 1990, she received her BFA and MFA in fine art and mixed media from Kyoto University of Art in 2013 and 2015, and is based in Kyoto. Her signature style consists of countless individually placed drops of paint on monochromatic canvas, built through slow, repetitive mark-making into forms resembling mountain ridges or waves. The practice traces how material and form change over time, using repetition and accumulation as a record of duration. She has completed a residency at Casa Wabi in Mexico and held a solo exhibition in Connecticut, USA.`,
+    jaBio: `1990年滋賀県生まれ。2013年に京都芸術大学で学部、2015年に大学院にて美術・ミクストメディアを修め、現在は京都を拠点とする。単色のキャンバスに無数の絵具の粒を一つひとつ置いていく手法を特徴とし、ゆっくりとした反復的な手の動きによって、山の稜線や波を思わせる形をつくり上げる。反復と蓄積を通して素材と形が時間とともにどう変化するかを追う、持続の記録としての制作である。メキシコのCasa Wabiでのレジデンスを経て、アメリカ・コネチカット州での個展を開催。`,
+    category: 'Painting',
+    jaCategory: '絵画',
+    price: 'From ¥165,000',
+    tiers: ['yellow'],
+    images: ['artist-06-1.jpg', 'artist-06-2.jpg', 'artist-06-3.jpg'],
+  },
+  {
+    bio: `Born in Shiga in 1989, they completed a degree in Western painting at Kyoto Seika University in 2011 and an MFA at the same institution in 2013. Their practice centres on the idea of pairs, applying handmade pigment and tempera to their own hands and feet to leave traces of paired colour and gesture across plywood and aluminium composite surfaces. In recent series the artist knocks on the painted surface with paint-covered hands, as though signalling to an unseen counterpart on the other side. Their work has been shown at the Kyoto City KYOCERA Museum of Art, and they received the Shiga Prefecture Next-Generation Culture Award in 2019.`,
+    jaBio: `1989年滋賀県生まれ。2011年京都精華大学にて洋画を専攻し卒業、2013年同大学院修士課程を修了。自らの手足に手作りの顔料とテンペラを塗り、ベニヤ板やアルミ複合板の上に対となる色と動きの痕跡を残す「対」という概念を制作の中心に据える。近年のシリーズでは、絵具のついた手で画面を叩き、まるで見えないもう一人に合図を送るような仕草を反復する。京都市京セラ美術館での展示歴があり、2019年には滋賀県次世代文化賞を受賞。`,
+    category: 'Painting',
+    jaCategory: '絵画',
+    price: 'Price on request',
+    tiers: ['green', 'sapphire'],
+    images: ['artist-07-1.jpg', 'artist-07-2.jpg', 'artist-07-3.jpg'],
+  },
+  {
+    bio: `Born in Hyogo in 1983, they completed a master's degree in painting at Kyoto University of Art and Design. Working with urethane and resin paint on wooden panels, they apply a classical glazing technique, substituting resin for glass, building up highly transparent layers so the work's colour and form shift with the time of day and angle of light. The paintings ask the viewer to reconsider the act of seeing itself, treating light and space as subject rather than backdrop. Represented by a gallery in Osaka, they have shown at Art Fair Tokyo, ART FAIR ASIA Fukuoka and Sydney Contemporary.`,
+    jaBio: `1983年兵庫県生まれ。京都造形芸術大学大学院にて絵画の修士号を取得。木製パネルにウレタンと樹脂絵具を用い、ガラスの代わりに樹脂を重ねる古典的なグレージング技法によって、極めて透明度の高い層を築き上げる。作品の色と形は時間帯や光の角度によって変化し、光と空間を背景ではなく主題として扱うことで、見るという行為そのものを問い直す。大阪のギャラリーに所属し、Art Fair Tokyo、ART FAIR ASIA Fukuoka、Sydney Contemporaryなどに出展。`,
+    category: 'Painting',
+    jaCategory: '絵画',
+    price: 'Price on request',
+    tiers: ['green', 'sapphire'],
+    images: ['artist-08-1.jpg', 'artist-08-2.jpg', 'artist-08-3.jpg'],
+  },
+  {
+    bio: `A painter whose canvases are built from chance, drips and bleeds of paint allowed to spread and pool rather than directed by hand. The resulting forms sit somewhere between control and accident, each canvas a record of a single continuous pour. His work has been shown in a solo exhibition at NEWoMan Yokohama and selected for the Shell Art Award.`,
+    jaBio: `手で直接描くのではなく、絵具の垂れやにじみが広がり、溜まるにまかせる、偶然性から生まれる絵画を手がける画家。出来上がる形は制御と偶然のあいだにあり、一枚一枚が一度きりの連続した流し込みの記録となる。NEWoMan横浜での個展を開催したほか、シェルアート賞にも選出された。`,
+    category: 'Painting',
+    jaCategory: '絵画',
+    price: '¥23,320-¥649,000',
+    tiers: ['yellow', 'green'],
+    images: ['artist-09-1.jpg', 'artist-09-2.jpg', 'artist-09-3.jpg'],
+  },
+  {
+    bio: `Born in Iwate in 1998, they graduated from the University of Tsukuba's School of Art with a specialisation in printmaking in 2021 and completed further study at Kyoto University of the Arts graduate school in 2023. Combining silkscreen printing, painting and sculpture with 3D scanning and virtual reality, they create what might be called VR printmaking, scanning bodies and artificial plants, reworking them in virtual space, then translating the results back into physical prints, drawings and sculptural objects that sit between the real and the virtual. Their work has received the WATOWA ART AWARD Special Prize and the French Embassy Award at the Marunouchi Art Award.`,
+    jaBio: `1998年岩手県生まれ。2021年筑波大学芸術専門学群にて版画を専攻し卒業、2023年京都芸術大学大学院にてさらに研究を重ねた。シルクスクリーン、絵画、彫刻と3Dスキャン、VRを組み合わせ、身体や人工植物をスキャンして仮想空間で再構成し、その結果を再び物理的な版画、ドローイング、彫刻作品へと変換する、いわば「VR版画」ともいえる制作を行う。WATOWA ART AWARD特別賞、丸の内アートアワードにてフランス大使館賞を受賞。`,
+    category: 'Printmaking / Sculpture / New Media',
+    jaCategory: '版画 / 彫刻 / ニューメディア',
+    price: 'Price on request',
+    tiers: ['sapphire'],
+    images: ['artist-10-1.jpg', 'artist-10-2.jpg'],
+  },
+  {
+    bio: `Born in Fukui in 1993, she graduated from the Oil Painting course at Kyoto University of the Arts in 2015. Working exclusively with a palette knife, she builds her paintings through dozens of layered applications of oil paint, exploring the accumulation of time and boundaries, visualising history through constant overwriting and revision. Diagonal lines cut across her canvases, overlapping triangular fields of colour that produce a sensation of movement between two- and three-dimensional space, reminiscent of the afterimages of perspective drawings or unfolded origami. She has held solo exhibitions in Kyoto and Tokyo and shown at Art Basel Hong Kong.`,
+    jaBio: `1993年福井県生まれ。2015年京都芸術大学油画コースを卒業。パレットナイフのみを用い、油絵具を幾重にも塗り重ねることで、時間と境界の蓄積を探求し、絶え間ない上書きと修正を通して歴史を可視化する。画面を斜めに走る線が、重なり合う三角形の色面をつくり出し、透視図の残像や広げた折り紙を思わせる、二次元と三次元のあいだを行き来する運動感を生む。京都・東京での個展開催歴があり、Art Basel Hong Kongにも出展。`,
+    category: 'Painting',
+    jaCategory: '絵画',
+    price: '¥198,000-¥720,000',
+    tiers: ['yellow', 'green'],
+    images: ['artist-13-1.jpg', 'artist-13-2.jpg', 'artist-13-3.jpg'],
+  },
+  {
+    bio: `Born in Osaka in 1983, she completed a master's degree in printmaking at Kyoto City University of Arts graduate school in 2009. Her large-scale compositions are built from accumulated imagery, layered and reconstructed in a process that echoes the way memory itself is built from fragments. She holds regular solo exhibitions across Osaka, Tokyo and Kyoto and has been selected for prizes including Tokyo Wonder Wall, the Shell Art Prize and the FACE Sompo Japan Nipponkoa Art Prize.`,
+    jaBio: `1983年大阪府生まれ。2009年京都市立芸術大学大学院にて版画の修士号を取得。大画面の構成は蓄積されたイメージが幾重にも重ねられ、再構築されるプロセスから成り、それは記憶そのものが断片から組み立てられていく様を思わせる。大阪・東京・京都で定期的に個展を開催し、Tokyo Wonder Wall、シェルアート賞、FACE損保ジャパン日本興亜美術賞など受賞歴多数。`,
+    category: 'Printmaking',
+    jaCategory: '版画',
+    price: 'Price on request',
+    tiers: ['green', 'sapphire'],
+    images: ['artist-14-1.jpg', 'artist-14-2.jpg', 'artist-14-3.jpg'],
+  },
+  {
+    bio: `Born in Kyoto in 1988, he was given paper and a pen by his artist father at the age of three, leading to his first solo exhibition of drawings while still a child. He trained in ceramics at Kanazawa College of Art and Crafts before relocating to the United States for a further MFA in ceramics and visual art. His practice spans ceramics, painting and drawing: bulbous, cartoon-like busts informed by the Japanese concept of ma, the negative space between things, and a belief that ceramics function as a language of their own, understood across cultures. He was a long-term resident at the Archie Bray Foundation in Montana and an artist-in-residence at the Shigaraki Ceramic Cultural Park, and has exhibited across Tokyo, Brussels, Chicago and Saint Louis.`,
+    jaBio: `1988年京都府生まれ。画家であった父から3歳のときに紙とペンを与えられ、幼くしてドローイングの初個展を開いた。金沢美術工芸大学で陶芸を学んだ後、渡米して陶芸と美術の修士号を取得。ふっくらとした漫画的な胸像を通して、「間」という日本的な概念、すなわち物と物のあいだの余白を表現し、陶芸それ自体が文化を越えて理解される一つの言語として機能するという信念のもとに、陶芸・絵画・ドローイングを横断する制作を行う。モンタナ州アーチー・ブレイ財団に長期滞在し、信楽陶芸文化公園でのアーティスト・イン・レジデンスにも参加。東京、ブリュッセル、シカゴ、セントルイスなどで作品を発表してきた。`,
+    category: 'Ceramics / Painting',
+    jaCategory: '陶芸 / 絵画',
+    price: 'Price on request',
+    tiers: ['sapphire'],
+    images: ['artist-17-1.jpg', 'artist-17-2.jpg', 'artist-17-3.jpg'],
+  },
+  {
+    bio: `Born in Nagano in 1993, she completed her MFA in painting at Kyoto University of Art in 2017 and is based in Kyoto. Working in acrylic, she builds compositions through layered silkscreen, stencil and spray technique, developing a practice centred on observation and repetition. She has held solo exhibitions in Tokyo, Osaka and Nagoya and been selected for group exhibitions including the Turner Acrylic Gouache Biennial.`,
+    jaBio: `1993年長野県生まれ。2017年京都芸術大学大学院にて絵画の修士号を取得し、現在は京都を拠点とする。アクリル絵具を用い、シルクスクリーン、ステンシル、スプレーの技法を重ねて構成をつくり、観察と反復を中心とした制作を展開している。東京・大阪・名古屋での個展開催歴があり、ターナー・アクリルグワッシュ・ビエンナーレなどのグループ展にも選出。`,
+    category: 'Painting',
+    jaCategory: '絵画',
+    price: 'From ¥198,000',
+    tiers: ['yellow'],
+    images: ['artist-18-1.jpg', 'artist-18-2.jpg', 'artist-18-3.jpg'],
+  },
+  {
+    bio: `Born in 1995, he studied at Nihon University's College of Art in Tokyo, graduating in 2018. Working across photography and conceptual practice, his work explores ideas of time and memory through pieces such as touch-activated, time-capsule-like installations that respond physically to a viewer's presence. His work was included in KG+ during KYOTOGRAPHIE 2023, extending a practice based in interaction and duration rather than the fixed image alone.`,
+    jaBio: `1995年生まれ。日本大学芸術学部にて学び、2018年に卒業。写真とコンセプチュアルな実践を横断し、鑑賞者の存在に物理的に反応する、触れることで作動するタイムカプセルのようなインスタレーションなどを通して、時間と記憶というテーマを探求する。2023年のKYOTOGRAPHIEにおけるKG+に出展し、固定されたイメージではなく、相互作用と持続に基づく制作を展開している。`,
+    category: 'Photography / Conceptual',
+    jaCategory: '写真 / コンセプチュアル',
+    price: 'From ¥150,000',
+    tiers: ['yellow'],
+    images: ['artist-19-1.jpg', 'artist-19-2.jpg', 'artist-19-3.jpg'],
+  },
+  {
+    bio: `Working in textile sculpture and installation, she builds forms from untreated cotton into botanical shapes: soft, organic structures that sit between craft and sculpture. Her work received the Judges' Award at LUMINE Art Fair 2025.`,
+    jaBio: `染色や加工を施していない綿から植物的な形をつくり出す、テキスタイルによる彫刻とインスタレーションを手がける。工芸と彫刻のあいだに位置する、柔らかく有機的な構造体である。2025年LUMINE ART FAIRにて審査員賞を受賞。`,
+    category: 'Textile Sculpture / Installation',
+    jaCategory: 'テキスタイル彫刻 / インスタレーション',
+    price: 'Price on request',
+    tiers: ['green'],
+    images: ['artist-20-1.jpg', 'artist-20-2.jpg', 'artist-20-3.jpg'],
+  },
+  {
+    bio: `Born in Strasbourg, France in 1988 to Fulani West African heritage, he earned a BFA at L'Institut Supérieur des Arts Appliqués before relocating to Tokyo in 2019, where he now lives and works. His practice spans drawing, painting and collage, built from sumi ink, Japanese natural pigments and washi paper, drawing on a long-held interest in calligraphy and Japanese printmaking techniques including moku hanga and shodō. Bodies rendered in loose, spontaneous gesture recur throughout the work, treating the act of painting as a kind of liberation from physical and symbolic constraint. His Fulani background adds a further spiritual dimension to the practice, and he is represented across galleries in Japan, West Africa and Europe.`,
+    jaBio: `1988年フランス・ストラスブール生まれ、西アフリカ・フラニ族の血を引く。L'Institut Supérieur des Arts Appliquésにて学士号を取得後、2019年に東京へ移り、現在も東京を拠点に制作する。墨、日本の天然顔料、和紙を用いたドローイング、絵画、コラージュを横断し、書道や木版画といった日本の技法への長年の関心に根ざした制作を行う。自由で即興的な身振りで描かれる身体像が繰り返し画面に現れ、描くという行為を、身体的・象徴的な制約からの解放の一形態として捉える。フラニ族としての出自が制作にさらなる精神性を与えており、日本、西アフリカ、ヨーロッパ各地のギャラリーで作品を発表している。`,
+    category: 'Painting / Drawing / Collage',
+    jaCategory: '絵画 / ドローイング / コラージュ',
+    price: '¥800,000-¥2,000,000',
+    tiers: ['sapphire'],
+    images: ['artist-21-1.jpg', 'artist-21-2.jpg', 'artist-21-3.jpg'],
+  },
+  {
+    bio: `Born in Osaka in 1997, he graduated from Musashino Art University in 2020 and completed an MFA at Kyoto University of Art in 2022. His oil paintings favour a free, motif-independent approach to composition, letting form emerge from the process itself rather than a predetermined subject. He divides his time between Kansai and Tokyo.`,
+    jaBio: `1997年大阪府生まれ。2020年武蔵野美術大学を卒業、2022年京都芸術大学大学院にて修士号を取得。あらかじめ定めた主題によらず、制作の過程そのものから形が立ち現れる、自由でモチーフに縛られない構成を重んじる油画を手がける。関西と東京を拠点に活動している。`,
+    category: 'Painting',
+    jaCategory: '絵画',
+    price: 'Price on request',
+    tiers: ['green', 'sapphire'],
+    images: ['artist-22-1.jpg', 'artist-22-2.jpg', 'artist-22-3.jpg'],
+  },
+  {
+    bio: `Born in Kanagawa in 1979, he graduated from the Department of Sculpture at Tokyo University of the Arts in 2001 and completed an MFA at the same institution in 2003. Working primarily in clay and ceramic-based sculpture, he is drawn to the primitive energy inherent in earth as a material. Recent solo exhibitions include shows at Gallery Seihou, Spiral, Gallery Sukima and HECTARE. He also works as part of a two-person sculptural unit producing furniture-like pieces combining ceramic and wood.`,
+    jaBio: `1979年神奈川県生まれ。2001年東京藝術大学彫刻科を卒業、2003年同大学院修士課程を修了。主に土と陶を用いた彫刻を手がけ、素材としての土に内在する原始的なエネルギーに惹かれている。近年の個展にギャラリー青風、スパイラル、ギャラリー隙間、HECTAREなどでの展示がある。陶と木を組み合わせた家具的な作品を制作する二人組のユニットとしても活動している。`,
+    category: 'Sculpture / Ceramics',
+    jaCategory: '彫刻 / 陶芸',
+    price: 'Price on request',
+    tiers: ['green', 'sapphire'],
+    images: ['artist-23-1.jpg', 'artist-23-2.jpg', 'artist-23-3.jpg'],
+  },
+  {
+    bio: `Born in Tokyo, she spent her childhood in the United States before moving to London after high school to study Fine Art at Chelsea College of Arts and Design. Now based in Tokyo, her practice moves between abstract painting and soft sculpture, exploring the tension between the body as physical reality and the invisible realm of fantasy and imagination. Her work has been shown in Tokyo, London and Singapore, and she has collaborated commercially with Comme des Garçons and Nike.`,
+    jaBio: `東京生まれ。幼少期をアメリカで過ごし、高校卒業後にロンドンへ渡り、チェルシー・カレッジ・オブ・アーツ・アンド・デザインでファインアートを学ぶ。現在は東京を拠点とし、抽象絵画とソフトスカルプチャーのあいだを行き来しながら、身体という物理的な現実と、目に見えない空想・想像の領域とのあいだの緊張関係を探求する。東京、ロンドン、シンガポールで作品を発表したほか、コム デ ギャルソンやナイキとの商業的なコラボレーションも手がけている。`,
+    category: 'Painting / Soft Sculpture',
+    jaCategory: '絵画 / ソフトスカルプチャー',
+    price: 'Price on request',
+    tiers: ['green', 'sapphire'],
+    images: ['artist-24-1.jpg', 'artist-24-2.jpg'],
+  },
+];
+---
+
+<Layout
+  title="K2"
+  description="Studio Kaku's K2 collection: an emerging roster of contemporary Japanese artists spanning painting, printmaking, ceramics, sculpture and photography."
+>
+  <!-- Hero -->
+  <section class="px-8 md:px-12 pt-14 md:pt-20 pb-10 md:pb-16">
+    <p class="text-brand-muted text-xs tracking-widest uppercase mb-6">Studio Kaku</p>
+    <h1
+      class="font-display uppercase leading-none text-3xl md:text-4xl lg:text-5xl"
+      data-en="K2 Collection"
+      data-ja="K2コレクション"
+    >
+      K2 Collection
+    </h1>
+  </section>
+
+  <!-- Intro -->
+  <section class="px-8 md:px-12 py-12 md:py-16 border-t border-brand-border">
+    <div class="max-w-2xl" data-fade-text>
+      <p
+        class="font-sans leading-snug text-lg md:text-xl"
+        data-en="An emerging roster of contemporary Japanese artists, spanning painting, printmaking, ceramics, sculpture and photography."
+        data-ja="絵画、版画、陶芸、彫刻、写真まで、幅広い分野で活動する現代日本人アーティストによる新進のロースター。"
+      >
+        An emerging roster of contemporary Japanese artists, spanning painting, printmaking, ceramics, sculpture and photography.
+      </p>
+    </div>
+  </section>
+
+  <!-- Artist entries -->
+  <section class="border-t border-brand-border">
+    {
+      artists.map((artist, i) => (
+        <div class="border-t border-brand-border first:border-t-0" data-fade>
+          <div class="px-8 md:px-12 py-10 md:py-12 flex flex-col md:flex-row gap-8 md:gap-14 items-start">
+            <!-- Bio (left, primary) -->
+            <div class="shrink-0" style="width: clamp(260px, 35%, 440px);">
+              <p class="text-brand-accent text-xs tracking-widest uppercase mb-4 font-sans">
+                {String(i + 1).padStart(2, '0')}
+              </p>
+              <p class="text-brand-muted text-sm leading-relaxed" data-en={artist.bio} data-ja={artist.jaBio}>{artist.bio}</p>
+            </div>
+            <!-- Artwork (right, fills remaining space) -->
+            <div class="flex-1 min-w-0 overflow-hidden">
+              {artist.images.length > 0 ? (
+                <div class="grid gap-2" style={`grid-template-columns: repeat(${artist.images.length}, 1fr);`}>
+                  {artist.images.map((img) => (
+                    <img
+                      src={`/k2/images/${img}`}
+                      alt="Artwork sample"
+                      class="w-full block object-cover"
+                      style="aspect-ratio: 1 / 1;"
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div
+                  class="bg-brand-border w-full flex items-center justify-center text-brand-muted text-xs tracking-widest uppercase"
+                  style="aspect-ratio: 3 / 2;"
+                  data-en="Image placeholder"
+                  data-ja="画像準備中"
+                >
+                  Image placeholder
+                </div>
+              )}
+            </div>
+          </div>
+          <!-- Category / Price strip -->
+          <div class="px-8 md:px-12 py-3 border-t border-brand-border flex gap-8 text-xs bg-brand-bg">
+            <span class="text-brand-muted tracking-widest uppercase" data-en="Category" data-ja="カテゴリー">Category</span>
+            <span class="text-brand-text" data-en={artist.category} data-ja={artist.jaCategory}>{artist.category}</span>
+            <span class="text-brand-muted tracking-widest uppercase ml-auto" data-en="Price" data-ja="価格">Price</span>
+            <span class="text-brand-text flex items-center gap-2">
+              {artist.tiers.map((tier) => (
+                <span
+                  class="inline-block shrink-0"
+                  style={`width: 9px; height: 9px; background: ${TIER_COLORS[tier]}; transform: rotate(45deg);`}
+                  title={tier === 'yellow' ? '~¥200,000' : tier === 'green' ? '¥500,000-¥700,000' : '~¥1,000,000'}
+                />
+              ))}
+            </span>
+          </div>
+        </div>
+      ))
+    }
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="px-8 md:px-12 py-16 md:py-24 border-t border-brand-border">
+    <div class="max-w-xl" data-fade-text>
+      <p class="text-brand-muted text-xs tracking-widest uppercase mb-6" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</p>
+      <h2
+        class="font-display uppercase leading-none text-2xl md:text-3xl mb-8"
+        data-en="Interested in any of these artists?"
+        data-ja="気になるアーティストが見つかりましたか?"
+      >
+        Interested in any of these artists?
+      </h2>
+      <p
+        class="text-brand-muted leading-relaxed mb-8 text-sm"
+        data-en="To enquire about any of the artists in this roster, discuss a commission, or talk through your project, get in touch with Eleanor directly."
+        data-ja="このロースターに掲載されているアーティストへのお問い合わせ、コミッションのご相談、プロジェクトについてのご相談は、Eleanorまで直接ご連絡ください。"
+      >
+        To enquire about any of the artists in this roster, discuss a commission, or talk through your
+        project, get in touch with Eleanor directly.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block border border-brand-text px-8 py-3 text-xs tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors duration-200"
+        data-en="Contact Eleanor"
+        data-ja="Eleanorに問い合わせる"
+      >
+        Contact Eleanor
+      </a>
+    </div>
+  </section>
+</Layout>
