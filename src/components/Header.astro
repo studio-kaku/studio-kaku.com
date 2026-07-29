@@ -53,6 +53,13 @@ function isActive(href: string) {
       >
         ENQUIRE
       </a>
+      <button
+        type="button"
+        class="lang-toggle text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity"
+        aria-label="Switch language"
+      >
+        日本語
+      </button>
     </nav>
     <!-- Mobile hamburger -->
     <button
@@ -92,6 +99,13 @@ function isActive(href: string) {
       >
         ENQUIRE
       </a>
+      <button
+        type="button"
+        class="lang-toggle text-base tracking-wide opacity-60 hover:opacity-100 transition-opacity text-left"
+        aria-label="Switch language"
+      >
+        日本語
+      </button>
     </nav>
   </div>
 </header>
@@ -114,6 +128,10 @@ function isActive(href: string) {
       labelEl.textContent = storedLabel;
     }
   }
+
+  document.querySelectorAll('.lang-toggle').forEach((el) => {
+    el.addEventListener('click', () => (window as any).toggleLang());
+  });
 
   const btn = document.getElementById('mobile-menu-btn') as HTMLButtonElement;
   const menu = document.getElementById('mobile-menu') as HTMLDivElement;
