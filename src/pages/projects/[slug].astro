@@ -12,9 +12,15 @@ export function getStaticPaths() {
 const { project } = Astro.props;
 const [hero, ...gallery] = project.images;
 const paragraphs = project.description ? project.description.split('\n\n') : [];
+const ogImage = `/projects/${project.slug}/${encodeURIComponent(hero)}`;
 ---
 
-<Layout title={project.title} activeSection={project.journal ? 'journal' : 'projects'}>
+<Layout
+  title={project.title}
+  description={project.description}
+  ogImage={ogImage}
+  activeSection={project.journal ? 'journal' : 'projects'}
+>
 
   <!-- Back link -->
   <div class="px-8 md:px-12 pt-8">
