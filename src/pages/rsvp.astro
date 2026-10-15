@@ -484,7 +484,7 @@ import Layout from '../layouts/Layout.astro';
             </li>
             <li class="flex items-baseline gap-4 text-sm">
               <span style="color:var(--color-brand-accent); flex-shrink:0;">—</span>
-              <span data-en="&lt;strong&gt;A light layer&lt;/strong&gt; &lt;span class=&quot;text-brand-muted&quot;&gt;coastal evenings can get cool after dark&lt;/span&gt;" data-ja="&lt;strong&gt;羽織るもの&lt;/strong&gt; &lt;span class=&quot;text-brand-muted&quot;&gt;海沿いの夜は冷えることがあります&lt;/span&gt;"><strong>A light layer</strong> <span class="text-brand-muted">coastal evenings can get cool after dark</span></span>
+              <span data-en="&lt;strong&gt;A warm layer for the evening&lt;/strong&gt; &lt;span class=&quot;text-brand-muted&quot;&gt;coastal evenings can get cool after dark&lt;/span&gt;" data-ja="&lt;strong&gt;夜用の暖かい羽織りもの&lt;/strong&gt; &lt;span class=&quot;text-brand-muted&quot;&gt;海沿いの夜は冷えることがあります&lt;/span&gt;"><strong>A warm layer for the evening</strong> <span class="text-brand-muted">coastal evenings can get cool after dark</span></span>
             </li>
             <li class="flex items-baseline gap-4 text-sm">
               <span style="color:var(--color-brand-accent); flex-shrink:0;">—</span>
@@ -725,13 +725,14 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="name-script text-center leading-tight mb-14" style="font-size: clamp(2rem, 4vw, 3rem);" data-en="Kindly reply below" data-ja="ご返信はこちらから">
         Kindly reply below
       </h2>
+      <p class="text-brand-muted text-sm leading-relaxed text-center -mt-8 mb-14" data-en="Replying for someone else too? Please send one RSVP per guest. After you send yours, you can fill it in again for the next person." data-ja="ご家族やパートナーの分もご返信いただけます。お一人様ずつご送信ください。送信後、続けて次の方の分をご入力いただけます。">Replying for someone else too? Please send one RSVP per guest. After you send yours, you can fill it in again for the next person.</p>
 
       <form id="rsvp-form" action="https://script.google.com/macros/s/AKfycbwXto9d8w_xBzoXViaQcfv2g_XffG7gnI___62HETJhWEmAkuR3gUVdiJqKvqPXu2E/exec" method="POST">
         <input type="hidden" name="_subject" value="Wedding RSVP · Yuki & Eleanor" />
 
         <!-- Name -->
         <div class="mb-10">
-          <label for="name" class="block text-xs tracking-widest uppercase text-brand-muted mb-4" data-en="Your full name &lt;span class=&quot;normal-case&quot;&gt;(as on your passport, for hotel bookings)&lt;/span&gt;" data-ja="お名前 &lt;span class=&quot;normal-case&quot;&gt;（パスポート記載の氏名、宿泊予約のため）&lt;/span&gt;">Your full name <span class="normal-case">(as on your passport, for hotel bookings)</span></label>
+          <label for="name" class="block text-xs tracking-widest uppercase text-brand-muted mb-4" data-en="Guest's full name &lt;span class=&quot;normal-case&quot;&gt;(as on your passport, for hotel bookings)&lt;/span&gt;" data-ja="ご出席者のお名前 &lt;span class=&quot;normal-case&quot;&gt;（パスポート記載の氏名、宿泊予約のため）&lt;/span&gt;">Guest's full name <span class="normal-case">(as on your passport, for hotel bookings)</span></label>
           <input id="name" name="name" type="text" required
             class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
             placeholder="e.g. Eleanor Florence Pearce Ford" />
@@ -755,7 +756,7 @@ import Layout from '../layouts/Layout.astro';
 
         <!-- Attendance -->
         <div class="mb-2">
-          <p class="text-xs tracking-widest uppercase text-brand-muted mb-6" data-en="Will you be attending?" data-ja="ご出席されますか？">Will you be attending?</p>
+          <p class="text-xs tracking-widest uppercase text-brand-muted mb-6" data-en="Will this guest be attending?" data-ja="ご出席されますか？">Will this guest be attending?</p>
           <div class="flex gap-10">
             <label class="flex items-center gap-3 cursor-pointer text-sm">
               <input type="radio" name="attending" value="yes" required class="w-4 h-4" id="attending-yes" />
@@ -947,6 +948,12 @@ import Layout from '../layouts/Layout.astro';
           We've received your RSVP.<br />
           We'll be in touch with more details soon.
         </p>
+        <p id="sent-names" class="text-brand-muted text-xs tracking-widest uppercase mt-8"></p>
+        <button id="another-guest" type="button"
+          class="mt-10 border border-brand-text px-8 py-4 text-xs tracking-widest uppercase hover:opacity-70 transition-opacity"
+          data-en="RSVP for another guest" data-ja="他の方の分も返信する">
+          RSVP for another guest
+        </button>
       </div>
       <p id="error-msg" style="display:none;" class="mt-4 text-sm text-red-600" data-en="Something went wrong. Please try again or email us directly." data-ja="エラーが発生しました。もう一度お試しいただくか、直接メールにてご連絡ください。">
         Something went wrong. Please try again or email us directly.
@@ -1030,8 +1037,43 @@ import Layout from '../layouts/Layout.astro';
     submitBtn.disabled = true;
     try {
       const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-      if (res.ok) { form.style.display = 'none'; successMsg.style.display = 'block'; }
-      else { errorMsg.style.display = 'block'; submitBtn.textContent = 'Send RSVP'; submitBtn.disabled = false; }
-    } catch { errorMsg.style.display = 'block'; submitBtn.textContent = 'Send RSVP'; submitBtn.disabled = false; }
+      if (res.ok) {
+        sentNames.push((form.elements.namedItem('name') as HTMLInputElement).value.trim());
+        updateSentNames();
+        form.style.display = 'none'; successMsg.style.display = 'block';
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      else { errorMsg.style.display = 'block'; resetSubmitBtn(); }
+    } catch { errorMsg.style.display = 'block'; resetSubmitBtn(); }
+  });
+
+  // Replying on behalf of others: one RSVP per guest, so let them send again.
+  // Contact details carry over (it's usually the same person filling it in).
+  const sentNames: string[] = [];
+  const isJa = () => document.documentElement.lang === 'ja';
+  const sentNamesEl = document.getElementById('sent-names')!;
+  function updateSentNames() {
+    sentNamesEl.textContent = (isJa() ? '送信済み：' : 'Sent for: ') + sentNames.join(', ');
+  }
+  function resetSubmitBtn() {
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    submitBtn.textContent = isJa() ? '送信する' : 'Send RSVP';
+    submitBtn.disabled = false;
+  }
+  document.getElementById('another-guest')!.addEventListener('click', () => {
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+    const phone = (form.elements.namedItem('phone') as HTMLInputElement).value;
+    form.reset();
+    (form.elements.namedItem('email') as HTMLInputElement).value = email;
+    (form.elements.namedItem('phone') as HTMLInputElement).value = phone;
+    ['attending-fields', 'hotel-fields', 'snorkel-fields', 'babysitter-fields'].forEach(id => {
+      document.getElementById(id)!.style.display = 'none';
+    });
+    resetSubmitBtn();
+    errorMsg.style.display = 'none';
+    successMsg.style.display = 'none';
+    form.style.display = 'block';
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    (form.elements.namedItem('name') as HTMLInputElement).focus({ preventScroll: true });
   });
 </script>
