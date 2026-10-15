@@ -580,15 +580,16 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="name-script text-center leading-tight mb-14" style="font-size: clamp(2rem, 4vw, 3rem);">
         Kindly reply below
       </h2>
+      <p class="text-brand-muted text-sm leading-relaxed text-center -mt-8 mb-14">Replying for someone else too? Please send one RSVP per guest. After you send yours, you can fill it in again for the next person.</p>
 
       <form id="rsvp-form" action="https://script.google.com/macros/s/AKfycbwXto9d8w_xBzoXViaQcfv2g_XffG7gnI___62HETJhWEmAkuR3gUVdiJqKvqPXu2E/exec" method="POST">
         <input type="hidden" name="_subject" value="Wedding RSVP · Yuki & Eleanor" />
 
         <div class="mb-10">
-          <label for="name" class="block text-xs tracking-widest uppercase text-brand-muted mb-4">Your full name</label>
+          <label for="name" class="block text-xs tracking-widest uppercase text-brand-muted mb-4">Guest's full name</label>
           <input id="name" name="name" type="text" required
             class="w-full border-b border-brand-border bg-transparent pb-3 text-sm focus:outline-none focus:border-brand-text transition-colors"
-            placeholder="Your full name" />
+            placeholder="Guest's full name" />
         </div>
 
         <div class="mb-10">
@@ -774,6 +775,11 @@ import Layout from '../layouts/Layout.astro';
           We've received your RSVP.<br />
           We'll be in touch with more details soon.
         </p>
+        <p id="sent-names" class="text-brand-muted text-xs tracking-widest uppercase mt-8"></p>
+        <button id="another-guest" type="button"
+          class="mt-10 border border-brand-text px-8 py-4 text-xs tracking-widest uppercase hover:opacity-70 transition-opacity">
+          RSVP for another guest
+        </button>
       </div>
       <p id="error-msg" style="display:none;" class="mt-4 text-sm text-red-600">
         Something went wrong. Please try again or email us directly.
@@ -826,8 +832,35 @@ import Layout from '../layouts/Layout.astro';
     submitBtn.disabled = true;
     try {
       const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-      if (res.ok) { form.style.display = 'none'; successMsg.style.display = 'block'; }
-      else { errorMsg.style.display = 'block'; submitBtn.textContent = 'Send RSVP'; submitBtn.disabled = false; }
-    } catch { errorMsg.style.display = 'block'; submitBtn.textContent = 'Send RSVP'; submitBtn.disabled = false; }
+      if (res.ok) {
+        sentNames.push((form.elements.namedItem('name') as HTMLInputElement).value.trim());
+        document.getElementById('sent-names')!.textContent = 'Sent for: ' + sentNames.join(', ');
+        form.style.display = 'none'; successMsg.style.display = 'block';
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      else { errorMsg.style.display = 'block'; resetSubmitBtn(); }
+    } catch { errorMsg.style.display = 'block'; resetSubmitBtn(); }
+  });
+
+  // Replying on behalf of others: one RSVP per guest, so let them send again.
+  // Contact details carry over (it's usually the same person filling it in).
+  const sentNames: string[] = [];
+  function resetSubmitBtn() {
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    submitBtn.textContent = 'Send RSVP';
+    submitBtn.disabled = false;
+  }
+  document.getElementById('another-guest')!.addEventListener('click', () => {
+    const keep = ['email', 'phone'].map(n => form.elements.namedItem(n) as HTMLInputElement | null);
+    const values = keep.map(el => el?.value ?? '');
+    form.reset();
+    keep.forEach((el, i) => { if (el) el.value = values[i]; });
+    form.querySelectorAll<HTMLElement>('[id$="-fields"]').forEach(el => { el.style.display = 'none'; });
+    resetSubmitBtn();
+    errorMsg.style.display = 'none';
+    successMsg.style.display = 'none';
+    form.style.display = 'block';
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    (form.elements.namedItem('name') as HTMLInputElement).focus({ preventScroll: true });
   });
 </script>
