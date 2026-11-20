@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import { projects } from '../data/projects.js';
 import { ja } from '../data/ja.js';
+
+const showArtistCollection = false;
 const featuredProjects = projects.filter(p => !p.journal && !p.hidden && p.slug !== 'tcs-2025').slice(0, 5);
 const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
 ---
@@ -158,7 +160,8 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
     </div>
   </section>
 
-  <!-- Artist Collection teaser -->
+  <!-- Artist Collection teaser — hidden until the collection is ready; set showArtistCollection to true to bring it back -->
+  {showArtistCollection && (
   <section class="px-8 md:px-12 py-12 md:py-20 border-t border-brand-border mt-1">
     <div class="flex items-end justify-between mb-10">
       <div>
@@ -205,6 +208,7 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
       </a>
     </div>
   </section>
+  )}
 
   <!-- Services list -->
   <section class="border-t border-brand-border mt-1">
