@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { projects } from '../data/projects.js';
+import { ja } from '../data/ja.js';
 const featuredProjects = projects.filter(p => !p.journal && !p.hidden && p.slug !== 'tcs-2025').slice(0, 5);
 const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
 ---
 
-<Layout title="Home" description="Studio Kaku is a Tokyo-based studio specialising in art framing, installation, curation and creative direction, for galleries, hotels, private residences and art fairs.">
+<Layout title="Home" titleJa="Studio Kaku | 東京の額装・アートコンサルティング" descriptionJa="Studio Kakuは東京を拠点に、額装・設置・アートキュレーション・クリエイティブディレクションを手がけるスタジオです。ギャラリー、ホテル、個人邸、アートフェアのために、作品にふさわしい場をつくります。" description="Studio Kaku is a Tokyo-based studio specialising in art framing, installation, curation and creative direction, for galleries, hotels, private residences and art fairs.">
   <!-- Hero -->
   <section class="px-8 md:px-12 pt-10 md:pt-16 pb-6 md:pb-8">
     <h1
@@ -19,10 +20,10 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 border-t border-brand-border pt-8">
       <p
         class="text-brand-muted text-base leading-relaxed max-w-md"
-        data-en="From the first conversation to the final installation - we bring together specialist framing, art care and consultancy for hotels, collectors and galleries who want art to do more than fill a wall."
+        data-en="From the first conversation to the final installation — we bring together specialist framing, art care and consultancy for hotels, collectors and galleries who want art to do more than fill a wall."
         data-ja="Studio Kakuは、額装・設置・アートケアの専門知識と、アートコンサルタンシー・クリエイティブディレクション・キュレーションを組み合わせたスタジオです。コレクター、ギャラリー、企業が最良の形でアートと共に暮らし、働けるよう支援します。"
       >
-        From the first conversation to the final installation - we bring together
+        From the first conversation to the final installation — we bring together
         specialist framing, art care and consultancy for hotels, collectors and
         galleries who want art to do more than fill a wall.
       </p>
@@ -81,9 +82,9 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
               draggable="false"
             />
           </div>
-          <p class="text-xs text-brand-muted tracking-widest uppercase mb-1">{entry.year}</p>
-          <p class="font-display uppercase leading-snug text-base break-words group-hover:opacity-50 transition-opacity">{entry.title}</p>
-          <p class="text-xs text-brand-muted mt-1">{entry.tagline}</p>
+          <p class="text-xs text-brand-muted tracking-widest uppercase mb-1" data-en={entry.year} data-ja={ja(entry.year)}>{entry.year}</p>
+          <p class="font-display uppercase leading-snug text-base break-words group-hover:opacity-50 transition-opacity" data-en={entry.title} data-ja={entry.titleJa ?? ja(entry.title)}>{entry.title}</p>
+          <p class="text-xs text-brand-muted mt-1" data-en={entry.tagline} data-ja={ja(entry.tagline)}>{entry.tagline}</p>
         </a>
       ))}
     </div>
@@ -146,9 +147,9 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
               />
             </div>
             <div class="mt-3">
-              <p class="font-display uppercase leading-snug text-base group-hover:opacity-40 transition-opacity">{project.title}</p>
+              <p class="font-display uppercase leading-snug text-base group-hover:opacity-40 transition-opacity" data-en={project.title} data-ja={project.titleJa ?? ja(project.title)}>{project.title}</p>
               {project.tagline && (
-                <p class="text-xs text-brand-muted mt-1 group-hover:opacity-40 transition-opacity">{project.tagline}</p>
+                <p class="text-xs text-brand-muted mt-1 group-hover:opacity-40 transition-opacity" data-en={project.tagline} data-ja={ja(project.tagline)}>{project.tagline}</p>
               )}
             </div>
           </a>
