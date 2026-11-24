@@ -1,6 +1,50 @@
 export const projects = [
   // ── Journal entries (journal: true), newest first ──────────────────────
 
+  // October 2026
+  {
+    slug: "mona-oct-2026",
+    journal: true,
+    title: "Mona",
+    tagline: "Curation & installation",
+    subtitle: "Exhibition",
+    year: "October 2026",
+    credits: [
+      { label: "Artist", value: "Mona" },
+      { label: "Curation & Installation", value: "Studio Kaku" },
+    ],
+    description: "Curation and installation for Mona's exhibition.",
+    descriptionJa: `Monaの展覧会の、キュレーションと設置を手がけました。`,
+    cover: "DSC09711.jpg",
+    images: [
+      "DSC09711.jpg",
+      "DSC09831.jpg","DSC09859.jpg","DSC09860.jpg","DSC09873.jpg",
+      "DSC09885.jpg","DSC09900.jpg","DSC09918.jpg",
+    ],
+  },
+  // September 2026
+  {
+    slug: "tokyo-gendai-sept-2026",
+    journal: true,
+    title: "Tokyo Gendai",
+    titleJa: "東京現代",
+    tagline: "Framing & installation",
+    subtitle: "Curatorial Gallery",
+    year: "September 2026",
+    credits: [
+      { label: "Fair", value: "Tokyo Gendai" },
+      { label: "Gallery", value: "Curatorial Gallery" },
+      { label: "Framing & Installation", value: "Studio Kaku" },
+    ],
+    description: "Framing and installation for Curatorial Gallery at Tokyo Gendai.",
+    descriptionJa: `東京現代（Tokyo Gendai）に出展したCuratorial Galleryの、額装と設置を手がけました。`,
+    cover: "IMG_9041.jpg",
+    images: [
+      "IMG_9041.jpg",
+      "IMG_9042.jpg","IMG_9043.jpg","IMG_9044.jpg","IMG_9045.jpg",
+      "IMG_9046.jpg","IMG_9047.jpg","visitors.jpg","booth.jpg",
+    ],
+  },
   // June 2026
   {
     slug: "supper-club-kura-june-2026",
