@@ -30,7 +30,7 @@ const terms = {
   'Conal Kelley at UltraSuperNew KURA': 'Conal Kelley（UltraSuperNew KURA）',
   'Maya Sobchuk at UltraSuperNew KURA': 'Maya Sobchuk（UltraSuperNew KURA）',
   'Wandler × Isetan × Kamei Norihiko': 'Wandler × 伊勢丹 × Kamei Norihiko',
-  'Tokyo Creative Salon — Haneda Airport': 'Tokyo Creative Salon — 羽田空港',
+  'Tokyo Creative Salon, Haneda Airport': 'Tokyo Creative Salon・羽田空港',
   'Jaski Gallery, Amsterdam': 'Jaski Gallery（アムステルダム）',
   'UltraSuperNew Gallery, Tokyo': 'UltraSuperNew Gallery（東京）',
   'Sequence Suidobashi, Tokyo': 'Sequence Suidobashi（東京）',

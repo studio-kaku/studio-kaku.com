@@ -135,7 +135,7 @@ import Layout from '../layouts/Layout.astro';
           </select>
         </div>
 
-        <!-- Framing sub-questions — shown only when Framing is selected -->
+        <!-- Framing sub-questions: shown only when Framing is selected -->
         <div id="framing-fields" class="hidden space-y-6 border-l-2 border-brand-border pl-6">
           <div>
             <label class="block text-xs tracking-widest uppercase text-brand-muted mb-2" data-en="Frame style" data-ja="フレームスタイル">Frame style</label>
@@ -251,7 +251,7 @@ import Layout from '../layouts/Layout.astro';
     const serviceSelect = document.getElementById('service-type-select') as HTMLSelectElement | null;
     const framingFields = document.getElementById('framing-fields') as HTMLElement | null;
 
-    // Bilingual select options — defined inline to avoid HTML attribute encoding issues
+    // Bilingual select options, defined inline to avoid HTML attribute encoding issues
     const SELECT_OPTS: Record<string, {en: {v:string,l:string}[], ja: {v:string,l:string}[]}> = {
       'client-type-select': {
         en: [{v:'',l:'Select…'},{v:'private',l:'Private individual'},{v:'company',l:'Company'},{v:'gallery',l:'Gallery'},{v:'artist',l:'Artist'}],
@@ -364,7 +364,7 @@ import Layout from '../layouts/Layout.astro';
           success.classList.remove('hidden');
         } else {
           if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = (localStorage.getItem('sk-lang') || 'en') === 'ja' ? '送信する' : 'Send Enquiry'; }
-          alert('Something went wrong — please email us at hello@studio-kaku.com');
+          alert('Something went wrong. Please email us at hello@studio-kaku.com');
         }
       });
     }

@@ -50,22 +50,22 @@ import Layout from '../layouts/Layout.astro';
       </h2>
       <p class="text-brand-muted text-sm leading-relaxed max-w-sm pb-1"
         data-en="From established voices to emerging makers - art available as prints, editions, and originals."
-        data-ja="確立されたアーティストから新進の作家まで——プリント、エディション、オリジナル作品として購入可能です。"
+        data-ja="確立されたアーティストから新進の作家まで、プリント、エディション、オリジナル作品として購入可能です。"
       >
         From established voices to emerging makers - art available as prints, editions, and originals.
       </p>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5">
       {[
-        { img: '/images/artists/artist-1.jpg', bio: 'Paintings that flow like water - vivid colour and undulating lines, built up in layers and sanded back to reveal what lies beneath.', bioJa: '水が流れるような絵画——鮮やかな色彩と波打つ線が層を重ね、研き出されることで内側が現れる。' },
+        { img: '/images/artists/artist-1.jpg', bio: 'Paintings that flow like water - vivid colour and undulating lines, built up in layers and sanded back to reveal what lies beneath.', bioJa: '水が流れるような絵画、鮮やかな色彩と波打つ線が層を重ね、研き出されることで内側が現れる。' },
         { img: '/images/artists/artist-2.jpg', bio: 'Contemporary artist from the Ainu community in Akan, Hokkaido. Traditional craft reimagined through modern design and everyday objects.', bioJa: '北海道阿寒のアイヌコミュニティ出身のコンテンポラリーアーティスト。伝統工芸をモダンデザインと日用品を通じて再解釈する。' },
         { img: '/images/artists/artist-3.jpg', bio: 'Based in Shiraoi since 2002. Sculpture, painting, and installation exploring the boundaries between earth and sky.', bioJa: '2002年から白老を拠点に活動。彫刻、絵画、インスタレーションを通じて大地と空の境界を探求する。', contain: true },
         { img: '/images/artists/artist-4.jpg', bio: 'Hokkaido-born woodworker. Construction, joinery, and renovation inform a practice that began two years ago.', bioJa: '北海道生まれの木工家。建築・木工・リノベーションの経験を活かし、2年前から制作活動を開始。' },
         { img: '/images/artists/artist-5.jpg', bio: 'Studied at Chelsea College of Arts. Organic shapes and pastel tones - work that has exhibited in Japan, London, and beyond.', bioJa: 'チェルシー・カレッジ・オブ・アーツで学ぶ。有機的なフォルムとパステルトーンの作品は、日本・ロンドンをはじめ世界各地で展示されている。' },
         { img: '/images/artists/artist-6.jpg', bio: 'Fluid lines and vivid colour expressing everyday emotion. First solo exhibition this year.', bioJa: '流れるような線と鮮やかな色彩で日常の感情を表現する。今年、初の個展を開催。' },
         { img: '/images/artists/artist-7.jpg', bio: 'Born in Okinawa. Calligraphy reimagined through light and contemporary expression - rooted in Zen and Okinawan tradition.', bioJa: '沖縄出身。禅と沖縄の伝統を根底に、光とコンテンポラリーな表現を通じて書を再解釈する。' },
-        { img: '/images/artists/artist-8.jpg', bio: 'The Couple series - sculpture, painting, and drawing exploring invisible human connection through intertwined form.', bioJa: '「カップルシリーズ」——絡み合うフォルムを通じて、見えない人間のつながりを彫刻・絵画・ドローイングで探求する。' },
-        { img: '/images/artists/artist-9.jpg', bio: 'Ceramics that restore broken things. Clay cracked, fired, glazed, and reassembled - fragility made permanent.', bioJa: '壊れたものを再生する陶芸。割れた土を焼き、釉薬をかけ、組み直す——儚さを永遠に変える試み。', position: 'left center' },
+        { img: '/images/artists/artist-8.jpg', bio: 'The Couple series - sculpture, painting, and drawing exploring invisible human connection through intertwined form.', bioJa: '「カップルシリーズ」。絡み合うフォルムを通じて、見えない人間のつながりを彫刻・絵画・ドローイングで探求する。' },
+        { img: '/images/artists/artist-9.jpg', bio: 'Ceramics that restore broken things. Clay cracked, fired, glazed, and reassembled - fragility made permanent.', bioJa: '壊れたものを再生する陶芸。割れた土を焼き、釉薬をかけ、組み直す、儚さを永遠に変える試み。', position: 'left center' },
         { img: '/images/artists/artist-10.jpg', bio: 'Born in Osaka. Now farming, fishing, and making art from a village on the Chiba coast.', bioJa: '大阪生まれ。千葉の海岸沿いの村で農業、漁業、そしてアート制作に取り組む。' },
       ].map((artist, i) => (
         <div data-fade style={`transition-delay:${(i % 5) * 60}ms`}>
@@ -101,7 +101,7 @@ import Layout from '../layouts/Layout.astro';
         { title: 'Ainu Mino Ceramics', titleJa: 'アイヌ美濃焼', body: 'Two white square plates with a raised Ainu geometric pattern in warm taupe. Handmade in Biratori, a town with one of Hokkaido\'s oldest Ainu communities.', bodyJa: '温かみのあるタウプ色でアイヌの幾何学模様が浮き彫りにされた白い正方形の皿が2枚。北海道最古のアイヌコミュニティのひとつ、平取で手作りされています。', price: '¥20,000 · Biratori', img: '/images/products/ainu-ceramics.jpg' },
         { title: 'Cara Wooden Plates', titleJa: 'カラ 木製プレート', body: 'Three nested round plates turned from light Hokkaido timber. A set that works on the table or displayed on a shelf.', bodyJa: '北海道の淡い色の木材から削り出された丸いプレート3枚セット。テーブルでも棚に飾っても絵になります。', price: '¥11,000 · Asahikawa', img: '/images/products/cara-plate.jpg' },
         { title: 'Flower Cut Glass', titleJa: '花切子グラス', body: 'A teal cut glass tumbler with a floral pattern and amber layered base - made using the Otaru kiriko glass-cutting tradition.', bodyJa: '小樽切子の伝統技法で作られた、花柄とアンバーベースが美しいティールのカットグラスタンブラー。', price: '¥49,000 · Otaru', img: '/images/products/flower-glass.jpg' },
-        { title: 'Sapporo Ceramic Plate', titleJa: '札幌陶器プレート', body: 'A wide, shallow plate with a sandy textured glaze. Shown here set at a table - the kind of piece that improves with use.', bodyJa: '砂のような釉薬が施された幅広の浅皿。テーブルに映える一枚——使うほどに味わいが増します。', price: '¥10,000 · Asahikawa', img: '/images/products/sapporo-plate.jpg' },
+        { title: 'Sapporo Ceramic Plate', titleJa: '札幌陶器プレート', body: 'A wide, shallow plate with a sandy textured glaze. Shown here set at a table - the kind of piece that improves with use.', bodyJa: '砂のような釉薬が施された幅広の浅皿。テーブルに映える一枚、使うほどに味わいが増します。', price: '¥10,000 · Asahikawa', img: '/images/products/sapporo-plate.jpg' },
         { title: 'Blue Cut Glass', titleJa: 'ブルー切子グラス', body: 'Deep cobalt blue with a repeating circular cut pattern across the entire body. A bold piece from the Otaru glass tradition.', bodyJa: '全体に繰り返す円形のカットパターンが施された深いコバルトブルー。小樽ガラスの伝統から生まれた力強い一品。', price: '¥27,500 · Otaru', img: '/images/products/wine-glass.jpg' },
         { title: 'Foldable Rain Boots', titleJa: '折りたたみレインブーツ', body: 'Bright teal boots with a pink sole and yellow trim that pack flat into their own pouch. Practical for Hokkaido\'s unpredictable weather.', bodyJa: '専用ポーチに平たく収納できる、ピンクソールとイエロートリムのティールブーツ。北海道の変わりやすい天気にも対応。', price: '¥20,000 · Otaru', img: '/images/products/rain-boots.jpg' },
         { title: 'Higashikawa Ceramics', titleJa: '東川焼', body: 'A workshop range of mugs and vases in blue-green gradient glaze. Each piece is slightly different.', bodyJa: '青緑のグラデーション釉薬のマグカップと花瓶のワークショップシリーズ。一点一点が少しずつ異なります。', price: 'From ¥5,000 · Higashikawa', img: '/images/products/ceramics-mugs.jpg' },
@@ -135,7 +135,7 @@ import Layout from '../layouts/Layout.astro';
     </h2>
     <p class="text-brand-muted text-sm leading-relaxed max-w-lg mb-14"
       data-en="Every object we curate has a story and an artist behind it. These are some of the people Studio Kaku works with - their knowledge of Hokkaido's materials and traditions is built into everything they produce."
-      data-ja="私たちが選ぶすべての品には作り手がいます。Studio Kakuが協働する職人の一部をご紹介します——北海道の素材と伝統への深い知識が、彼らの作品のすべてに宿っています。"
+      data-ja="私たちが選ぶすべての品には作り手がいます。Studio Kakuが協働する職人の一部をご紹介します。北海道の素材と伝統への深い知識が、彼らの作品のすべてに宿っています。"
     >
       Every object we curate has a story and an artist behind it. These are some of the people Studio Kaku works with - their knowledge of Hokkaido's materials and traditions is built into everything they produce.
     </p>
@@ -269,7 +269,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="text-brand-muted text-xs mb-6" data-en="studio fee · pieces priced separately" data-ja="スタジオ料金 · 作品代別途">studio fee · pieces priced separately</p>
         <p class="text-brand-muted text-sm leading-relaxed mb-8"
           data-en="We spend time with your villa first - the light, the rooms, how you imagine it feeling. Then we put together a selection of art, furniture, and local objects chosen specifically for you. You receive something already filtered to what suits your space."
-          data-ja="まずあなたのヴィラに時間をかけて向き合います——光、部屋の雰囲気、どんな空間にしたいか。その上でアート、家具、地元のオブジェをあなたのために厳選してご提案します。"
+          data-ja="まずあなたのヴィラに時間をかけて向き合います。光、部屋の雰囲気、どんな空間にしたいか。その上でアート、家具、地元のオブジェをあなたのために厳選してご提案します。"
         >
           We spend time with your villa first - the light, the rooms, how you imagine it feeling. Then we put together a selection of art, furniture, and local objects chosen specifically for you. You receive something already filtered to what suits your space.
         </p>
@@ -302,7 +302,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="text-brand-bg/40 text-xs mb-6" data-en="by arrangement · pieces priced separately" data-ja="応相談 · 作品代別途">by arrangement · pieces priced separately</p>
         <p class="text-brand-bg/50 text-sm leading-relaxed mb-8"
           data-en="For owners who want their villa to feel genuinely singular. We work with artists and makers directly, finding and commissioning pieces for your specific space. The brief is yours - we build around it."
-          data-ja="唯一無二のヴィラを目指すオーナーのために。アーティストや作家と直接連携し、あなたの空間のための作品を探し、コミッションします。ブリーフはあなたのもの——私たちはそれを軸に組み立てます。"
+          data-ja="唯一無二のヴィラを目指すオーナーのために。アーティストや作家と直接連携し、あなたの空間のための作品を探し、コミッションします。ブリーフはあなたのもの。私たちはそれを軸に組み立てます。"
         >
           For owners who want their villa to feel genuinely singular. We work with artists and makers directly, finding and commissioning pieces for your specific space. The brief is yours - we build around it.
         </p>
@@ -311,7 +311,7 @@ import Layout from '../layouts/Layout.astro';
             ['Full creative consultation', 'フルクリエイティブコンサルテーション'],
             ['Commissioned and bespoke pieces', 'コミッション・ビスポーク作品'],
             ['Artist and maker introductions', 'アーティスト・作家のご紹介'],
-            ['Art, objects, and furniture - full scope', 'アート・オブジェ・家具——全スコープ'],
+            ['Art, objects, and furniture - full scope', 'アート・オブジェ・家具（全スコープ）'],
             ['Ongoing collection care', 'コレクションの継続的なケア'],
           ].map(([en, ja]) => (
             <li class="text-[11px] text-brand-bg/40 py-2.5 border-b border-brand-bg/[0.08] flex gap-2" data-en={en} data-ja={ja}>
@@ -350,7 +350,7 @@ import Layout from '../layouts/Layout.astro';
         </h2>
         <p class="text-brand-bg/50 text-sm leading-relaxed max-w-sm"
           data-en="Studio Kaku brings together a small, trusted group of collaborators. You deal with us throughout - we manage every relationship, coordinate every detail, and remain your single point of contact."
-          data-ja="Studio Kakuは、信頼できる少数のコラボレーターと連携しています。プロジェクトを通じてお付き合いいただくのは私たちです——すべての関係を管理し、細部を調整し、一貫した窓口として対応します。"
+          data-ja="Studio Kakuは、信頼できる少数のコラボレーターと連携しています。プロジェクトを通じてお付き合いいただくのは私たちです。すべての関係を管理し、細部を調整し、一貫した窓口として対応します。"
         >
           Studio Kaku brings together a small, trusted group of collaborators. You deal with us throughout - we manage every relationship, coordinate every detail, and remain your single point of contact.
         </p>
@@ -362,7 +362,7 @@ import Layout from '../layouts/Layout.astro';
             typeJa: 'クリエイティブリード',
             name: 'Studio Kaku',
             body: 'Your single point of contact from first conversation to final installation, and beyond. We coordinate every part of the project and remain available after handover for ongoing care, seasonal updates, and collection changes.',
-            bodyJa: '最初の会話から最終設置まで、そしてその先も——一貫した窓口として機能します。プロジェクトのあらゆる部分をコーディネートし、引き渡し後も継続的なケア、季節ごとの更新、コレクション変更に対応します。',
+            bodyJa: '最初の会話から最終設置まで、そしてその先も、一貫した窓口として機能します。プロジェクトのあらゆる部分をコーディネートし、引き渡し後も継続的なケア、季節ごとの更新、コレクション変更に対応します。',
             url: 'https://studio-kaku.com',
             urlLabel: 'studio-kaku.com',
             urlLabelJa: 'studio-kaku.com',
@@ -384,7 +384,7 @@ import Layout from '../layouts/Layout.astro';
             typeJa: '家具・インテリア',
             name: 'Spaceman',
             body: 'Spatial design, furniture selection, and interior identity. Works with Studio Kaku to bring out the best design for every space, drawing on deep knowledge of Hokkaido materials and regional makers.',
-            bodyJa: '空間デザイン、家具の選定、インテリアのアイデンティティ。Studio Kakuと協力し、各空間に最高のデザインを引き出します——北海道の素材と地域の作家への深い知識を活かして。',
+            bodyJa: '空間デザイン、家具の選定、インテリアのアイデンティティ。Studio Kakuと協力し、各空間に最高のデザインを引き出します。北海道の素材と地域の作家への深い知識を活かして。',
             url: null,
             urlLabel: null,
             urlLabelJa: null,
@@ -428,7 +428,7 @@ import Layout from '../layouts/Layout.astro';
     </h2>
     <p class="text-brand-muted text-sm leading-relaxed max-w-sm mb-14" data-fade-text style="transition-delay:80ms"
       data-en="Every project starts with a conversation. Tell us about the space and what you are hoping for - we will take it from there."
-      data-ja="すべてのプロジェクトは会話から始まります。空間と希望についてお聞かせください——あとは私たちが進めます。"
+      data-ja="すべてのプロジェクトは会話から始まります。空間と希望についてお聞かせください。あとは私たちが進めます。"
     >
       Every project starts with a conversation. Tell us about the space and what you are hoping for - we will take it from there.
     </p>
