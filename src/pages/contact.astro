@@ -206,6 +206,24 @@ import Layout from '../layouts/Layout.astro';
           ></textarea>
         </div>
 
+        <!-- Privacy notice and consent -->
+        <div class="space-y-3">
+          <p
+            class="text-brand-muted text-xs leading-relaxed"
+            data-en="We use your details only to reply to your enquiry and, if we work together, to manage your project. We never sell them or share them for marketing."
+            data-ja="いただいた情報は、お問い合わせへの返信と、ご依頼いただいた場合のプロジェクト管理にのみ使用します。販売したり、マーケティング目的で共有したりすることはありません。"
+          >
+            We use your details only to reply to your enquiry and, if we work together, to manage your project. We never sell them or share them for marketing.
+          </p>
+          <label class="flex items-start gap-3 text-sm cursor-pointer">
+            <input type="checkbox" name="consent" required class="mt-1 accent-brand-text flex-shrink-0" />
+            <span
+              data-en="I agree to Studio Kaku using my details to respond to this enquiry."
+              data-ja="お問い合わせへの対応のために、Studio Kakuが私の情報を利用することに同意します。"
+            >I agree to Studio Kaku using my details to respond to this enquiry.</span>
+          </label>
+        </div>
+
 <!-- Honeypot spam trap -->
         <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
 
