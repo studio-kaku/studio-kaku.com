@@ -137,19 +137,6 @@ const engagements = [
     </p>
   </section>
 
-  <!-- Service pages -->
-  <section class="border-t border-brand-border">
-    <div class="px-8 md:px-12 pt-14 md:pt-20 pb-8">
-      <h2 class="text-brand-muted text-xs tracking-widest uppercase" data-en="Our services" data-ja="サービス一覧">Our services</h2>
-    </div>
-    {services.map((service) => (
-      <a href={`/services/${service.slug}`} class="flex items-center justify-between gap-8 px-8 md:px-12 py-6 border-t border-brand-border hover:bg-brand-border/30 transition-colors">
-        <span class="font-display uppercase leading-none" style="font-size: clamp(0.9rem, 1.5vw, 1.25rem);" data-en={service.title.en} data-ja={service.title.ja}>{service.title.en}</span>
-        <span class="text-brand-muted">→</span>
-      </a>
-    ))}
-  </section>
-
   <!-- The Journey -->
   <section class="border-t border-brand-border">
     <div class="px-8 md:px-12 pt-14 md:pt-20 pb-8">
@@ -240,6 +227,19 @@ const engagements = [
         </div>
       ))}
     </div>
+  </section>
+
+  <!-- Service pages -->
+  <section class="border-t border-brand-border">
+    <div class="px-8 md:px-12 pt-14 md:pt-20 pb-8">
+      <h2 class="text-brand-muted text-xs tracking-widest uppercase" data-en="Our services" data-ja="サービス一覧">Our services</h2>
+    </div>
+    {services.map((service) => (
+      <a href={`/services/${service.slug}`} class="flex items-center justify-between gap-8 px-8 md:px-12 py-6 border-t border-brand-border hover:bg-brand-border/30 transition-colors">
+        <span class="font-display uppercase leading-none" style="font-size: clamp(0.9rem, 1.5vw, 1.25rem);" data-en={service.title.en} data-ja={service.title.ja}>{service.title.en}</span>
+        <span class="text-brand-muted">→</span>
+      </a>
+    ))}
   </section>
 
   <!-- CTA -->
