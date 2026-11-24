@@ -1,5 +1,5 @@
 // Japanese for the short, repeated text in projects.js (taglines, subtitles,
-// credit labels, dates). Anything not listed here — artist and venue names —
+// credit labels, dates). Anything not listed here (artist and venue names)
 // is shown as written. Longer, one-off text lives on each project as
 // titleJa / descriptionJa.
 

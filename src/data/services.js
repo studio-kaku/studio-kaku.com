@@ -1,4 +1,4 @@
-// One page per service at /services/<slug>/ — each aimed at what people
+// One page per service at /services/<slug>/, each aimed at what people
 // actually search for (e.g. "art framing tokyo", "額装 東京").
 // `projects` are slugs from projects.js shown as examples.
 // `enquiry` preselects the service on the contact form.
@@ -16,7 +16,7 @@ export const services = [
     kicker: { en: 'Framing', ja: '額装' },
     title: { en: 'Custom art framing in Tokyo', ja: '東京のオーダー額装' },
     intro: {
-      en: 'Every work is framed to museum standard, using archival materials chosen for that piece. We frame for private collectors, artists, galleries and companies across Tokyo — from a single print or a child\'s drawing to a full exhibition — in collaboration with Juka Framing, the workshop founded by our co-founder Yuki Kakuno. Past framing includes work for Ceysson & Bénétière\'s Ginza gallery, the Tokyo American Club, Toranomon Hills and GINZA SIX.',
+      en: 'Every work is framed to museum standard, using archival materials chosen for that piece. We frame for private collectors, artists, galleries and companies across Tokyo, from a single print or a child\'s drawing to a full exhibition. We work in collaboration with Juka Framing, the workshop founded by our co-founder Yuki Kakuno. Past framing includes work for Ceysson & Bénétière\'s Ginza gallery, the Tokyo American Club, Toranomon Hills and GINZA SIX.',
       ja: 'すべての作品を、その一点のために選んだアーカイバル素材で、美術館水準に額装します。東京を拠点に、個人のコレクター、アーティスト、ギャラリー、企業の作品を、一枚の版画や子どもの絵から展覧会全体まで手がけています。額装は、共同創業者のYuki Kakunoが設立した工房、Juka Framingとの協働で行います。これまでに、Ceysson & Bénétière（銀座）、東京アメリカンクラブ、虎ノ門ヒルズ、GINZA SIXの作品の額装を担当してきました。',
     },
     offerHeading: { en: 'What we frame', ja: '額装の種類' },
@@ -31,7 +31,7 @@ export const services = [
       {
         title: { en: 'Floating frames', ja: 'フローティングフレーム' },
         desc: {
-          en: 'The work is raised inside the frame so its edges stay visible — ideal for deckle-edged paper.',
+          en: 'The work is raised inside the frame so its edges stay visible. Ideal for deckle-edged paper.',
           ja: '作品を額の中に浮かせるように配置し、紙の縁まで見せる額装です。耳付きの紙作品に適しています。',
         },
       },
@@ -60,7 +60,7 @@ export const services = [
     stepsHeading: { en: 'How it works', ja: 'ご依頼の流れ' },
     steps: [
       {
-        en: 'Tell us about the work. Its size and a photo are a good start — the enquiry form asks for both.',
+        en: 'Tell us about the work. Its size and a photo are a good start, and the enquiry form asks for both.',
         ja: '作品についてお聞かせください。サイズと写真があればスムーズです。お問い合わせフォームからお送りいただけます。',
       },
       {
@@ -88,7 +88,7 @@ export const services = [
     kicker: { en: 'Art consultancy', ja: 'アートコンサルティング' },
     title: { en: 'Art consultancy in Tokyo', ja: '東京のアートコンサルティング' },
     intro: {
-      en: 'We help people and organisations find art that belongs in their space — then take care of everything that follows. Studio Kaku works with first-time buyers, collectors, offices and developers, drawing on a network of Japanese and international artists. Clients include Mitsui Fudosan, Soho House and Tokyo Creative Salon at Haneda Airport.',
+      en: 'We help people and organisations find art that belongs in their space, then take care of everything that follows. Studio Kaku works with first-time buyers, collectors, offices and developers, drawing on a network of Japanese and international artists. Clients include Mitsui Fudosan, Soho House and Tokyo Creative Salon at Haneda Airport.',
       ja: '空間にふさわしいアートを見つけ、その後のすべてを引き受けます。Studio Kakuは、初めて作品を購入する方からコレクター、オフィス、デベロッパーまで、国内外のアーティストのネットワークを生かしてサポートします。これまでに三井不動産、Soho House、羽田空港のTokyo Creative Salonなどと仕事をしてきました。',
     },
     offerHeading: { en: 'What we do', ja: 'サービス内容' },
@@ -96,7 +96,7 @@ export const services = [
       {
         title: { en: 'Curation', ja: 'キュレーション' },
         desc: {
-          en: 'A curatorial direction for each space — what the art should do there, and why. Not a mood board, but a point of view.',
+          en: 'A curatorial direction for each space: what the art should do there, and why. Not a mood board, but a point of view.',
           ja: 'それぞれの空間でアートが果たすべき役割と、その理由を示します。イメージの羅列ではなく、一つの視点としてのご提案です。',
         },
       },
@@ -117,7 +117,7 @@ export const services = [
       {
         title: { en: 'Framing, installation & handover', ja: '額装・設置・引き渡し' },
         desc: {
-          en: 'Museum-standard framing and installation, with full documentation — artists, provenance and care.',
+          en: 'Museum-standard framing and installation, with full documentation of artists, provenance and care.',
           ja: '美術館水準の額装と設置。作家情報、来歴、メンテナンス方法をまとめたドキュメントもお渡しします。',
         },
       },
@@ -125,15 +125,15 @@ export const services = [
     stepsHeading: { en: 'Ways to work with us', ja: 'ご依頼の形式' },
     steps: [
       {
-        en: 'One-off project — a single piece, a room or a whole building, scoped and priced individually.',
+        en: 'One-off project: a single piece, a room or a whole building, scoped and priced individually.',
         ja: 'スポットプロジェクト：一点の作品から一室、建物全体まで、個別にスコープと費用を設定します。',
       },
       {
-        en: 'Retainer — ongoing access to our network, eye and advice.',
+        en: 'Retainer: ongoing access to our network, eye and advice.',
         ja: 'リテイナー：私たちのネットワーク、審美眼、アドバイスを継続的にご利用いただけます。',
       },
       {
-        en: 'Advisory — you have a team, and want an outside eye and a second opinion.',
+        en: 'Advisory: you have a team, and want an outside eye and a second opinion.',
         ja: 'アドバイザリー：すでにチームがあり、外部の視点やセカンドオピニオンが欲しい場合に。',
       },
     ],
@@ -146,13 +146,13 @@ export const services = [
     img: '/projects/kyoto-sequence-art/restaurant-bar-night-10.jpg',
     metaTitle: { en: 'Art Curation for Hotels in Japan', ja: 'ホテル・旅館のアートキュレーション' },
     metaDescription: {
-      en: 'Art curation and installation for hotels, ryokan and hospitality in Tokyo and across Japan — from a single lobby to a full property, with works by Japanese artists.',
+      en: 'Art curation and installation for hotels, ryokan and hospitality in Tokyo and across Japan. From a single lobby to a full property, with works by Japanese artists.',
       ja: '東京・日本各地のホテル、旅館、ホスピタリティ施設のためのアートキュレーションと設置。ロビー一つから施設全体まで、日本のアーティストの作品で空間をつくります。',
     },
     kicker: { en: 'Hotels & hospitality', ja: 'ホテル・ホスピタリティ' },
     title: { en: 'Art curation for hotels', ja: 'ホテルのためのアートキュレーション' },
     intro: {
-      en: 'Art shapes how guests remember a stay. We curate, source, frame and install art for hotels, ryokan and hospitality spaces — from a single lobby or restaurant to every room in the property — and manage it all as your one point of contact. Past work includes the art curation for Mitsui Fudosan\'s Sequence hotels in Kyoto and Tokyo, and projects with Soho House.',
+      en: 'Art shapes how guests remember a stay. We curate, source, frame and install art for hotels, ryokan and hospitality spaces, from a single lobby or restaurant to every room in the property, and manage it all as your one point of contact. Past work includes the art curation for Mitsui Fudosan\'s Sequence hotels in Kyoto and Tokyo, and projects with Soho House.',
       ja: 'アートは、ゲストが滞在をどう記憶するかを形づくります。私たちはホテル、旅館、ホスピタリティ空間のために、アートのキュレーション、調達、額装、設置を行います。ロビーやレストラン一か所から、客室を含む施設全体まで、窓口を一つにしてすべてを管理します。これまでに、三井不動産のSequenceホテル（京都・東京）のアートキュレーションや、Soho Houseとのプロジェクトを手がけてきました。',
     },
     offerHeading: { en: 'What we do', ja: 'サービス内容' },
@@ -181,7 +181,7 @@ export const services = [
       {
         title: { en: 'Japanese artists', ja: '日本のアーティスト' },
         desc: {
-          en: 'Paintings, ceramics, sculpture and print from our network of Japanese artists — originals, editions and commissions.',
+          en: 'Paintings, ceramics, sculpture and print from our network of Japanese artists, as originals, editions and commissions.',
           ja: '絵画、陶芸、彫刻、版画まで。私たちのネットワークの日本人アーティストによるオリジナル、エディション、コミッション作品をご提案します。',
         },
       },
@@ -216,7 +216,7 @@ export const services = [
     kicker: { en: 'Installation', ja: '設置' },
     title: { en: 'Art installation in Tokyo', ja: '東京の美術品設置' },
     intro: {
-      en: 'Hanging art well is a craft. We plan the layout, handle transport and logistics, and install works safely and precisely — for private homes, offices, galleries and exhibitions. You have one point of contact from start to finish, and nothing falls through the gaps.',
+      en: 'Hanging art well is a craft. We plan the layout, handle transport and logistics, and install works safely and precisely for private homes, offices, galleries and exhibitions. You have one point of contact from start to finish, and nothing falls through the gaps.',
       ja: 'アートを美しく掛けることは、ひとつの技術です。レイアウトの計画から輸送・ロジスティクス、安全で正確な設置まで。住まい、オフィス、ギャラリー、展覧会のために、最初から最後までひとつの窓口で対応します。',
     },
     offerHeading: { en: 'What we do', ja: 'サービス内容' },
@@ -253,7 +253,7 @@ export const services = [
     stepsHeading: { en: 'How it works', ja: 'ご依頼の流れ' },
     steps: [
       {
-        en: 'Tell us about the works and the space — photos and sizes help.',
+        en: 'Tell us about the works and the space. Photos and sizes help.',
         ja: '作品と空間について教えてください。写真やサイズがあるとスムーズです。',
       },
       {
