@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { services } from '../../data/services.js';
+import { projects } from '../../data/projects.js';
+import { ja } from '../../data/ja.js';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const examples = service.projects
+  .map((slug) => projects.find((p) => p.slug === slug))
+  .filter(Boolean);
+const others = services.filter((s) => s.slug !== service.slug);
+const enquiryHref = `/contact?service=${encodeURIComponent(service.enquiry)}#enquire`;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: service.metaTitle.en,
+  description: service.metaDescription.en,
+  areaServed: [{ '@type': 'City', name: 'Tokyo' }, { '@type': 'Country', name: 'Japan' }],
+  provider: { '@type': 'ProfessionalService', name: 'Studio Kaku', url: 'https://studio-kaku.com/' },
+};
+---
+
+<Layout
+  title={service.metaTitle.en}
+  titleJa={service.metaTitle.ja}
+  description={service.metaDescription.en}
+  descriptionJa={service.metaDescription.ja}
+  ogImage={service.img}
+  activeSection="services"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+  <!-- Back link -->
+  <div class="px-8 md:px-12 pt-8">
+    <a href="/services" class="text-brand-muted text-xs tracking-widest uppercase hover:opacity-50 transition-opacity" data-en="← All services" data-ja="← サービス一覧">← All services</a>
+  </div>
+
+  <!-- Header -->
+  <section class="px-8 md:px-12 pt-10 md:pt-16 pb-10 md:pb-16 grid md:grid-cols-[1fr_minmax(0,420px)] gap-10 md:gap-16 items-end">
+    <div>
+      <p class="text-brand-muted text-xs tracking-widest uppercase mb-8" data-fade-text data-en={service.kicker.en} data-ja={service.kicker.ja}>{service.kicker.en}</p>
+      <h1 class="font-display uppercase leading-none mb-10" style="font-size: clamp(1.75rem, 3.5vw, 3.5rem);" data-fade-text data-en={service.title.en} data-ja={service.title.ja}>{service.title.en}</h1>
+      <p class="text-brand-muted leading-relaxed max-w-xl" data-fade-text data-en={service.intro.en} data-ja={service.intro.ja}>{service.intro.en}</p>
+      <a
+        href={enquiryHref}
+        class="inline-block mt-10 bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
+        data-en={service.cta.en}
+        data-ja={service.cta.ja}
+      >
+        {service.cta.en}
+      </a>
+    </div>
+    <div class="overflow-hidden aspect-[4/3]">
+      <img src={service.img} alt={service.title.en} class="w-full h-full object-cover" />
+    </div>
+  </section>
+
+  <!-- What we offer -->
+  <section class="px-8 md:px-12 py-14 md:py-24 border-t border-brand-border">
+    <h2 class="text-brand-muted text-xs tracking-widest uppercase mb-14" data-en={service.offerHeading.en} data-ja={service.offerHeading.ja}>{service.offerHeading.en}</h2>
+    <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+      {service.offers.map((offer) => (
+        <div>
+          <h3 class="font-display uppercase leading-none mb-3" style="font-size: clamp(1rem, 1.5vw, 1.15rem);" data-en={offer.title.en} data-ja={offer.title.ja}>{offer.title.en}</h3>
+          <p class="text-brand-muted text-sm leading-relaxed" data-en={offer.desc.en} data-ja={offer.desc.ja}>{offer.desc.en}</p>
+        </div>
+      ))}
+    </div>
+    {service.link && (
+      <a
+        href={service.link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block mt-14 text-sm tracking-widest uppercase underline underline-offset-4 hover:opacity-50 transition-opacity"
+        data-en={`${service.link.label.en} →`}
+        data-ja={`${service.link.label.ja} →`}
+      >
+        {service.link.label.en} →
+      </a>
+    )}
+  </section>
+
+  <!-- Steps -->
+  <section class="border-t border-brand-border">
+    <div class="px-8 md:px-12 pt-14 md:pt-20 pb-8">
+      <h2 class="text-brand-muted text-xs tracking-widest uppercase" data-en={service.stepsHeading.en} data-ja={service.stepsHeading.ja}>{service.stepsHeading.en}</h2>
+    </div>
+    {service.steps.map((step, i) => (
+      <div class="flex items-baseline gap-6 md:gap-10 px-8 md:px-12 py-8 border-t border-brand-border" data-fade style={`transition-delay: ${i * 60}ms`}>
+        <span class="text-brand-muted text-xs tracking-widest uppercase flex-shrink-0 w-6">{String(i + 1).padStart(2, '0')}</span>
+        <p class="text-brand-muted text-sm leading-relaxed max-w-xl" data-en={step.en} data-ja={step.ja}>{step.en}</p>
+      </div>
+    ))}
+  </section>
+
+  <!-- Example projects -->
+  {examples.length > 0 && (
+    <section class="px-8 md:px-12 py-14 md:py-24 border-t border-brand-border">
+      <h2 class="text-brand-muted text-xs tracking-widest uppercase mb-10" data-en="Selected work" data-ja="実績">Selected work</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7">
+        {examples.map((project, i) => (
+          <a href={`/projects/${project.slug}`} class="group" data-fade style={`transition-delay: ${(i % 4) * 80}ms`}>
+            <div class="overflow-hidden aspect-[3/4] bg-brand-border mb-3">
+              <img
+                src={`/projects/${project.slug}/${encodeURIComponent(project.cover)}`}
+                alt={project.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            </div>
+            <p class="font-display uppercase leading-snug text-sm group-hover:opacity-40 transition-opacity" data-en={project.title} data-ja={project.titleJa ?? ja(project.title)}>{project.title}</p>
+            {project.tagline && (
+              <p class="text-xs text-brand-muted mt-1" data-en={project.tagline} data-ja={ja(project.tagline)}>{project.tagline}</p>
+            )}
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Other services -->
+  <section class="border-t border-brand-border">
+    <div class="px-8 md:px-12 pt-14 md:pt-20 pb-8">
+      <h2 class="text-brand-muted text-xs tracking-widest uppercase" data-en="Other services" data-ja="その他のサービス">Other services</h2>
+    </div>
+    {others.map((other) => (
+      <a href={`/services/${other.slug}`} class="flex items-center justify-between gap-8 px-8 md:px-12 py-6 border-t border-brand-border hover:bg-brand-border/30 transition-colors">
+        <span class="font-display uppercase leading-none" style="font-size: clamp(0.9rem, 1.5vw, 1.25rem);" data-en={other.title.en} data-ja={other.title.ja}>{other.title.en}</span>
+        <span class="text-brand-muted">→</span>
+      </a>
+    ))}
+  </section>
+
+  <!-- CTA -->
+  <section class="px-8 md:px-12 py-16 md:py-28 border-t border-brand-border">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10" data-fade-text>
+      <p class="font-display uppercase leading-none" style="font-size: clamp(1.5rem, 3vw, 2.5rem);" data-en="Ready to work together?" data-ja="一緒に取り組みませんか？">
+        Ready to work together?
+      </p>
+      <a
+        href={enquiryHref}
+        class="inline-block bg-brand-text text-brand-bg px-10 py-4 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity flex-shrink-0"
+        data-en={service.cta.en}
+        data-ja={service.cta.ja}
+      >
+        {service.cta.en}
+      </a>
+    </div>
+  </section>
+</Layout>

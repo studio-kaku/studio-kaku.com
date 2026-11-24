@@ -1,4 +1,5 @@
 import { projects } from './projects.js';
+import { services } from './services.js';
 
 // Pages listed in the sitemap and given a Japanese copy under /ja/.
 // Proposal, trade and RSVP pages are left out on purpose.
@@ -6,6 +7,7 @@ import { projects } from './projects.js';
 export const publicPages = [
   '/',
   '/services/',
+  ...services.map((s) => `/services/${s.slug}/`),
   '/about/',
   '/projects/',
   '/journal/',

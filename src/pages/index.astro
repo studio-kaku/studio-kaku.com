@@ -22,10 +22,10 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 border-t border-brand-border pt-8">
       <p
         class="text-brand-muted text-base leading-relaxed max-w-md"
-        data-en="From the first conversation to the final installation — we bring together specialist framing, art care and consultancy for hotels, collectors and galleries who want art to do more than fill a wall."
+        data-en="From the first conversation to the final installation, we bring together specialist framing, art care and consultancy for hotels, collectors and galleries who want art to do more than fill a wall."
         data-ja="Studio Kakuは、額装・設置・アートケアの専門知識と、アートコンサルタンシー・クリエイティブディレクション・キュレーションを組み合わせたスタジオです。コレクター、ギャラリー、企業が最良の形でアートと共に暮らし、働けるよう支援します。"
       >
-        From the first conversation to the final installation — we bring together
+        From the first conversation to the final installation, we bring together
         specialist framing, art care and consultancy for hotels, collectors and
         galleries who want art to do more than fill a wall.
       </p>
@@ -160,7 +160,7 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
     </div>
   </section>
 
-  <!-- Artist Collection teaser — hidden until the collection is ready; set showArtistCollection to true to bring it back -->
+  <!-- Artist Collection teaser: hidden until the collection is ready; set showArtistCollection to true to bring it back -->
   {showArtistCollection && (
   <section class="px-8 md:px-12 py-12 md:py-20 border-t border-brand-border mt-1">
     <div class="flex items-end justify-between mb-10">
@@ -222,7 +222,7 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
         titleJa: 'ディスカバリー',
         description: 'We visit the space and get under the skin of it - the light, the architecture, the story you are trying to tell.',
         descJa: '物件を訪問し、光の入り方や建築、伝えたいストーリーを深く理解します。',
-        href: '/services',
+        href: '/services/art-consultancy',
         img: '/images/services/discovery.jpg',
       },
       {
@@ -231,7 +231,7 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
         titleJa: '調達とコミッション',
         description: 'We find the right works - from existing pieces to artist commissions created specifically for your space.',
         descJa: '既存作品からスペースのために制作されたアーティストコミッションまで、最適な作品を選定します。',
-        href: '/services',
+        href: '/services/art-consultancy',
         img: '/images/services/sourcing-commissioning.jpg',
       },
       {
@@ -240,7 +240,7 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
         titleJa: 'フレーミング',
         description: 'Every piece framed to museum standard using archival materials chosen for each individual work.',
         descJa: 'アーカイバル素材を用いて、すべての作品を美術館水準で額装します。',
-        href: '/services',
+        href: '/services/framing',
         img: '/images/services/framing.jpg',
       },
       {
@@ -249,7 +249,7 @@ const journalEntries = projects.filter(p => p.journal && !p.hidden).slice(0, 8);
         titleJa: '輸送と設置',
         description: 'We manage transport, logistics and installation from start to finish. You have one point of contact.',
         descJa: '輸送・ロジスティクス・設置をすべて一括管理します。窓口は一本化されています。',
-        href: '/services',
+        href: '/services/art-installation',
         img: '/images/services/shipment-and-installation.webp',
       },
     ].map((service, i) => (

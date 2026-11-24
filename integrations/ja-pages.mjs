@@ -88,9 +88,9 @@ function toJapanese(doc, enPath, jaPaths) {
     // Keep visitors (and crawlers) inside the Japanese site
     const href = attr(n, 'href');
     if (n.tagName === 'a' && href?.startsWith('/')) {
-      const [path, hash = ''] = href.split('#');
-      const withSlash = path.replace(/\/?$/, '/');
-      if (jaPaths.has(withSlash)) setAttr(n, 'href', jaPath(withSlash) + (hash && `#${hash}`));
+      const url = new URL(href, SITE);
+      const withSlash = url.pathname.replace(/\/?$/, '/');
+      if (jaPaths.has(withSlash)) setAttr(n, 'href', jaPath(withSlash) + url.search + url.hash);
     }
 
     if (n.tagName === 'link' && attr(n, 'rel') === 'canonical') setAttr(n, 'href', SITE + jaPath(enPath));

@@ -1,5 +1,5 @@
 export const projects = [
-  // ── Journal entries (journal: true) — newest first ──────────────────────
+  // ── Journal entries (journal: true), newest first ──────────────────────
 
   // June 2026
   {
@@ -89,7 +89,7 @@ export const projects = [
       { label: "Venue", value: "UltraSuperNew KURA" },
       { label: "Curation", value: "Studio Kaku" },
     ],
-    description: "A talk by writer and researcher Maya Sobchuk at UltraSuperNew KURA, exploring how the information consumed by the public has been quietly and deliberately shaped by unseen forces. Spanning multiple mediums, technologies and historical perspectives, Sobchuk examined the disconnect between creative and intellectual communities — and why artists are essential to addressing the problems of the modern internet.",
+    description: "A talk by writer and researcher Maya Sobchuk at UltraSuperNew KURA, exploring how the information consumed by the public has been quietly and deliberately shaped by unseen forces. Spanning multiple mediums, technologies and historical perspectives, Sobchuk examined the disconnect between creative and intellectual communities, and why artists are essential to addressing the problems of the modern internet.",
     descriptionJa: `作家・リサーチャーのMaya SobchukによるUltraSuperNew KURAでのトーク。私たちが日々受け取る情報が、見えない力によっていかに静かに、そして意図的に形づくられてきたかを探りました。さまざまなメディアやテクノロジー、歴史的な視点を横断しながら、クリエイティブなコミュニティと知的なコミュニティのあいだにある断絶、そして現代のインターネットが抱える問題に向き合ううえでアーティストが欠かせない理由について語りました。`,
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg"],
@@ -192,7 +192,7 @@ export const projects = [
       { label: "Venue", value: "UltraSuperNew KURA" },
       { label: "Curation & Direction", value: "Studio Kaku" },
     ],
-    description: "Studio Kaku initiated the Supper Club KURA series as a way for the community to connect — giving artists a space to explain their work and encouraging people to engage more deeply with the space.",
+    description: "Studio Kaku initiated the Supper Club KURA series as a way for the community to connect, giving artists a space to explain their work and encouraging people to engage more deeply with the space.",
     descriptionJa: `Studio Kakuは、コミュニティがつながる場としてSupper Club KURAシリーズを立ち上げました。アーティストが自らの作品について語る場をつくり、訪れる人々がこの空間とより深く関わるきっかけを生み出しています。`,
     cover: "Supper Club KURA - Sept 2025 - Curation and direction .JPG",
     images: [
@@ -569,7 +569,7 @@ export const projects = [
     cover: "cover.jpg",
     images: ["cover.jpg"],
   },
-  // ── Portfolio projects (journal: false) — newest first ──────────────────
+  // ── Portfolio projects (journal: false), newest first ──────────────────
 
   {
     slug: "ceysson-benetiere-may-2026",
@@ -603,7 +603,7 @@ export const projects = [
       { label: "Artist", value: "Norihiko Kamei" },
       { label: "Filmmaker", value: "Christopher Nicholls" },
     ],
-    description: `Moss artist Norihiko Kamei's studio is a world entirely his own — textured, living, quietly extraordinary. We brought Wandler's bags into that world, letting the two speak to each other rather than staging one against the other. Filmed by Christopher Nicholls.`,
+    description: `Moss artist Norihiko Kamei's studio is a world entirely his own: textured, living, quietly extraordinary. We brought Wandler's bags into that world, letting the two speak to each other rather than staging one against the other. Filmed by Christopher Nicholls.`,
     descriptionJa: `苔のアーティスト、Norihiko Kameiのスタジオは、彼だけの世界です。質感に満ち、生きていて、静かに非凡な場所。私たちはWandlerのバッグをその世界に持ち込み、どちらかを引き立て役にするのではなく、互いが語り合うように見せました。撮影はChristopher Nicholls。`,
     galleryStyle: 'grid',
     lastImageFull: true,
@@ -628,7 +628,7 @@ export const projects = [
       { label: "Creative Direction & Art Curation", value: "Eleanor Ford" },
       { label: "Location", value: "Isetan Shinjuku" },
     ],
-    description: `Wandler's first entry into the Japanese market — a pop-up at Isetan Shinjuku in collaboration with Bluebell. The brief was to create something that felt genuinely Japanese rather than imported. We brought in moss artist Kamei Norihiko, whose living sculptures became the centrepiece of the space, placing Wandler's bags in a landscape that was as tactile and considered as the leather itself.`,
+    description: `Wandler's first entry into the Japanese market: a pop-up at Isetan Shinjuku in collaboration with Bluebell. The brief was to create something that felt genuinely Japanese rather than imported. We brought in moss artist Kamei Norihiko, whose living sculptures became the centrepiece of the space, placing Wandler's bags in a landscape that was as tactile and considered as the leather itself.`,
     descriptionJa: `Wandlerの日本市場初進出となる、Bluebellとの協業による伊勢丹新宿店でのポップアップ。求められたのは、輸入品ではなく、本当に日本らしいと感じられる空間でした。苔のアーティストKamei Norihikoを迎え、その生きた彫刻を空間の中心に据えることで、Wandlerのバッグを、レザーそのものと同じように触感豊かで丁寧につくられた風景の中に置きました。`,
     galleryColumns: 2,
     cover: "Front main image.jpg",
@@ -651,7 +651,7 @@ export const projects = [
     ],
     description: `Duncan Swann (b. 1969, Sheffield) is a British-German painter and sculptor based in Tokyo, with an MA from the Royal College of Art. His work has been shortlisted for the Jerwood Painting Prize and the John Moores Painting Prize, and he has exhibited across Europe, the UK and Japan.
 
-His practice bridges Western abstraction and Eastern aesthetics — building oil surfaces that balance structure with spontaneity, and organic form with architectural order. His recent series *Forbidden Colours* (OAG Tokyo, 2025) reinterprets the Edo-period kinjiki palette to question hierarchy and cultural translation. His new work returns to the figure, placing people within abstracted space in search of what it means to be human.
+His practice bridges Western abstraction and Eastern aesthetics, building oil surfaces that balance structure with spontaneity, and organic form with architectural order. His recent series *Forbidden Colours* (OAG Tokyo, 2025) reinterprets the Edo-period kinjiki palette to question hierarchy and cultural translation. His new work returns to the figure, placing people within abstracted space in search of what it means to be human.
 
 Studio Kaku handled curation, framing and installation for this exhibition.`,
     descriptionJa: `Duncan Swann（1969年シェフィールド生まれ）は、東京を拠点とするイギリス系ドイツ人の画家・彫刻家です。ロイヤル・カレッジ・オブ・アートで修士号を取得。ジャーウッド絵画賞、ジョン・ムーア絵画賞の最終候補に選ばれ、ヨーロッパ、イギリス、日本で作品を発表しています。
@@ -696,7 +696,7 @@ Studio Kaku handled curation, framing and installation for this exhibition.`,
       { label: "Technician", value: "Tristan Printverse" },
       { label: "Framer", value: "Studio Kaku" },
     ],
-    description: `Studio Kaku has been working with POLYGON1993 as his Artist Manager for Asia since late 2024 — handling gallery relations, brand partnerships, exhibition curation, PR and sales.
+    description: `Studio Kaku has been working with POLYGON1993 as his Artist Manager for Asia since late 2024, handling gallery relations, brand partnerships, exhibition curation, PR and sales.
 
 Partnerships to date include Bandai Namco's Tekken franchise and Matsuda Sake for their 30th anniversary. His recent solo show at The Harmonyst in Hiroo marked a significant step in his Tokyo presence, with strong collector interest and several major projects currently in development.`,
     descriptionJa: `Studio Kakuは2024年末より、POLYGON1993のアジアにおけるアーティストマネージャーを務めています。ギャラリーとの関係構築、ブランドとのパートナーシップ、展覧会のキュレーション、PR、販売までを担当しています。
@@ -714,7 +714,7 @@ Partnerships to date include Bandai Namco's Tekken franchise and Matsuda Sake fo
     slug: "tcs-2025",
     title: "Tokyo Creative Salon 2025",
     tagline: "Creative direction & installation",
-    subtitle: "Tokyo Creative Salon — Haneda Airport",
+    subtitle: "Tokyo Creative Salon, Haneda Airport",
     year: "March 2025",
     credits: [
       { label: "Production Company", value: "Nanasai, Kaoru Oshima" },
@@ -722,7 +722,7 @@ Partnerships to date include Bandai Namco's Tekken franchise and Matsuda Sake fo
       { label: "Creative Direction & Art Curation", value: "Studio Kaku" },
       { label: "Location", value: "Haneda Airport Terminal 1" },
     ],
-    description: `For Tokyo Creative Salon 2025 at Haneda Airport, the brief was sky. We designed cloud-shaped seating with 130 the Architects — precision laser-cut pieces that invited travellers to sit, pause, and take the weight off their feet.
+    description: `For Tokyo Creative Salon 2025 at Haneda Airport, the brief was sky. We designed cloud-shaped seating with 130 the Architects: precision laser-cut pieces that invited travellers to sit, pause, and take the weight off their feet.
 
 Working with i+an, we layered in an augmented reality experience: scan a QR code and floating clouds appear on your phone screen, blending the physical installation with the digital sky above.`,
     descriptionJa: `羽田空港で開催されたTokyo Creative Salon 2025のテーマは「空」。130 the Architectsとともに雲のかたちをしたベンチをデザインしました。精密なレーザーカットによるピースが、旅行者に腰を下ろし、ひと息ついて、足を休めるよう誘います。
@@ -748,9 +748,9 @@ i+anとの協働により、拡張現実（AR）の体験も重ねました。QR
       { label: "Venue", value: "UltraSuperNew Gallery, Tokyo" },
       { label: "Role", value: "Art Curation" },
     ],
-    description: `Get It Studio — the Swiss creative duo Sandra Golay and Alexandre Armand — brought their first solo exhibition to Tokyo at the UltraSuperNew Gallery. The Digital Shift brought together large-scale screen-based works and an intimate grid of hand-printed pieces, exploring the relationship between organic form and digital fabrication.
+    description: `Get It Studio, the Swiss creative duo Sandra Golay and Alexandre Armand, brought their first solo exhibition to Tokyo at the UltraSuperNew Gallery. The Digital Shift brought together large-scale screen-based works and an intimate grid of hand-printed pieces, exploring the relationship between organic form and digital fabrication.
 
-The exhibition traced how 3D techniques can evoke tactile, emotional responses — creatures and structures that feel simultaneously grown and engineered. Studio Kaku curated the works and advised on the spatial experience, shaping how visitors moved between the monumental screens and the more delicate, close-up work on the wall.`,
+The exhibition traced how 3D techniques can evoke tactile, emotional responses: creatures and structures that feel simultaneously grown and engineered. Studio Kaku curated the works and advised on the spatial experience, shaping how visitors moved between the monumental screens and the more delicate, close-up work on the wall.`,
     descriptionJa: `スイスのクリエイティブデュオ、Sandra GolayとAlexandre ArmandによるGet It Studioが、東京で初の個展をUltraSuperNew Galleryで開催しました。「The Digital Shift」は、大型のスクリーン作品と、手刷りの作品を親密に並べたグリッドを組み合わせ、有機的なかたちとデジタルファブリケーションの関係を探りました。
 
 展覧会は、3Dの技法がいかに触覚的で感情的な反応を呼び起こしうるかをたどるものです。そこに現れる生き物や構造物は、育ったものでありながら、同時に設計されたものにも感じられます。Studio Kakuは作品のキュレーションと空間体験のアドバイスを担当し、来場者が壮大なスクリーンと、壁に掛けられた繊細な作品のあいだをどう行き来するかをかたちづくりました。`,
@@ -770,9 +770,9 @@ The exhibition traced how 3D techniques can evoke tactile, emotional responses �
       { label: "Client", value: "Tokyo Creative Salon" },
       { label: "Location", value: "Haneda Airport Terminal 2" },
     ],
-    description: `For Tokyo Creative Salon 2024, we worked with a local school to create paper aeroplanes — each one a wish written by a child for their future. These were installed onto one of the oldest mikoshi in Japan, a traditional portable shrine that carries prayers and hopes.
+    description: `For Tokyo Creative Salon 2024, we worked with a local school to create paper aeroplanes, each one a wish written by a child for their future. These were installed onto one of the oldest mikoshi in Japan, a traditional portable shrine that carries prayers and hopes.
 
-The mikoshi was placed in the international departure hall of Haneda Terminal 2, where travellers from around the world could pause beside it before leaving Japan — taking the memory of those small wishes with them.`,
+The mikoshi was placed in the international departure hall of Haneda Terminal 2, where travellers from around the world could pause beside it before leaving Japan, taking the memory of those small wishes with them.`,
     descriptionJa: `Tokyo Creative Salon 2024では、地元の学校と協力して紙飛行機をつくりました。一機一機に、子どもたちが自分の未来への願いを書き込んでいます。それらを、祈りと希望を運ぶ伝統的な神輿の中でも、日本で最も古いもののひとつに取り付けました。
 
 神輿は羽田空港第2ターミナルの国際線出発ロビーに置かれ、世界中から訪れた旅行者が日本を発つ前に足を止め、小さな願いの記憶を携えて旅立っていきました。`,
@@ -823,7 +823,7 @@ Through this installation, YAR has created a space filled with beauty and emotio
       { label: "Client", value: "Mitsui Fudosan" },
       { label: "Art Curation", value: "Studio Kaku" },
     ],
-    description: `Studio Kaku led the art curation for Sequence Kyoto Gojo — reaching out to artists, planning the project, and managing every decision through to installation.
+    description: `Studio Kaku led the art curation for Sequence Kyoto Gojo, reaching out to artists, planning the project, and managing every decision through to installation.
 
 The centrepiece was a collaboration with renowned Kansai artist Bakibaki, who created three pieces alongside Kenta Kousaka and 中LA. Working with Y&L Projects and French artist Floz, Studio Kaku also commissioned digital art displayed across each floor of the hotel.`,
     descriptionJa: `Studio Kakuは、Sequence Kyoto Gojoのアートキュレーションを主導しました。アーティストへの声がけからプロジェクトの企画、設置に至るまで、すべての判断を担いました。
@@ -856,7 +856,7 @@ The centrepiece was a collaboration with renowned Kansai artist Bakibaki, who cr
       { label: "Client", value: "Mitsui Fudosan" },
       { label: "Art Direction", value: "Anagra" },
     ],
-    description: `Sequence Suidobashi called for something energetic and unexpected. The brief was clear: a modern hotel for young people, with a nod to sports and a spirit of fun. To bring that to life, Anagra led the art direction — sourcing and placing works throughout the building to inject colour, personality and a sense of play into every corner.`,
+    description: `Sequence Suidobashi called for something energetic and unexpected. The brief was clear: a modern hotel for young people, with a nod to sports and a spirit of fun. To bring that to life, Anagra led the art direction, sourcing and placing works throughout the building to inject colour, personality and a sense of play into every corner.`,
     descriptionJa: `Sequence Suidobashiに求められたのは、エネルギッシュで意外性のある空間でした。ブリーフは明快で、スポーツへのオマージュと遊び心を備えた、若い世代のためのモダンなホテル。それを形にするため、Anagraがアートディレクションを担当し、館内のあらゆる場所に作品を選んで配置することで、色彩と個性、遊び心を吹き込みました。`,
     lastTwoHalf: true,
     video: "sequence art vid.mp4",
@@ -877,7 +877,7 @@ The centrepiece was a collaboration with renowned Kansai artist Bakibaki, who cr
       { label: "Client", value: "Ueshima Coffee Company" },
       { label: "Interior Design", value: "Studio Kaku" },
     ],
-    description: `Coffee Style UCC was one of the first projects Studio Kaku's founder completed as lead interior designer at a previous company. Ueshima Coffee Company wanted a coffee shop concept that would appeal to young women — somewhere bright, fun and worth visiting. The result was a colourful, welcoming retail space that made coffee feel accessible and enjoyable rather than intimidating.`,
+    description: `Coffee Style UCC was one of the first projects Studio Kaku's founder completed as lead interior designer at a previous company. Ueshima Coffee Company wanted a coffee shop concept that would appeal to young women: somewhere bright, fun and worth visiting. The result was a colourful, welcoming retail space that made coffee feel accessible and enjoyable rather than intimidating.`,
     descriptionJa: `Coffee Style UCCは、Studio Kakuの創業者が前職でリードインテリアデザイナーとして手がけた、最初期のプロジェクトのひとつです。UCC上島珈琲が求めたのは、若い女性に響くコーヒーショップのコンセプト。明るく楽しく、訪れたくなる場所でした。生まれたのは、コーヒーを敷居の高いものではなく、身近で楽しめるものに感じさせる、カラフルで温かみのある店舗空間です。`,
     galleryColumns: 2,
     galleryAspect: '4/3',

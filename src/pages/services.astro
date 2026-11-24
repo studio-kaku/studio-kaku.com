@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { services } from '../data/services.js';
 
 const steps = [
   {
     num: '01',
     title: { en: 'Discovery', ja: 'ディスカバリー' },
     desc: {
-      en: 'We visit the space and get under the skin of it — the light, the architecture, the story you are trying to tell. We listen more than we talk.',
+      en: 'We visit the space and get under the skin of it: the light, the architecture, the story you are trying to tell. We listen more than we talk.',
       ja: '私たちはその空間を訪れ、光や建築、そしてあなたが紡ごうとする物語を肌で感じ取ります。語ることよりも、まずは深く耳を傾けること。その場所の呼応を聴くことから、私たちの提案は始まります。',
     },
     img: '/images/services/discovery.jpg',
@@ -15,7 +16,7 @@ const steps = [
     num: '02',
     title: { en: 'Concept', ja: 'コンセプト' },
     desc: {
-      en: 'We develop a curatorial direction — a considered proposal for what the art should do in each space, and why. Not a mood board, but a point of view.',
+      en: 'We develop a curatorial direction: a considered proposal for what the art should do in each space, and why. Not a mood board, but a point of view.',
       ja: '私たちはキュレーションの方向性を定め、それぞれの空間でアートが果たすべき役割とその根拠を、深く考察し提案します。それは単なるイメージの羅列ではなく、一つの確固たる視点を示すものです。',
     },
     img: '/images/services/concept.jpg',
@@ -24,7 +25,7 @@ const steps = [
     num: '03',
     title: { en: 'Sourcing & Commissioning', ja: '調達とコミッション' },
     desc: {
-      en: 'We find the right works — from existing pieces to artist commissions created specifically for your space. We handle all negotiation, contracts and timelines.',
+      en: 'We find the right works, from existing pieces to artist commissions created specifically for your space. We handle all negotiation, contracts and timelines.',
       ja: '既存の作品から、その空間のために描き下ろされる委託制作まで、最適な一点を見出し提案します。作家との交渉や契約、進行管理に至るすべての工程を、私たちが責任を持って担います。',
     },
     img: '/images/services/sourcing-commissioning.jpg',
@@ -38,7 +39,7 @@ const steps = [
       ja: 'すべての作品は、Juka Framingとの協働のもと、アーカイバル素材を用いて美術館水準の額装を施します。',
     },
     img: '/images/services/framing.jpg',
-    link: { label: 'jukaframing.com', href: 'http://jukaframing.com' },
+    link: { label: 'jukaframing.com', href: 'https://www.jukaframing.com' },
   },
   {
     num: '05',
@@ -53,7 +54,7 @@ const steps = [
     num: '06',
     title: { en: 'Handover', ja: '引き渡し' },
     desc: {
-      en: 'You receive full documentation — artists, provenance, care instructions — so the collection is properly managed long after we have gone.',
+      en: 'You receive full documentation (artists, provenance, care instructions) so the collection is properly managed long after we have gone.',
       ja: '作家情報や来歴、メンテナンス方法などをまとめた完全なドキュメントをお渡しします。私たちの手を離れた後も、コレクションが末永く適切に管理されるよう、その未来を支える一冊を託します。',
     },
     img: '/images/services/handover.jpg',
@@ -71,7 +72,7 @@ const clients = [
   {
     type: { en: 'Collectors', ja: 'コレクター' },
     desc: {
-      en: 'For those building a collection over time — artist introductions, acquisition advice, and installation that treats every piece as it deserves.',
+      en: 'For those building a collection over time: artist introductions, acquisition advice, and installation that treats every piece as it deserves.',
       ja: '時間をかけてコレクションを築く方々へ。作家とのご縁、作品購入のアドバイス、そして一点一点を大切に扱う設置まで。',
     },
   },
@@ -85,7 +86,7 @@ const clients = [
   {
     type: { en: 'Hotels & hospitality', ja: 'ホテル・ホスピタリティ' },
     desc: {
-      en: 'Art programmes that shape guest experience and build long-term asset value — from a single suite to a full property rollout.',
+      en: 'Art programmes that shape guest experience and build long-term asset value, from a single suite to a full property rollout.',
       ja: 'ゲスト体験を形成し、長期的な資産価値を築くアートプログラム。一室から施設全体まで対応します。',
     },
   },
@@ -95,7 +96,7 @@ const engagements = [
   {
     type: { en: 'One-off project', ja: 'スポットプロジェクト' },
     desc: {
-      en: 'A single piece, a room, a whole building. Scoped and priced individually — no ongoing commitment needed.',
+      en: 'A single piece, a room, a whole building. Scoped and priced individually, with no ongoing commitment needed.',
       ja: '一点の作品から、一室、建物全体まで。個別にスコープと費用を設定します。継続的な契約は必要ありません。',
     },
   },
@@ -129,10 +130,10 @@ const engagements = [
     <p
       class="text-brand-muted leading-relaxed max-w-xl"
       data-fade-text
-      data-en="From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with first-time buyers, working artists, collectors, hotels — anyone who wants to live or work around art that means something."
-      data-ja="アートが空間に何をもたらすかという最初の対話から、最後の一点が壁に掛けられる瞬間まで。初めて作品を購入する方、現役アーティスト、コレクター、ホテルまで——意味のあるアートと共に生き、働きたいすべての方とともに歩みます。"
+      data-en="From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with first-time buyers, working artists, collectors, hotels, anyone who wants to live or work around art that means something."
+      data-ja="アートが空間に何をもたらすかという最初の対話から、最後の一点が壁に掛けられる瞬間まで。初めて作品を購入する方、現役アーティスト、コレクター、ホテルまで、意味のあるアートと共に生き、働きたいすべての方とともに歩みます。"
     >
-      From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with first-time buyers, working artists, collectors, hotels — anyone who wants to live or work around art that means something.
+      From the first conversation about what art could do for your space, to the moment the last piece is hung. We work with first-time buyers, working artists, collectors, hotels, anyone who wants to live or work around art that means something.
     </p>
   </section>
 
@@ -226,6 +227,19 @@ const engagements = [
         </div>
       ))}
     </div>
+  </section>
+
+  <!-- Service pages -->
+  <section class="border-t border-brand-border">
+    <div class="px-8 md:px-12 pt-14 md:pt-20 pb-8">
+      <h2 class="text-brand-muted text-xs tracking-widest uppercase" data-en="Our services" data-ja="サービス一覧">Our services</h2>
+    </div>
+    {services.map((service) => (
+      <a href={`/services/${service.slug}`} class="flex items-center justify-between gap-8 px-8 md:px-12 py-6 border-t border-brand-border hover:bg-brand-border/30 transition-colors">
+        <span class="font-display uppercase leading-none" style="font-size: clamp(0.9rem, 1.5vw, 1.25rem);" data-en={service.title.en} data-ja={service.title.ja}>{service.title.en}</span>
+        <span class="text-brand-muted">→</span>
+      </a>
+    ))}
   </section>
 
   <!-- CTA -->
