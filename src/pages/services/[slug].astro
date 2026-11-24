@@ -24,8 +24,19 @@ const structuredData = {
   name: service.metaTitle.en,
   description: service.metaDescription.en,
   areaServed: [{ '@type': 'City', name: 'Tokyo' }, { '@type': 'Country', name: 'Japan' }],
-  provider: { '@type': 'ProfessionalService', name: 'Studio Kaku', url: 'https://studio-kaku.com/' },
+  provider: { '@id': 'https://studio-kaku.com/#studio-kaku' },
 };
+
+// Lets Google and AI tools quote the answers directly
+const faqData = (lang) => JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: service.faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q[lang],
+    acceptedAnswer: { '@type': 'Answer', text: f.a[lang] },
+  })),
+});
 ---
 
 <Layout
@@ -37,6 +48,7 @@ const structuredData = {
   activeSection="services"
 >
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  {service.faqs?.length > 0 && <script type="application/ld+json" data-ja={faqData('ja')} set:html={faqData('en')} />}
 
   <!-- Back link -->
   <div class="px-8 md:px-12 pt-8">
@@ -121,6 +133,24 @@ const structuredData = {
               <p class="text-xs text-brand-muted mt-1" data-en={project.tagline} data-ja={ja(project.tagline)}>{project.tagline}</p>
             )}
           </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- FAQ -->
+  {service.faqs?.length > 0 && (
+    <section class="px-8 md:px-12 py-14 md:py-24 border-t border-brand-border">
+      <h2 class="text-brand-muted text-xs tracking-widest uppercase mb-10" data-en="Questions" data-ja="よくあるご質問">Questions</h2>
+      <div class="max-w-3xl">
+        {service.faqs.map((faq) => (
+          <details class="group border-t border-brand-border py-5">
+            <summary class="flex items-center justify-between gap-6 cursor-pointer list-none">
+              <h3 class="text-base" data-en={faq.q.en} data-ja={faq.q.ja}>{faq.q.en}</h3>
+              <span class="text-brand-muted transition-transform group-open:rotate-45 flex-shrink-0" aria-hidden="true">+</span>
+            </summary>
+            <p class="text-brand-muted text-sm leading-relaxed mt-4" data-en={faq.a.en} data-ja={faq.a.ja}>{faq.a.en}</p>
+          </details>
         ))}
       </div>
     </section>

@@ -74,6 +74,28 @@ export const services = [
     ],
     link: { label: { en: 'Visit Juka Framing', ja: 'Juka Framingのサイトへ' }, href: 'https://www.jukaframing.com' },
     projects: ['ceysson-benetiere-may-2026', 'tokyo-american-club', 'sapphire-lounge-may-2026', 'mariya-suzuki-feb-2026'],
+    faqs: [
+      {
+        q: { en: "Do you frame for private individuals, or only galleries?", ja: "個人の方の額装も承っていますか？" },
+        a: { en: "Both. We frame for private collectors, artists, galleries and companies, from a single print or photograph to a whole exhibition.", ja: "はい。個人のコレクター、アーティスト、ギャラリー、企業の作品を、一枚の版画や写真から展覧会全体まで額装しています。" },
+      },
+      {
+        q: { en: "What do you need from me for a quote?", ja: "見積もりには何が必要ですか？" },
+        a: { en: "The size of the work and a photo. Send both through our enquiry form and we will reply with frame, mat and glazing options and a quote.", ja: "作品のサイズと写真をお送りください。お問い合わせフォームからお送りいただければ、フレーム、マット、ガラスの組み合わせとお見積もりをご連絡します。" },
+      },
+      {
+        q: { en: "Do you use archival, museum-standard materials?", ja: "アーカイバル素材を使っていますか？" },
+        a: { en: "Yes. Every work is framed with archival materials chosen for that piece, with standard glass, non-reflective glass or acrylic depending on the work and where it will hang.", ja: "はい。すべての作品を、その一点のために選んだアーカイバル素材で額装します。ガラスは作品と飾る場所に合わせて、標準ガラス、反射防止ガラス、アクリルから選びます。" },
+      },
+      {
+        q: { en: "Can you deliver and hang the framed work?", ja: "額装した作品の配送や設置もお願いできますか？" },
+        a: { en: "Yes. We can deliver the finished piece and install it for you.", ja: "はい。完成した作品のお届けと設置も承ります。" },
+      },
+      {
+        q: { en: "Can we talk in English?", ja: "英語でも相談できますか？" },
+        a: { en: "Yes. We work in both English and Japanese.", ja: "はい。日本語と英語のどちらでも対応しています。" },
+      },
+    ],
     cta: { en: 'Get a framing quote', ja: '額装のお見積もり' },
   },
   {
@@ -138,6 +160,28 @@ export const services = [
       },
     ],
     projects: ['kyoto-sequence-art', 'arthur-harmonyst', 'get-it-studios', 'duncan-swann'],
+    faqs: [
+      {
+        q: { en: "Who is your art consultancy for?", ja: "どのような方が対象ですか？" },
+        a: { en: "First-time buyers, collectors, offices, developers and hotels: anyone who wants art that belongs in their space.", ja: "初めてアートを購入する方、コレクター、オフィス、デベロッパー、ホテルなど、空間にふさわしいアートを求めるすべての方です。" },
+      },
+      {
+        q: { en: "Can you commission new work from artists?", ja: "アーティストへの制作依頼もできますか？" },
+        a: { en: "Yes. We source existing works or commission new pieces for your space, and handle negotiation, contracts and timelines with the artist.", ja: "はい。既存の作品の調達に加え、空間のための新作を依頼することもできます。作家との交渉、契約、進行管理も私たちが担います。" },
+      },
+      {
+        q: { en: "Do you work outside Tokyo?", ja: "東京以外でも対応できますか？" },
+        a: { en: "Yes. We are based in Tokyo and work on projects across Japan, such as the art curation for Sequence Kyoto Gojo.", ja: "はい。東京を拠点に、Sequence Kyoto Gojoのアートキュレーションなど、日本各地のプロジェクトに対応しています。" },
+      },
+      {
+        q: { en: "How is a project priced?", ja: "費用はどのように決まりますか？" },
+        a: { en: "Every project is scoped and priced individually after a first conversation, whether it is one piece, a room or a whole building.", ja: "一点の作品から一室、建物全体まで、最初にお話を伺ったうえで、プロジェクトごとに個別にスコープと費用を設定します。" },
+      },
+      {
+        q: { en: "Can we talk in English?", ja: "英語でも相談できますか？" },
+        a: { en: "Yes. We work in both English and Japanese.", ja: "はい。日本語と英語のどちらでも対応しています。" },
+      },
+    ],
     cta: { en: 'Start an enquiry', ja: 'お問い合わせ' },
   },
   {
@@ -202,6 +246,24 @@ export const services = [
       },
     ],
     projects: ['kyoto-sequence-art', 'sequence-suidobashi', 'tokyo-american-club'],
+    faqs: [
+      {
+        q: { en: "What kinds of properties do you work with?", ja: "どのような施設に対応していますか？" },
+        a: { en: "Hotels, ryokan, restaurants and members' clubs, from a single lobby or restaurant to every room in the property.", ja: "ホテル、旅館、レストラン、メンバーズクラブなど。ロビーやレストラン一か所から、客室を含む施設全体まで対応します。" },
+      },
+      {
+        q: { en: "Do you work with Japanese artists?", ja: "日本のアーティストの作品を扱っていますか？" },
+        a: { en: "Yes. We propose paintings, ceramics, sculpture and print from our network of Japanese artists, as originals, editions and commissions.", ja: "はい。私たちのネットワークの日本人アーティストによる絵画、陶芸、彫刻、版画を、オリジナル、エディション、コミッション作品としてご提案します。" },
+      },
+      {
+        q: { en: "Do you handle framing, shipping and installation?", ja: "額装、輸送、設置まで対応できますか？" },
+        a: { en: "Yes. We source, frame, ship and install everything, and hand over full documentation of artists, provenance and care.", ja: "はい。作品の調達、額装、輸送、設置まですべて行い、作家情報、来歴、メンテナンス方法をまとめたドキュメントをお渡しします。" },
+      },
+      {
+        q: { en: "Can you run an ongoing art programme?", ja: "継続的なアートプログラムもお願いできますか？" },
+        a: { en: "Yes. We can manage rotating exhibitions, artist residencies and seasonal updates for your property.", ja: "はい。入れ替え展示、アーティスト・イン・レジデンス、季節ごとの更新を運営します。" },
+      },
+    ],
     cta: { en: 'Talk to us about your property', ja: '施設についてご相談ください' },
   },
   {
@@ -266,6 +328,20 @@ export const services = [
       },
     ],
     projects: ['ceysson-benetiere-may-2026', 'duncan-swann', 'tcs-2025', 'body-language'],
+    faqs: [
+      {
+        q: { en: "What do you install?", ja: "どのようなものを設置していますか？" },
+        a: { en: "Artworks for private homes, offices, galleries and exhibitions, as well as large-scale installations in public spaces such as Haneda Airport.", ja: "住まい、オフィス、ギャラリー、展覧会の作品に加え、羽田空港のような公共空間での大型インスタレーションも手がけています。" },
+      },
+      {
+        q: { en: "Can you install work you did not frame?", ja: "他で額装した作品の設置もできますか？" },
+        a: { en: "Yes. If you already have pieces, including artwork, furniture or objects from elsewhere, we can arrange their installation too.", ja: "はい。すでにお持ちの作品や家具、オブジェについても設置を手配できます。" },
+      },
+      {
+        q: { en: "Do you handle transport?", ja: "輸送もお願いできますか？" },
+        a: { en: "Yes. We manage transport and logistics to and from your space, with one point of contact from start to finish.", ja: "はい。搬入・搬出を含む輸送とロジスティクスを、最初から最後までひとつの窓口で管理します。" },
+      },
+    ],
     cta: { en: 'Start an enquiry', ja: 'お問い合わせ' },
   },
 ];

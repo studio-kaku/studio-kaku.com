@@ -15,14 +15,20 @@ const [hero, ...gallery] = project.images;
 const paragraphs = project.description ? project.description.split('\n\n') : [];
 const paragraphsJa = (project.descriptionJa ?? ja(project.description) ?? '').split('\n\n');
 const titleJa = project.titleJa ?? ja(project.title);
+// Page titles say what the work was and when, so the many "Private Commission"
+// pages aren't identical to Google
+const metaTitle = project.metaTitle ?? [project.title, project.tagline && `: ${project.tagline}`, project.year && `, ${project.year}`].filter(Boolean).join('');
+const metaTitleJa = project.metaTitleJa ?? [titleJa, project.tagline && `：${ja(project.tagline)}`, project.year && `（${ja(project.year)}）`].filter(Boolean).join('');
+const metaDescription = `${paragraphs[0] ?? ''} Studio Kaku: art consultancy, curation and custom framing in Tokyo.`.trim();
+const metaDescriptionJa = `${paragraphsJa[0] ?? ''} Studio Kaku：東京のアートコンサルティング、キュレーション、オーダー額装。`.trim();
 const ogImage = `/projects/${project.slug}/${encodeURIComponent(hero)}`;
 ---
 
 <Layout
-  title={project.title}
-  titleJa={titleJa}
-  description={project.description}
-  descriptionJa={paragraphsJa[0]}
+  title={metaTitle}
+  titleJa={metaTitleJa}
+  description={metaDescription}
+  descriptionJa={metaDescriptionJa}
   ogImage={ogImage}
   activeSection={project.journal ? 'journal' : 'projects'}
 >
