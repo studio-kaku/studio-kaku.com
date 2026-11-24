@@ -5,16 +5,16 @@ export const projects = [
   {
     slug: "mona-oct-2026",
     journal: true,
-    title: "Mona",
+    title: "Mona Sugata",
     tagline: "Curation & installation",
     subtitle: "Exhibition",
     year: "October 2026",
     credits: [
-      { label: "Artist", value: "Mona" },
+      { label: "Artist", value: "Mona Sugata" },
       { label: "Curation & Installation", value: "Studio Kaku" },
     ],
-    description: "Curation and installation for Mona's exhibition.",
-    descriptionJa: `Monaの展覧会の、キュレーションと設置を手がけました。`,
+    description: "Curation and installation for Mona Sugata's exhibition.",
+    descriptionJa: `Mona Sugataの展覧会の、キュレーションと設置を手がけました。`,
     cover: "DSC09711.jpg",
     images: [
       "DSC09711.jpg",
