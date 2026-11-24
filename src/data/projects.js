@@ -27,7 +27,6 @@ export const projects = [
     slug: "tokyo-gendai-sept-2026",
     journal: true,
     title: "Tokyo Gendai",
-    titleJa: "東京現代",
     tagline: "Framing & installation",
     subtitle: "Curatorial Gallery",
     year: "September 2026",
@@ -38,11 +37,11 @@ export const projects = [
     ],
     description: "Framing and installation for Curatorial Gallery at Tokyo Gendai.",
     descriptionJa: `東京現代（Tokyo Gendai）に出展したCuratorial Galleryの、額装と設置を手がけました。`,
-    cover: "IMG_9041.jpg",
+    cover: "booth.jpg",
     images: [
-      "IMG_9041.jpg",
-      "IMG_9042.jpg","IMG_9043.jpg","IMG_9044.jpg","IMG_9045.jpg",
-      "IMG_9046.jpg","IMG_9047.jpg","visitors.jpg","booth.jpg",
+      "booth.jpg",
+      "IMG_9041.jpg","IMG_9042.jpg","IMG_9043.jpg","IMG_9044.jpg",
+      "IMG_9045.jpg","IMG_9046.jpg","IMG_9047.jpg","visitors.jpg",
     ],
   },
   // August 2026

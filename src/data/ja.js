@@ -39,7 +39,6 @@ const terms = {
   'Venue': '会場',
   'Fair': 'アートフェア',
   'Framing & Installation': '額装・設置',
-  'Tokyo Gendai': '東京現代',
   'Client': 'クライアント',
   'Photography': '撮影',
   'Photographer': '撮影',
