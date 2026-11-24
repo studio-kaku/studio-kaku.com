@@ -1,10 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { projects } from '../../data/projects.js';
+import { ja } from '../../data/ja.js';
 const entries = projects.filter(p => p.journal && !p.hidden);
 ---
 
-<Layout title="Journal" description="Insights, process notes and stories from Studio Kaku, behind the work of art framing, curation and creative direction in Tokyo.">
+<Layout title="Journal" titleJa="ジャーナル" descriptionJa="東京で額装・キュレーション・クリエイティブディレクションを手がけるStudio Kakuの仕事の記録と、制作の裏側をお届けします。" description="Insights, process notes and stories from Studio Kaku, behind the work of art framing, curation and creative direction in Tokyo.">
   <section class="px-8 md:px-12 pt-24 pb-16">
     <h1 class="font-display uppercase leading-none mb-6" style="font-size: clamp(1.75rem, 4vw, 3.5rem);" data-en="Journal" data-ja="ジャーナル">
       Journal
@@ -31,10 +32,10 @@ const entries = projects.filter(p => p.journal && !p.hidden);
               loading="lazy"
             />
           </div>
-          <p class="text-xs text-brand-muted tracking-widest uppercase mb-1">{entry.year}</p>
-          <p class="font-display uppercase leading-tight text-lg group-hover:opacity-50 transition-opacity">{entry.title}</p>
+          <p class="text-xs text-brand-muted tracking-widest uppercase mb-1" data-en={entry.year} data-ja={ja(entry.year)}>{entry.year}</p>
+          <p class="font-display uppercase leading-tight text-lg group-hover:opacity-50 transition-opacity" data-en={entry.title} data-ja={entry.titleJa ?? ja(entry.title)}>{entry.title}</p>
           {entry.tagline && (
-            <p class="text-xs text-brand-muted mt-1">{entry.tagline}</p>
+            <p class="text-xs text-brand-muted mt-1" data-en={entry.tagline} data-ja={ja(entry.tagline)}>{entry.tagline}</p>
           )}
         </a>
       ))}

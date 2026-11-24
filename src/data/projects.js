@@ -14,6 +14,7 @@ export const projects = [
       { label: "Curation & Direction", value: "Studio Kaku" },
     ],
     description: "Curation and creative direction for a supper club evening at KURA, with UltraSuperNew.",
+    descriptionJa: `UltraSuperNewとともにKURAで開催したサパークラブの夜の、キュレーションとクリエイティブディレクションを手がけました。`,
     cover: "DSC06406.jpg",
     images: [
       "DSC06406.jpg",
@@ -34,6 +35,7 @@ export const projects = [
       { label: "Photography", value: "Sakamoto Osamu" },
     ],
     description: `Framing commission for Sapphire Lounge.`,
+    descriptionJa: `Sapphire Loungeからご依頼いただいた額装です。`,
     cover: "Sapphire-052026©Sakamoto-Osamu-C&B14.jpg",
     images: [
       "Sapphire-052026©Sakamoto-Osamu-C&B14.jpg",
@@ -52,6 +54,7 @@ export const projects = [
     year: "March 2026",
     credits: [],
     description: "Framing commission for Mason Saltarrelli.",
+    descriptionJa: `Mason Saltarrelli様からご依頼いただいた額装です。`,
     cover: "image1.jpg",
     images: ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"],
   },
@@ -68,6 +71,7 @@ export const projects = [
       { label: "Curation & Direction", value: "Studio Kaku" },
     ],
     description: "Curation and creative direction for a supper club evening at KURA.",
+    descriptionJa: `KURAで開催したサパークラブの夜の、キュレーションとクリエイティブディレクションを手がけました。`,
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.jpg", "image7.jpg"],
   },
@@ -76,6 +80,7 @@ export const projects = [
     journal: true,
     hidden: true,
     title: "Talk on Disinformation",
+    titleJa: "偽情報をめぐるトーク",
     tagline: "Curation and talk event",
     subtitle: "Maya Sobchuk at UltraSuperNew KURA",
     year: "February 2026",
@@ -85,6 +90,7 @@ export const projects = [
       { label: "Curation", value: "Studio Kaku" },
     ],
     description: "A talk by writer and researcher Maya Sobchuk at UltraSuperNew KURA, exploring how the information consumed by the public has been quietly and deliberately shaped by unseen forces. Spanning multiple mediums, technologies and historical perspectives, Sobchuk examined the disconnect between creative and intellectual communities — and why artists are essential to addressing the problems of the modern internet.",
+    descriptionJa: `作家・リサーチャーのMaya SobchukによるUltraSuperNew KURAでのトーク。私たちが日々受け取る情報が、見えない力によっていかに静かに、そして意図的に形づくられてきたかを探りました。さまざまなメディアやテクノロジー、歴史的な視点を横断しながら、クリエイティブなコミュニティと知的なコミュニティのあいだにある断絶、そして現代のインターネットが抱える問題に向き合ううえでアーティストが欠かせない理由について語りました。`,
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg"],
   },
@@ -99,6 +105,7 @@ export const projects = [
       { label: "Artist", value: "Mariya Suzuki" },
     ],
     description: "Framing commission for Mariya Suzuki.",
+    descriptionJa: `Mariya Suzuki様からご依頼いただいた額装です。`,
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"],
   },
@@ -111,6 +118,7 @@ export const projects = [
     year: "February 2026",
     credits: [],
     description: "Framing commission for Sugino Gallery.",
+    descriptionJa: `Sugino Galleryからご依頼いただいた額装です。`,
     cover: "cover.jpg",
     images: ["cover.jpg"],
   },
@@ -118,12 +126,13 @@ export const projects = [
   {
     slug: "iwazaki-jan-2026",
     journal: true,
-    title: "Iwazaki San",
+    title: "Iwazaki san",
     tagline: "Curation & installation",
     subtitle: "Private commission",
     year: "January 2026",
     credits: [],
     description: "Curation and installation for Iwazaki san.",
+    descriptionJa: `Iwazaki様のための作品のキュレーションと設置を手がけました。`,
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg", "image3.jpg", "image4.jpg"],
   },
@@ -137,6 +146,7 @@ export const projects = [
     year: "November 2025",
     credits: [],
     description: "Curation and installation for Casual Magazine.",
+    descriptionJa: `Casual Magazineのためのキュレーションと設置を手がけました。`,
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"],
   },
@@ -167,6 +177,7 @@ export const projects = [
       { label: "Canvas Stretching", value: "Studio Kaku" },
     ],
     description: "Curation and installation for Conal Kelley's first solo exhibition at UltraSuperNew KURA.",
+    descriptionJa: `UltraSuperNew KURAで開催されたConal Kelley初の個展の、キュレーションと設置を手がけました。`,
     cover: "Front image.jpg",
     images: ["Front image.jpg", "L1000681 copy.jpg", "IMG_3429.jpg", "IMG_3430.jpg", "IMG_3432.jpg", "IMG_3435.jpg"],
   },
@@ -182,6 +193,7 @@ export const projects = [
       { label: "Curation & Direction", value: "Studio Kaku" },
     ],
     description: "Studio Kaku initiated the Supper Club KURA series as a way for the community to connect — giving artists a space to explain their work and encouraging people to engage more deeply with the space.",
+    descriptionJa: `Studio Kakuは、コミュニティがつながる場としてSupper Club KURAシリーズを立ち上げました。アーティストが自らの作品について語る場をつくり、訪れる人々がこの空間とより深く関わるきっかけを生み出しています。`,
     cover: "Supper Club KURA - Sept 2025 - Curation and direction .JPG",
     images: [
       "Supper Club KURA - Sept 2025 - Curation and direction .JPG",
@@ -197,6 +209,7 @@ export const projects = [
     year: "September 2025",
     credits: [],
     description: "Framing commission for a Rothko work.",
+    descriptionJa: `ロスコ作品の額装を手がけました。`,
     cover: "Mark Ruthko - Sept 2025 - Framing .jpg",
     images: [
       "Mark Ruthko - Sept 2025 - Framing .jpg",
@@ -214,6 +227,7 @@ export const projects = [
       { label: "Venue", value: "The Harmonyst, Hiroo" },
     ],
     description: "Framing commission at The Harmonyst.",
+    descriptionJa: `The Harmonystでの額装を手がけました。`,
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg", "image3.jpg"],
   },
@@ -228,6 +242,7 @@ export const projects = [
       { label: "Artist", value: "Eiko Kadono" },
     ],
     description: "Framing commission for Eiko Kadono.",
+    descriptionJa: `Eiko Kadono様からご依頼いただいた額装です。`,
     cover: "cover.jpg",
     images: ["cover.jpg"],
   },
@@ -254,6 +269,7 @@ export const projects = [
     year: "July 2025",
     credits: [],
     description: "Framing commission for a Murakami work.",
+    descriptionJa: `村上作品の額装を手がけました。`,
     cover: "Murakami - July 2025 - Framing.jpg",
     images: [
       "Murakami - July 2025 - Framing.jpg",
@@ -272,6 +288,7 @@ export const projects = [
       { label: "Curation & Installation", value: "Studio Kaku" },
     ],
     description: "Curation and installation for an exhibition with Yusuke Kuriki and Vincent Ruffin.",
+    descriptionJa: `Yusuke KurikiとVincent Ruffinによる展覧会の、キュレーションと設置を手がけました。`,
     cover: "cover.JPG",
     images: ["cover.JPG"],
   },
@@ -287,6 +304,7 @@ export const projects = [
       { label: "Artist", value: "Taanami Keiichi" },
     ],
     description: "Framing of Taanami Keiichi.",
+    descriptionJa: `Taanami Keiichi作品の額装を手がけました。`,
     cover: "cover.jpeg",
     images: ["cover.jpeg"],
   },
@@ -314,18 +332,20 @@ export const projects = [
       { label: "Project & Exhibition Management", value: "Studio Kaku" },
     ],
     description: "Project and exhibition management for Ian Lynam's exhibition.",
+    descriptionJa: `Ian Lynamの展覧会の、プロジェクトマネジメントと展示運営を手がけました。`,
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg", "image3.jpg"],
   },
   {
     slug: "kaneko-exhibition",
     journal: true,
-    title: "Kaneko San",
+    title: "Kaneko san",
     tagline: "Curation & installation",
     subtitle: "Exhibition",
     year: "May 2025",
     credits: [],
     description: "Curation and installation for Kaneko san's exhibition.",
+    descriptionJa: `Kaneko様の展覧会の、キュレーションと設置を手がけました。`,
     cover: "cover.JPG",
     images: ["cover.JPG"],
   },
@@ -352,6 +372,7 @@ export const projects = [
       { label: "Photography", value: "Sakamoto Osamu" },
     ],
     description: "A selection of framing work done for Ceysson & Bénétière, Tokyo.",
+    descriptionJa: `Ceysson & Bénétière（東京）のために手がけた額装作品の一部をご紹介します。`,
     cover: "Showroom-2026©Sakamoto-Osamu-C&B3.jpg",
     images: [
       "Showroom-2026©Sakamoto-Osamu-C&B3.jpg",
@@ -385,6 +406,7 @@ export const projects = [
       { label: "Curation & Installation", value: "Studio Kaku" },
     ],
     description: "Curation and installation for Marc Ressang.",
+    descriptionJa: `Marc Ressangのためのキュレーションと設置を手がけました。`,
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.jpg"],
   },
@@ -398,6 +420,7 @@ export const projects = [
     year: "January 2025",
     credits: [],
     description: "Canvas stretching commission.",
+    descriptionJa: `個人のお客様からご依頼いただいたキャンバス張りです。`,
     cover: "cover.jpg",
     images: ["cover.jpg"],
   },
@@ -414,6 +437,7 @@ export const projects = [
       { label: "Gallery", value: "Jaski Gallery, Amsterdam" },
     ],
     description: "Project management for Takeru Amano's exhibition at Jaski Gallery, Amsterdam.",
+    descriptionJa: `アムステルダムのJaski Galleryで開催されたTakeru Amanoの展覧会の、プロジェクトマネジメントを手がけました。`,
     cover: "cover.jpeg",
     images: ["cover.jpeg", "image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.jpg"],
   },
@@ -440,6 +464,7 @@ export const projects = [
     year: "July 2024",
     credits: [],
     description: "Floating frame commission.",
+    descriptionJa: `個人のお客様からご依頼いただいたフローティングフレームの額装です。`,
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg"],
   },
@@ -461,6 +486,7 @@ export const projects = [
     slug: "polygon1993-jan-2024",
     journal: true,
     title: "Exhibition with POLYGON1993",
+    titleJa: "POLYGON1993との展覧会",
     tagline: "Curation, framing & installation",
     subtitle: "Group Exhibition",
     year: "January 2024",
@@ -469,6 +495,7 @@ export const projects = [
       { label: "Curation & Installation", value: "Studio Kaku" },
     ],
     description: "Curation, framing and installation for an exhibition with POLYGON1993.",
+    descriptionJa: `POLYGON1993との展覧会の、キュレーション、額装、設置を手がけました。`,
     cover: "cover.jpg",
     images: ["cover.jpg", "image2.jpg"],
   },
@@ -512,6 +539,7 @@ export const projects = [
       { label: "Curation & Installation", value: "Studio Kaku" },
     ],
     description: "Curation and installation for an exhibition with Kary Kwok and James Banbury at UltraSuperNew Gallery.",
+    descriptionJa: `UltraSuperNew Galleryで開催されたKary KwokとJames Banburyによる展覧会の、キュレーションと設置を手がけました。`,
     cover: "cover.jpeg",
     images: ["cover.jpeg", "image2.jpeg", "image3.jpeg"],
   },
@@ -555,6 +583,7 @@ export const projects = [
       { label: "Photography", value: "Sakamoto Osamu" },
     ],
     description: `Framing and installation for Peter Halley's exhibition at Ceysson & Bénétière, Tokyo.`,
+    descriptionJa: `Ceysson & Bénétière（東京）で開催されたPeter Halley展の、額装と設置を手がけました。`,
     cover: "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B9.jpg",
     images: [
       "T06-installation-Peter Halley-2026©Sakamoto-Osamu-C&B9.jpg",
@@ -575,6 +604,7 @@ export const projects = [
       { label: "Filmmaker", value: "Christopher Nicholls" },
     ],
     description: `Moss artist Norihiko Kamei's studio is a world entirely his own — textured, living, quietly extraordinary. We brought Wandler's bags into that world, letting the two speak to each other rather than staging one against the other. Filmed by Christopher Nicholls.`,
+    descriptionJa: `苔のアーティスト、Norihiko Kameiのスタジオは、彼だけの世界です。質感に満ち、生きていて、静かに非凡な場所。私たちはWandlerのバッグをその世界に持ち込み、どちらかを引き立て役にするのではなく、互いが語り合うように見せました。撮影はChristopher Nicholls。`,
     galleryStyle: 'grid',
     lastImageFull: true,
     video: "16-9_2nd Delivery.mp4",
@@ -599,6 +629,7 @@ export const projects = [
       { label: "Location", value: "Isetan Shinjuku" },
     ],
     description: `Wandler's first entry into the Japanese market — a pop-up at Isetan Shinjuku in collaboration with Bluebell. The brief was to create something that felt genuinely Japanese rather than imported. We brought in moss artist Kamei Norihiko, whose living sculptures became the centrepiece of the space, placing Wandler's bags in a landscape that was as tactile and considered as the leather itself.`,
+    descriptionJa: `Wandlerの日本市場初進出となる、Bluebellとの協業による伊勢丹新宿店でのポップアップ。求められたのは、輸入品ではなく、本当に日本らしいと感じられる空間でした。苔のアーティストKamei Norihikoを迎え、その生きた彫刻を空間の中心に据えることで、Wandlerのバッグを、レザーそのものと同じように触感豊かで丁寧につくられた風景の中に置きました。`,
     galleryColumns: 2,
     cover: "Front main image.jpg",
     images: [
@@ -623,6 +654,11 @@ export const projects = [
 His practice bridges Western abstraction and Eastern aesthetics — building oil surfaces that balance structure with spontaneity, and organic form with architectural order. His recent series *Forbidden Colours* (OAG Tokyo, 2025) reinterprets the Edo-period kinjiki palette to question hierarchy and cultural translation. His new work returns to the figure, placing people within abstracted space in search of what it means to be human.
 
 Studio Kaku handled curation, framing and installation for this exhibition.`,
+    descriptionJa: `Duncan Swann（1969年シェフィールド生まれ）は、東京を拠点とするイギリス系ドイツ人の画家・彫刻家です。ロイヤル・カレッジ・オブ・アートで修士号を取得。ジャーウッド絵画賞、ジョン・ムーア絵画賞の最終候補に選ばれ、ヨーロッパ、イギリス、日本で作品を発表しています。
+
+その実践は、西洋の抽象と東洋の美意識をつなぐもの。構造と即興、有機的なかたちと建築的な秩序のバランスをとりながら、油彩の画面を築き上げます。近作のシリーズ『Forbidden Colours』（OAG東京、2025年）では、江戸時代の「禁色」の色彩を再解釈し、ヒエラルキーと文化の翻訳を問いかけました。新作では再び人物に立ち返り、抽象化された空間の中に人を置くことで、人間であることの意味を探っています。
+
+本展では、Studio Kakuがキュレーション、額装、設置を担当しました。`,
     cover: "DSC03384.jpg",
     images: [
       "DSC03384.jpg","DSC03378.jpg","DSC03424.jpg",
@@ -633,6 +669,7 @@ Studio Kaku handled curation, framing and installation for this exhibition.`,
   {
     slug: "tokyo-american-club",
     title: "Tokyo American Club",
+    titleJa: "東京アメリカンクラブ",
     tagline: "Framing",
     subtitle: "Sante Frame",
     year: "June 2025",
@@ -641,6 +678,7 @@ Studio Kaku handled curation, framing and installation for this exhibition.`,
       { label: "Artist", value: "Sante Vision" },
     ],
     description: `Framing for the Italian restaurant at Tokyo American Club, in collaboration with artist Sante Vision.`,
+    descriptionJa: `東京アメリカンクラブのイタリアンレストランのための額装を、アーティストSante Visionとの協業で手がけました。`,
     cover: "S__32784433.jpg",
     images: ["S__32784433.jpg","S__32784431.jpg"],
   },
@@ -661,6 +699,9 @@ Studio Kaku handled curation, framing and installation for this exhibition.`,
     description: `Studio Kaku has been working with POLYGON1993 as his Artist Manager for Asia since late 2024 — handling gallery relations, brand partnerships, exhibition curation, PR and sales.
 
 Partnerships to date include Bandai Namco's Tekken franchise and Matsuda Sake for their 30th anniversary. His recent solo show at The Harmonyst in Hiroo marked a significant step in his Tokyo presence, with strong collector interest and several major projects currently in development.`,
+    descriptionJa: `Studio Kakuは2024年末より、POLYGON1993のアジアにおけるアーティストマネージャーを務めています。ギャラリーとの関係構築、ブランドとのパートナーシップ、展覧会のキュレーション、PR、販売までを担当しています。
+
+これまでのパートナーシップには、バンダイナムコの「鉄拳」シリーズや、Matsuda Sakeの30周年記念などがあります。広尾のThe Harmonystで開催された最近の個展は、東京での存在感を大きく高めるものとなり、コレクターから強い関心が寄せられました。現在、複数の大型プロジェクトが進行中です。`,
     cover: "Front main image.JPG",
     images: [
       "Front main image.JPG",
@@ -684,6 +725,9 @@ Partnerships to date include Bandai Namco's Tekken franchise and Matsuda Sake fo
     description: `For Tokyo Creative Salon 2025 at Haneda Airport, the brief was sky. We designed cloud-shaped seating with 130 the Architects — precision laser-cut pieces that invited travellers to sit, pause, and take the weight off their feet.
 
 Working with i+an, we layered in an augmented reality experience: scan a QR code and floating clouds appear on your phone screen, blending the physical installation with the digital sky above.`,
+    descriptionJa: `羽田空港で開催されたTokyo Creative Salon 2025のテーマは「空」。130 the Architectsとともに雲のかたちをしたベンチをデザインしました。精密なレーザーカットによるピースが、旅行者に腰を下ろし、ひと息ついて、足を休めるよう誘います。
+
+i+anとの協働により、拡張現実（AR）の体験も重ねました。QRコードを読み込むとスマートフォンの画面に雲が浮かび上がり、物理的なインスタレーションと頭上のデジタルの空がひとつに溶け合います。`,
     cover: "Front main image.jpg",
     video: "6e5747c38ee242ef93795cdad8e19ecc.mov",
     images: [
@@ -707,6 +751,9 @@ Working with i+an, we layered in an augmented reality experience: scan a QR code
     description: `Get It Studio — the Swiss creative duo Sandra Golay and Alexandre Armand — brought their first solo exhibition to Tokyo at the UltraSuperNew Gallery. The Digital Shift brought together large-scale screen-based works and an intimate grid of hand-printed pieces, exploring the relationship between organic form and digital fabrication.
 
 The exhibition traced how 3D techniques can evoke tactile, emotional responses — creatures and structures that feel simultaneously grown and engineered. Studio Kaku curated the works and advised on the spatial experience, shaping how visitors moved between the monumental screens and the more delicate, close-up work on the wall.`,
+    descriptionJa: `スイスのクリエイティブデュオ、Sandra GolayとAlexandre ArmandによるGet It Studioが、東京で初の個展をUltraSuperNew Galleryで開催しました。「The Digital Shift」は、大型のスクリーン作品と、手刷りの作品を親密に並べたグリッドを組み合わせ、有機的なかたちとデジタルファブリケーションの関係を探りました。
+
+展覧会は、3Dの技法がいかに触覚的で感情的な反応を呼び起こしうるかをたどるものです。そこに現れる生き物や構造物は、育ったものでありながら、同時に設計されたものにも感じられます。Studio Kakuは作品のキュレーションと空間体験のアドバイスを担当し、来場者が壮大なスクリーンと、壁に掛けられた繊細な作品のあいだをどう行き来するかをかたちづくりました。`,
     cover: "DSC_0624.jpg",
     images: [
       "DSC_0624.jpg","DSC_0606.jpg","DSC_0585.jpg","DSC_0617.jpg","DSC_0625.jpg",
@@ -726,6 +773,9 @@ The exhibition traced how 3D techniques can evoke tactile, emotional responses �
     description: `For Tokyo Creative Salon 2024, we worked with a local school to create paper aeroplanes — each one a wish written by a child for their future. These were installed onto one of the oldest mikoshi in Japan, a traditional portable shrine that carries prayers and hopes.
 
 The mikoshi was placed in the international departure hall of Haneda Terminal 2, where travellers from around the world could pause beside it before leaving Japan — taking the memory of those small wishes with them.`,
+    descriptionJa: `Tokyo Creative Salon 2024では、地元の学校と協力して紙飛行機をつくりました。一機一機に、子どもたちが自分の未来への願いを書き込んでいます。それらを、祈りと希望を運ぶ伝統的な神輿の中でも、日本で最も古いもののひとつに取り付けました。
+
+神輿は羽田空港第2ターミナルの国際線出発ロビーに置かれ、世界中から訪れた旅行者が日本を発つ前に足を止め、小さな願いの記憶を携えて旅立っていきました。`,
     cover: "IMG_9148.JPG",
     images: ["IMG_9148.JPG","IMG_9099.JPG","IMG_9141.JPG"],
   },
@@ -747,6 +797,11 @@ The mikoshi was placed in the international departure hall of Haneda Terminal 2,
 The creation of this exhibit is a series of reflective units, with aeroplane windows installed on each one. Dreamlike worlds are showcased beyond these windows, inviting viewers to embark on new, unseen journeys. The immersive experience evokes the feeling of being on a flight, capturing the freedom and infinite possibilities of soaring through the sky. The vivid scenery spreads out before the viewer's eyes leaving a lasting impression, inspiring viewers to look differently on their journey.
 
 Through this installation, YAR has created a space filled with beauty and emotional appeal, inviting visitors into a world of healing and wonder.`,
+    descriptionJa: `世界中から人々が行き交う羽田空港第3ターミナルで、デザインスタジオYARが東京からミラノへとつながるインスタレーションを発表しました。
+
+作品は、ひとつひとつに飛行機の窓を取り付けた反射ユニットの連なりで構成されています。窓の向こうには夢のような世界が広がり、見る人をまだ見ぬ新たな旅へと誘います。飛行しているかのような没入体験は、空を翔ける自由と無限の可能性を感じさせます。目の前に広がる鮮やかな風景は深い印象を残し、旅を新たな視点で見つめるきっかけを与えてくれます。
+
+このインスタレーションを通じて、YARは美しさと情感に満ちた空間をつくり出し、訪れる人々を癒しと驚きの世界へと誘いました。`,
     cover: "Front main image.jpg",
     images: [
       "Front main image.jpg",
@@ -771,6 +826,9 @@ Through this installation, YAR has created a space filled with beauty and emotio
     description: `Studio Kaku led the art curation for Sequence Kyoto Gojo — reaching out to artists, planning the project, and managing every decision through to installation.
 
 The centrepiece was a collaboration with renowned Kansai artist Bakibaki, who created three pieces alongside Kenta Kousaka and 中LA. Working with Y&L Projects and French artist Floz, Studio Kaku also commissioned digital art displayed across each floor of the hotel.`,
+    descriptionJa: `Studio Kakuは、Sequence Kyoto Gojoのアートキュレーションを主導しました。アーティストへの声がけからプロジェクトの企画、設置に至るまで、すべての判断を担いました。
+
+中心となったのは、関西を代表するアーティストBakibakiとのコラボレーションで、Kenta Kousaka、中LAとともに3点の作品を制作しました。さらにY&L Projectsとフランス人アーティストFlozと協働し、ホテルの各フロアに展示するデジタルアートを依頼・制作しました。`,
     galleryColumns: 2,
     cover: "restaurant-bar-night-10.jpg",
     images: [
@@ -799,6 +857,7 @@ The centrepiece was a collaboration with renowned Kansai artist Bakibaki, who cr
       { label: "Art Direction", value: "Anagra" },
     ],
     description: `Sequence Suidobashi called for something energetic and unexpected. The brief was clear: a modern hotel for young people, with a nod to sports and a spirit of fun. To bring that to life, Anagra led the art direction — sourcing and placing works throughout the building to inject colour, personality and a sense of play into every corner.`,
+    descriptionJa: `Sequence Suidobashiに求められたのは、エネルギッシュで意外性のある空間でした。ブリーフは明快で、スポーツへのオマージュと遊び心を備えた、若い世代のためのモダンなホテル。それを形にするため、Anagraがアートディレクションを担当し、館内のあらゆる場所に作品を選んで配置することで、色彩と個性、遊び心を吹き込みました。`,
     lastTwoHalf: true,
     video: "sequence art vid.mp4",
     cover: "exterior_night_1.jpg",
@@ -819,6 +878,7 @@ The centrepiece was a collaboration with renowned Kansai artist Bakibaki, who cr
       { label: "Interior Design", value: "Studio Kaku" },
     ],
     description: `Coffee Style UCC was one of the first projects Studio Kaku's founder completed as lead interior designer at a previous company. Ueshima Coffee Company wanted a coffee shop concept that would appeal to young women — somewhere bright, fun and worth visiting. The result was a colourful, welcoming retail space that made coffee feel accessible and enjoyable rather than intimidating.`,
+    descriptionJa: `Coffee Style UCCは、Studio Kakuの創業者が前職でリードインテリアデザイナーとして手がけた、最初期のプロジェクトのひとつです。UCC上島珈琲が求めたのは、若い女性に響くコーヒーショップのコンセプト。明るく楽しく、訪れたくなる場所でした。生まれたのは、コーヒーを敷居の高いものではなく、身近で楽しめるものに感じさせる、カラフルで温かみのある店舗空間です。`,
     galleryColumns: 2,
     galleryAspect: '4/3',
     cover: "005.jpg",

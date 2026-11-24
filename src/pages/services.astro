@@ -28,7 +28,7 @@ const steps = [
       ja: '既存の作品から、その空間のために描き下ろされる委託制作まで、最適な一点を見出し提案します。作家との交渉や契約、進行管理に至るすべての工程を、私たちが責任を持って担います。',
     },
     img: '/images/services/sourcing-commissioning.jpg',
-    link: { label: 'Enquire to access our artist collection', href: '/contact#enquire' },
+    link: { label: 'Enquire to access our artist collection', labelJa: 'アーティストコレクションについてのお問い合わせ', href: '/contact#enquire' },
   },
   {
     num: '04',
@@ -118,6 +118,8 @@ const engagements = [
 
 <Layout
   title="Services"
+  titleJa="サービス（額装・アートコンサルティング）"
+  descriptionJa="アートコンサルティング、額装、作品の調達・コミッション、設置まで。初めてアートを購入する方からコレクター、アーティスト、ホテル、企業まで、Studio Kakuがサポートします。"
   description="Studio Kaku offers art consultancy, framing, sourcing and installation for first-time buyers, collectors, artists, hotels and organisations."
 >
   <!-- Page header -->
@@ -156,6 +158,8 @@ const engagements = [
                 target={step.link.href.startsWith('http') ? '_blank' : undefined}
                 rel={step.link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 class="hidden md:inline-block mt-4 border border-brand-text px-5 py-2 text-xs tracking-widest uppercase hover:bg-brand-text hover:text-brand-bg transition-colors"
+                data-en={step.link.label}
+                data-ja={step.link.labelJa ?? step.link.label}
               >
                 {step.link.label}
               </a>

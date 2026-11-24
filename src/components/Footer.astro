@@ -9,11 +9,13 @@ const year = new Date().getFullYear();
     <div class="flex items-center gap-1 text-xs tracking-widest uppercase" id="lang-switcher">
       <button
         id="lang-en"
+        data-lang-btn="en"
         class="px-3 py-1 border border-brand-border transition-colors duration-200 lang-btn"
         aria-pressed="true"
       >EN</button>
       <button
         id="lang-ja"
+        data-lang-btn="ja"
         class="px-3 py-1 border border-brand-border transition-colors duration-200 lang-btn"
         aria-pressed="false"
       >日本語</button>
@@ -23,31 +25,8 @@ const year = new Date().getFullYear();
 </footer>
 
 <script>
-  // Language switcher - swaps all [data-en] / [data-ja] text on the page
-  const btnEn = document.getElementById('lang-en') as HTMLButtonElement;
-  const btnJa = document.getElementById('lang-ja') as HTMLButtonElement;
-  const activeClasses = ['bg-brand-text', 'text-brand-bg', 'border-brand-text'] as const;
-
-  function applyLang(lang: 'en' | 'ja') {
-    document.querySelectorAll<HTMLElement>('[data-en][data-ja]').forEach((el) => {
-      el.innerHTML = el.dataset[lang]!;
-    });
-
-    [btnEn, btnJa].forEach((btn) => {
-      const active = btn.id === `lang-${lang}`;
-      btn.setAttribute('aria-pressed', String(active));
-      btn.classList.toggle('bg-brand-text', active);
-      btn.classList.toggle('text-brand-bg', active);
-      btn.classList.toggle('border-brand-text', active);
-    });
-
-    localStorage.setItem('sk-lang', lang);
-    document.documentElement.lang = lang;
-  }
-
-  const saved = localStorage.getItem('sk-lang') as 'en' | 'ja' | null;
-  applyLang(saved === 'ja' ? 'ja' : 'en');
-
-  btnEn.addEventListener('click', () => applyLang('en'));
-  btnJa.addEventListener('click', () => applyLang('ja'));
+  // Language switching lives in Layout.astro
+  document.querySelectorAll<HTMLElement>('[data-lang-btn]').forEach((btn) => {
+    btn.addEventListener('click', () => (window as any).setLang(btn.dataset.langBtn));
+  });
 </script>

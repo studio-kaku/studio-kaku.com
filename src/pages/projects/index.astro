@@ -1,10 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { projects } from '../../data/projects.js';
+import { ja } from '../../data/ja.js';
 const mainProjects = projects.filter(p => !p.journal && !p.hidden);
 ---
 
-<Layout title="Projects" description="Explore Studio Kaku's portfolio of art framing, installation, curation and creative direction projects across Tokyo and Japan.">
+<Layout title="Projects" titleJa="プロジェクト" descriptionJa="東京・日本各地でStudio Kakuが手がけた額装、設置、キュレーション、クリエイティブディレクションのプロジェクトをご紹介します。" description="Explore Studio Kaku's portfolio of art framing, installation, curation and creative direction projects across Tokyo and Japan.">
   <!-- Header -->
   <section class="px-8 md:px-16 pt-24 pb-16">
     <h1 class="font-display uppercase leading-none" style="font-size: clamp(1.75rem, 4vw, 3.5rem);" data-en="Projects" data-ja="プロジェクト">
@@ -33,9 +34,9 @@ const mainProjects = projects.filter(p => !p.journal && !p.hidden);
               />
             </div>
             <div class="mt-3">
-              <p class="font-display tracking-widest uppercase group-hover:opacity-40 transition-opacity" style="font-size: clamp(1rem, 1.5vw, 1.4rem);">{project.title}</p>
+              <p class="font-display tracking-widest uppercase group-hover:opacity-40 transition-opacity" style="font-size: clamp(1rem, 1.5vw, 1.4rem);" data-en={project.title} data-ja={project.titleJa ?? ja(project.title)}>{project.title}</p>
               {project.tagline && (
-                <p class="text-xs text-brand-muted mt-1 group-hover:opacity-40 transition-opacity">{project.tagline}</p>
+                <p class="text-xs text-brand-muted mt-1 group-hover:opacity-40 transition-opacity" data-en={project.tagline} data-ja={ja(project.tagline)}>{project.tagline}</p>
               )}
             </div>
           </a>

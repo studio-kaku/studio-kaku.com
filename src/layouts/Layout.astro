@@ -5,7 +5,9 @@ import '../styles/global.css';
 
 interface Props {
   title: string;
+  titleJa?: string;
   description?: string;
+  descriptionJa?: string;
   activeSection?: string;
   ogImage?: string;
   noindex?: boolean;
@@ -15,7 +17,9 @@ interface Props {
 
 const {
   title,
+  titleJa,
   description = 'Studio Kaku: Art framing, installation, consultancy and creative direction in Tokyo.',
+  descriptionJa,
   activeSection,
   ogImage = '/images/og-logo.jpg',
   noindex = false,
@@ -24,9 +28,13 @@ const {
 } = Astro.props;
 
 const siteURL = 'https://studio-kaku.com';
-const canonicalURL = new URL(Astro.url.pathname, siteURL).href;
+// GitHub Pages redirects /about to /about/, so the canonical needs the slash
+const canonicalPath = Astro.url.pathname.replace(/\/?$/, '/');
+const canonicalURL = new URL(canonicalPath, siteURL).href;
 const ogImageURL = new URL(ogImage, siteURL).href;
 const pageTitle = title === 'Home' ? 'Studio Kaku' : `${title} | Studio Kaku`;
+// Used for the /ja copy of the page (see integrations/ja-pages.mjs)
+const pageTitleJa = titleJa && (title === 'Home' ? titleJa : `${titleJa} | Studio Kaku`);
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -52,8 +60,8 @@ const structuredData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+    <title data-en={pageTitleJa && pageTitle} data-ja={pageTitleJa}>{pageTitle}</title>
+    <meta name="description" content={description} data-ja-content={descriptionJa} />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <link rel="canonical" href={canonicalURL} />
 
@@ -61,16 +69,16 @@ const structuredData = {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content="Studio Kaku" />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={pageTitle} data-ja-content={pageTitleJa} />
+    <meta property="og:description" content={description} data-ja-content={descriptionJa} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ja_JP" />
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={pageTitle} data-ja-content={pageTitleJa} />
+    <meta name="twitter:description" content={description} data-ja-content={descriptionJa} />
     <meta name="twitter:image" content={ogImageURL} />
 
     <!-- Icons & theme -->
@@ -178,15 +186,36 @@ const structuredData = {
             (btn as HTMLElement).textContent = isJa ? 'EN' : '日本語';
           });
 
+          document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
+            const active = (btn as HTMLElement).dataset.langBtn === lang;
+            btn.setAttribute('aria-pressed', String(active));
+            btn.classList.toggle('bg-brand-text', active);
+            btn.classList.toggle('text-brand-bg', active);
+            btn.classList.toggle('border-brand-text', active);
+          });
+
           localStorage.setItem(KEY, lang);
         }
 
+        // Pages with a real Japanese/English counterpart (/ja/...) switch by
+        // going to that page; others just swap the text in place.
+        function setLang(lang: string) {
+          const alt = document.querySelector('link[rel="alternate"][hreflang="' + lang + '"]') as HTMLLinkElement | null;
+          const altPath = alt && new URL(alt.href).pathname;
+          if (altPath && altPath !== window.location.pathname) {
+            localStorage.setItem(KEY, lang);
+            window.location.href = altPath + window.location.hash;
+            return;
+          }
+          applyLang(lang);
+        }
+
+        (window as any).setLang = setLang;
         (window as any).toggleLang = function () {
-          const current = localStorage.getItem(KEY) || 'en';
-          applyLang(current === 'en' ? 'ja' : 'en');
+          setLang(document.documentElement.lang === 'ja' ? 'en' : 'ja');
         };
 
-        applyLang(localStorage.getItem(KEY) || 'en');
+        applyLang(document.documentElement.dataset.pageLang || localStorage.getItem(KEY) || 'en');
       })();
     </script>
 

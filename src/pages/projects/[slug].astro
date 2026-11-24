@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { projects } from '../../data/projects.js';
+import { ja } from '../../data/ja.js';
 
 export function getStaticPaths() {
   return projects.map((project) => ({
@@ -12,15 +13,27 @@ export function getStaticPaths() {
 const { project } = Astro.props;
 const [hero, ...gallery] = project.images;
 const paragraphs = project.description ? project.description.split('\n\n') : [];
+const paragraphsJa = (project.descriptionJa ?? ja(project.description) ?? '').split('\n\n');
+const titleJa = project.titleJa ?? ja(project.title);
+const ogImage = `/projects/${project.slug}/${encodeURIComponent(hero)}`;
 ---
 
-<Layout title={project.title} activeSection={project.journal ? 'journal' : 'projects'}>
+<Layout
+  title={project.title}
+  titleJa={titleJa}
+  description={project.description}
+  descriptionJa={paragraphsJa[0]}
+  ogImage={ogImage}
+  activeSection={project.journal ? 'journal' : 'projects'}
+>
 
   <!-- Back link -->
   <div class="px-8 md:px-12 pt-8">
     <a
       href={project.journal ? '/journal' : '/projects'}
       class="text-brand-muted text-xs tracking-widest uppercase hover:opacity-50 transition-opacity"
+      data-en={project.journal ? '← Journal' : '← Projects'}
+      data-ja={project.journal ? '← ジャーナル' : '← プロジェクト'}
     >
       {project.journal ? '← Journal' : '← Projects'}
     </a>
@@ -39,15 +52,15 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
   <section class="px-8 md:px-12 pt-12 pb-8 reveal">
     <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
       <div>
-        <h1 class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 7vw, 8rem);">
+        <h1 class="font-display uppercase leading-none" style="font-size: clamp(2.5rem, 7vw, 8rem);" data-en={project.title} data-ja={titleJa}>
           {project.title}
         </h1>
         {project.subtitle && (
-          <p class="text-brand-muted text-sm tracking-widest uppercase mt-3">{project.subtitle}</p>
+          <p class="text-brand-muted text-sm tracking-widest uppercase mt-3" data-en={project.subtitle} data-ja={ja(project.subtitle)}>{project.subtitle}</p>
         )}
       </div>
       {project.year && (
-        <p class="text-brand-muted text-sm tracking-widest uppercase flex-shrink-0 md:pt-2">{project.year}</p>
+        <p class="text-brand-muted text-sm tracking-widest uppercase flex-shrink-0 md:pt-2" data-en={project.year} data-ja={ja(project.year)}>{project.year}</p>
       )}
     </div>
   </section>
@@ -62,8 +75,8 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
           <div class="space-y-4">
             {project.credits.map((credit) => (
               <div>
-                <p class="text-brand-muted text-xs tracking-widest uppercase mb-0.5">{credit.label}</p>
-                <p class="text-sm">{credit.value}</p>
+                <p class="text-brand-muted text-xs tracking-widest uppercase mb-0.5" data-en={credit.label} data-ja={ja(credit.label)}>{credit.label}</p>
+                <p class="text-sm" data-en={credit.value} data-ja={ja(credit.value)}>{credit.value}</p>
               </div>
             ))}
           </div>
@@ -72,8 +85,8 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
         <!-- Description -->
         {paragraphs.length > 0 && (
           <div class="space-y-5">
-            {paragraphs.map((para) => (
-              <p class="text-base leading-relaxed text-brand-muted">{para}</p>
+            {paragraphs.map((para, i) => (
+              <p class="text-base leading-relaxed text-brand-muted" data-en={para} data-ja={paragraphsJa[i] ?? para}>{para}</p>
             ))}
           </div>
         )}
@@ -169,6 +182,8 @@ const paragraphs = project.description ? project.description.split('\n\n') : [];
       <a
         href={project.journal ? '/journal' : '/projects'}
         class="text-sm tracking-wide underline underline-offset-4 hover:opacity-50 transition-opacity"
+        data-en={project.journal ? '← Back to journal' : '← Back to all projects'}
+        data-ja={project.journal ? '← ジャーナルに戻る' : '← すべてのプロジェクトに戻る'}
       >
         {project.journal ? '← Back to journal' : '← Back to all projects'}
       </a>
