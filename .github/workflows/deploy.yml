@@ -30,6 +30,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build
 
+      # Staging-only pages: kept on staging.studio-kaku.com, left off the live site
+      - run: rm -rf dist/k2
+
       # Custom domain
       - run: echo "studio-kaku.com" > dist/CNAME
 
