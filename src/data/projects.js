@@ -263,6 +263,8 @@ export const projects = [
   {
     slug: "rothko-framing",
     journal: true,
+    metaTitle: "Framing a Rothko Work, September 2025",
+    metaTitleJa: "ロスコ作品の額装（2025年9月）",
     title: "Private Commission",
     tagline: "Framing",
     subtitle: "Framing",
@@ -356,6 +358,8 @@ export const projects = [
   {
     slug: "taanami-keiichi",
     journal: true,
+    metaTitle: "Framing for Taanami Keiichi, June 2025",
+    metaTitleJa: "Taanami Keiichi作品の額装（2025年6月）",
     title: "Private Commission",
     tagline: "Framing",
     subtitle: "Framing",

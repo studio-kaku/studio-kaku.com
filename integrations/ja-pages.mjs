@@ -68,7 +68,7 @@ function toJapanese(doc, enPath, jaPaths) {
     if (!n.attrs) return;
     const ja = attr(n, 'data-ja');
     if (ja != null && n.tagName !== 'html') {
-      if (n.tagName === 'title') n.childNodes = [{ nodeName: '#text', value: ja, parentNode: n }];
+      if (n.tagName === 'title' || n.tagName === 'script') n.childNodes = [{ nodeName: '#text', value: ja, parentNode: n }];
       else replaceChildren(n, ja);
     }
 

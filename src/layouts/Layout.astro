@@ -32,26 +32,33 @@ const siteURL = 'https://studio-kaku.com';
 const canonicalPath = Astro.url.pathname.replace(/\/?$/, '/');
 const canonicalURL = new URL(canonicalPath, siteURL).href;
 const ogImageURL = new URL(ogImage, siteURL).href;
-const pageTitle = title === 'Home' ? 'Studio Kaku' : `${title} | Studio Kaku`;
+const pageTitle = title === 'Home' ? 'Studio Kaku | Art Consultancy & Custom Framing in Tokyo' : `${title} | Studio Kaku`;
 // Used for the /ja copy of the page (see integrations/ja-pages.mjs)
 const pageTitleJa = titleJa && (title === 'Home' ? titleJa : `${titleJa} | Studio Kaku`);
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
+  '@id': `${siteURL}/#studio-kaku`,
   name: 'Studio Kaku',
-  description: 'Art framing, installation, consultancy and creative direction in Tokyo.',
-  url: siteURL,
+  description: 'Art consultancy, custom framing, curation and installation in Tokyo, for collectors, companies, galleries and hotels across Japan.',
+  url: `${siteURL}/`,
+  logo: `${siteURL}/studio-kaku-logo.png`,
+  image: `${siteURL}/images/og-logo.jpg`,
+  email: 'hello@studio-kaku.com',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Tokyo',
     addressCountry: 'JP',
   },
+  areaServed: [{ '@type': 'City', name: 'Tokyo' }, { '@type': 'Country', name: 'Japan' }],
   founder: [
     { '@type': 'Person', name: 'Yuki Kakuno' },
     { '@type': 'Person', name: 'Eleanor Ford' },
   ],
+  knowsAbout: ['Art consultancy', 'Custom picture framing', 'Art curation', 'Art installation', 'Hotel art curation', 'Artist commissions'],
   knowsLanguage: ['en', 'ja'],
+  sameAs: ['https://www.instagram.com/studio.kaku', 'https://www.jukaframing.com'],
 };
 ---
 
