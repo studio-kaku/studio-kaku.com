@@ -299,6 +299,13 @@ import Layout from '../layouts/Layout.astro';
           framingFields.classList.add('hidden');
         }
       });
+
+      // Service pages link here with ?service=Framing etc. to preselect it
+      const preset = new URLSearchParams(window.location.search).get('service');
+      if (preset && Array.from(serviceSelect.options).some((o) => o.value === preset)) {
+        serviceSelect.value = preset;
+        serviceSelect.dispatchEvent(new Event('change'));
+      }
     }
 
     if (form && success) {
