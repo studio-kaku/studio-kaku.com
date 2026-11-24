@@ -45,6 +45,22 @@ export const projects = [
       "IMG_9046.jpg","IMG_9047.jpg","visitors.jpg","booth.jpg",
     ],
   },
+  // August 2026
+  {
+    slug: "supper-club-yamaura-aug-2026",
+    journal: true,
+    title: "Supper Club with Yamaura",
+    titleJa: "Supper Club with Yamaura",
+    tagline: "Curation & direction",
+    year: "August 2026",
+    credits: [
+      { label: "Curation & Direction", value: "Studio Kaku" },
+    ],
+    description: "Curation and creative direction for a Supper Club evening with Yamaura.",
+    descriptionJa: `Yamauraを迎えたサパークラブの夜の、キュレーションとクリエイティブディレクションを手がけました。`,
+    cover: "image1.jpg",
+    images: ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"],
+  },
   // June 2026
   {
     slug: "supper-club-kura-june-2026",
